@@ -1,34 +1,15 @@
 
 import React from 'react';
 import { Star } from 'lucide-react';
-import { Card, CardContent } from './ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
-const testimonials = [
-  {
-    quote: "Lead Velocity transformed our marketing approach. We've seen a 215% increase in qualified leads within just 3 months of working with them.",
-    author: "Michael Jansen",
-    position: "Marketing Director, TechFlow Solutions",
-    image: "/placeholder.svg",
-    initials: "MJ",
-    stars: 5,
-  },
-  {
-    quote: "Their strategic approach and attention to detail have been exceptional. Our conversion rates have improved by 78% since implementing their recommendations.",
-    author: "Sophia van den Berg",
-    position: "CEO, GrowthMarket",
-    image: "/placeholder.svg",
-    initials: "SB",
-    stars: 5,
-  },
-  {
-    quote: "Working with Lead Velocity has been a game-changer for our B2B sales process. They've helped us generate consistent leads that actually convert.",
-    author: "Thomas de Vries",
-    position: "Sales Manager, Enterprise Solutions",
-    image: "/placeholder.svg",
-    initials: "TV",
-    stars: 5,
-  },
+// Define customer logos array
+const customers = [
+  { name: 'Microsoft', logo: '/placeholder.svg' },
+  { name: 'Google', logo: '/placeholder.svg' },
+  { name: 'Amazon', logo: '/placeholder.svg' },
+  { name: 'Apple', logo: '/placeholder.svg' },
+  { name: 'Uber', logo: '/placeholder.svg' },
+  { name: 'Airbnb', logo: '/placeholder.svg' },
 ];
 
 const stats = [
@@ -43,34 +24,24 @@ const Results = () => {
     <section id="results" className="py-20 bg-white">
       <div className="container max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Proven Results</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted by Industry Leaders</h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            We don't just promise results - we deliver them. See what our clients have to say about working with Lead Velocity.
+            Join hundreds of businesses that trust Lead Velocity to accelerate their growth and achieve measurable results.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="h-full">
-              <CardContent className="pt-6">
-                <div className="flex mb-4">
-                  {[...Array(testimonial.stars)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-velocity-blue text-velocity-blue" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
-                <div className="flex items-center">
-                  <Avatar className="h-10 w-10 mr-4">
-                    <AvatarImage src={testimonial.image} alt={testimonial.author} />
-                    <AvatarFallback>{testimonial.initials}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-semibold">{testimonial.author}</p>
-                    <p className="text-sm text-gray-500">{testimonial.position}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
+          {customers.map((customer, index) => (
+            <div 
+              key={index} 
+              className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+            >
+              <img 
+                src={customer.logo} 
+                alt={`${customer.name} logo`} 
+                className="max-h-12 w-auto grayscale hover:grayscale-0 transition-all"
+              />
+            </div>
           ))}
         </div>
 
