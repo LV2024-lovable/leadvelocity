@@ -7,15 +7,17 @@ const Hero = () => {
   return (
     <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
       <div className="container max-w-7xl mx-auto py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Accelerate Your <span className="text-velocity-blue">Business Growth</span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 max-w-lg">
-              We help B2B companies generate more leads, close more deals, and increase revenue through strategic digital marketing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
+          <div className="flex flex-col justify-between space-y-10 animate-fade-in">
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                Accelerate Your <span className="text-velocity-blue">Business Growth</span>
+              </h1>
+              <p className="text-lg md:text-xl text-gray-700 max-w-lg">
+                We help B2B companies generate more leads, close more deals, and increase revenue through strategic digital marketing.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 py-6">
               <Button size="lg" className="group">
                 Book a Strategy Call
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
