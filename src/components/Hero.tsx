@@ -5,8 +5,8 @@ import { Button } from './ui/button';
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-br from-white to-velocity-lightblue pt-24 pb-16 md:pt-32 md:pb-24">
-      <div className="container max-w-7xl mx-auto">
+    <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
+      <div className="container max-w-7xl mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
