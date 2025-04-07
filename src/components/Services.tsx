@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Rocket, Trophy, LineChart, PieChart, MegaphoneSimple, BarChart } from 'lucide-react';
+import { Rocket, Trophy, LineChart, PieChart, Megaphone, BarChart } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
 
@@ -56,7 +56,7 @@ const Services = () => {
     {
       title: 'Content Marketing',
       description: 'Strategic content that attracts, engages, and converts your target audience.',
-      icon: <MegaphoneSimple className="h-6 w-6 text-velocity-blue" />,
+      icon: <Megaphone className="h-6 w-6 text-velocity-blue" />,
     },
     {
       title: 'Growth Consulting',
