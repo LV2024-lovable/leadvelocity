@@ -35,8 +35,8 @@ const Hero = () => {
                     <BarChart2 className="h-6 w-6 text-velocity-blue" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl">Increase Leads</h3>
-                    <p className="text-gray-600">By up to 300%</p>
+                    <h3 className="font-bold text-xl">Increase Lead Volume</h3>
+                    <p className="text-gray-600">Attract high-intent prospects through smarter outreach.</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -44,8 +44,8 @@ const Hero = () => {
                     <Zap className="h-6 w-6 text-velocity-blue" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl">Boost Conversions</h3>
-                    <p className="text-gray-600">Optimize your sales funnel</p>
+                    <h3 className="font-bold text-xl">Accelerate Conversions</h3>
+                    <p className="text-gray-600">Refine your buyer journey and close faster.</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -53,8 +53,8 @@ const Hero = () => {
                     <Users className="h-6 w-6 text-velocity-blue" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl">Grow Customer Base</h3>
-                    <p className="text-gray-600">Target ideal prospects</p>
+                    <h3 className="font-bold text-xl">Build a Stronger Pipeline</h3>
+                    <p className="text-gray-600">Fuel your sales team with qualified opportunities, month after month.</p>
                   </div>
                 </div>
               </div>
