@@ -1,11 +1,8 @@
-
 import React from 'react';
 import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
-
 const Hero = () => {
-  return (
-    <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
+  return <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
       <div className="container max-w-7xl mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
           <div className="flex flex-col justify-between space-y-10 animate-fade-in">
@@ -13,9 +10,7 @@ const Hero = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 Accelerate Your <span className="text-velocity-blue">Business Growth</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-700 max-w-lg">
-                We help B2B companies generate more leads, close more deals, and increase revenue through strategic digital marketing.
-              </p>
+              <p className="text-lg md:text-xl text-gray-700 max-w-lg">At Lead Velocity, we don't just generate leads — we help you build a predictable, scalable growth engine. As your dedicated partner, we align with your goals to drive consistent revenue and long-term business success.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 py-6">
               <Button size="lg" className="group">
@@ -62,8 +57,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
