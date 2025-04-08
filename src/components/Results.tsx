@@ -25,8 +25,8 @@ const Results = () => {
       <div className="container max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted by Industry Leaders</h2>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Join hundreds of businesses that trust Lead Velocity to accelerate their growth and achieve measurable results.
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            We help you build a predictable, scalable growth engine. As your dedicated partner, we align with your goals to drive consistent revenue and long-term business success.
           </p>
         </div>
 
