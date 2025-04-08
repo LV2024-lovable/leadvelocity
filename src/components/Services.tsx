@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Rocket, Trophy, LineChart, PieChart, Megaphone, BarChart } from 'lucide-react';
+import { LineChart, Users, BarChart, MessageSquare, PieChart, FileText } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
 
@@ -34,34 +34,34 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) =
 const Services = () => {
   const services = [
     {
-      title: 'Lead Generation',
-      description: 'We create targeted campaigns to attract your ideal prospects and convert them into qualified leads.',
-      icon: <Rocket className="h-6 w-6 text-velocity-blue" />,
-    },
-    {
-      title: 'Marketing Strategy',
-      description: 'We develop comprehensive marketing plans aligned with your business goals to maximize ROI.',
-      icon: <Trophy className="h-6 w-6 text-velocity-blue" />,
-    },
-    {
-      title: 'Performance Marketing',
-      description: 'Data-driven campaigns optimized for conversions and measurable business results.',
+      title: 'Growth Strategy',
+      description: 'We co-create a growth roadmap aligned with your revenue goals — built to adapt, scale, and win in your market.',
       icon: <LineChart className="h-6 w-6 text-velocity-blue" />,
     },
     {
-      title: 'Analytics & Reporting',
-      description: 'Clear insights and regular reports to track progress and make informed decisions.',
+      title: 'B2B Lead Generation',
+      description: 'Hyper-targeted outbound campaigns that bring in decision-makers who match your Ideal Customer Profile.',
+      icon: <Users className="h-6 w-6 text-velocity-blue" />,
+    },
+    {
+      title: 'Performance Campaigns',
+      description: 'Data-led marketing funnels that optimize every touchpoint for maximum conversion and ROI.',
+      icon: <BarChart className="h-6 w-6 text-velocity-blue" />,
+    },
+    {
+      title: 'Sales Enablement & Consulting',
+      description: 'We don\'t just deliver leads — we help you convert them. From pitch refinement to funnel feedback, we\'re in it with you.',
+      icon: <MessageSquare className="h-6 w-6 text-velocity-blue" />,
+    },
+    {
+      title: 'Insight & Optimization',
+      description: 'Clear dashboards and continuous feedback loops to keep you informed, agile, and always improving.',
       icon: <PieChart className="h-6 w-6 text-velocity-blue" />,
     },
     {
-      title: 'Content Marketing',
-      description: 'Strategic content that attracts, engages, and converts your target audience.',
-      icon: <Megaphone className="h-6 w-6 text-velocity-blue" />,
-    },
-    {
-      title: 'Growth Consulting',
-      description: 'Expert guidance to optimize your sales funnel and scale your business effectively.',
-      icon: <BarChart className="h-6 w-6 text-velocity-blue" />,
+      title: 'Content & Positioning',
+      description: 'Thoughtful messaging and content that resonates with buyers, builds authority, and drives inbound interest.',
+      icon: <FileText className="h-6 w-6 text-velocity-blue" />,
     },
   ];
 
@@ -71,7 +71,7 @@ const Services = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Comprehensive solutions designed to accelerate your business growth and deliver measurable results.
+            Strategic levers to unlock sustainable growth, tailored to your business.
           </p>
         </div>
 
