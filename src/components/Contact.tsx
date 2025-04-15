@@ -1,25 +1,22 @@
-
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { useToast } from './ui/use-toast';
-
 const Contact = () => {
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Message sent!",
-      description: "Thank you for contacting us. We'll get back to you soon.",
+      description: "Thank you for contacting us. We'll get back to you soon."
     });
     // Reset form fields here if needed
   };
-
-  return (
-    <section id="contact" className="py-20 bg-velocity-gray">
+  return <section id="contact" className="py-20 bg-velocity-gray">
       <div className="container max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
@@ -35,7 +32,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium">Call Us</p>
-                  <p className="text-gray-700">+31 20 123 4567</p>
+                  <p className="text-gray-700">+31 6 25 47 15 28</p>
                 </div>
               </div>
               
@@ -49,15 +46,7 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4">
-                <div className="bg-velocity-lightblue p-3 rounded-full">
-                  <MapPin className="h-5 w-5 text-velocity-blue" />
-                </div>
-                <div>
-                  <p className="font-medium">Visit Us</p>
-                  <p className="text-gray-700">Amsterdam, The Netherlands</p>
-                </div>
-              </div>
+              
             </div>
           </div>
           
@@ -69,20 +58,13 @@ const Contact = () => {
                   <label htmlFor="name" className="block font-medium">
                     Name
                   </label>
-                  <Input
-                    id="name"
-                    placeholder="Your name"
-                    required
-                  />
+                  <Input id="name" placeholder="Your name" required />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="company" className="block font-medium">
                     Company
                   </label>
-                  <Input
-                    id="company"
-                    placeholder="Your company"
-                  />
+                  <Input id="company" placeholder="Your company" />
                 </div>
               </div>
               
@@ -91,21 +73,13 @@ const Contact = () => {
                   <label htmlFor="email" className="block font-medium">
                     Email
                   </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Your email"
-                    required
-                  />
+                  <Input id="email" type="email" placeholder="Your email" required />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="phone" className="block font-medium">
                     Phone
                   </label>
-                  <Input
-                    id="phone"
-                    placeholder="Your phone number"
-                  />
+                  <Input id="phone" placeholder="Your phone number" />
                 </div>
               </div>
               
@@ -113,12 +87,7 @@ const Contact = () => {
                 <label htmlFor="message" className="block font-medium">
                   Message
                 </label>
-                <Textarea
-                  id="message"
-                  placeholder="How can we help you?"
-                  rows={4}
-                  required
-                />
+                <Textarea id="message" placeholder="How can we help you?" rows={4} required />
               </div>
               
               <Button type="submit" className="w-full">
@@ -128,8 +97,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
