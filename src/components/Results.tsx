@@ -12,13 +12,6 @@ const customers = [
   { name: 'Airbnb', logo: '/placeholder.svg' },
 ];
 
-const stats = [
-  { value: "200+", label: "Satisfied Clients" },
-  { value: "300%", label: "Average Lead Increase" },
-  { value: "85%", label: "Client Retention Rate" },
-  { value: "€1.2M", label: "Generated in Revenue" },
-];
-
 const Results = () => {
   return (
     <section id="results" className="py-20 bg-white">
@@ -43,17 +36,6 @@ const Results = () => {
               />
             </div>
           ))}
-        </div>
-
-        <div className="bg-velocity-blue rounded-xl shadow-lg p-8 md:p-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <div key={index} className="space-y-2">
-                <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">{stat.value}</p>
-                <p className="text-blue-100">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
