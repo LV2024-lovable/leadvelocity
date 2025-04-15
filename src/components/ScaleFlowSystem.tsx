@@ -49,7 +49,7 @@ const ScaleFlowSystem = () => {
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-velocity-blue via-velocity-blue to-velocity-lightblue transform -translate-x-1/2 z-0" />
           
           {steps.map((step, index) => (
-            <div key={step.id} className={`flex items-start mb-20 relative ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+            <div key={step.id} className={`flex items-start mb-10 relative ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
               {/* Timeline step marker */}
               <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
                 <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-4 py-2 text-velocity-lightblue font-medium">
@@ -58,19 +58,19 @@ const ScaleFlowSystem = () => {
               </div>
 
               {/* Content container - alternating sides */}
-              <div className={`w-5/12 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
+              <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
                 {/* Icon */}
-                <div className="mb-4">
+                <div className="mb-3">
                   <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-3 rounded-lg shadow-lg">
                     {step.icon}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="bg-[#121D2A] p-6 rounded-lg border border-velocity-blue/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-gray-300 mb-4">{step.description}</p>
-                  <div className="bg-[#152234] p-3 rounded border-l-4 border-velocity-blue">
+                <div className="bg-[#121D2A] p-5 rounded-lg border border-velocity-blue/20 shadow-md">
+                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                  <p className="text-gray-300 mb-3">{step.description}</p>
+                  <div className="bg-[#152234] p-2 rounded border-l-4 border-velocity-blue">
                     <span className="text-velocity-blue font-medium">The goal? </span>
                     <span className="text-white">{step.goal}</span>
                   </div>
