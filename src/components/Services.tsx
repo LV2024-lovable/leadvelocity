@@ -1,8 +1,7 @@
 
 import React from 'react';
 import { LineChart, Users, BarChart, MessageSquare, PieChart, FileText } from 'lucide-react';
-import { Button } from './ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
 interface ServiceCardProps {
   title: string;
@@ -22,11 +21,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) =
       <CardContent>
         <CardDescription className="text-base">{description}</CardDescription>
       </CardContent>
-      <CardFooter>
-        <Button variant="link" className="p-0 h-auto font-semibold text-velocity-blue">
-          Learn more
-        </Button>
-      </CardFooter>
     </Card>
   );
 };
