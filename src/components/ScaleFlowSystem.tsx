@@ -52,27 +52,27 @@ const ScaleFlowSystem = () => {
             <div key={step.id} className={`flex items-start mb-10 relative ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
               {/* Timeline step marker */}
               <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-4 py-2 text-velocity-lightblue font-medium">
+                <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-3 py-1 text-velocity-lightblue font-medium text-sm">
                   Step {step.id}
                 </div>
               </div>
 
               {/* Content container - alternating sides */}
-              <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+              <div className={`w-4/12 ${index % 2 === 0 ? 'pr-6' : 'pl-6'}`}>
                 {/* Icon */}
-                <div className="mb-3">
-                  <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-3 rounded-lg shadow-lg">
-                    {step.icon}
+                <div className="mb-2">
+                  <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-2 rounded-lg shadow-lg">
+                    {React.cloneElement(step.icon, { className: "h-6 w-6 text-white" })}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="bg-[#121D2A] p-5 rounded-lg border border-velocity-blue/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-300 mb-3">{step.description}</p>
+                <div className="bg-[#121D2A] p-4 rounded-lg border border-velocity-blue/20 shadow-md">
+                  <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                  <p className="text-gray-300 text-sm mb-2">{step.description}</p>
                   <div className="bg-[#152234] p-2 rounded border-l-4 border-velocity-blue">
-                    <span className="text-velocity-blue font-medium">The goal? </span>
-                    <span className="text-white">{step.goal}</span>
+                    <span className="text-velocity-blue font-medium text-xs">The goal? </span>
+                    <span className="text-white text-xs">{step.goal}</span>
                   </div>
                 </div>
               </div>
