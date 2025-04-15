@@ -1,7 +1,33 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { useToast } from '@/hooks/use-toast';
+
 const Hero = () => {
+  const [email, setEmail] = useState('');
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Here you would typically send the email to your backend
+    toast({
+      title: "Thank you!",
+      description: "We'll be in touch with you shortly.",
+    });
+    setEmail('');
+  };
+
   return <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
       <div className="container max-w-7xl mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
@@ -12,12 +38,24 @@ const Hero = () => {
               </h1>
               <p className="text-lg md:text-xl text-gray-700 max-w-lg">At Lead Velocity, we don't just generate leads — we help you build a predictable, scalable growth engine. As your dedicated partner, we align with your goals to drive consistent revenue and long-term business success.</p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 py-6">
-              <Button size="lg" className="group">
-                Book a Strategy Call
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outline" size="lg" asChild>
+            <div className="py-6">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
+                <div className="flex-grow">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="h-11"
+                    required
+                  />
+                </div>
+                <Button type="submit" size="lg" className="group whitespace-nowrap">
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </form>
+              <Button variant="link" size="sm" className="mt-2" asChild>
                 <a href="#services">Discover Our Services</a>
               </Button>
             </div>
