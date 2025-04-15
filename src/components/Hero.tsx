@@ -4,12 +4,14 @@ import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const Hero = () => {
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
       toast({
@@ -20,12 +22,39 @@ const Hero = () => {
       return;
     }
     
-    // Here you would typically send the email to your backend
-    toast({
-      title: "Thank you!",
-      description: "We'll be in touch with you shortly.",
-    });
-    setEmail('');
+    setIsSubmitting(true);
+    try {
+      // Insert the email into the 'Lead Velocity' table
+      const { error } = await supabase
+        .from('Lead Velocity')
+        .insert({
+          email: email,
+        });
+
+      if (error) {
+        console.error('Error submitting email:', error);
+        toast({
+          title: "Submission failed",
+          description: "There was an error submitting your email. Please try again.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Thank you!",
+          description: "We'll be in touch with you shortly.",
+        });
+        setEmail('');
+      }
+    } catch (error) {
+      console.error('Exception:', error);
+      toast({
+        title: "Submission failed",
+        description: "There was an error submitting your email. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
@@ -50,8 +79,8 @@ const Hero = () => {
                     required
                   />
                 </div>
-                <Button type="submit" size="lg" className="group whitespace-nowrap">
-                  Get Started
+                <Button type="submit" size="lg" className="group whitespace-nowrap" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Get Started'}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </form>
@@ -60,6 +89,7 @@ const Hero = () => {
               </Button>
             </div>
           </div>
+          
           <div className="relative flex justify-center animate-fade-in-right">
             <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 w-full max-w-md">
               <div className="space-y-6">
@@ -97,4 +127,5 @@ const Hero = () => {
       </div>
     </section>;
 };
+
 export default Hero;

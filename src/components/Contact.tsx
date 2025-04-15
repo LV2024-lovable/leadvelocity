@@ -1,21 +1,86 @@
-import React from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { Phone, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { useToast } from './ui/use-toast';
+import { supabase } from '@/integrations/supabase/client';
+import { useForm } from 'react-hook-form';
+import { 
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from './ui/form';
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const formSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  company: z.string().optional(),
+  email: z.string().email({ message: "Please enter a valid email address" }),
+  phone: z.string().optional(),
+  message: z.string().min(10, { message: "Message must be at least 10 characters" })
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
 const Contact = () => {
-  const {
-    toast
-  } = useToast();
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "Thank you for contacting us. We'll get back to you soon."
-    });
-    // Reset form fields here if needed
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      message: ''
+    }
+  });
+
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+    try {
+      // Insert the form data into the 'Lead Velocity' table
+      const { error } = await supabase
+        .from('Lead Velocity')
+        .insert({
+          Name: data.name,
+          company: data.company || null,
+          email: data.email,
+        });
+
+      if (error) {
+        console.error('Error submitting form:', error);
+        toast({
+          title: "Submission failed",
+          description: "There was an error submitting your message. Please try again.",
+          variant: "destructive"
+        });
+      } else {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for contacting us. We'll get back to you soon."
+        });
+        form.reset();
+      }
+    } catch (error) {
+      console.error('Exception:', error);
+      toast({
+        title: "Submission failed",
+        description: "There was an error submitting your message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
   return <section id="contact" className="py-20 bg-velocity-gray">
       <div className="container max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -45,58 +110,94 @@ const Contact = () => {
                   <p className="text-gray-700">info@leadvelocity.nl</p>
                 </div>
               </div>
-              
-              
             </div>
           </div>
           
           <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
             <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="block font-medium">
-                    Name
-                  </label>
-                  <Input id="name" placeholder="Your name" required />
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem className="space-y-2">
+                        <FormLabel>Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="company"
+                    render={({ field }) => (
+                      <FormItem className="space-y-2">
+                        <FormLabel>Company</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your company" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="company" className="block font-medium">
-                    Company
-                  </label>
-                  <Input id="company" placeholder="Your company" />
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="space-y-2">
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="Your email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem className="space-y-2">
+                        <FormLabel>Phone</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your phone number" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block font-medium">
-                    Email
-                  </label>
-                  <Input id="email" type="email" placeholder="Your email" required />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="phone" className="block font-medium">
-                    Phone
-                  </label>
-                  <Input id="phone" placeholder="Your phone number" />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="message" className="block font-medium">
-                  Message
-                </label>
-                <Textarea id="message" placeholder="How can we help you?" rows={4} required />
-              </div>
-              
-              <Button type="submit" className="w-full">
-                Send Message
-              </Button>
-            </form>
+                
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem className="space-y-2">
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea placeholder="How can we help you?" rows={4} {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
+              </form>
+            </Form>
           </div>
         </div>
       </div>
     </section>;
 };
+
 export default Contact;
