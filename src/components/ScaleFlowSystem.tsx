@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Search, Handshake, ListChecks, SendHorizontal } from 'lucide-react';
-import { ScrollArea } from './ui/scroll-area';
 
 const ScaleFlowSystem = () => {
   const steps = [
@@ -45,46 +44,44 @@ const ScaleFlowSystem = () => {
           </p>
         </div>
 
-        <ScrollArea className="h-[700px] w-full rounded-md p-4">
-          <div className="relative max-w-4xl mx-auto">
-            {/* Vertical timeline line */}
-            <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#e53e3e] to-[#e53e3e] transform -translate-x-1/2 z-0" />
-            
-            {steps.map((step, index) => (
-              <div key={step.id} className={`flex items-start mb-20 relative ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                {/* Timeline step marker */}
-                <div className="absolute left-[50%] transform -translate-x-1/2 z-10">
-                  <div className="bg-[#213445] rounded-md px-4 py-2 text-[#4AB8E8] font-medium">
-                    Step {step.id}
-                  </div>
+        <div className="relative max-w-4xl mx-auto">
+          {/* Vertical timeline line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-velocity-blue via-velocity-blue to-velocity-lightblue transform -translate-x-1/2 z-0" />
+          
+          {steps.map((step, index) => (
+            <div key={step.id} className={`flex items-start mb-20 relative ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+              {/* Timeline step marker */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-4 py-2 text-velocity-lightblue font-medium">
+                  Step {step.id}
                 </div>
-
-                {/* Content container - alternating sides */}
-                <div className={`w-5/12 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
-                  {/* Icon */}
-                  <div className="mb-4">
-                    <div className="inline-flex bg-[#213445] p-3 rounded-lg">
-                      {step.icon}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div>
-                    <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                    <p className="text-gray-300 mb-4">{step.description}</p>
-                    <div>
-                      <span className="text-[#4AB8E8] font-medium">The goal? </span>
-                      <span className="text-white">{step.goal}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Empty space for the other side */}
-                <div className="w-5/12"></div>
               </div>
-            ))}
-          </div>
-        </ScrollArea>
+
+              {/* Content container - alternating sides */}
+              <div className={`w-5/12 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
+                {/* Icon */}
+                <div className="mb-4">
+                  <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-3 rounded-lg shadow-lg">
+                    {step.icon}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="bg-[#121D2A] p-6 rounded-lg border border-velocity-blue/20 shadow-md">
+                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                  <p className="text-gray-300 mb-4">{step.description}</p>
+                  <div className="bg-[#152234] p-3 rounded border-l-4 border-velocity-blue">
+                    <span className="text-velocity-blue font-medium">The goal? </span>
+                    <span className="text-white">{step.goal}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Empty space for the other side */}
+              <div className="w-5/12"></div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
