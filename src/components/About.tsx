@@ -1,9 +1,21 @@
 import React from 'react';
 import { Check } from 'lucide-react';
+import LogoCarousel from './LogoCarousel';
+
 const About = () => {
-  const benefits = ['Data-driven approach to marketing', 'Experienced team of specialists', 'Transparent process and reporting', 'Focus on measurable business results', 'Customized strategies for your business', 'Ongoing optimization and improvements'];
-  return <section id="about" className="py-20 bg-velocity-gray">
-      <div className="container max-w-7xl mx-auto">
+  const benefits = [
+    'Data-driven approach to marketing',
+    'Experienced team of specialists',
+    'Transparent process and reporting',
+    'Focus on measurable business results',
+    'Customized strategies for your business',
+    'Ongoing optimization and improvements'
+  ];
+
+  return (
+    <section id="about" className="py-20 bg-velocity-gray">
+      <LogoCarousel />
+      <div className="container max-w-7xl mx-auto mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
             <div className="relative">
@@ -35,6 +47,8 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;
