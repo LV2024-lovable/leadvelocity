@@ -21,8 +21,8 @@ const logos = [
 const LogoCarousel = ({ 
   className,
   containerClassName,
-  logoWidth = 150,
-  logoHeight = 80
+  logoWidth = 225,
+  logoHeight = 120
 }: LogoCarouselProps) => {
   const isMobile = useIsMobile();
   
@@ -31,7 +31,7 @@ const LogoCarousel = ({
       <Carousel className={cn("w-full", className)} opts={{ loop: true, align: "start", dragFree: true }}>
         <CarouselContent className={isMobile ? "animate-carousel-fast" : "animate-carousel"}>
           {[...logos, ...logos].map((logo, i) => (
-            <CarouselItem key={i} className="basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+            <CarouselItem key={i} className="basis-1/2 md:basis-1/3 lg:basis-1/4 pl-2">
               <div className="flex items-center justify-center">
                 <img 
                   src={logo.src} 
