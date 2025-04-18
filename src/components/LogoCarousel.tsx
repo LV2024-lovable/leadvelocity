@@ -27,7 +27,7 @@ const LogoCarousel = ({
   const isMobile = useIsMobile();
   
   return (
-    <div className={cn("w-full py-16 overflow-hidden bg-velocity-gray", containerClassName)}>
+    <div className={cn("w-full py-8 overflow-hidden bg-velocity-gray", containerClassName)}>
       <Carousel 
         className={cn("w-full", className)} 
         opts={{ 
