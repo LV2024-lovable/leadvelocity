@@ -1,7 +1,5 @@
-
 import React from 'react';
-import { Search, Handshake, SendHorizontal } from 'lucide-react';
-import LogoCarousel from './LogoCarousel';
+import { Search, Handshake, ListChecks, SendHorizontal } from 'lucide-react';
 
 const ScaleFlowSystem = () => {
   const steps = [
@@ -20,6 +18,13 @@ const ScaleFlowSystem = () => {
       goal: "Ensuring your emails land outside of SPAM."
     },
     {
+      id: 3,
+      title: "Craft your email sequences and build your lead lists",
+      description: "We write messaging angles for your different customer profiles. We build contextual lead lists by looking at buying signals (e.g. surge in hiring, ad spend, opening of new offices, acquisition) and industry trends.",
+      icon: <ListChecks className="h-8 w-8 text-white" />,
+      goal: "Reaching the right company at the right time."
+    },
+    {
       id: 4,
       title: "Send personalized messages at scale",
       description: "We leverage AI to tailor our messaging to each prospect. This lets us automate our outreach to potential clients —without compromising message quality.",
@@ -30,8 +35,7 @@ const ScaleFlowSystem = () => {
 
   return (
     <section id="scale-flow" className="py-20 bg-[#0A1724] text-white">
-      <LogoCarousel />
-      <div className="container max-w-7xl mx-auto mt-8">
+      <div className="container max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Scale Flow Process</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -59,10 +63,10 @@ const ScaleFlowSystem = () => {
 
                 <div className="bg-[#121D2A] p-4 rounded-lg border border-velocity-blue/20 shadow-md">
                   <h3 className="text-base font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-300 text-sm mb-2">{step.description}</p>
+                  <p className="text-gray-300 text-xs mb-2">{step.description}</p>
                   <div className="bg-[#152234] p-2 rounded border-l-4 border-velocity-blue">
-                    <span className="text-velocity-blue font-medium text-sm">The goal? </span>
-                    <span className="text-white text-sm">{step.goal}</span>
+                    <span className="text-velocity-blue font-medium text-xs">The goal? </span>
+                    <span className="text-white text-xs">{step.goal}</span>
                   </div>
                 </div>
               </div>
@@ -73,7 +77,7 @@ const ScaleFlowSystem = () => {
         <div className="hidden md:block relative max-w-6xl mx-auto">
           <div className="absolute left-0 right-0 top-1/2 h-[2px] bg-gradient-to-r from-velocity-blue via-velocity-blue to-velocity-lightblue -translate-y-1/2" />
           
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-4 gap-6">
             {steps.map((step) => (
               <div key={step.id} className="relative pt-8">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2">
@@ -90,10 +94,10 @@ const ScaleFlowSystem = () => {
 
                 <div className="bg-[#121D2A] p-4 rounded-lg border border-velocity-blue/20 shadow-md">
                   <h3 className="text-base font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-300 text-sm mb-2">{step.description}</p>
+                  <p className="text-gray-300 text-xs mb-2">{step.description}</p>
                   <div className="bg-[#152234] p-2 rounded border-l-4 border-velocity-blue">
-                    <span className="text-velocity-blue font-medium text-sm">The goal? </span>
-                    <span className="text-white text-sm">{step.goal}</span>
+                    <span className="text-velocity-blue font-medium text-xs">The goal? </span>
+                    <span className="text-white text-xs">{step.goal}</span>
                   </div>
                 </div>
               </div>

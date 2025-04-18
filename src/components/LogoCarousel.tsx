@@ -11,7 +11,7 @@ const logos = [
 
 const LogoCarousel = () => {
   return (
-    <div className="w-full py-8 overflow-hidden bg-[#0A1724]">
+    <div className="w-full py-8 overflow-hidden bg-white">
       <Carousel className="w-full" opts={{ loop: true, align: "start", dragFree: true }}>
         <CarouselContent className="animate-carousel">
           {[...logos, ...logos].map((logo, i) => (
@@ -20,7 +20,7 @@ const LogoCarousel = () => {
                 <img 
                   src={logo.src} 
                   alt={logo.alt}
-                  className="max-h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  className="max-h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             </CarouselItem>

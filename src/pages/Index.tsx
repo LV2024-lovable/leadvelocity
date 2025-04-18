@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import About from '../components/About';
 import ScaleFlowSystem from '../components/ScaleFlowSystem';
+import Results from '../components/Results';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
@@ -16,6 +17,7 @@ const Index = () => {
       <Services />
       <ScaleFlowSystem />
       <About />
+      <Results />
       <Contact />
       <Footer />
     </div>
