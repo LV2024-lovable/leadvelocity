@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Search, Handshake, ListChecks, SendHorizontal } from 'lucide-react';
 
@@ -62,11 +63,11 @@ const ScaleFlowSystem = () => {
                 </div>
 
                 <div className="bg-[#121D2A] p-4 rounded-lg border border-velocity-blue/20 shadow-md">
-                  <h3 className="text-base font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-300 text-xs mb-2">{step.description}</p>
+                  <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                  <p className="text-gray-300 text-base mb-2">{step.description}</p>
                   <div className="bg-[#152234] p-2 rounded border-l-4 border-velocity-blue">
-                    <span className="text-velocity-blue font-medium text-xs">The goal? </span>
-                    <span className="text-white text-xs">{step.goal}</span>
+                    <span className="text-velocity-blue font-medium text-base">The goal? </span>
+                    <span className="text-white text-base">{step.goal}</span>
                   </div>
                 </div>
               </div>
@@ -93,11 +94,11 @@ const ScaleFlowSystem = () => {
                 </div>
 
                 <div className="bg-[#121D2A] p-4 rounded-lg border border-velocity-blue/20 shadow-md">
-                  <h3 className="text-base font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-300 text-xs mb-2">{step.description}</p>
+                  <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                  <p className="text-gray-300 text-base mb-2">{step.description}</p>
                   <div className="bg-[#152234] p-2 rounded border-l-4 border-velocity-blue">
-                    <span className="text-velocity-blue font-medium text-xs">The goal? </span>
-                    <span className="text-white text-xs">{step.goal}</span>
+                    <span className="text-velocity-blue font-medium text-base">The goal? </span>
+                    <span className="text-white text-base">{step.goal}</span>
                   </div>
                 </div>
               </div>
