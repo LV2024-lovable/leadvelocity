@@ -1,47 +1,44 @@
-
 import React, { useState } from 'react';
 import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-
 const Hero = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
       toast({
         title: "Invalid email",
         description: "Please enter a valid email address.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-    
     setIsSubmitting(true);
     try {
       // Insert the email into the 'Lead Velocity' table
-      const { error } = await supabase
-        .from('Lead Velocity')
-        .insert({
-          email: email,
-        });
-
+      const {
+        error
+      } = await supabase.from('Lead Velocity').insert({
+        email: email
+      });
       if (error) {
         console.error('Error submitting email:', error);
         toast({
           title: "Submission failed",
           description: "There was an error submitting your email. Please try again.",
-          variant: "destructive",
+          variant: "destructive"
         });
       } else {
         toast({
           title: "Thank you!",
-          description: "We'll be in touch with you shortly.",
+          description: "We'll be in touch with you shortly."
         });
         setEmail('');
       }
@@ -50,19 +47,18 @@ const Hero = () => {
       toast({
         title: "Submission failed",
         description: "There was an error submitting your email. Please try again.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-
   return <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
       <div className="container max-w-7xl mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
           <div className="flex flex-col justify-between space-y-10 animate-fade-in">
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight my-[63px]">
                 Accelerate Your <span className="text-velocity-blue">Business Growth</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-700 max-w-lg">At Lead Velocity, we don't just generate leads — we help you build a predictable, scalable growth engine. As your dedicated partner, we align with your goals to drive consistent revenue and long-term business success.</p>
@@ -70,14 +66,7 @@ const Hero = () => {
             <div className="py-6">
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
                 <div className="flex-grow">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="h-11"
-                    required
-                  />
+                  <Input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} className="h-11" required />
                 </div>
                 <Button type="submit" size="lg" className="group whitespace-nowrap" disabled={isSubmitting}>
                   {isSubmitting ? 'Sending...' : 'Get Started'}
@@ -127,5 +116,4 @@ const Hero = () => {
       </div>
     </section>;
 };
-
 export default Hero;
