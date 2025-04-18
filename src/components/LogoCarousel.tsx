@@ -25,11 +25,11 @@ const LogoCarousel = () => {
         <CarouselContent className={isMobile ? "animate-carousel-fast" : "animate-carousel"}>
           {[...logos, ...logos].map((logo, i) => (
             <CarouselItem key={i} className="basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-              <div className="flex items-center justify-center h-20">
+              <div className="flex items-center justify-center h-40">
                 <img 
                   src={logo.src} 
                   alt={logo.alt}
-                  className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+                  className="h-32 w-auto grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             </CarouselItem>
