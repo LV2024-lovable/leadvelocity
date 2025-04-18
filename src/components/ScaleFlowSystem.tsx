@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Search, Handshake, ListChecks, SendHorizontal } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ScaleFlowSystem = () => {
   const steps = [
@@ -44,32 +45,35 @@ const ScaleFlowSystem = () => {
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical timeline line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-velocity-blue via-velocity-blue to-velocity-lightblue transform -translate-x-1/2 z-0" />
+        <div className="relative max-w-4xl mx-auto px-4">
+          {/* Vertical timeline line - hidden on mobile */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-velocity-blue via-velocity-blue to-velocity-lightblue transform -translate-x-1/2 z-0 hidden md:block" />
+          
+          {/* Mobile timeline line */}
+          <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-velocity-blue via-velocity-blue to-velocity-lightblue md:hidden" />
           
           {steps.map((step, index) => (
-            <div key={step.id} className={`flex items-start mb-10 relative ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+            <div key={step.id} className={`flex items-start mb-8 relative ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col`}>
               {/* Timeline step marker */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-3 py-1 text-velocity-lightblue font-medium text-sm">
+              <div className={`absolute z-10 ${index % 2 === 0 ? 'left-0 md:left-1/2' : 'left-0 md:left-1/2'} transform md:-translate-x-1/2`}>
+                <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-2 py-1 text-velocity-lightblue font-medium text-xs">
                   Step {step.id}
                 </div>
               </div>
 
-              {/* Content container - alternating sides */}
-              <div className={`w-4/12 ${index % 2 === 0 ? 'pr-6' : 'pl-6'}`}>
+              {/* Content container */}
+              <div className={`w-full md:w-4/12 pl-12 md:pl-0 ${index % 2 === 0 ? 'md:pr-6' : 'md:pl-6'}`}>
                 {/* Icon */}
                 <div className="mb-2">
                   <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-2 rounded-lg shadow-lg">
-                    {React.cloneElement(step.icon, { className: "h-6 w-6 text-white" })}
+                    {React.cloneElement(step.icon, { className: "h-5 w-5 text-white" })}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="bg-[#121D2A] p-4 rounded-lg border border-velocity-blue/20 shadow-md">
-                  <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-300 text-sm mb-2">{step.description}</p>
+                  <h3 className="text-base md:text-lg font-bold mb-2">{step.title}</h3>
+                  <p className="text-gray-300 text-xs md:text-sm mb-2">{step.description}</p>
                   <div className="bg-[#152234] p-2 rounded border-l-4 border-velocity-blue">
                     <span className="text-velocity-blue font-medium text-xs">The goal? </span>
                     <span className="text-white text-xs">{step.goal}</span>
@@ -77,8 +81,8 @@ const ScaleFlowSystem = () => {
                 </div>
               </div>
 
-              {/* Empty space for the other side */}
-              <div className="w-5/12"></div>
+              {/* Empty space - hidden on mobile */}
+              <div className="hidden md:block w-5/12" />
             </div>
           ))}
         </div>
