@@ -1,5 +1,6 @@
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const logos = [
   { src: "/lovable-uploads/2ddf05ef-b445-4e82-a2bb-a84fc5e777ce.png", alt: "Cowboys Logo" },
@@ -10,10 +11,12 @@ const logos = [
 ];
 
 const LogoCarousel = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <div className="w-full py-8 overflow-hidden bg-velocity-gray">
       <Carousel className="w-full" opts={{ loop: true, align: "start", dragFree: true }}>
-        <CarouselContent className="animate-carousel">
+        <CarouselContent className={isMobile ? "animate-carousel-fast" : "animate-carousel"}>
           {[...logos, ...logos].map((logo, i) => (
             <CarouselItem key={i} className="basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
               <div className="flex items-center justify-center h-20">

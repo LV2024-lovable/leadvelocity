@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-gray-900 text-gray-100">
@@ -17,7 +19,13 @@ const Footer = () => {
               <a href="#" className="text-gray-400 hover:text-velocity-blue transition-colors" aria-label="Twitter">
                 
               </a>
-              <a href="#" className="text-gray-400 hover:text-velocity-blue transition-colors" aria-label="LinkedIn">
+              <a 
+                href="https://www.linkedin.com/company/leadvelocity-2/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-velocity-blue transition-colors" 
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-velocity-blue transition-colors" aria-label="Instagram">
@@ -67,4 +75,5 @@ const Footer = () => {
       </div>
     </footer>;
 };
+
 export default Footer;
