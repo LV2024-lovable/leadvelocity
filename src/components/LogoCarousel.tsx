@@ -1,10 +1,10 @@
+
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const logos = [
   { src: "/lovable-uploads/6162ffe3-f10a-4dc9-836d-391e82e4579e.png", alt: "First Logo" },
   { src: "/lovable-uploads/b88d7723-4aa4-407f-b980-e0f79df261c8.png", alt: "Second Logo" },
-  { src: "/lovable-uploads/2b5e6463-7d73-4720-99b9-433e23abaeb1.png", alt: "Third Logo" },
   { src: "/lovable-uploads/7918a5b9-7449-4de8-b1db-495daf9c4115.png", alt: "Fourth Logo" },
   { src: "/lovable-uploads/494a5ddf-b911-4cc3-8999-ba1c54d2fca5.png", alt: "Fifth Logo" },
   { src: "/lovable-uploads/98adbd3c-7b48-409d-a871-c6da7dfa86ba.png", alt: "Sixth Logo" }
