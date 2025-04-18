@@ -7,11 +7,6 @@ const logos = [
   { src: "/lovable-uploads/b88d7723-4aa4-407f-b980-e0f79df261c8.png", alt: "Creative CT Logo" },
   { src: "/lovable-uploads/2b5e6463-7d73-4720-99b9-433e23abaeb1.png", alt: "Sixth Logo" },
   { src: "/lovable-uploads/7918a5b9-7449-4de8-b1db-495daf9c4115.png", alt: "Seventh Logo" },
-  { src: "/lovable-uploads/269b8386-c489-4233-8b6d-b4b14d7ad114.png", alt: "Eighth Logo" },
-  { src: "/lovable-uploads/9db3b79c-b5f3-4d25-8de1-d9a1f461f1ac.png", alt: "Ninth Logo" },
-  { src: "/lovable-uploads/8762bb5e-9150-4079-b9cc-aea62c22d215.png", alt: "Tenth Logo" },
-  { src: "/lovable-uploads/f7d05c76-263c-4f74-b152-ae0f4cfe092b.png", alt: "Eleventh Logo" },
-  { src: "/lovable-uploads/ac6a0723-2e66-4c17-8f43-b7fcaf61785d.png", alt: "Twelfth Logo" }
 ];
 
 const LogoCarousel = () => {
