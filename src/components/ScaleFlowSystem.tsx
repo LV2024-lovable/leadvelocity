@@ -64,7 +64,7 @@ const ScaleFlowSystem = () => {
               {/* Content container */}
               <div className={`w-full md:w-4/12 pl-12 md:pl-0 ${index % 2 === 0 ? 'md:pr-6 md:ml-auto' : 'md:pl-6 md:mr-auto'}`}>
                 {/* Icon */}
-                <div className="mb-2">
+                <div className="mb-2 flex justify-center">
                   <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-2 rounded-lg shadow-lg">
                     {React.cloneElement(step.icon, { className: "h-5 w-5 text-white" })}
                   </div>
