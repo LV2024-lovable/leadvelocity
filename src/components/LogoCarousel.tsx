@@ -28,11 +28,24 @@ const LogoCarousel = ({
   
   return (
     <div className={cn("w-full py-16 overflow-hidden bg-velocity-gray", containerClassName)}>
-      <Carousel className={cn("w-full", className)} opts={{ loop: true, align: "start", dragFree: true }}>
-        <CarouselContent className={isMobile ? "animate-carousel-fast" : "animate-carousel"}>
+      <Carousel 
+        className={cn("w-full", className)} 
+        opts={{ 
+          loop: true, 
+          align: "center",
+          dragFree: true,
+        }}
+      >
+        <CarouselContent className={cn(
+          isMobile ? "animate-carousel-fast" : "animate-carousel",
+          "-ml-4 gap-4"
+        )}>
           {[...logos, ...logos].map((logo, i) => (
-            <CarouselItem key={i} className="basis-1/2 md:basis-1/3 lg:basis-1/4 pl-2">
-              <div className="flex items-center justify-center">
+            <CarouselItem 
+              key={i} 
+              className="basis-1/2 md:basis-1/3 lg:basis-1/4 flex-grow-0"
+            >
+              <div className="flex items-center justify-center px-4">
                 <img 
                   src={logo.src} 
                   alt={logo.alt}
