@@ -1,8 +1,10 @@
-
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const logos = [
+  { src: "/lovable-uploads/b8062bc0-ca00-46b4-8482-f5b96c0f39a4.png", alt: "Dome Auctions Logo" },
+  { src: "/lovable-uploads/dce032a9-3bff-4b62-9d6f-27043ddc546f.png", alt: "Creative ICT Logo" },
+  { src: "/lovable-uploads/ca3bbc66-ee85-48c0-9272-6145f1d16210.png", alt: "Capri Partners Logo" },
   { src: "/lovable-uploads/2ddf05ef-b445-4e82-a2bb-a84fc5e777ce.png", alt: "Cowboys Logo" },
   { src: "/lovable-uploads/c4b0893b-5d37-43ae-b56d-927cd8ebae4c.png", alt: "Solar Access Logo" },
   { src: "/lovable-uploads/abc5f770-794a-4ce4-abf6-35b479647f14.png", alt: "Creative ICT Logo" },
