@@ -45,7 +45,7 @@ const ScaleFlowSystem = () => {
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto px-4">
+        <div className="relative max-w-5xl mx-auto px-4 md:px-8">
           {/* Vertical timeline line - hidden on mobile */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-velocity-blue via-velocity-blue to-velocity-lightblue transform -translate-x-1/2 z-0 hidden md:block" />
           
@@ -62,7 +62,7 @@ const ScaleFlowSystem = () => {
               </div>
 
               {/* Content container */}
-              <div className={`w-full md:w-4/12 pl-12 md:pl-0 ${index % 2 === 0 ? 'md:pr-6' : 'md:pl-6'}`}>
+              <div className={`w-full md:w-4/12 pl-12 md:pl-0 ${index % 2 === 0 ? 'md:pr-6 md:ml-auto' : 'md:pl-6 md:mr-auto'}`}>
                 {/* Icon */}
                 <div className="mb-2">
                   <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-2 rounded-lg shadow-lg">
