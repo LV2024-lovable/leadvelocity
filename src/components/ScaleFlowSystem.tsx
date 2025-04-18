@@ -26,7 +26,7 @@ const ScaleFlowSystem = () => {
     icon: <SendHorizontal className="h-8 w-8 text-white" />,
     goal: "Flooding your calendar with opportunities."
   }];
-  return <section id="scale-flow" className="bg-velocity-gray text-gray-800 py-[47px]">
+  return <section id="scale-flow" className="bg-velocity-gray text-gray-800 my-0 py-[3px]">
       <div className="container max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Scale Flow Process</h2>
@@ -99,5 +99,4 @@ const ScaleFlowSystem = () => {
       </div>
     </section>;
 };
-
 export default ScaleFlowSystem;

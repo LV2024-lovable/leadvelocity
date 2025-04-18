@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 import LogoCarousel from './LogoCarousel';
 const About = () => {
   const benefits = ['Data-driven approach to marketing', 'Experienced team of specialists', 'Transparent process and reporting', 'Focus on measurable business results', 'Customized strategies for your business', 'Ongoing optimization and improvements'];
-  return <section id="about" className="bg-velocity-gray py-0">
+  return <section id="about" className="bg-velocity-gray my-0 py-0">
       <LogoCarousel />
       <div className="container max-w-7xl mx-auto mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
