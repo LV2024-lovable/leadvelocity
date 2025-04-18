@@ -27,7 +27,7 @@ const LogoCarousel = ({
   const isMobile = useIsMobile();
   
   return (
-    <div className={cn("w-full py-8 overflow-hidden bg-velocity-gray", containerClassName)}>
+    <div className={cn("w-full py-8 overflow-hidden bg-velocity-gray relative", containerClassName)}>
       <Carousel 
         className={cn("w-full", className)} 
         opts={{ 
@@ -54,7 +54,8 @@ const LogoCarousel = ({
                   style={{
                     width: logoWidth,
                     height: logoHeight,
-                    objectFit: 'contain'
+                    objectFit: 'contain',
+                    transform: 'translateY(15px)' // Added vertical offset on desktop
                   }}
                   className="grayscale hover:grayscale-0 transition-all duration-300"
                 />
