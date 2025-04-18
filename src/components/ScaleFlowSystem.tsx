@@ -56,7 +56,7 @@ const ScaleFlowSystem = () => {
 
                 <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900">{step.title}</h3>
-                  <p className="text-gray-600 text-lg mb-4">{step.description}</p>
+                  <p className="text-lg text-gray-700 mb-4">{step.description}</p>
                   <div className="bg-velocity-lightblue p-4 rounded border-l-4 border-velocity-blue">
                     <span className="text-velocity-blue font-medium text-lg">The goal? </span>
                     <span className="text-gray-800 text-lg">{step.goal}</span>
@@ -87,7 +87,7 @@ const ScaleFlowSystem = () => {
 
                 <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm h-full">
                   <h3 className="text-xl font-bold mb-4 text-gray-900">{step.title}</h3>
-                  <p className="text-gray-600 text-lg mb-4">{step.description}</p>
+                  <p className="text-lg text-gray-700 mb-4">{step.description}</p>
                   <div className="bg-velocity-lightblue p-4 rounded border-l-4 border-velocity-blue">
                     <span className="text-velocity-blue font-medium text-lg">The goal? </span>
                     <span className="text-gray-800 text-lg">{step.goal}</span>
@@ -99,4 +99,5 @@ const ScaleFlowSystem = () => {
       </div>
     </section>;
 };
+
 export default ScaleFlowSystem;
