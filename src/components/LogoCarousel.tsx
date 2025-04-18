@@ -37,15 +37,15 @@ const LogoCarousel = ({
         }}
       >
         <CarouselContent className={cn(
-          isMobile ? "animate-carousel-fast" : "animate-carousel",
-          "-ml-4 gap-4"
+          !isMobile && "animate-carousel",
+          "-ml-2 gap-2"
         )}>
           {[...logos, ...logos].map((logo, i) => (
             <CarouselItem 
               key={i} 
-              className="basis-1/2 md:basis-1/3 lg:basis-1/4 flex-grow-0"
+              className="basis-1/3 md:basis-1/3 lg:basis-1/4 flex-grow-0"
             >
-              <div className="flex items-center justify-center px-4">
+              <div className="flex items-center justify-center px-2">
                 <img 
                   src={logo.src} 
                   alt={logo.alt}
