@@ -38,9 +38,9 @@ const Services = () => {
       icon: <Users className="h-6 w-6 text-velocity-blue" />,
     },
     {
-      title: 'Performance Campaigns',
-      description: 'Data-led marketing funnels that optimize every touchpoint for maximum conversion and ROI.',
-      icon: <BarChart className="h-6 w-6 text-velocity-blue" />,
+      title: 'AI Automations',
+      description: 'Leverage cutting-edge AI to streamline workflows, enhance productivity, and unlock intelligent solutions across your business processes.',
+      icon: <PieChart className="h-6 w-6 text-velocity-blue" />,
     },
     {
       title: 'Sales Enablement & Consulting',
@@ -50,7 +50,7 @@ const Services = () => {
     {
       title: 'Insight & Optimization',
       description: 'Clear dashboards and continuous feedback loops to keep you informed, agile, and always improving.',
-      icon: <PieChart className="h-6 w-6 text-velocity-blue" />,
+      icon: <BarChart className="h-6 w-6 text-velocity-blue" />,
     },
     {
       title: 'Content & Positioning',
