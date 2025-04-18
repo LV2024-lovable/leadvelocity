@@ -35,10 +35,10 @@ const ScaleFlowSystem = () => {
   ];
 
   return (
-    <section id="scale-flow" className="py-20 bg-[#0A1724] text-white">
-      <div className="container max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Scale Flow Process</h2>
+    <section id="scale-flow" className="py-24 bg-[#0A1724] text-white">
+      <div className="container max-w-7xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Scale Flow Process</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Our proven methodology to accelerate your business growth through strategic automation.
           </p>
@@ -48,26 +48,26 @@ const ScaleFlowSystem = () => {
           <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-velocity-blue via-velocity-blue to-velocity-lightblue" />
           
           {steps.map((step) => (
-            <div key={step.id} className="flex items-start mb-8 relative">
+            <div key={step.id} className="flex items-start mb-12 relative">
               <div className="absolute left-0 transform">
-                <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-2 py-1 text-velocity-lightblue font-medium text-xs">
+                <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-3 py-1.5 text-velocity-lightblue font-medium text-sm">
                   Step {step.id}
                 </div>
               </div>
 
-              <div className="w-full pl-12">
-                <div className="mb-2 flex justify-center">
-                  <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-2 rounded-lg shadow-lg">
-                    {React.cloneElement(step.icon, { className: "h-5 w-5 text-white" })}
+              <div className="w-full pl-16">
+                <div className="mb-4 flex justify-start">
+                  <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-3 rounded-lg shadow-lg">
+                    {React.cloneElement(step.icon, { className: "h-6 w-6 text-white" })}
                   </div>
                 </div>
 
-                <div className="bg-[#121D2A] p-4 rounded-lg border border-velocity-blue/20 shadow-md">
-                  <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-300 text-base mb-2">{step.description}</p>
-                  <div className="bg-[#152234] p-2 rounded border-l-4 border-velocity-blue">
-                    <span className="text-velocity-blue font-medium text-base">The goal? </span>
-                    <span className="text-white text-base">{step.goal}</span>
+                <div className="bg-[#121D2A] p-6 rounded-lg border border-velocity-blue/20 shadow-md">
+                  <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+                  <p className="text-gray-300 text-lg mb-4">{step.description}</p>
+                  <div className="bg-[#152234] p-4 rounded border-l-4 border-velocity-blue">
+                    <span className="text-velocity-blue font-medium text-lg">The goal? </span>
+                    <span className="text-white text-lg">{step.goal}</span>
                   </div>
                 </div>
               </div>
@@ -78,27 +78,27 @@ const ScaleFlowSystem = () => {
         <div className="hidden md:block relative max-w-6xl mx-auto">
           <div className="absolute left-0 right-0 top-1/2 h-[2px] bg-gradient-to-r from-velocity-blue via-velocity-blue to-velocity-lightblue -translate-y-1/2" />
           
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-4 gap-8">
             {steps.map((step) => (
-              <div key={step.id} className="relative pt-8">
+              <div key={step.id} className="relative pt-12">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2">
-                  <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-2 py-1 text-velocity-lightblue font-medium text-xs">
+                  <div className="bg-velocity-darkblue border border-velocity-blue rounded-md px-3 py-1.5 text-velocity-lightblue font-medium text-sm">
                     Step {step.id}
                   </div>
                 </div>
 
-                <div className="mb-2 flex justify-center">
-                  <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-2 rounded-lg shadow-lg">
-                    {React.cloneElement(step.icon, { className: "h-5 w-5 text-white" })}
+                <div className="mb-4 flex justify-center">
+                  <div className="inline-flex bg-velocity-darkblue border border-velocity-blue p-3 rounded-lg shadow-lg">
+                    {React.cloneElement(step.icon, { className: "h-6 w-6 text-white" })}
                   </div>
                 </div>
 
-                <div className="bg-[#121D2A] p-4 rounded-lg border border-velocity-blue/20 shadow-md">
-                  <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-300 text-base mb-2">{step.description}</p>
-                  <div className="bg-[#152234] p-2 rounded border-l-4 border-velocity-blue">
-                    <span className="text-velocity-blue font-medium text-base">The goal? </span>
-                    <span className="text-white text-base">{step.goal}</span>
+                <div className="bg-[#121D2A] p-6 rounded-lg border border-velocity-blue/20 shadow-md h-full">
+                  <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+                  <p className="text-gray-300 text-lg mb-4">{step.description}</p>
+                  <div className="bg-[#152234] p-4 rounded border-l-4 border-velocity-blue">
+                    <span className="text-velocity-blue font-medium text-lg">The goal? </span>
+                    <span className="text-white text-lg">{step.goal}</span>
                   </div>
                 </div>
               </div>
