@@ -26,10 +26,10 @@ const ScaleFlowSystem = () => {
     icon: <SendHorizontal className="h-8 w-8 text-white" />,
     goal: "Flooding your calendar with opportunities."
   }];
-  return <section id="scale-flow" className="bg-velocity-gray text-gray-800 my-0 py-[3px]">
+  return <section id="scale-flow" className="bg-velocity-gray text-gray-800 mx-px py-[18px] my-0">
       <div className="container max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Scale Flow Process</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 my-[14px]">Scale Flow Process</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Our proven methodology to accelerate your business growth through strategic automation.
           </p>
@@ -69,7 +69,7 @@ const ScaleFlowSystem = () => {
         <div className="hidden md:block relative max-w-6xl mx-auto">
           <div className="absolute left-0 right-0 top-1/2 h-[2px] bg-gradient-to-r from-velocity-blue via-velocity-blue to-velocity-lightblue -translate-y-1/2" />
           
-          <div className="grid grid-cols-4 gap-8">
+          <div className="grid grid-cols-4 gap-8 my-[56px]">
             {steps.map(step => <div key={step.id} className="relative pt-12">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2">
                   <div className="bg-white border border-velocity-blue rounded-md px-3 py-1.5 text-velocity-blue font-medium text-sm">
@@ -85,12 +85,12 @@ const ScaleFlowSystem = () => {
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm h-full">
+                <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm h-full my-[23px]">
                   <h3 className="text-xl font-bold mb-4 text-gray-900">{step.title}</h3>
-                  <p className="text-lg text-gray-700 mb-4">{step.description}</p>
-                  <div className="bg-velocity-lightblue p-4 rounded border-l-4 border-velocity-blue">
+                  <p className="text-gray-700 mb-4 text-base">{step.description}</p>
+                  <div className="bg-velocity-lightblue p-4 rounded border-l-4 border-velocity-blue my-0">
                     <span className="text-velocity-blue font-medium text-lg">The goal? </span>
-                    <span className="text-gray-800 text-lg">{step.goal}</span>
+                    <span className="text-gray-800 text-base">{step.goal}</span>
                   </div>
                 </div>
               </div>)}
