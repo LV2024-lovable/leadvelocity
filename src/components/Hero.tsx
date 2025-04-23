@@ -4,12 +4,12 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+
 const Hero = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
@@ -20,14 +20,18 @@ const Hero = () => {
       });
       return;
     }
+
     setIsSubmitting(true);
     try {
-      // Insert the email into the 'Lead Velocity' table
-      const {
-        error
-      } = await supabase.from('Lead Velocity').insert({
-        email: email
-      });
+      // Insert the email into the 'Lead Velocity' table with correct column names
+      const { error } = await supabase
+        .from('Lead Velocity')
+        .insert({
+          email: email,
+          Name: null,
+          company: null
+        });
+
       if (error) {
         console.error('Error submitting email:', error);
         toast({
@@ -53,6 +57,7 @@ const Hero = () => {
       setIsSubmitting(false);
     }
   };
+
   return <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
       <div className="container max-w-7xl mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
@@ -116,4 +121,5 @@ const Hero = () => {
       </div>
     </section>;
 };
+
 export default Hero;
