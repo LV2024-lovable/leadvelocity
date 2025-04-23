@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -51,7 +50,7 @@ export const ContactForm = () => {
           Name: data.name,
           company: data.company || null,
           email: data.email,
-          phone: data.phone ? data.phone : null, // Ensure phone is properly handled as null when empty
+          phone: data.phone ? Number(data.phone) : null,
           Message: data.message
         });
 
