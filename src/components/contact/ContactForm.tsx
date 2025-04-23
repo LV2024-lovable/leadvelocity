@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -44,7 +45,8 @@ export const ContactForm = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     try {
-      const { error } = await supabase
+      // First, save to database
+      const { error: dbError } = await supabase
         .from('Form_submissions')
         .insert({
           Name: data.name,
@@ -54,22 +56,27 @@ export const ContactForm = () => {
           Message: data.message
         });
 
-      if (error) {
-        console.error('Error submitting form:', error);
-        toast({
-          title: "Submission failed",
-          description: "There was an error submitting your message. Please try again.",
-          variant: "destructive"
-        });
-      } else {
-        toast({
-          title: "Message sent!",
-          description: "Thank you for contacting us. We'll get back to you soon."
-        });
-        form.reset();
+      if (dbError) {
+        throw dbError;
       }
+
+      // Then, send to Slack
+      const { error: slackError } = await supabase.functions.invoke('slack-notify', {
+        body: data
+      });
+
+      if (slackError) {
+        console.error('Error sending to Slack:', slackError);
+        // Don't throw here - we still want to show success if DB save worked
+      }
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for contacting us. We'll get back to you soon."
+      });
+      form.reset();
     } catch (error) {
-      console.error('Exception:', error);
+      console.error('Error:', error);
       toast({
         title: "Submission failed",
         description: "There was an error submitting your message. Please try again.",
