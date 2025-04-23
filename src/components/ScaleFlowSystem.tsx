@@ -72,7 +72,7 @@ const ScaleFlowSystem = () => {
           <div className="grid grid-cols-4 gap-8 my-[56px]">
             {steps.map(step => <div key={step.id} className="relative pt-12">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2">
-                  <div className="bg-white border border-velocity-blue rounded-md px-3 py-1.5 text-velocity-blue font-medium text-sm">
+                  <div className="bg-white border border-velocity-blue rounded-md py-1.5 text-velocity-blue font-medium text-sm mx-0 my-[2px] px-[25px]">
                     Step {step.id}
                   </div>
                 </div>
@@ -88,7 +88,7 @@ const ScaleFlowSystem = () => {
                 <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm h-full my-[23px]">
                   <h3 className="text-xl font-bold mb-4 text-gray-900">{step.title}</h3>
                   <p className="text-gray-700 mb-4 text-base">{step.description}</p>
-                  <div className="bg-velocity-lightblue p-4 rounded border-l-4 border-velocity-blue my-0">
+                  <div className="bg-velocity-lightblue p-4 rounded border-l-4 border-velocity-blue py-[15px] my-0 px-[7px]">
                     <span className="text-velocity-blue font-medium text-lg">The goal? </span>
                     <span className="text-gray-800 text-base">{step.goal}</span>
                   </div>
