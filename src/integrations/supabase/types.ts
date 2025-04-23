@@ -9,7 +9,7 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      "Lead Velocity": {
+      form_submissions: {
         Row: {
           company: string | null
           created_at: string

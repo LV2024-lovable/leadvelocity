@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Phone, Mail } from 'lucide-react';
 import { Button } from './ui/button';
@@ -46,13 +45,12 @@ const Contact = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     try {
-      // Insert the form data into the 'Lead Velocity' table with correct column names
       const { error } = await supabase
-        .from('Lead Velocity')
+        .from('form_submissions')
         .insert({
-          Name: data.name,       // Capital 'N' to match database schema
-          company: data.company || null,  // lowercase to match database schema
-          email: data.email      // lowercase to match database schema
+          Name: data.name,
+          company: data.company || null,
+          email: data.email
         });
 
       if (error) {

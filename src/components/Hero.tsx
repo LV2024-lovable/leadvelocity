@@ -23,9 +23,8 @@ const Hero = () => {
 
     setIsSubmitting(true);
     try {
-      // Insert the email into the 'Lead Velocity' table with correct column names
       const { error } = await supabase
-        .from('Lead Velocity')
+        .from('form_submissions')
         .insert({
           email: email,
           Name: null,
