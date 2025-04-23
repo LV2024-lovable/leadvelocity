@@ -51,7 +51,7 @@ export const ContactForm = () => {
           Name: data.name,
           company: data.company || null,
           email: data.email,
-          phone: data.phone || null,
+          phone: data.phone ? data.phone : null, // Ensure phone is properly handled as null when empty
           Message: data.message
         });
 
