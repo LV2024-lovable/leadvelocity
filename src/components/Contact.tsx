@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Phone, Mail } from 'lucide-react';
 import { Button } from './ui/button';
@@ -50,7 +51,9 @@ const Contact = () => {
         .insert({
           Name: data.name,
           company: data.company || null,
-          email: data.email
+          email: data.email,
+          phone: data.phone || null,
+          Message: data.message
         });
 
       if (error) {
