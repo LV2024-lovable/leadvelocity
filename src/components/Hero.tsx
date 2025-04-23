@@ -24,7 +24,7 @@ const Hero = () => {
     setIsSubmitting(true);
     try {
       const { error } = await supabase
-        .from('form_submissions')
+        .from('Form_submissions')
         .insert({
           email: email,
           Name: null,
