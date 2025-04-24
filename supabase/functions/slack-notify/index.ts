@@ -9,6 +9,7 @@ const corsHeaders = {
 serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
+    console.log("Slack notify: handling OPTIONS request");
     return new Response(null, { headers: corsHeaders });
   }
 
@@ -45,6 +46,7 @@ serve(async (req) => {
     }
 
     console.log("Preparing Slack message");
+    console.log("Will send to webhook URL:", webhookUrl.substring(0, 20) + "...");
     
     const slackMessage = {
       blocks: [
@@ -94,28 +96,33 @@ serve(async (req) => {
 
     console.log("Sending to Slack webhook");
     
-    const response = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(slackMessage),
-    });
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(slackMessage),
+      });
 
-    console.log("Slack API response status:", response.status);
-    
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error(`Failed to send Slack notification. Status: ${response.status}. Response: ${errorText}`);
-      throw new Error(`Slack API returned ${response.status}: ${errorText}`);
+      console.log("Slack API response status:", response.status);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`Failed to send Slack notification. Status: ${response.status}. Response: ${errorText}`);
+        throw new Error(`Slack API returned ${response.status}: ${errorText}`);
+      }
+
+      console.log("Slack notification sent successfully");
+      
+      return new Response(JSON.stringify({ success: true }), {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        status: 200,
+      });
+    } catch (fetchError) {
+      console.error("Fetch error when calling Slack API:", fetchError);
+      throw fetchError;
     }
-
-    console.log("Slack notification sent successfully");
-    
-    return new Response(JSON.stringify({ success: true }), {
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      status: 200,
-    });
   } catch (error) {
     console.error('Error in slack-notify function:', error);
     return new Response(

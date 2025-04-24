@@ -70,8 +70,11 @@ export const ContactForm = () => {
         body: data
       });
 
+      console.log("Slack response:", slackResponse);
+      
       if (slackResponse.error) {
         console.error('Error sending to Slack:', slackResponse.error);
+        console.error('Slack error details:', JSON.stringify(slackResponse));
         // Don't throw here - we still want to continue with the email notification
       } else {
         console.log("Slack notification sent successfully:", slackResponse.data);
@@ -83,8 +86,11 @@ export const ContactForm = () => {
         body: data
       });
 
+      console.log("Email response:", emailResponse);
+      
       if (emailResponse.error) {
         console.error('Error sending email notification:', emailResponse.error);
+        console.error('Email error details:', JSON.stringify(emailResponse));
         // Don't throw here - we still want to show success if DB save worked
       } else {
         console.log("Email notification sent successfully:", emailResponse.data);
