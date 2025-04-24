@@ -1,28 +1,21 @@
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Twitter, Download } from 'lucide-react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
   const handleLogoDownload = () => {
     const link = document.createElement('a');
     link.href = '/polygon-bimi-tiny12.svg';
     link.download = 'lead-velocity-logo.svg';
     link.click();
   };
-
   return <footer className="bg-gray-900 text-gray-100">
       <div className="container max-w-7xl mx-auto py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-bold mb-4">Lead<span className="text-velocity-blue">Velocity</span></h3>
-              <button 
-                onClick={handleLogoDownload} 
-                className="text-gray-400 hover:text-velocity-blue transition-colors"
-                aria-label="Download Logo"
-              >
-                <Download className="h-5 w-5" />
+              <button onClick={handleLogoDownload} className="text-gray-400 hover:text-velocity-blue transition-colors" aria-label="Download Logo">
+                
               </button>
             </div>
             <p className="text-gray-400 mb-6">
@@ -35,13 +28,7 @@ const Footer = () => {
               <a href="#" className="text-gray-400 hover:text-velocity-blue transition-colors" aria-label="Twitter">
                 
               </a>
-              <a 
-                href="https://www.linkedin.com/company/leadvelocity-2/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-velocity-blue transition-colors" 
-                aria-label="LinkedIn"
-              >
+              <a href="https://www.linkedin.com/company/leadvelocity-2/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-velocity-blue transition-colors" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-velocity-blue transition-colors" aria-label="Instagram">
@@ -91,5 +78,4 @@ const Footer = () => {
       </div>
     </footer>;
 };
-
 export default Footer;
