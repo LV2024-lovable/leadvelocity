@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
@@ -24,7 +25,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <a href="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/e446da2b-8020-437a-a9ae-8649003e1af8.png" 
+              src="/Lead Velocity Logo.svg" 
               alt="Lead Velocity Logo" 
               className="h-8"
             />
@@ -73,3 +74,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
