@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <a href="/" className="flex items-center">
             <img 
-              src="/Lead Velocity Logo.svg" 
+              src="/lovable-uploads/Lead Velocity Logo.svg" 
               alt="Lead Velocity Logo" 
               className="h-8"
             />
@@ -74,4 +74,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
