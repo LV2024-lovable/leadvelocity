@@ -47,6 +47,20 @@ serve(async (req) => {
       );
     }
 
+    // Check if the webhook URL looks valid
+    if (!webhookUrl.startsWith('https://hooks.slack.com/')) {
+      console.error("SLACK_WEBHOOK_URL does not appear to be in the correct format. Should start with 'https://hooks.slack.com/'");
+      console.log("SLACK_WEBHOOK_URL first 15 chars:", webhookUrl.substring(0, 15));
+      
+      return new Response(
+        JSON.stringify({ error: 'Slack webhook URL appears to be invalid. It should start with "https://hooks.slack.com/"' }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 500,
+        }
+      );
+    }
+
     console.log("Preparing Slack message");
     
     const slackMessage = {

@@ -20,6 +20,8 @@ serve(async (req) => {
     // Log the available environment variables (without revealing values)
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
     console.log("RESEND_API_KEY exists:", !!resendApiKey);
+    console.log("RESEND_API_KEY first 5 chars:", resendApiKey ? resendApiKey.substring(0, 5) : "not set");
+    
     if (!resendApiKey) {
       console.error("RESEND_API_KEY environment variable is not set");
       return new Response(
@@ -30,6 +32,18 @@ serve(async (req) => {
         }
       );
     }
+    
+    if (!resendApiKey.startsWith("re_")) {
+      console.error("RESEND_API_KEY does not appear to be in the correct format. Should start with 're_'");
+      return new Response(
+        JSON.stringify({ error: 'Resend API key appears to be invalid. It should start with "re_"' }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 500,
+        }
+      );
+    }
+    
     console.log("RESEND_API_KEY is set, initializing Resend client");
     
     const resend = new Resend(resendApiKey);
