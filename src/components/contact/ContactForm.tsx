@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -44,8 +43,11 @@ export const ContactForm = () => {
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
+    console.log("Form submission started with data:", data);
+    
     try {
       // First, save to database
+      console.log("Saving to database...");
       const { error: dbError } = await supabase
         .from('Form_submissions')
         .insert({
@@ -57,27 +59,35 @@ export const ContactForm = () => {
         });
 
       if (dbError) {
+        console.error('Error saving to database:', dbError);
         throw dbError;
       }
+      console.log("Successfully saved to database");
 
       // Then, send to Slack
-      const { error: slackError } = await supabase.functions.invoke('slack-notify', {
+      console.log("Sending to Slack...");
+      const slackResponse = await supabase.functions.invoke('slack-notify', {
         body: data
       });
 
-      if (slackError) {
-        console.error('Error sending to Slack:', slackError);
+      if (slackResponse.error) {
+        console.error('Error sending to Slack:', slackResponse.error);
         // Don't throw here - we still want to continue with the email notification
+      } else {
+        console.log("Slack notification sent successfully:", slackResponse.data);
       }
 
       // Also, send an email notification
-      const { error: emailError } = await supabase.functions.invoke('email-notify', {
+      console.log("Sending email notification...");
+      const emailResponse = await supabase.functions.invoke('email-notify', {
         body: data
       });
 
-      if (emailError) {
-        console.error('Error sending email notification:', emailError);
+      if (emailResponse.error) {
+        console.error('Error sending email notification:', emailResponse.error);
         // Don't throw here - we still want to show success if DB save worked
+      } else {
+        console.log("Email notification sent successfully:", emailResponse.data);
       }
 
       toast({
@@ -86,7 +96,7 @@ export const ContactForm = () => {
       });
       form.reset();
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Form submission error:', error);
       toast({
         title: "Submission failed",
         description: "There was an error submitting your message. Please try again.",

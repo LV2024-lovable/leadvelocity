@@ -13,8 +13,39 @@ serve(async (req) => {
   }
 
   try {
-    const { name, company, email, phone, message } = await req.json();
+    console.log("Slack notification function called");
+    
+    const requestBody = await req.json();
+    console.log("Request body:", JSON.stringify(requestBody));
+    
+    const { name, company, email, phone, message } = requestBody;
 
+    // Check if required data is present
+    if (!name || !email || !message) {
+      console.error("Missing required fields in request");
+      return new Response(
+        JSON.stringify({ error: 'Missing required fields' }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 400,
+        }
+      );
+    }
+
+    const webhookUrl = Deno.env.get('SLACK_WEBHOOK_URL');
+    if (!webhookUrl) {
+      console.error("SLACK_WEBHOOK_URL environment variable is not set");
+      return new Response(
+        JSON.stringify({ error: 'Slack webhook URL not configured' }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 500,
+        }
+      );
+    }
+
+    console.log("Preparing Slack message");
+    
     const slackMessage = {
       blocks: [
         {
@@ -61,7 +92,9 @@ serve(async (req) => {
       ]
     };
 
-    const response = await fetch(Deno.env.get('SLACK_WEBHOOK_URL')!, {
+    console.log("Sending to Slack webhook");
+    
+    const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,10 +102,16 @@ serve(async (req) => {
       body: JSON.stringify(slackMessage),
     });
 
+    console.log("Slack API response status:", response.status);
+    
     if (!response.ok) {
-      throw new Error('Failed to send Slack notification');
+      const errorText = await response.text();
+      console.error(`Failed to send Slack notification. Status: ${response.status}. Response: ${errorText}`);
+      throw new Error(`Slack API returned ${response.status}: ${errorText}`);
     }
 
+    console.log("Slack notification sent successfully");
+    
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 200,
@@ -80,7 +119,7 @@ serve(async (req) => {
   } catch (error) {
     console.error('Error in slack-notify function:', error);
     return new Response(
-      JSON.stringify({ error: 'Failed to send notification' }),
+      JSON.stringify({ error: 'Failed to send notification', details: error.message }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 500,
