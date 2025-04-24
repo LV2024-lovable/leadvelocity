@@ -20,18 +20,20 @@ export const TwoFactorAuth = () => {
   const [qrCode, setQrCode] = useState<string | null>(null)
   const [verifyCode, setVerifyCode] = useState('')
   const [isVerifying, setIsVerifying] = useState(false)
+  const [challengeId, setChallengeId] = useState<string | null>(null)
 
   const enrollMFA = async () => {
     try {
       setIsEnrolling(true)
-      const { data: { id, totp_uri }, error } = await supabase.auth.mfa.enroll({
+      const { data, error } = await supabase.auth.mfa.enroll({
         factorType: 'totp'
       })
       
       if (error) throw error
       
-      setFactorId(id)
-      setQrCode(totp_uri)
+      setFactorId(data.id)
+      // Set QR code from the correct property path
+      setQrCode(data.totp.qr_code)
     } catch (error) {
       console.error('Error enrolling in MFA:', error)
       toast({
@@ -49,11 +51,18 @@ export const TwoFactorAuth = () => {
     
     try {
       setIsVerifying(true)
-      const { error } = await supabase.auth.mfa.challenge({ factorId })
-      if (error) throw error
+      // First create a challenge
+      const { data: challengeData, error: challengeError } = await supabase.auth.mfa.challenge({ factorId })
+      if (challengeError) throw challengeError
 
+      // Store the challenge ID
+      const challengeId = challengeData.id
+      setChallengeId(challengeId)
+
+      // Then verify with both factorId and challengeId
       const { data, error: verifyError } = await supabase.auth.mfa.verify({
         factorId,
+        challengeId,
         code: verifyCode,
       })
 
