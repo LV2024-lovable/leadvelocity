@@ -67,6 +67,16 @@ export const ContactForm = () => {
 
       if (slackError) {
         console.error('Error sending to Slack:', slackError);
+        // Don't throw here - we still want to continue with the email notification
+      }
+
+      // Also, send an email notification
+      const { error: emailError } = await supabase.functions.invoke('email-notify', {
+        body: data
+      });
+
+      if (emailError) {
+        console.error('Error sending email notification:', emailError);
         // Don't throw here - we still want to show success if DB save worked
       }
 
