@@ -16,10 +16,29 @@ serve(async (req) => {
   }
 
   try {
-    const { name, company, email, phone, message } = await req.json();
+    console.log("Email notification function called");
+    
+    const requestBody = await req.json();
+    console.log("Request body:", JSON.stringify(requestBody));
+    
+    const { name, company, email, phone, message } = requestBody;
 
+    // Check if required data is present
+    if (!name || !email || !message) {
+      console.error("Missing required fields in request");
+      return new Response(
+        JSON.stringify({ error: 'Missing required fields' }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 400,
+        }
+      );
+    }
+
+    console.log("Attempting to send email with Resend");
+    
     const { data, error } = await resend.emails.send({
-      from: "Lead Velocity <onboarding@resend.dev>",
+      from: "LeadVelocity <info@leadvelocity.nl>",
       to: ["info@leadvelocity.nl"],
       subject: "New Contact Form Submission",
       html: `
@@ -36,17 +55,20 @@ serve(async (req) => {
     });
 
     if (error) {
+      console.error("Resend API error:", error);
       throw error;
     }
 
-    return new Response(JSON.stringify({ success: true }), {
+    console.log("Email sent successfully", data);
+    
+    return new Response(JSON.stringify({ success: true, data }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 200,
     });
   } catch (error) {
     console.error('Error in email-notify function:', error);
     return new Response(
-      JSON.stringify({ error: 'Failed to send email notification' }),
+      JSON.stringify({ error: 'Failed to send email notification', details: error.message }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 500,
