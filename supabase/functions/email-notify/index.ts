@@ -17,8 +17,9 @@ serve(async (req) => {
   try {
     console.log("Email notification function called");
 
-    // Check if Resend API key is available
+    // Log the available environment variables (without revealing values)
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    console.log("RESEND_API_KEY exists:", !!resendApiKey);
     if (!resendApiKey) {
       console.error("RESEND_API_KEY environment variable is not set");
       return new Response(
@@ -51,9 +52,11 @@ serve(async (req) => {
     }
 
     console.log("Preparing to send email with Resend");
+    console.log("Sending from: LeadVelocity <info@leadvelocity.nl>");
+    console.log("Sending to: info@leadvelocity.nl");
 
     try {
-      const { data, error } = await resend.emails.send({
+      const emailResult = await resend.emails.send({
         from: "LeadVelocity <info@leadvelocity.nl>",
         to: ["info@leadvelocity.nl"],
         subject: "New Contact Form Submission",
@@ -70,20 +73,34 @@ serve(async (req) => {
         `,
       });
 
-      if (error) {
-        console.error("Resend API error:", error);
-        throw error;
+      console.log("Resend API response:", JSON.stringify(emailResult));
+
+      if (emailResult.error) {
+        console.error("Resend API error:", emailResult.error);
+        return new Response(
+          JSON.stringify({ error: 'Failed to send email', details: emailResult.error }),
+          {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: 500,
+          }
+        );
       }
 
-      console.log("Email sent successfully:", data);
+      console.log("Email sent successfully:", emailResult.data);
       
-      return new Response(JSON.stringify({ success: true, data }), {
+      return new Response(JSON.stringify({ success: true, data: emailResult.data }), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 200,
       });
     } catch (resendError) {
       console.error("Error when calling Resend API:", resendError);
-      throw resendError;
+      return new Response(
+        JSON.stringify({ error: 'Resend API error', details: resendError.message }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 500,
+        }
+      );
     }
   } catch (error) {
     console.error('Error in email-notify function:', error);

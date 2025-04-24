@@ -34,6 +34,8 @@ serve(async (req) => {
     }
 
     const webhookUrl = Deno.env.get('SLACK_WEBHOOK_URL');
+    console.log("SLACK_WEBHOOK_URL exists:", !!webhookUrl);
+    
     if (!webhookUrl) {
       console.error("SLACK_WEBHOOK_URL environment variable is not set");
       return new Response(
@@ -46,7 +48,6 @@ serve(async (req) => {
     }
 
     console.log("Preparing Slack message");
-    console.log("Will send to webhook URL:", webhookUrl.substring(0, 20) + "...");
     
     const slackMessage = {
       blocks: [
@@ -95,6 +96,7 @@ serve(async (req) => {
     };
 
     console.log("Sending to Slack webhook");
+    console.log("Webhook URL first 15 chars:", webhookUrl.substring(0, 15) + "...");
     
     try {
       const response = await fetch(webhookUrl, {
@@ -110,7 +112,13 @@ serve(async (req) => {
       if (!response.ok) {
         const errorText = await response.text();
         console.error(`Failed to send Slack notification. Status: ${response.status}. Response: ${errorText}`);
-        throw new Error(`Slack API returned ${response.status}: ${errorText}`);
+        return new Response(
+          JSON.stringify({ error: 'Slack API error', status: response.status, details: errorText }),
+          {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: 500,
+          }
+        );
       }
 
       console.log("Slack notification sent successfully");
@@ -121,7 +129,13 @@ serve(async (req) => {
       });
     } catch (fetchError) {
       console.error("Fetch error when calling Slack API:", fetchError);
-      throw fetchError;
+      return new Response(
+        JSON.stringify({ error: 'Network error calling Slack API', details: fetchError.message }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 500,
+        }
+      );
     }
   } catch (error) {
     console.error('Error in slack-notify function:', error);

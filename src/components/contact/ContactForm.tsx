@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -29,6 +30,7 @@ type FormValues = z.infer<typeof formSchema>;
 export const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [debugInfo, setDebugInfo] = useState<string | null>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -43,6 +45,7 @@ export const ContactForm = () => {
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
+    setDebugInfo(null);
     console.log("Form submission started with data:", data);
     
     try {
@@ -60,6 +63,7 @@ export const ContactForm = () => {
 
       if (dbError) {
         console.error('Error saving to database:', dbError);
+        setDebugInfo(prev => (prev || '') + `\nDatabase Error: ${dbError.message}`);
         throw dbError;
       }
       console.log("Successfully saved to database");
@@ -75,6 +79,7 @@ export const ContactForm = () => {
       if (slackResponse.error) {
         console.error('Error sending to Slack:', slackResponse.error);
         console.error('Slack error details:', JSON.stringify(slackResponse));
+        setDebugInfo(prev => (prev || '') + `\nSlack Error: ${JSON.stringify(slackResponse.error)}`);
         // Don't throw here - we still want to continue with the email notification
       } else {
         console.log("Slack notification sent successfully:", slackResponse.data);
@@ -91,6 +96,7 @@ export const ContactForm = () => {
       if (emailResponse.error) {
         console.error('Error sending email notification:', emailResponse.error);
         console.error('Email error details:', JSON.stringify(emailResponse));
+        setDebugInfo(prev => (prev || '') + `\nEmail Error: ${JSON.stringify(emailResponse.error)}`);
         // Don't throw here - we still want to show success if DB save worked
       } else {
         console.log("Email notification sent successfully:", emailResponse.data);
@@ -101,8 +107,9 @@ export const ContactForm = () => {
         description: "Thank you for contacting us. We'll get back to you soon."
       });
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Form submission error:', error);
+      setDebugInfo(prev => (prev || '') + `\nGeneral Error: ${error.message}`);
       toast({
         title: "Submission failed",
         description: "There was an error submitting your message. Please try again.",
@@ -193,6 +200,13 @@ export const ContactForm = () => {
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
+          
+          {debugInfo && (
+            <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded text-sm">
+              <p className="font-bold mb-2">Debug Information:</p>
+              <pre className="whitespace-pre-wrap">{debugInfo}</pre>
+            </div>
+          )}
         </form>
       </Form>
     </div>
