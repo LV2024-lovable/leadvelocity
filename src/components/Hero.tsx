@@ -73,7 +73,7 @@ const Hero = () => {
                   {industries[currentIndustry]}
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-700 max-w-lg">At Lead Velocity, we don't just generate leads — we help you build a predictable, scalable growth engine to reach goals, drive consistent revenue and long-term business success.</p>
+              <p className="text-lg md:text-xl text-gray-700 max-w-lg">From outbound campaigns to internal workflows, we design smart, repeatable systems that align with your goals, drive consistent revenue, and set the foundation for long-term business success.</p>
             </div>
             <div className="py-6">
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
