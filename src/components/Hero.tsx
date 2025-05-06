@@ -4,34 +4,20 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-
 const Hero = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [currentIndustry, setCurrentIndustry] = useState(0);
-  const { toast } = useToast();
-
-  const industries = [
-    'Digital Agency',
-    'Software Platform',
-    'Financial Service Firm',
-    'Marketing Platform',
-    'Real Estate Firm',
-    'IT Service',
-    'Recruitment Firm',
-    'Education Provider',
-    'Wholesale Business',
-    'Consultancy Firm',
-  ];
-
+  const {
+    toast
+  } = useToast();
+  const industries = ['Digital Agency', 'Software Platform', 'Financial Service Firm', 'Marketing Platform', 'Real Estate Firm', 'IT Service', 'Recruitment Firm', 'Education Provider', 'Wholesale Business', 'Consultancy Firm'];
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndustry((prev) => (prev + 1) % industries.length);
+      setCurrentIndustry(prev => (prev + 1) % industries.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
@@ -42,17 +28,15 @@ const Hero = () => {
       });
       return;
     }
-
     setIsSubmitting(true);
     try {
-      const { error } = await supabase
-        .from('Form_submissions')
-        .insert({
-          email: email,
-          Name: null,
-          company: null
-        });
-
+      const {
+        error
+      } = await supabase.from('Form_submissions').insert({
+        email: email,
+        Name: null,
+        company: null
+      });
       if (error) {
         console.error('Error submitting email:', error);
         toast({
@@ -78,7 +62,6 @@ const Hero = () => {
       setIsSubmitting(false);
     }
   };
-
   return <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
       <div className="container max-w-7xl mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
@@ -90,7 +73,7 @@ const Hero = () => {
                   {industries[currentIndustry]}
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-700 max-w-lg">At Lead Velocity, we don't just generate leads — we help you build a predictable, scalable growth engine. As your dedicated partner, we align with your goals to drive consistent revenue and long-term business success.</p>
+              <p className="text-lg md:text-xl text-gray-700 max-w-lg">At Lead Velocity, we don't just generate leads — we help you build a predictable, scalable growth engine to reach goals, drive consistent revenue and long-term business success.</p>
             </div>
             <div className="py-6">
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
@@ -145,5 +128,4 @@ const Hero = () => {
       </div>
     </section>;
 };
-
 export default Hero;
