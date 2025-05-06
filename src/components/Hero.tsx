@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+
 const Hero = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,12 +15,14 @@ const Hero = () => {
 
   // Updated industry list with more consistent lengths and better flow
   const industries = ['Digital Agency', 'Software Company', 'Financial Service', 'Digital Platform', 'Real Estate Firm', 'IT Consultancy', 'Recruitment Agency', 'Education Platform', 'Wholesale Business', 'Business Advisory'];
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndustry(prev => (prev + 1) % industries.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
@@ -65,6 +67,7 @@ const Hero = () => {
       setIsSubmitting(false);
     }
   };
+  
   return <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
       <div className="container max-w-7xl mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
@@ -73,7 +76,7 @@ const Hero = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight my-[63px]">
                 <span className="whitespace-nowrap">Ready to grow</span>
                 <br />
-                <span className="whitespace-nowrap">your</span>{' '}
+                <span className="whitespace-nowrap">your?</span>{' '}
                 <span className="text-velocity-blue inline-block min-w-[280px] transition-all duration-300">
                   {industries[currentIndustry]}
                 </span>
@@ -133,4 +136,5 @@ const Hero = () => {
       </div>
     </section>;
 };
+
 export default Hero;
