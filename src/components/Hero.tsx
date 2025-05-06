@@ -77,8 +77,8 @@ const Hero = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight my-[63px]">
                 <span className="whitespace-nowrap">Ready to grow your</span>
                 <br />
-                <div className="flex items-baseline">
-                  <span className="text-velocity-blue inline-block min-w-[280px] transition-all duration-300">
+                <div className="flex items-baseline whitespace-nowrap overflow-hidden">
+                  <span className="text-velocity-blue transition-all duration-300">
                     {industries[currentIndustry]}
                   </span>
                   <span className="ml-1">?</span>
