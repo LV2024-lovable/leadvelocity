@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
@@ -17,7 +16,7 @@ const Hero = () => {
     'Software Platform',
     'Financial Service Firm',
     'Marketing Platform',
-    'Real Estate Firm'
+    'Real Estate Firm',
     'IT Service',
     'Recruitment Firm',
     'Education Provider',
