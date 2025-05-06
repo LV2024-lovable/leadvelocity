@@ -14,14 +14,14 @@ const Hero = () => {
   
   // Updated industry list with more consistent lengths and better flow
   const industries = [
-    'Marketing Agency',
+    'Digital Agency',
     'Software Company',
     'Financial Service',
     'Digital Platform',
     'Real Estate Firm',
     'IT Consultancy',
-    'Recruitment Team',
-    'Education Center',
+    'Recruitment Agency',
+    'Education Platform',
     'Wholesale Business',
     'Business Advisory'
   ];
