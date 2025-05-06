@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -8,7 +9,28 @@ import { supabase } from '@/integrations/supabase/client';
 const Hero = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [currentIndustry, setCurrentIndustry] = useState(0);
   const { toast } = useToast();
+
+  const industries = [
+    'Agency',
+    'Software Company',
+    'Financial Service Firm',
+    'Marketing Platform',
+    'IT Service Provider',
+    'Recruitment Firm',
+    'Education Provider',
+    'Wholesale Business',
+    'Consultancy Firm',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndustry((prev) => (prev + 1) % industries.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,7 +85,10 @@ const Hero = () => {
           <div className="flex flex-col justify-between space-y-10 animate-fade-in">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight my-[63px]">
-                Accelerate Your <span className="text-velocity-blue">Business Growth</span>
+                Accelerate Growth For Your{' '}
+                <span className="text-velocity-blue inline-block transition-all duration-300">
+                  {industries[currentIndustry]}
+                </span>
               </h1>
               <p className="text-lg md:text-xl text-gray-700 max-w-lg">At Lead Velocity, we don't just generate leads — we help you build a predictable, scalable growth engine. As your dedicated partner, we align with your goals to drive consistent revenue and long-term business success.</p>
             </div>
