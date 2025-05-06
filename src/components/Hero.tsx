@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
@@ -75,11 +74,12 @@ const Hero = () => {
           <div className="flex flex-col justify-between space-y-10 animate-fade-in">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight my-[63px]">
-                <span className="whitespace-nowrap">Build Growth Systems — Not Just Campaigns</span>
+                <span className="whitespace-nowrap">Ready to grow your</span>
                 <br />
                 <span className="text-velocity-blue inline-block min-w-[280px] transition-all duration-300">
-                  For {industries[currentIndustry]}
+                  {industries[currentIndustry]}
                 </span>
+                <span>?</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-700 max-w-lg">From outbound campaigns to internal workflows, we design smart, repeatable systems that align with your goals, drive consistent revenue, and set the foundation for long-term business success.</p>
             </div>
