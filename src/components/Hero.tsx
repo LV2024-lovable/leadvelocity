@@ -84,7 +84,7 @@ const Hero = () => {
           <div className="flex flex-col justify-between space-y-10 animate-fade-in">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight my-[63px]">
-                Accelerate Growth For Your{' '}
+                <span className="whitespace-nowrap">Accelerate Growth For Your</span>{' '}
                 <span className="text-velocity-blue inline-block min-w-[280px] transition-all duration-300">
                   {industries[currentIndustry]}
                 </span>
