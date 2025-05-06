@@ -13,11 +13,12 @@ const Hero = () => {
   const { toast } = useToast();
 
   const industries = [
-    'Agency',
-    'Software Company',
+    'Digital Agency',
+    'Software Platform',
     'Financial Service Firm',
     'Marketing Platform',
-    'IT Service Provider',
+    'Real Estate Firm'
+    'IT Service',
     'Recruitment Firm',
     'Education Provider',
     'Wholesale Business',
