@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
@@ -77,12 +76,10 @@ const Hero = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight my-[63px]">
                 <span className="whitespace-nowrap">Ready to grow your</span>
                 <br />
-                <div className="flex items-baseline whitespace-nowrap overflow-hidden">
-                  <span className="text-velocity-blue transition-all duration-300">
-                    {industries[currentIndustry]}
-                  </span>
-                  <span className="ml-1">?</span>
-                </div>
+                <span className="text-velocity-blue inline-block min-w-[280px] transition-all duration-300">
+                  {industries[currentIndustry]}
+                </span>
+                <span>?</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-700 max-w-lg">From outbound campaigns to internal workflows, we design smart, repeatable systems that align with your goals, drive consistent revenue, and set the foundation for long-term business success.</p>
             </div>
