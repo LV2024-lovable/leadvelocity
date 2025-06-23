@@ -13,8 +13,8 @@ const AIAutomation = () => {
   const toggleIndustry = (industry: string) => {
     setOpenIndustries(prev => 
       prev.includes(industry) 
-        ? prev.filter(i => i !== industry)
-        : [...prev, industry]
+        ? [] // Close if already open
+        : [industry] // Open only this one, close all others
     );
   };
 
