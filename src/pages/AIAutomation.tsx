@@ -3,9 +3,10 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, Zap, Calendar, Mail, Shield, Users, ArrowRight, Play, Brain, Workflow, Bot, Target, TrendingUp, Clock, Mic, MessageSquare, BarChart3, Settings, Database, Link2 } from 'lucide-react';
+import { CheckCircle, Zap, Calendar, Mail, Shield, Users, ArrowRight, Play, Brain, Workflow, Bot, Target, TrendingUp, Clock, Mic, MessageSquare, BarChart3, Settings, Database, Link2, Phone, MapPin } from 'lucide-react';
 import TypeWriter from '@/components/TypeWriter';
 import GoogleCalendarScheduler from '@/components/GoogleCalendarScheduler';
+
 const AIAutomation = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -19,7 +20,8 @@ const AIAutomation = () => {
       behavior: 'smooth'
     });
   };
-  return <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30">
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30">
       <Navbar />
       
       {/* Hero Section */}
@@ -337,55 +339,132 @@ const AIAutomation = () => {
 
       {/* Contact */}
       <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 sm:mb-20 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">We helpen je graag</h2>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
+              Klaar om te starten?
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Laat ons u helpen om uw workflow te transformeren met AI-automatisering
+            </p>
+          </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 sm:gap-16 mb-16">
-            <div className="lg:col-span-1">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-900">Over ons team</h3>
-              <p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
-                Wij zijn een team van AI-experts en productiviteitsspecialisten die gefrustreerd waren door inefficiënte vergaderingen en gemiste follow-ups. Onze missie is om professionals en teams te helpen hun tijd optimaal te benutten.
-              </p>
-              <div className="space-y-4 sm:space-y-6">
-                <div className="flex items-center">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
-                    <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
+            {/* Contact Info Cards */}
+            <div className="lg:col-span-1 space-y-6">
+              <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-indigo-50 hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mr-4">
+                      <Mail className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900">Email ons</h3>
+                      <p className="text-gray-600 text-sm">Voor vragen en ondersteuning</p>
+                    </div>
                   </div>
-                  <span className="text-gray-700 text-base sm:text-lg">hello@leadvelocity.nl</span>
-                </div>
-                <div className="flex space-x-4 sm:space-x-6">
-                  <a href="#" className="text-blue-600 hover:text-blue-700 font-medium transition-colors text-sm sm:text-base">LinkedIn</a>
-                  <a href="#" className="text-blue-600 hover:text-blue-700 font-medium transition-colors text-sm sm:text-base">Twitter</a>
+                  <p className="text-blue-600 font-medium">hello@leadvelocity.nl</p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-lg bg-gradient-to-br from-green-50 to-emerald-50 hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl flex items-center justify-center mr-4">
+                      <Phone className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900">Bel ons</h3>
+                      <p className="text-gray-600 text-sm">Ma-Vr 9:00-17:00</p>
+                    </div>
+                  </div>
+                  <p className="text-green-600 font-medium">+31 6 12345678</p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-50 to-violet-50 hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-violet-600 rounded-xl flex items-center justify-center mr-4">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900">Locatie</h3>
+                      <p className="text-gray-600 text-sm">Nederland</p>
+                    </div>
+                  </div>
+                  <p className="text-purple-600 font-medium">Amsterdam & Remote</p>
+                </CardContent>
+              </Card>
+
+              <div className="pt-6">
+                <h4 className="font-bold text-gray-900 mb-4">Volg ons</h4>
+                <div className="flex space-x-4">
+                  <a href="#" className="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white hover:shadow-lg transition-all duration-300">
+                    <span className="text-sm font-bold">Li</span>
+                  </a>
+                  <a href="#" className="w-10 h-10 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg flex items-center justify-center text-white hover:shadow-lg transition-all duration-300">
+                    <span className="text-sm font-bold">Tw</span>
+                  </a>
                 </div>
               </div>
             </div>
             
+            {/* Calendar Scheduler */}
             <div className="lg:col-span-1">
               <GoogleCalendarScheduler />
             </div>
             
+            {/* Contact Form */}
             <div className="lg:col-span-1">
-              <Card className="border-0 shadow-lg bg-white">
-                <CardContent className="p-6 sm:p-8">
-                  <h3 className="text-lg font-bold mb-4 text-gray-900">Stuur ons een bericht</h3>
-                  <form className="space-y-4 sm:space-y-6">
+              <Card className="border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <MessageSquare className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Stuur een bericht</h3>
+                    <p className="text-gray-600">We reageren binnen 24 uur</p>
+                  </div>
+                  
+                  <form className="space-y-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Naam</label>
-                      <input type="text" className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base" />
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Naam *</label>
+                      <input 
+                        type="text" 
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400" 
+                        placeholder="Uw volledige naam"
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Email</label>
-                      <input type="email" className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base" />
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                      <input 
+                        type="email" 
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400" 
+                        placeholder="uw.email@bedrijf.nl"
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Bedrijf</label>
-                      <input type="text" className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base" />
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Bedrijf</label>
+                      <input 
+                        type="text" 
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400" 
+                        placeholder="Uw bedrijfsnaam"
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Bericht</label>
-                      <textarea rows={4} className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"></textarea>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Bericht *</label>
+                      <textarea 
+                        rows={4} 
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400 resize-none" 
+                        placeholder="Vertel ons over uw uitdagingen en doelen..."
+                      ></textarea>
                     </div>
-                    <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 sm:py-4 shadow-lg">
+                    <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 shadow-lg hover:shadow-xl transition-all duration-300">
+                      <Mail className="mr-2 h-5 w-5" />
                       Verstuur Bericht
                     </Button>
                   </form>
@@ -393,10 +472,31 @@ const AIAutomation = () => {
               </Card>
             </div>
           </div>
+
+          {/* Trust Indicators */}
+          <div className="text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {[
+                { icon: <Shield className="h-6 w-6" />, text: "GDPR Compliant", color: "from-green-500 to-emerald-500" },
+                { icon: <Clock className="h-6 w-6" />, text: "24/7 Support", color: "from-blue-500 to-cyan-500" },
+                { icon: <Users className="h-6 w-6" />, text: "50+ Klanten", color: "from-purple-500 to-violet-500" },
+                { icon: <TrendingUp className="h-6 w-6" />, text: "400% ROI", color: "from-orange-500 to-red-500" }
+              ].map((item, index) => (
+                <div key={index} className="text-center p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                  <div className={`mb-3 mx-auto w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} flex items-center justify-center text-white shadow-lg`}>
+                    {item.icon}
+                  </div>
+                  <p className="font-semibold text-gray-800 text-sm">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default AIAutomation;
