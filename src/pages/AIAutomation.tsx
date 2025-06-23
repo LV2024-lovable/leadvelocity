@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -6,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, Zap, Calendar, Mail, Shield, Users, ArrowRight, Play, Brain, Workflow, Bot, Target, TrendingUp, Clock, Mic, MessageSquare, BarChart3, Settings, Database, Link2 } from 'lucide-react';
 import TypeWriter from '@/components/TypeWriter';
+import GoogleCalendarScheduler from '@/components/GoogleCalendarScheduler';
 
 const AIAutomation = () => {
   const scrollToSection = (sectionId: string) => {
@@ -361,10 +361,11 @@ const AIAutomation = () => {
 
       {/* Contact */}
       <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 sm:mb-20 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">We helpen je graag</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16">
-            <div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 sm:gap-16 mb-16">
+            <div className="lg:col-span-1">
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-900">Over ons team</h3>
               <p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
                 Wij zijn een team van AI-experts en productiviteitsspecialisten die gefrustreerd waren door inefficiënte vergaderingen en gemiste follow-ups. Onze missie is om professionals en teams te helpen hun tijd optimaal te benutten.
@@ -382,31 +383,39 @@ const AIAutomation = () => {
                 </div>
               </div>
             </div>
-            <Card className="border-0 shadow-lg bg-white">
-              <CardContent className="p-6 sm:p-8">
-                <form className="space-y-4 sm:space-y-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Naam</label>
-                    <input type="text" className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Email</label>
-                    <input type="email" className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Bedrijf</label>
-                    <input type="text" className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Bericht</label>
-                    <textarea rows={4} className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"></textarea>
-                  </div>
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 sm:py-4 shadow-lg">
-                    Verstuur Bericht
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            
+            <div className="lg:col-span-1">
+              <GoogleCalendarScheduler />
+            </div>
+            
+            <div className="lg:col-span-1">
+              <Card className="border-0 shadow-lg bg-white">
+                <CardContent className="p-6 sm:p-8">
+                  <h3 className="text-lg font-bold mb-4 text-gray-900">Stuur ons een bericht</h3>
+                  <form className="space-y-4 sm:space-y-6">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Naam</label>
+                      <input type="text" className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Email</label>
+                      <input type="email" className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Bedrijf</label>
+                      <input type="text" className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Bericht</label>
+                      <textarea rows={4} className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"></textarea>
+                    </div>
+                    <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 sm:py-4 shadow-lg">
+                      Verstuur Bericht
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
