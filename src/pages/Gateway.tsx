@@ -46,21 +46,21 @@ const Gateway = () => {
 
         {/* Right Side - AI Automations */}
         <div 
-          className="relative group cursor-pointer bg-gradient-to-bl from-gray-50 to-gray-100 hover:from-gray-800 hover:to-gray-900 transition-all duration-500 flex items-center justify-center p-8"
+          className="relative group cursor-pointer bg-gradient-to-bl from-blue-50 to-purple-50 hover:from-blue-600 hover:to-purple-600 transition-all duration-500 flex items-center justify-center p-8"
           onClick={() => navigate('/AI')}
         >
           <div className="text-center space-y-6 max-w-md">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 group-hover:text-white transition-colors duration-500">
               I'm looking for<br />
-              <span className="text-gray-800 group-hover:text-gray-300">AI Automations</span>
+              <span className="text-blue-600 group-hover:text-white">AI Automations</span>
             </h1>
-            <p className="text-lg text-gray-700 group-hover:text-gray-300 transition-colors duration-500">
+            <p className="text-lg text-gray-700 group-hover:text-white/90 transition-colors duration-500">
               I want to automate repetitive workflows
             </p>
             <Button 
               size="lg" 
               variant="outline"
-              className="group-hover:bg-white group-hover:text-gray-900 group-hover:border-white transition-all duration-500"
+              className="group-hover:bg-white group-hover:text-blue-600 group-hover:border-white transition-all duration-500"
             >
               Show me how
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -71,15 +71,6 @@ const Gateway = () => {
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
       </div>
-
-      {/* Mobile responsive improvements */}
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .grid-cols-1 > div {
-            min-height: 50vh;
-          }
-        }
-      `}</style>
     </div>
   );
 };
