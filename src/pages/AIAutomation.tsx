@@ -349,7 +349,7 @@ const AIAutomation = () => {
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
                     <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                   </div>
-                  <span className="text-gray-700 text-base sm:text-lg">hello@leadvelocity.nl</span>
+                  <span className="text-gray-700 text-base sm:text-lg">info@leadvelocity.nl</span>
                 </div>
                 <div className="flex space-x-4 sm:space-x-6">
                   <a href="#" className="text-blue-600 hover:text-blue-700 font-medium transition-colors text-sm sm:text-base">LinkedIn</a>
