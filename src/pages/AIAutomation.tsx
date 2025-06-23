@@ -1,23 +1,106 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, Zap, Calendar, Mail, Shield, Users, ArrowRight, Play, Brain, Workflow, Bot, Target, TrendingUp, Clock, Mic, MessageSquare, BarChart3, Settings, Database, Link2 } from 'lucide-react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { CheckCircle, Zap, Calendar, Mail, Shield, Users, ArrowRight, Play, Brain, Workflow, Bot, Target, TrendingUp, Clock, Mic, MessageSquare, BarChart3, Settings, Database, Link2, ChevronDown, Building2, Heart, FileText, Phone, CreditCard, UserCheck } from 'lucide-react';
 import TypeWriter from '@/components/TypeWriter';
+
 const AIAutomation = () => {
+  const [openIndustries, setOpenIndustries] = useState<string[]>([]);
+
+  const toggleIndustry = (industry: string) => {
+    setOpenIndustries(prev => 
+      prev.includes(industry) 
+        ? prev.filter(i => i !== industry)
+        : [...prev, industry]
+    );
+  };
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
+
+  const industries = [
+    {
+      id: 'consultancy',
+      name: 'Consultancy',
+      icon: <Users className="h-5 w-5" />,
+      workflows: [
+        'Automatische meeting summaries en actiepunten',
+        'Client onboarding via AI-gestuurde workflows',
+        'Kennisdatabase met AI-zoekfunctionaliteit',
+        'Tijdregistratie en facturatie-automatisering'
+      ]
+    },
+    {
+      id: 'saas',
+      name: 'SaaS',
+      icon: <Database className="h-5 w-5" />,
+      workflows: [
+        'Customer support chatbots met live escalatie',
+        'Onboarding sequences per gebruikersprofiel',
+        'Churn prediction en retentie campaigns',
+        'Feature request analyse en prioritering'
+      ]
+    },
+    {
+      id: 'ecommerce',
+      name: 'E-commerce',
+      icon: <BarChart3 className="h-5 w-5" />,
+      workflows: [
+        'Inventory management en voorraadwaarschuwingen',
+        'Gepersonaliseerde product aanbevelingen',
+        'Retour- en klachtafhandeling via AI',
+        'Dynamic pricing op basis van marktdata'
+      ]
+    },
+    {
+      id: 'finance',
+      name: 'Finance',
+      icon: <TrendingUp className="h-5 w-5" />,
+      workflows: [
+        'Automatische factuurverwerking en matching',
+        'Compliance monitoring en rapportage',
+        'Kredietbeoordeling via AI-algoritmes',
+        'Fraudedetectie in real-time transacties'
+      ]
+    },
+    {
+      id: 'government',
+      name: 'Government',
+      icon: <Building2 className="h-5 w-5" />,
+      workflows: [
+        'Automatische documentverwerking voor vergunningen en aanvragen',
+        'AI-chatbots voor burgerlijke vragen (24/7 service)',
+        'Procesautomatisering voor subsidieaanvragen',
+        'Digitale postverdeling en e-mail triage'
+      ]
+    },
+    {
+      id: 'healthcare',
+      name: 'Healthcare',
+      icon: <Heart className="h-5 w-5" />,
+      workflows: [
+        'Automatische verwerking van patiëntendossiers en formulieren',
+        'Afsprakenplanning via AI-agent (via e-mail of spraak)',
+        'Realtime triage op basis van intakeformulieren',
+        'Declaratieverwerking richting verzekeraars'
+      ]
+    }
+  ];
+
   return <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30">
       <Navbar />
       
@@ -79,16 +162,59 @@ const AIAutomation = () => {
             </Button>
           </div>
 
-          {/* Trust indicators */}
+          {/* Industry Showcase */}
           <div className="mt-12 sm:mt-20 animate-fade-in" style={{
           animationDelay: '0.6s'
         }}>
             <p className="text-gray-500 mb-6 sm:mb-8 text-base sm:text-lg">Vertrouwd door 50+ bedrijven in Nederland</p>
-            <div className="flex flex-wrap justify-center items-center gap-4 sm:space-x-8 opacity-60">
-              <div className="px-4 sm:px-6 py-2 sm:py-3 bg-white/80 rounded-lg text-gray-600 font-medium border border-gray-200/50 text-sm sm:text-base">Consultancy</div>
-              <div className="px-4 sm:px-6 py-2 sm:py-3 bg-white/80 rounded-lg text-gray-600 font-medium border border-gray-200/50 text-sm sm:text-base">SaaS</div>
-              <div className="px-4 sm:px-6 py-2 sm:py-3 bg-white/80 rounded-lg text-gray-600 font-medium border border-gray-200/50 text-sm sm:text-base">E-commerce</div>
-              <div className="px-4 sm:px-6 py-2 sm:py-3 bg-white/80 rounded-lg text-gray-600 font-medium border border-gray-200/50 text-sm sm:text-base">Finance</div>
+            <div className="max-w-4xl mx-auto space-y-4">
+              {industries.map((industry) => (
+                <Collapsible
+                  key={industry.id}
+                  open={openIndustries.includes(industry.id)}
+                  onOpenChange={() => toggleIndustry(industry.id)}
+                >
+                  <CollapsibleTrigger asChild>
+                    <div className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/80 rounded-lg text-gray-600 font-medium border border-gray-200/50 text-sm sm:text-base hover:bg-blue-50 hover:border-blue-300 transition-all duration-300 cursor-pointer flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="mr-3 text-blue-600">
+                          {industry.icon}
+                        </div>
+                        {industry.name}
+                      </div>
+                      <ChevronDown 
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          openIndustries.includes(industry.id) ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    </div>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="overflow-hidden transition-all duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                    <div className="mt-4 p-4 sm:p-6 bg-white/90 rounded-lg border border-gray-200/50 shadow-sm">
+                      <h4 className="font-semibold text-gray-800 mb-4 text-sm sm:text-base">
+                        Automatisering workflows voor {industry.name}:
+                      </h4>
+                      <ul className="space-y-2 sm:space-y-3 mb-6">
+                        {industry.workflows.map((workflow, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="h-4 w-4 text-blue-600 mr-3 flex-shrink-0 mt-1" />
+                            <span className="text-gray-700 text-xs sm:text-sm leading-relaxed">{workflow}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => scrollToSection('contact')}
+                        className="w-full sm:w-auto border-blue-300 text-blue-600 hover:bg-blue-50"
+                      >
+                        Bekijk alle mogelijkheden
+                        <ArrowRight className="ml-2 h-3 w-3" />
+                      </Button>
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+              ))}
             </div>
           </div>
         </div>
@@ -390,4 +516,5 @@ const AIAutomation = () => {
       <Footer />
     </div>;
 };
+
 export default AIAutomation;
