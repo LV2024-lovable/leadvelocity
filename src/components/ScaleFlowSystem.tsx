@@ -128,8 +128,8 @@ const ScaleFlowSystem = () => {
                     </div>
                   )}
                   
-                  <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${step.color} p-1 animate-fade-in group-hover:scale-105 transition-all duration-500`} style={{animationDelay: `${index * 0.15}s`}}>
-                    <div className="bg-white rounded-3xl p-8 h-full">
+                  <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${step.color} p-1 animate-fade-in group-hover:scale-105 transition-all duration-500 h-full`} style={{animationDelay: `${index * 0.15}s`}}>
+                    <div className="bg-white rounded-3xl p-8 h-full flex flex-col">
                       {/* Icon and Number */}
                       <div className="flex flex-col items-center mb-6">
                         <div className={`relative w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-xl group-hover:rotate-12 transition-transform duration-300`}>
@@ -142,10 +142,10 @@ const ScaleFlowSystem = () => {
                       
                       {/* Content */}
                       <h3 className="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-velocity-blue transition-colors duration-300">{step.title}</h3>
-                      <p className="text-gray-700 mb-6 text-sm leading-relaxed">{step.description}</p>
+                      <p className="text-gray-700 mb-6 text-sm leading-relaxed flex-grow">{step.description}</p>
                       
                       {/* Goal */}
-                      <div className={`${step.bgColor} ${step.textColor} p-4 rounded-xl border-2 border-current/20 mt-auto`}>
+                      <div className={`${step.bgColor} ${step.textColor} p-4 rounded-xl border-2 border-current/20`}>
                         <div className="flex items-start gap-2">
                           <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
                           <div>
