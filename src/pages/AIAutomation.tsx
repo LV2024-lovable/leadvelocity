@@ -372,53 +372,6 @@ const AIAutomation = () => {
         </div>
       </section>
 
-      {/* Integrations */}
-      <section id="integrations" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
-            Krachtige Integraties
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 text-center mb-12 sm:mb-16 max-w-3xl mx-auto leading-relaxed">
-            Verbind naadloos met meer dan 200+ tools en platforms. Van legacy systemen tot moderne SaaS-applicaties.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-12 sm:mb-16">
-            {[{
-            icon: <Calendar className="h-6 w-6 sm:h-8 sm:w-8" />,
-            title: "Agenda & Planning",
-            tools: ["Google Calendar", "Outlook Calendar", "Calendly", "Notion Calendar"]
-          }, {
-            icon: <MessageSquare className="h-6 w-6 sm:h-8 sm:w-8" />,
-            title: "Communicatie",
-            tools: ["Slack", "Microsoft Teams", "Zoom", "Discord"]
-          }, {
-            icon: <Database className="h-6 w-6 sm:h-8 sm:w-8" />,
-            title: "CRM & Projecten",
-            tools: ["HubSpot", "Salesforce", "Notion", "Asana", "Trello"]
-          }].map((category, index) => <Card key={index} className="border-0 shadow-lg text-center bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6 sm:p-8">
-                  <div className="mb-4 sm:mb-6 inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl text-blue-600">
-                    {category.icon}
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-gray-900">{category.title}</h3>
-                  <div className="space-y-2 sm:space-y-3">
-                    {category.tools.map((tool, idx) => <div key={idx} className="bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-xs sm:text-sm text-gray-700 font-medium border border-gray-200/50">
-                        {tool}
-                      </div>)}
-                  </div>
-                </CardContent>
-              </Card>)}
-          </div>
-
-          <div className="text-center">
-            <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 opacity-70">
-              {['API-ready', 'Zapier Compatible', 'n8n Support', 'RPA Extensions', 'Webhook Triggers', 'Custom Connectors'].map(feature => <div key={feature} className="bg-white/80 px-3 sm:px-6 py-2 sm:py-3 rounded-lg shadow-sm border border-gray-200/50 text-gray-700 font-medium backdrop-blur-sm text-xs sm:text-sm">
-                  {feature}
-                </div>)}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Testimonials */}
       <section id="testimonials" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
