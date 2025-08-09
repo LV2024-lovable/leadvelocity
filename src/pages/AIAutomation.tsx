@@ -452,7 +452,7 @@ const AIAutomation = () => {
             <div>
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-900">Over ons team</h3>
               <p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
-                Wij zijn een team van AI-experts en productiviteitsspecialisten die gefrustreerd waren door inefficiënte vergaderingen en gemiste follow-ups. Onze missie is om professionals en teams te helpen hun tijd optimaal te benutten.
+                Wij zijn gespecialiseerd in AI-oplossingen voor salons en horeca. Als ondernemers zelf weten we hoe frustrerend gemiste telefoontjes en no-shows kunnen zijn. Onze missie is om salon- en horeca-eigenaren te helpen meer tijd te besteden aan hun klanten in plaats van aan de telefoon.
               </p>
               <div className="space-y-4 sm:space-y-6">
                 <div className="flex items-center">
