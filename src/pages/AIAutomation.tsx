@@ -3,21 +3,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { CheckCircle, Zap, Calendar, Mail, Shield, Users, ArrowRight, Play, Brain, Workflow, Bot, Target, TrendingUp, Clock, Mic, MessageSquare, BarChart3, Settings, Database, Link2, ChevronDown, Building2, Heart, FileText, Phone, CreditCard, UserCheck } from 'lucide-react';
+import { CheckCircle, Users, ArrowRight, Phone, Calendar, Mail, Clock, MessageSquare, Scissors, Utensils, Star, CheckCircle2, Shield, Settings, BarChart3, Target, Mic, Database } from 'lucide-react';
 import TypeWriter from '@/components/TypeWriter';
+import { ContactForm } from '@/components/contact/ContactForm';
 
 const AIAutomation = () => {
-  const [openIndustries, setOpenIndustries] = useState<string[]>([]);
-
-  const toggleIndustry = (industry: string) => {
-    setOpenIndustries(prev => 
-      prev.includes(industry) 
-        ? [] // Close if already open
-        : [industry] // Open only this one, close all others
-    );
-  };
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({
@@ -25,79 +15,65 @@ const AIAutomation = () => {
     });
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  const howItWorksSteps = [
+    {
+      number: "01",
+      title: "AI neemt de telefoon op",
+      description: "Belt een klant? De agent begroet professioneel, stelt slimme vragen en herkent intenties (boeken, wijzigen, annuleren).",
+      icon: <Phone className="h-8 w-8" />,
+      color: "from-blue-500 to-indigo-500"
+    },
+    {
+      number: "02", 
+      title: "Plant in jouw systeem",
+      description: "We koppelen met je reserverings-/afsprakensysteem. De agent boekt realtime de juiste dienst/tafel/tijd.",
+      icon: <Calendar className="h-8 w-8" />,
+      color: "from-indigo-500 to-purple-500"
+    },
+    {
+      number: "03",
+      title: "Bevestiging & reminders", 
+      description: "Klant ontvangt automatisch bevestiging en optionele reminder. Minder no-shows, meer tevreden klanten.",
+      icon: <Mail className="h-8 w-8" />,
+      color: "from-purple-500 to-pink-500"
+    }
+  ];
 
-  const industries = [
+  const features = [
+    "24/7 telefonische bereikbaarheid",
+    "Automatische bevestigingen (sms/WhatsApp/e-mail)",
+    "Meertalig (NL/EN; uitbreidbaar)",
+    "Slimme no-show-reducerende reminders",
+    "Optionele pre-payment/aanbetaling",
+    "Rapportages & basis-analytics",
+    "Integraties via open API's",
+    "Uitbreidbaar met extra agents"
+  ];
+
+  const faqItems = [
     {
-      id: 'consultancy',
-      name: 'Consultancy',
-      icon: <Users className="h-5 w-5" />,
-      workflows: [
-        'Automatische meeting summaries en actiepunten',
-        'Client onboarding via AI-gestuurde workflows',
-        'Kennisdatabase met AI-zoekfunctionaliteit',
-        'Tijdregistratie en facturatie-automatisering'
-      ]
+      question: "Werkt dit met mijn salon- of horeca-systeem?",
+      answer: "Ja, in de meeste gevallen via API/partnerkoppeling. We checken dit vooraf tijdens de onboarding."
     },
     {
-      id: 'saas',
-      name: 'SaaS',
-      icon: <Database className="h-5 w-5" />,
-      workflows: [
-        'Customer support chatbots met live escalatie',
-        'Onboarding sequences per gebruikersprofiel',
-        'Churn prediction en retentie campaigns',
-        'Feature request analyse en prioritering'
-      ]
+      question: "Welke talen ondersteunt de agent?",
+      answer: "Standaard Nederlands en Engels. Extra talen zijn beschikbaar op aanvraag."
     },
     {
-      id: 'ecommerce',
-      name: 'E-commerce',
-      icon: <BarChart3 className="h-5 w-5" />,
-      workflows: [
-        'Inventory management en voorraadwaarschuwingen',
-        'Gepersonaliseerde product aanbevelingen',
-        'Retour- en klachtafhandeling via AI',
-        'Dynamic pricing op basis van marktdata'
-      ]
+      question: "Hoe gaan bevestigingen/reminders eruit?",
+      answer: "Per sms/WhatsApp/e-mail met afspraakdetails, volledig in jouw huisstijl gebranded."
     },
     {
-      id: 'finance',
-      name: 'Finance',
-      icon: <TrendingUp className="h-5 w-5" />,
-      workflows: [
-        'Automatische factuurverwerking en matching',
-        'Compliance monitoring en rapportage',
-        'Kredietbeoordeling via AI-algoritmes',
-        'Fraudedetectie in real-time transacties'
-      ]
+      question: "Hoe snel kan ik live?",
+      answer: "Gemiddeld binnen 1-2 weken, afhankelijk van je koppelingen en systeem setup."
     },
     {
-      id: 'government',
-      name: 'Government',
-      icon: <Building2 className="h-5 w-5" />,
-      workflows: [
-        'Automatische documentverwerking voor vergunningen en aanvragen',
-        'AI-chatbots voor burgerlijke vragen (24/7 service)',
-        'Procesautomatisering voor subsidieaanvragen',
-        'Digitale postverdeling en e-mail triage'
-      ]
+      question: "Is het AVG-proof?",
+      answer: "Ja. We verwerken alleen noodzakelijke data en sluiten een verwerkersovereenkomst af."
     },
     {
-      id: 'healthcare',
-      name: 'Healthcare',
-      icon: <Heart className="h-5 w-5" />,
-      workflows: [
-        'Automatische verwerking van patiëntendossiers en formulieren',
-        'Afsprakenplanning via AI-agent (via e-mail of spraak)',
-        'Realtime triage op basis van intakeformulieren',
-        'Declaratieverwerking richting verzekeraars'
-      ]
+      question: "Wat als een klant een complexe vraag heeft?",
+      answer: "De agent herkent uitzonderingen en kan doorschakelen of een taak aanmaken voor opvolging."
     }
   ];
 
@@ -109,225 +85,244 @@ const AIAutomation = () => {
         <div className="max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent leading-tight">
-              <TypeWriter text="Automatiseer uw complete workflow met AI" speed={80} />
+              <TypeWriter text="Laat AI al je afspraken en reserveringen regelen — 24/7, zonder wachtrij" speed={80} />
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-12 sm:mb-16 max-w-4xl mx-auto leading-relaxed px-4">Stop met tijd verspillen en laat AI uw workflow verbeteren en verhoog uw productiviteit met 400%.</p>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-12 sm:mb-16 max-w-4xl mx-auto leading-relaxed px-4">
+              Onze voice agent neemt de telefoon op, plant afspraken in jouw systeem en stuurt direct een bevestiging. Jij focust op je klanten; wij op je planning.
+            </p>
           </div>
 
           {/* Key Benefits */}
-          <div className="mb-12 sm:mb-20 animate-fade-in" style={{
-          animationDelay: '0.2s'
-        }}>
+          <div className="mb-12 sm:mb-20 animate-fade-in" style={{animationDelay: '0.2s'}}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-8 max-w-6xl mx-auto">
-              {[{
-              icon: <Bot className="h-4 w-4 sm:h-8 sm:w-8" />,
-              text: "AI Agents",
-              desc: "Intelligente assistenten",
-              color: "from-blue-500 to-indigo-500"
-            }, {
-              icon: <Workflow className="h-4 w-4 sm:h-8 sm:w-8" />,
-              text: "Automation",
-              desc: "Slimme workflows",
-              color: "from-indigo-500 to-purple-500"
-            }, {
-              icon: <Mic className="h-4 w-4 sm:h-8 sm:w-8" />,
-              text: "Voice to Action",
-              desc: "Spraak naar taken",
-              color: "from-blue-600 to-cyan-500"
-            }, {
-              icon: <Link2 className="h-4 w-4 sm:h-8 sm:w-8" />,
-              text: "Integraties",
-              desc: "200+ Verbindingen",
-              color: "from-blue-500 to-teal-500"
-            }].map((benefit, index) => <div key={index} className="text-center p-3 sm:p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+              {[
+                {
+                  icon: <Phone className="h-4 w-4 sm:h-8 sm:w-8" />,
+                  text: "Geen gemiste calls",
+                  desc: "24/7 bereikbaar",
+                  color: "from-blue-500 to-indigo-500"
+                },
+                {
+                  icon: <Calendar className="h-4 w-4 sm:h-8 sm:w-8" />,
+                  text: "Minder no-shows",
+                  desc: "Slimme reminders",
+                  color: "from-indigo-500 to-purple-500"
+                },
+                {
+                  icon: <Mail className="h-4 w-4 sm:h-8 sm:w-8" />,
+                  text: "Directe bevestiging",
+                  desc: "SMS/WhatsApp/email",
+                  color: "from-blue-600 to-cyan-500"
+                },
+                {
+                  icon: <Clock className="h-4 w-4 sm:h-8 sm:w-8" />,
+                  text: "Tijd besparen",
+                  desc: "Uren per week terug",
+                  color: "from-blue-500 to-teal-500"
+                }
+              ].map((benefit, index) => (
+                <div key={index} className="text-center p-3 sm:p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-lg transition-all duration-300">
                   <div className={`mb-2 sm:mb-6 mx-auto w-8 h-8 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${benefit.color} flex items-center justify-center text-white shadow-lg`}>
                     {benefit.icon}
                   </div>
                   <h3 className="font-semibold text-gray-800 mb-1 sm:mb-2 text-sm sm:text-lg">{benefit.text}</h3>
                   <p className="text-gray-600 text-xs sm:text-base">{benefit.desc}</p>
-                </div>)}
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in px-4" style={{
-          animationDelay: '0.4s'
-        }}>
-            <Button size="lg" onClick={() => scrollToSection('testimonials')} className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold shadow-lg">
-              <Users className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-              Bekijk Ervaringen
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => scrollToSection('contact')} className="w-full sm:w-auto border-2 border-gray-300 hover:border-blue-500 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold hover:bg-blue-50 transition-all">
-              Start Automatiseren
-              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </Button>
-          </div>
-
-          {/* Industry Showcase */}
-          <div className="mt-12 sm:mt-20 animate-fade-in" style={{
-          animationDelay: '0.6s'
-        }}>
-            <p className="text-gray-500 mb-6 sm:mb-8 text-base sm:text-lg">Vertrouwd door 50+ bedrijven in Nederland</p>
-            <div className="max-w-4xl mx-auto space-y-4">
-              {industries.map((industry) => (
-                <Collapsible
-                  key={industry.id}
-                  open={openIndustries.includes(industry.id)}
-                  onOpenChange={() => toggleIndustry(industry.id)}
-                >
-                  <CollapsibleTrigger asChild>
-                    <div className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/80 rounded-lg text-gray-600 font-medium border border-gray-200/50 text-sm sm:text-base hover:bg-blue-50 hover:border-blue-300 transition-all duration-300 cursor-pointer flex items-center justify-between">
-                      <div className="flex items-center">
-                        <div className="mr-3 text-blue-600">
-                          {industry.icon}
-                        </div>
-                        {industry.name}
-                      </div>
-                      <ChevronDown 
-                        className={`h-4 w-4 transition-transform duration-200 ${
-                          openIndustries.includes(industry.id) ? 'rotate-180' : ''
-                        }`} 
-                      />
-                    </div>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="overflow-hidden transition-all duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                    <div className="mt-4 p-4 sm:p-6 bg-white/90 rounded-lg border border-gray-200/50 shadow-sm">
-                      <h4 className="font-semibold text-gray-800 mb-4 text-sm sm:text-base">
-                        Automatisering workflows voor {industry.name}:
-                      </h4>
-                      <ul className="space-y-2 sm:space-y-3 mb-6">
-                        {industry.workflows.map((workflow, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-blue-600 mr-3 flex-shrink-0 mt-1" />
-                            <span className="text-gray-700 text-xs sm:text-sm leading-relaxed">{workflow}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={() => scrollToSection('contact')}
-                        className="w-full sm:w-auto border-blue-300 text-blue-600 hover:bg-blue-50"
-                      >
-                        Bekijk alle mogelijkheden
-                        <ArrowRight className="ml-2 h-3 w-3" />
-                      </Button>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
+                </div>
               ))}
             </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in px-4" style={{animationDelay: '0.4s'}}>
+            <Button size="lg" onClick={() => scrollToSection('contact')} className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold shadow-lg">
+              <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+              Plan een gratis demo
+            </Button>
+            <Button size="lg" variant="outline" onClick={() => scrollToSection('how-it-works')} className="w-full sm:w-auto border-2 border-gray-300 hover:border-blue-500 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold hover:bg-blue-50 transition-all">
+              Bekijk hoe het werkt
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Problems Section */}
+      {/* Target Groups Section */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
-              Herkenbare uitdagingen die we oplossen
+              Speciaal voor salons & horeca
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Inefficiënte processen kosten tijd en geld. WorkflowAI elimineert deze frustraties met intelligente automatisering.
+              AI die begrijpt wat jouw branche nodig heeft
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-16">
-            {[{
-            problem: "Vergaderingen zonder opvolging",
-            solution: "Automatische samenvattingen en actiepunten"
-          }, {
-            problem: "Handmatig e-mail beheer",
-            solution: "AI drafts en slimme inbox-organisatie"
-          }, {
-            problem: "Gefragmenteerde tools en data",
-            solution: "Naadloze integraties tussen alle systemen"
-          }, {
-            problem: "Repetitieve taken en processen",
-            solution: "Volledig geautomatiseerde workflows"
-          }].map((item, index) => <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6 sm:p-8">
-                  <div className="mb-4 text-red-600 font-medium flex items-start">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                    <span className="text-sm sm:text-base">{item.problem}</span>
-                  </div>
-                  <div className="text-blue-600 font-medium flex items-start">
-                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-3 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm sm:text-base">{item.solution}</span>
-                  </div>
-                </CardContent>
-              </Card>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Core Features */}
-      <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 sm:mb-20 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
-            Vier Krachtige Modules
-          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-            {[{
-            icon: <Brain className="h-8 w-8 sm:h-12 sm:w-12" />,
-            title: "AI Agents",
-            subtitle: "Intelligente agents die luisteren, redeneren en handelen",
-            features: ["Meeting assistant - samenvattingen, taken, follow-ups", "Inbox agent - e-mail drafts en thread management", "CRM & onboarding agents - gepersonaliseerde workflows"],
-            gradient: "from-blue-500 to-indigo-500"
-          }, {
-            icon: <Workflow className="h-8 w-8 sm:h-12 sm:w-12" />,
-            title: "Workflow Automation",
-            subtitle: "Trigger-gebaseerde taakstromen tussen tools",
-            features: ["Kalender → taak → herinnering automatisering", "Auto-routing op basis van context en team", "Wekelijkse rapporten en goedkeuringen door AI"],
-            gradient: "from-indigo-500 to-purple-500"
-          }, {
-            icon: <Mic className="h-8 w-8 sm:h-12 sm:w-12" />,
-            title: "Voice to Action",
-            subtitle: "Van spraakopnames naar gestructureerde uitkomsten",
-            features: ["Transcriptie → Samenvatting → Actiepunten", "Live vergaderingen naar concrete taken", "Spraakopdrachten voor follow-ups en planning"],
-            gradient: "from-blue-600 to-cyan-500"
-          }, {
-            icon: <Link2 className="h-8 w-8 sm:h-12 sm:w-12" />,
-            title: "Integraties & Ecosystem",
-            subtitle: "Naadloze verbindingen met al uw tools",
-            features: ["Google Calendar, Outlook, Slack, Notion, CRM", "API-ready en Zapier/n8n compatibel", "RPA-extensies voor legacy workflows"],
-            gradient: "from-blue-500 to-teal-500"
-          }].map((feature, index) => <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] overflow-hidden bg-white">
-                <CardContent className="p-6 sm:p-8 relative">
-                  <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${feature.gradient}`}></div>
-                  <div className={`mb-4 sm:mb-6 inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r ${feature.gradient} rounded-2xl text-white shadow-lg`}>
-                    {feature.icon}
+            {/* Salons Block */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center text-white shadow-lg mr-4">
+                    <Scissors className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">{feature.title}</h3>
-                  <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-base sm:text-lg">{feature.subtitle}</p>
-                  <ul className="space-y-3 sm:space-y-4">
-                    {feature.features.map((item, idx) => <li key={idx} className="flex items-start">
-                        <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 mr-3 flex-shrink-0 mt-1" />
-                        <span className="text-gray-700 text-sm sm:text-base">{item}</span>
-                      </li>)}
-                  </ul>
-                </CardContent>
-              </Card>)}
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">Voor salons die tijd willen winnen</h3>
+                    <p className="text-gray-600">Kapsalon • Nagelstudio • Beauty</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  AI neemt de telefoon op, plant afspraken (knippen, kleuren, mani/pedi, behandelingen), 
+                  stuurt bevestigingen en reminders — volledig automatisch.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Horeca Block */}
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white shadow-lg mr-4">
+                    <Utensils className="h-8 w-8" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">Voor horeca die nooit een reservering wil missen</h3>
+                    <p className="text-gray-600">Restaurant • Café • Bar</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  Onze agent verwerkt inkomende telefoontjes, checkt beschikbaarheid, 
+                  maakt/annuleert/wijzigt reserveringen en verstuurt direct een bevestiging.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Live Demo Section */}
-      <section id="demo" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
-            Ervaar Voice to Action Live
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 text-center mb-12 sm:mb-16 max-w-3xl mx-auto leading-relaxed">Zie hoe onze AI spraak omzet in concrete acties.</p>
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
+              Zo werkt het
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Van telefoontje tot bevestiging in drie simpele stappen
+            </p>
+          </div>
           
-          <div className="relative max-w-5xl mx-auto animate-fade-in">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 blur-3xl"></div>
-            <div className="relative bg-white rounded-3xl p-2 sm:p-3 shadow-2xl border border-gray-200/50">
-              <iframe src="https://preview--whisper-and-act.lovable.app" className="w-full h-64 sm:h-96 md:h-[500px] rounded-2xl border-0" title="Voice to Action Demo" />
-              <div className="absolute top-4 sm:top-6 left-4 sm:left-6 bg-red-500 rounded-full w-2 h-2 sm:w-3 sm:h-3"></div>
-              <div className="absolute top-4 sm:top-6 left-7 sm:left-11 bg-yellow-500 rounded-full w-2 h-2 sm:w-3 sm:h-3"></div>
-              <div className="absolute top-4 sm:top-6 left-10 sm:left-16 bg-green-500 rounded-full w-2 h-2 sm:w-3 sm:h-3"></div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+            {howItWorksSteps.map((step, index) => (
+              <div key={index} className="text-center group">
+                <div className="relative mb-8">
+                  <div className={`w-20 h-20 mx-auto bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {step.icon}
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                    {step.number}
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
+              Alles wat je nodig hebt
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Speciaal ontwikkeld voor salons en horeca
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {features.map((feature, index) => (
+              <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                <CardContent className="p-6 text-center">
+                  <CheckCircle2 className="h-8 w-8 text-blue-600 mx-auto mb-4" />
+                  <p className="text-gray-700 font-medium">{feature}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Integration Trust Section */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
+            Integraties
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Werkt met populaire salon- en horeca-systemen via API/partnerkoppelingen. 
+            Tijdens de onboarding checken we jouw systeem en zetten we de snelste, stabielste koppeling op.
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+            {["Salonsoftware", "Reserveringssystemen", "POS/Kassa", "Agenda-apps", "CRM"].map((category, index) => (
+              <div key={index} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <p className="text-gray-700 font-medium text-sm">{category}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Social Proof & Results Section */}
+      <section id="testimonials" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
+              Bewezen resultaten
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Wat onze klanten bereiken met AI telefonie
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-16">
+            {[
+              {
+                stat: "+30%",
+                description: "meer afspraken buiten piekuren",
+                icon: <BarChart3 className="h-8 w-8" />
+              },
+              {
+                stat: "0",
+                description: "gemiste telefoontjes meer",
+                icon: <Phone className="h-8 w-8" />
+              },
+              {
+                stat: "5+ uur",
+                description: "per week terug voor je team",
+                icon: <Clock className="h-8 w-8" />
+              }
+            ].map((result, index) => (
+              <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 text-center">
+                <CardContent className="p-8">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-6">
+                    {result.icon}
+                  </div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{result.stat}</div>
+                  <p className="text-gray-600">{result.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <Button size="lg" onClick={() => scrollToSection('contact')} className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 text-lg font-semibold shadow-lg">
+              <Calendar className="mr-2 h-5 w-5" />
+              Plan een gratis demo
+            </Button>
           </div>
         </div>
       </section>

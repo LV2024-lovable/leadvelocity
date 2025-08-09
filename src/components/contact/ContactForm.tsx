@@ -18,11 +18,13 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  company: z.string().optional(),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  phone: z.string().optional(),
-  message: z.string().min(10, { message: "Message must be at least 10 characters" })
+  name: z.string().min(2, { message: "Naam moet minimaal 2 karakters hebben" }),
+  business: z.string().min(2, { message: "Bedrijfsnaam is verplicht" }),
+  email: z.string().email({ message: "Voer een geldig e-mailadres in" }),
+  phone: z.string().min(10, { message: "Telefoon is verplicht voor demo planning" }),
+  branch: z.enum(["salon", "horeca"], { message: "Selecteer uw branche" }),
+  current_system: z.string().optional(),
+  message: z.string().min(10, { message: "Bericht moet minimaal 10 karakters hebben" })
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -36,9 +38,11 @@ export const ContactForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
-      company: '',
+      business: '',
       email: '',
       phone: '',
+      branch: undefined,
+      current_system: '',
       message: ''
     }
   });
@@ -55,10 +59,10 @@ export const ContactForm = () => {
         .from('Form_submissions')
         .insert({
           Name: data.name,
-          company: data.company || null,
+          company: data.business,
           email: data.email,
           phone: data.phone ? Number(data.phone) : null,
-          Message: data.message
+          Message: `Branche: ${data.branch}\nHuidig systeem: ${data.current_system || 'Niet opgegeven'}\n\n${data.message}`
         });
 
       if (dbError) {
@@ -103,16 +107,16 @@ export const ContactForm = () => {
       }
 
       toast({
-        title: "Message sent!",
-        description: "Thank you for contacting us. We'll get back to you soon."
+        title: "Demo aanvraag verzonden!",
+        description: "Bedankt voor je interesse. We nemen binnen 24 uur contact op voor je demo."
       });
       form.reset();
     } catch (error: any) {
       console.error('Form submission error:', error);
       setDebugInfo(prev => (prev || '') + `\nGeneral Error: ${error.message}`);
       toast({
-        title: "Submission failed",
-        description: "There was an error submitting your message. Please try again.",
+        title: "Verzending mislukt",
+        description: "Er is een fout opgetreden. Probeer het opnieuw of bel ons direct.",
         variant: "destructive"
       });
     } finally {
@@ -122,7 +126,7 @@ export const ContactForm = () => {
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
-      <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
+      <h3 className="text-2xl font-bold mb-6 text-gray-900">Plan je gratis demo</h3>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -131,9 +135,9 @@ export const ContactForm = () => {
               name="name"
               render={({ field }) => (
                 <FormItem className="space-y-2">
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Naam *</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your name" {...field} />
+                    <Input placeholder="Je naam" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -141,12 +145,12 @@ export const ContactForm = () => {
             />
             <FormField
               control={form.control}
-              name="company"
+              name="business"
               render={({ field }) => (
                 <FormItem className="space-y-2">
-                  <FormLabel>Company</FormLabel>
+                  <FormLabel>Bedrijfsnaam *</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your company" {...field} />
+                    <Input placeholder="Naam van je salon/restaurant" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -160,9 +164,9 @@ export const ContactForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem className="space-y-2">
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>E-mail *</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="Your email" {...field} />
+                    <Input type="email" placeholder="je@bedrijf.nl" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -173,9 +177,45 @@ export const ContactForm = () => {
               name="phone"
               render={({ field }) => (
                 <FormItem className="space-y-2">
-                  <FormLabel>Phone</FormLabel>
+                  <FormLabel>Telefoon *</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your phone number" {...field} />
+                    <Input placeholder="06 12345678" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="branch"
+              render={({ field }) => (
+                <FormItem className="space-y-2">
+                  <FormLabel>Branche *</FormLabel>
+                  <FormControl>
+                    <select 
+                      {...field} 
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      <option value="">Selecteer branche</option>
+                      <option value="salon">Salon (kapper/nagels/beauty)</option>
+                      <option value="horeca">Horeca (restaurant/café/bar)</option>
+                    </select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="current_system"
+              render={({ field }) => (
+                <FormItem className="space-y-2">
+                  <FormLabel>Huidig systeem</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Welk systeem gebruik je nu?" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -188,18 +228,22 @@ export const ContactForm = () => {
             name="message"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel>Message</FormLabel>
+                <FormLabel>Bericht</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="How can we help you?" rows={4} {...field} />
+                  <Textarea placeholder="Vertel ons over je uitdagingen met telefonie en afspraken..." rows={4} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
           
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+          <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700" disabled={isSubmitting}>
+            {isSubmitting ? 'Demo wordt aangevraagd...' : 'Plan gratis demo'}
           </Button>
+          
+          <p className="text-xs text-gray-500 text-center">
+            Door dit formulier in te vullen ga je akkoord met onze AVG-voorwaarden
+          </p>
           
           {debugInfo && (
             <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded text-sm">
