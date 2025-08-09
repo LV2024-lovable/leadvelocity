@@ -21,7 +21,7 @@ const WhatsAppChat = () => {
         <div className="mb-4 bg-white rounded-xl shadow-lg border border-gray-200 p-4 w-80 animate-fade-in">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mr-3">
                 <MessageCircle className="h-5 w-5 text-white" />
               </div>
               <div>
@@ -48,7 +48,7 @@ const WhatsAppChat = () => {
           
           <Button 
             onClick={handleWhatsAppClick}
-            className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
           >
             <MessageCircle className="mr-2 h-4 w-4" />
             Start WhatsApp chat
@@ -59,7 +59,7 @@ const WhatsAppChat = () => {
       {/* WhatsApp button */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-14 w-14 rounded-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+        className="h-14 w-14 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
       >
         {isOpen ? (
           <X className="h-6 w-6" />
