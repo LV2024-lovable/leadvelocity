@@ -28,17 +28,17 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#services" className="text-gray-700 hover:text-velocity-blue transition-colors">
-            Services
+          <a href="#how-it-works" className="text-gray-700 hover:text-velocity-blue transition-colors">
+            Hoe het werkt
           </a>
-          <a href="#about" className="text-gray-700 hover:text-velocity-blue transition-colors">
-            About Us
+          <a href="#features" className="text-gray-700 hover:text-velocity-blue transition-colors">
+            Functies
           </a>
-          <a href="#results" className="text-gray-700 hover:text-velocity-blue transition-colors">
-            Results
+          <a href="#testimonials" className="text-gray-700 hover:text-velocity-blue transition-colors">
+            Resultaten
           </a>
           <Button asChild>
-            <a href="#contact">Contact Us</a>
+            <a href="#contact">Plan demo</a>
           </Button>
         </div>
 
@@ -53,16 +53,19 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-md animate-fade-in">
           <div className="container py-4 flex flex-col space-y-4">
-            <a href="#services" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-velocity-blue transition-colors py-2">
-              Services
+            <a href="#how-it-works" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-velocity-blue transition-colors py-2">
+              Hoe het werkt
             </a>
-            <a href="#about" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-velocity-blue transition-colors py-2">
-              About Us
+            <a href="#features" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-velocity-blue transition-colors py-2">
+              Functies
+            </a>
+            <a href="#testimonials" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-velocity-blue transition-colors py-2">
+              Resultaten
             </a>
             
             <Button asChild className="w-full">
               <a href="#contact" onClick={() => setIsOpen(false)}>
-                Contact Us
+                Plan demo
               </a>
             </Button>
           </div>
