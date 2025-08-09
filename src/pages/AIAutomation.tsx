@@ -335,21 +335,21 @@ const AIAutomation = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             {[{
-            title: "Meeting Assistant Workflow",
-            steps: ["AI luistert live mee tijdens vergaderingen", "Genereert automatisch gestructureerde samenvattingen", "Extraheert actiepunten en deadlines", "Verstuurt follow-up emails naar deelnemers", "Plant vervolgafspraken in agenda's"],
+            title: "Afspraak Inplannen Agent",
+            steps: ["Neemt telefoontjes 24/7 professioneel op", "Checkt realtime beschikbaarheid in jouw agenda", "Plant afspraken voor knippen, kleuren, behandelingen", "Stuurt directe bevestiging via SMS/WhatsApp", "Verstuurt automatische reminders"],
             icon: <Calendar className="h-6 w-6 sm:h-8 sm:w-8" />
           }, {
-            title: "Inbox Agent Automation",
-            steps: ["Analyseert inkomende emails per thread", "Categoriseert berichten op urgentie en type", "Drafts intelligente antwoorden in jouw stijl", "Escaleert belangrijke berichten naar je aandacht", "Archiveert en labelt automatisch"],
+            title: "Review Generatie Agent", 
+            steps: ["Detecteert voltooide afspraken automatisch", "Verstuurt gepersonaliseerde review-verzoeken", "Genereert positieve review-templates", "Volgt review-responses en bedankt klanten", "Analyseert feedback voor verbeteringen"],
+            icon: <Star className="h-6 w-6 sm:h-8 sm:w-8" />
+          }, {
+            title: "Agenda & Mail Inbox Agent",
+            steps: ["Synchroniseert afspraken tussen systemen", "Beheert agenda-wijzigingen en annuleringen", "Analyseert inkomende emails per prioriteit", "Drafts professionele antwoorden in jouw stijl", "Escaleert urgente berichten direct"],
             icon: <Mail className="h-6 w-6 sm:h-8 sm:w-8" />
           }, {
             title: "CRM & Onboarding Agent",
-            steps: ["Detecteert nieuwe leads en klanten automatisch", "Personaliseert onboarding-workflows per profiel", "Synchroniseert data tussen CRM en tools", "Triggert gepaste communicatie op timing", "Rapporteert progress en bottlenecks"],
+            steps: ["Registreert nieuwe klanten automatisch", "Verzamelt klantvoorkeuren en historie", "Verstuurt welkomstberichten en instructies", "Onderhoudt klantprofielen en notities", "Genereert loyaliteit en retentie-acties"],
             icon: <Target className="h-6 w-6 sm:h-8 sm:w-8" />
-          }, {
-            title: "Voice Command System",
-            steps: ["Luistert naar natuurlijke spraakopdrachten", "Interpreteert intentie en context slim", "Voert acties uit in verbonden systemen", "Bevestigt voltooiing met feedback", "Leert van gebruikerspatronen voor optimalisatie"],
-            icon: <Mic className="h-6 w-6 sm:h-8 sm:w-8" />
           }].map((workflow, index) => <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                 <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center mb-6 sm:mb-8">
