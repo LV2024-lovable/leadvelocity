@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, Users, ArrowRight, Phone, Calendar, Mail, Clock, MessageSquare, Scissors, Utensils, Star, CheckCircle2, Shield, Settings, BarChart3, Target, Mic, Database } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import TypeWriter from '@/components/TypeWriter';
+import WhatsAppChat from '@/components/WhatsAppChat';
 import { ContactForm } from '@/components/contact/ContactForm';
 
 const AIAutomation = () => {
@@ -498,6 +499,7 @@ const AIAutomation = () => {
       </section>
       
       <Footer />
+      <WhatsAppChat />
     </div>;
 };
 
