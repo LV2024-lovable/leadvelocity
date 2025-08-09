@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, Users, ArrowRight, Phone, Calendar, Mail, Clock, MessageSquare, Scissors, Utensils, Star, CheckCircle2, Shield, Settings, BarChart3, Target, Mic, Database } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import TypeWriter from '@/components/TypeWriter';
 import { ContactForm } from '@/components/contact/ContactForm';
 
@@ -375,56 +376,71 @@ const AIAutomation = () => {
 
       {/* Testimonials */}
       <section id="testimonials" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 sm:mb-20 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
             Wat onze klanten zeggen
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[{
-            quote: "Geen gemiste telefoontjes meer! De AI agent plant alle afspraken perfect in en mijn klanten krijgen meteen een bevestiging. Bespaar minstens 2 uur per dag.",
-            author: "Sandra Bakker",
-            role: "Eigenaar, Salon Sandra",
-            avatar: "SB"
-          }, {
-            quote: "Als drukke kapsalon hadden we constant het probleem van no-shows. De automatische reminders hebben dit met 60% verminderd. Fantastisch!",
-            author: "Marco van Dijk", 
-            role: "Kapsalon Marco",
-            avatar: "MD"
-          }, {
-            quote: "Onze gasten kunnen nu 24/7 reserveren, ook als we gesloten zijn. Het systeem checkt automatisch onze bezetting en stuurt bevestigingen. Meer reserveringen, minder stress.",
-            author: "Lisa Hendricks",
-            role: "Manager, Restaurant De Smederij", 
-            avatar: "LH"
-          }, {
-            quote: "De review-agent heeft ons van 3,2 naar 4,7 sterren gebracht op Google. Klanten krijgen automatisch een vriendelijk verzoek na hun behandeling.",
-            author: "Patricia Mulder",
-            role: "Schoonheidssalon Bella Vita",
-            avatar: "PM"
-          }, {
-            quote: "Vroeger zat ik constant aan de telefoon voor reserveringen. Nu focus ik volledig op mijn gasten terwijl de AI alle boekingen afhandelt.",
-            author: "David Chen",
-            role: "Restaurant Little Saigon",
-            avatar: "DC"
-          }, {
-            quote: "Het CRM-gedeelte houdt perfect bij welke kleur elke klant gebruikt en welke behandelingen ze graag hebben. Persoonlijke service op een hoger niveau!",
-            author: "Ingrid Visser",
-            role: "Salon Ingrid",
-            avatar: "IV"
-          }].map((testimonial, index) => <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6 sm:p-8">
-                  <p className="text-gray-700 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg italic">"{testimonial.quote}"</p>
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mr-3 sm:mr-4 text-white text-sm sm:text-base font-semibold">
-                      {testimonial.avatar}
+          
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {[{
+              quote: "Geen gemiste telefoontjes meer! De AI agent plant alle afspraken perfect in en mijn klanten krijgen meteen een bevestiging. Bespaar minstens 2 uur per dag.",
+              author: "Sandra Bakker",
+              role: "Eigenaar, Salon Sandra",
+              avatar: "SB"
+            }, {
+              quote: "Als drukke kapsalon hadden we constant het probleem van no-shows. De automatische reminders hebben dit met 60% verminderd. Fantastisch!",
+              author: "Marco van Dijk", 
+              role: "Kapsalon Marco",
+              avatar: "MD"
+            }, {
+              quote: "Onze gasten kunnen nu 24/7 reserveren, ook als we gesloten zijn. Het systeem checkt automatisch onze bezetting en stuurt bevestigingen. Meer reserveringen, minder stress.",
+              author: "Lisa Hendricks",
+              role: "Manager, Restaurant De Smederij", 
+              avatar: "LH"
+            }, {
+              quote: "De review-agent heeft ons van 3,2 naar 4,7 sterren gebracht op Google. Klanten krijgen automatisch een vriendelijk verzoek na hun behandeling.",
+              author: "Patricia Mulder",
+              role: "Schoonheidssalon Bella Vita",
+              avatar: "PM"
+            }, {
+              quote: "Vroeger zat ik constant aan de telefoon voor reserveringen. Nu focus ik volledig op mijn gasten terwijl de AI alle boekingen afhandelt.",
+              author: "David Chen",
+              role: "Restaurant Little Saigon",
+              avatar: "DC"
+            }, {
+              quote: "Het CRM-gedeelte houdt perfect bij welke kleur elke klant gebruikt en welke behandelingen ze graag hebben. Persoonlijke service op een hoger niveau!",
+              author: "Ingrid Visser",
+              role: "Salon Ingrid",
+              avatar: "IV"
+            }].map((testimonial, index) => (
+              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 h-full">
+                  <CardContent className="p-6 sm:p-8 flex flex-col h-full">
+                    <p className="text-gray-700 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg italic flex-grow">"{testimonial.quote}"</p>
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mr-3 sm:mr-4 text-white text-sm sm:text-base font-semibold">
+                        {testimonial.avatar}
+                      </div>
+                      <div>
+                        <div className="font-bold text-gray-900 text-sm sm:text-base">{testimonial.author}</div>
+                        <div className="text-gray-600 text-xs sm:text-sm">{testimonial.role}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-bold text-gray-900 text-sm sm:text-base">{testimonial.author}</div>
-                      <div className="text-gray-600 text-xs sm:text-sm">{testimonial.role}</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>)}
-          </div>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </section>
 
