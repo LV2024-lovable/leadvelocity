@@ -8,7 +8,6 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import TypeWriter from '@/components/TypeWriter';
 import WhatsAppChat from '@/components/WhatsAppChat';
 import { ContactForm } from '@/components/contact/ContactForm';
-
 const AIAutomation = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -16,69 +15,45 @@ const AIAutomation = () => {
       behavior: 'smooth'
     });
   };
-
-  const howItWorksSteps = [
-    {
-      number: "01",
-      title: "AI neemt de telefoon op",
-      description: "Belt een klant? De agent begroet professioneel, stelt slimme vragen en herkent intenties (boeken, wijzigen, annuleren).",
-      icon: <Phone className="h-8 w-8" />,
-      color: "from-blue-500 to-indigo-500"
-    },
-    {
-      number: "02", 
-      title: "Plant in jouw systeem",
-      description: "We koppelen met je reserverings-/afsprakensysteem. De agent boekt realtime de juiste dienst/tafel/tijd.",
-      icon: <Calendar className="h-8 w-8" />,
-      color: "from-indigo-500 to-purple-500"
-    },
-    {
-      number: "03",
-      title: "Bevestiging & reminders", 
-      description: "Klant ontvangt automatisch bevestiging en optionele reminder. Minder no-shows, meer tevreden klanten.",
-      icon: <Mail className="h-8 w-8" />,
-      color: "from-purple-500 to-pink-500"
-    }
-  ];
-
-  const features = [
-    "24/7 telefonische bereikbaarheid",
-    "Automatische bevestigingen (sms/WhatsApp/e-mail)",
-    "Meertalig (NL/EN; uitbreidbaar)",
-    "Slimme no-show-reducerende reminders",
-    "Optionele pre-payment/aanbetaling",
-    "Rapportages & basis-analytics",
-    "Integraties via open API's",
-    "Uitbreidbaar met extra agents"
-  ];
-
-  const faqItems = [
-    {
-      question: "Werkt dit met mijn salon- of horeca-systeem?",
-      answer: "Ja, in de meeste gevallen via API/partnerkoppeling. We checken dit vooraf tijdens de onboarding."
-    },
-    {
-      question: "Welke talen ondersteunt de agent?",
-      answer: "Standaard Nederlands en Engels. Extra talen zijn beschikbaar op aanvraag."
-    },
-    {
-      question: "Hoe gaan bevestigingen/reminders eruit?",
-      answer: "Per sms/WhatsApp/e-mail met afspraakdetails, volledig in jouw huisstijl gebranded."
-    },
-    {
-      question: "Hoe snel kan ik live?",
-      answer: "Gemiddeld binnen 1-2 weken, afhankelijk van je koppelingen en systeem setup."
-    },
-    {
-      question: "Is het AVG-proof?",
-      answer: "Ja. We verwerken alleen noodzakelijke data en sluiten een verwerkersovereenkomst af."
-    },
-    {
-      question: "Wat als een klant een complexe vraag heeft?",
-      answer: "De agent herkent uitzonderingen en kan doorschakelen of een taak aanmaken voor opvolging."
-    }
-  ];
-
+  const howItWorksSteps = [{
+    number: "01",
+    title: "AI neemt de telefoon op",
+    description: "Belt een klant? De agent begroet professioneel, stelt slimme vragen en herkent intenties (boeken, wijzigen, annuleren).",
+    icon: <Phone className="h-8 w-8" />,
+    color: "from-blue-500 to-indigo-500"
+  }, {
+    number: "02",
+    title: "Plant in jouw systeem",
+    description: "We koppelen met je reserverings-/afsprakensysteem. De agent boekt realtime de juiste dienst/tafel/tijd.",
+    icon: <Calendar className="h-8 w-8" />,
+    color: "from-indigo-500 to-purple-500"
+  }, {
+    number: "03",
+    title: "Bevestiging & reminders",
+    description: "Klant ontvangt automatisch bevestiging en optionele reminder. Minder no-shows, meer tevreden klanten.",
+    icon: <Mail className="h-8 w-8" />,
+    color: "from-purple-500 to-pink-500"
+  }];
+  const features = ["24/7 telefonische bereikbaarheid", "Automatische bevestigingen (sms/WhatsApp/e-mail)", "Meertalig (NL/EN; uitbreidbaar)", "Slimme no-show-reducerende reminders", "Optionele pre-payment/aanbetaling", "Rapportages & basis-analytics", "Integraties via open API's", "Uitbreidbaar met extra agents"];
+  const faqItems = [{
+    question: "Werkt dit met mijn salon- of horeca-systeem?",
+    answer: "Ja, in de meeste gevallen via API/partnerkoppeling. We checken dit vooraf tijdens de onboarding."
+  }, {
+    question: "Welke talen ondersteunt de agent?",
+    answer: "Standaard Nederlands en Engels. Extra talen zijn beschikbaar op aanvraag."
+  }, {
+    question: "Hoe gaan bevestigingen/reminders eruit?",
+    answer: "Per sms/WhatsApp/e-mail met afspraakdetails, volledig in jouw huisstijl gebranded."
+  }, {
+    question: "Hoe snel kan ik live?",
+    answer: "Gemiddeld binnen 1-2 weken, afhankelijk van je koppelingen en systeem setup."
+  }, {
+    question: "Is het AVG-proof?",
+    answer: "Ja. We verwerken alleen noodzakelijke data en sluiten een verwerkersovereenkomst af."
+  }, {
+    question: "Wat als een klant een complexe vraag heeft?",
+    answer: "De agent herkent uitzonderingen en kan doorschakelen of een taak aanmaken voor opvolging."
+  }];
   return <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30">
       <Navbar />
       
@@ -89,52 +64,47 @@ const AIAutomation = () => {
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent leading-tight">
               <TypeWriter text="Laat AI al je afspraken en reserveringen regelen — 24/7, zonder wachtrij" speed={80} />
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-12 sm:mb-16 max-w-4xl mx-auto leading-relaxed px-4">
-              Onze voice agent neemt de telefoon op, plant afspraken in jouw systeem en stuurt direct een bevestiging. Jij focust op je klanten; wij op je planning.
-            </p>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-12 sm:mb-16 max-w-4xl mx-auto leading-relaxed px-4">Onze voice agent neemt de telefoon op, plant afspraken in jouw systeem en stuurt direct een bevestiging. </p>
           </div>
 
           {/* Key Benefits */}
-          <div className="mb-12 sm:mb-20 animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <div className="mb-12 sm:mb-20 animate-fade-in" style={{
+          animationDelay: '0.2s'
+        }}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-8 max-w-6xl mx-auto">
-              {[
-                {
-                  icon: <Phone className="h-4 w-4 sm:h-8 sm:w-8" />,
-                  text: "Geen gemiste calls",
-                  desc: "24/7 bereikbaar",
-                  color: "from-blue-500 to-indigo-500"
-                },
-                {
-                  icon: <Calendar className="h-4 w-4 sm:h-8 sm:w-8" />,
-                  text: "Minder no-shows",
-                  desc: "Slimme reminders",
-                  color: "from-indigo-500 to-purple-500"
-                },
-                {
-                  icon: <Mail className="h-4 w-4 sm:h-8 sm:w-8" />,
-                  text: "Directe bevestiging",
-                  desc: "SMS/WhatsApp/email",
-                  color: "from-blue-600 to-cyan-500"
-                },
-                {
-                  icon: <Clock className="h-4 w-4 sm:h-8 sm:w-8" />,
-                  text: "Tijd besparen",
-                  desc: "Uren per week terug",
-                  color: "from-blue-500 to-teal-500"
-                }
-              ].map((benefit, index) => (
-                <div key={index} className="text-center p-3 sm:p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+              {[{
+              icon: <Phone className="h-4 w-4 sm:h-8 sm:w-8" />,
+              text: "Geen gemiste calls",
+              desc: "24/7 bereikbaar",
+              color: "from-blue-500 to-indigo-500"
+            }, {
+              icon: <Calendar className="h-4 w-4 sm:h-8 sm:w-8" />,
+              text: "Minder no-shows",
+              desc: "Slimme reminders",
+              color: "from-indigo-500 to-purple-500"
+            }, {
+              icon: <Mail className="h-4 w-4 sm:h-8 sm:w-8" />,
+              text: "Directe bevestiging",
+              desc: "SMS/WhatsApp/email",
+              color: "from-blue-600 to-cyan-500"
+            }, {
+              icon: <Clock className="h-4 w-4 sm:h-8 sm:w-8" />,
+              text: "Tijd besparen",
+              desc: "Uren per week terug",
+              color: "from-blue-500 to-teal-500"
+            }].map((benefit, index) => <div key={index} className="text-center p-3 sm:p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-lg transition-all duration-300">
                   <div className={`mb-2 sm:mb-6 mx-auto w-8 h-8 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${benefit.color} flex items-center justify-center text-white shadow-lg`}>
                     {benefit.icon}
                   </div>
                   <h3 className="font-semibold text-gray-800 mb-1 sm:mb-2 text-sm sm:text-lg">{benefit.text}</h3>
                   <p className="text-gray-600 text-xs sm:text-base">{benefit.desc}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in px-4" style={{animationDelay: '0.4s'}}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in px-4" style={{
+          animationDelay: '0.4s'
+        }}>
             <Button size="lg" onClick={() => scrollToSection('contact')} className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold shadow-lg">
               <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Plan een gratis demo
@@ -214,8 +184,7 @@ const AIAutomation = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
-            {howItWorksSteps.map((step, index) => (
-              <div key={index} className="text-center group">
+            {howItWorksSteps.map((step, index) => <div key={index} className="text-center group">
                 <div className="relative mb-8">
                   <div className={`w-20 h-20 mx-auto bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     {step.icon}
@@ -226,8 +195,7 @@ const AIAutomation = () => {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{step.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -245,14 +213,12 @@ const AIAutomation = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            {features.map((feature, index) => <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                 <CardContent className="p-6 text-center">
                   <CheckCircle2 className="h-8 w-8 text-blue-600 mx-auto mb-4" />
                   <p className="text-gray-700 font-medium">{feature}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -270,24 +236,19 @@ const AIAutomation = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-16">
-            {[
-              {
-                stat: "+30%",
-                description: "meer afspraken buiten piekuren",
-                icon: <BarChart3 className="h-8 w-8" />
-              },
-              {
-                stat: "0",
-                description: "gemiste telefoontjes meer",
-                icon: <Phone className="h-8 w-8" />
-              },
-              {
-                stat: "5+ uur",
-                description: "per week terug voor je team",
-                icon: <Clock className="h-8 w-8" />
-              }
-            ].map((result, index) => (
-              <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 text-center">
+            {[{
+            stat: "+30%",
+            description: "meer afspraken buiten piekuren",
+            icon: <BarChart3 className="h-8 w-8" />
+          }, {
+            stat: "0",
+            description: "gemiste telefoontjes meer",
+            icon: <Phone className="h-8 w-8" />
+          }, {
+            stat: "5+ uur",
+            description: "per week terug voor je team",
+            icon: <Clock className="h-8 w-8" />
+          }].map((result, index) => <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 text-center">
                 <CardContent className="p-8">
                   <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-6">
                     {result.icon}
@@ -295,8 +256,7 @@ const AIAutomation = () => {
                   <div className="text-4xl font-bold text-gray-900 mb-2">{result.stat}</div>
                   <p className="text-gray-600">{result.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
           
           <div className="text-center">
@@ -320,11 +280,9 @@ const AIAutomation = () => {
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
-            {["Salonsoftware", "Reserveringssystemen", "POS/Kassa", "Agenda-apps", "CRM"].map((category, index) => (
-              <div key={index} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+            {["Salonsoftware", "Reserveringssystemen", "POS/Kassa", "Agenda-apps", "CRM"].map((category, index) => <div key={index} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
                 <p className="text-gray-700 font-medium text-sm">{category}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -341,7 +299,7 @@ const AIAutomation = () => {
             steps: ["Neemt telefoontjes 24/7 professioneel op", "Checkt realtime beschikbaarheid in jouw agenda", "Plant afspraken voor knippen, kleuren, behandelingen", "Stuurt directe bevestiging via SMS/WhatsApp", "Verstuurt automatische reminders"],
             icon: <Calendar className="h-6 w-6 sm:h-8 sm:w-8" />
           }, {
-            title: "Review Generatie Agent", 
+            title: "Review Generatie Agent",
             steps: ["Detecteert voltooide afspraken automatisch", "Verstuurt gepersonaliseerde review-verzoeken", "Genereert positieve review-templates", "Volgt review-responses en bedankt klanten", "Analyseert feedback voor verbeteringen"],
             icon: <Star className="h-6 w-6 sm:h-8 sm:w-8" />
           }, {
@@ -382,13 +340,10 @@ const AIAutomation = () => {
             Wat onze klanten zeggen
           </h2>
           
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-5xl mx-auto"
-          >
+          <Carousel opts={{
+          align: "start",
+          loop: true
+        }} className="w-full max-w-5xl mx-auto">
             <CarouselContent className="-ml-2 md:-ml-4">
               {[{
               quote: "Geen gemiste telefoontjes meer! De AI agent plant alle afspraken perfect in en mijn klanten krijgen meteen een bevestiging. Bespaar minstens 2 uur per dag.",
@@ -397,13 +352,13 @@ const AIAutomation = () => {
               avatar: "SB"
             }, {
               quote: "Als drukke kapsalon hadden we constant het probleem van no-shows. De automatische reminders hebben dit met 60% verminderd. Fantastisch!",
-              author: "Marco van Dijk", 
+              author: "Marco van Dijk",
               role: "Kapsalon Marco",
               avatar: "MD"
             }, {
               quote: "Onze gasten kunnen nu 24/7 reserveren, ook als we gesloten zijn. Het systeem checkt automatisch onze bezetting en stuurt bevestigingen. Meer reserveringen, minder stress.",
               author: "Lisa Hendricks",
-              role: "Manager, Restaurant De Smederij", 
+              role: "Manager, Restaurant De Smederij",
               avatar: "LH"
             }, {
               quote: "De review-agent heeft ons van 3,2 naar 4,7 sterren gebracht op Google. Klanten krijgen automatisch een vriendelijk verzoek na hun behandeling.",
@@ -420,8 +375,7 @@ const AIAutomation = () => {
               author: "Ingrid Visser",
               role: "Salon Ingrid",
               avatar: "IV"
-            }].map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+            }].map((testimonial, index) => <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                 <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 h-full">
                   <CardContent className="p-6 sm:p-8 flex flex-col h-full">
                     <p className="text-gray-700 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg italic flex-grow">"{testimonial.quote}"</p>
@@ -436,8 +390,7 @@ const AIAutomation = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </CarouselItem>
-            ))}
+              </CarouselItem>)}
             </CarouselContent>
             <CarouselPrevious className="hidden md:flex" />
             <CarouselNext className="hidden md:flex" />
@@ -502,5 +455,4 @@ const AIAutomation = () => {
       <WhatsAppChat />
     </div>;
 };
-
 export default AIAutomation;
