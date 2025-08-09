@@ -379,17 +379,37 @@ const AIAutomation = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 sm:mb-20 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
             Wat onze klanten zeggen
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[{
-            quote: "WorkflowAI heeft onze productiviteit met 40% verhoogd. We missen geen enkel actiepunt meer en onze klanten zijn onder de indruk van onze professionele follow-up.",
-            author: "Sarah van der Berg",
-            role: "Founder, DesignStudio Amsterdam",
+            quote: "Geen gemiste telefoontjes meer! De AI agent plant alle afspraken perfect in en mijn klanten krijgen meteen een bevestiging. Bespaar minstens 2 uur per dag.",
+            author: "Sandra Bakker",
+            role: "Eigenaar, Salon Sandra",
             avatar: "SB"
           }, {
-            quote: "Als product manager had ik altijd moeite om alle feedback uit stakeholder meetings bij te houden. Nu krijg ik automatisch gestructureerde samenvattingen die ik direct kan gebruiken voor onze roadmap.",
-            author: "Mark Jansen",
-            role: "Product Manager, TechCorp",
-            avatar: "MJ"
+            quote: "Als drukke kapsalon hadden we constant het probleem van no-shows. De automatische reminders hebben dit met 60% verminderd. Fantastisch!",
+            author: "Marco van Dijk", 
+            role: "Kapsalon Marco",
+            avatar: "MD"
+          }, {
+            quote: "Onze gasten kunnen nu 24/7 reserveren, ook als we gesloten zijn. Het systeem checkt automatisch onze bezetting en stuurt bevestigingen. Meer reserveringen, minder stress.",
+            author: "Lisa Hendricks",
+            role: "Manager, Restaurant De Smederij", 
+            avatar: "LH"
+          }, {
+            quote: "De review-agent heeft ons van 3,2 naar 4,7 sterren gebracht op Google. Klanten krijgen automatisch een vriendelijk verzoek na hun behandeling.",
+            author: "Patricia Mulder",
+            role: "Schoonheidssalon Bella Vita",
+            avatar: "PM"
+          }, {
+            quote: "Vroeger zat ik constant aan de telefoon voor reserveringen. Nu focus ik volledig op mijn gasten terwijl de AI alle boekingen afhandelt.",
+            author: "David Chen",
+            role: "Restaurant Little Saigon",
+            avatar: "DC"
+          }, {
+            quote: "Het CRM-gedeelte houdt perfect bij welke kleur elke klant gebruikt en welke behandelingen ze graag hebben. Persoonlijke service op een hoger niveau!",
+            author: "Ingrid Visser",
+            role: "Salon Ingrid",
+            avatar: "IV"
           }].map((testimonial, index) => <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6 sm:p-8">
                   <p className="text-gray-700 mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg italic">"{testimonial.quote}"</p>
