@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 const WhatsAppChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const phoneNumber = "+31625471528"; // WhatsApp format without spaces
-  const message = "Hallo! Ik ben geïnteresseerd in jullie AI telefonie oplossing voor salons/horeca. Kunnen jullie me meer informatie geven?";
+  const message = "Hallo! Ik ben geïnteresseerd in jullie AI oplossing voor salons/horeca. Kunnen jullie me meer informatie geven?";
   
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(message);
@@ -25,7 +25,7 @@ const WhatsAppChat = () => {
                 <MessageCircle className="h-5 w-5 text-white" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900">LeadVelocity</h4>
+                <h4 className="font-semibold text-gray-900">Bart</h4>
                 <p className="text-sm text-gray-600">Meestal online</p>
               </div>
             </div>
@@ -41,7 +41,7 @@ const WhatsAppChat = () => {
           
           <div className="bg-gray-50 rounded-lg p-3 mb-3">
             <p className="text-sm text-gray-700">
-              👋 Hallo! Heb je vragen over onze AI telefonie voor salons en horeca? 
+              👋 Hallo! Heb je vragen over onze AI voor salons en horeca? 
               Stuur ons een berichtje via WhatsApp!
             </p>
           </div>
