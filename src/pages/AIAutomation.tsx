@@ -406,7 +406,7 @@ const AIAutomation = () => {
                   <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">Bart</h4>
                   <p className="text-blue-600 font-medium mb-3">AI Automation Specialist</p>
                   <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    Gespecialiseerd in AI-telefonie voor salons en horeca. Helpt ondernemers om meer tijd te besteden aan hun klanten.
+                    Gespecialiseerd in AI oplossingen. Helpt ondernemers om meer tijd te besteden aan hun klanten.
                   </p>
                 </div>
               </div>
