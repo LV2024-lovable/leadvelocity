@@ -290,7 +290,7 @@ const AIAutomation = () => {
       {/* Workflow Examples */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 sm:mb-20 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 sm:mb-20 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent leading-tight">
             AI Agents in Actie
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
