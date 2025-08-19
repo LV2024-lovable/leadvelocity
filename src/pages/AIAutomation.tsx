@@ -92,8 +92,8 @@ const AIAutomation = () => {
               text: "Tijd besparen",
               desc: "Uren per week terug",
               color: "from-blue-500 to-teal-500"
-            }].map((benefit, index) => <div key={index} className="text-center p-3 sm:p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-lg transition-all duration-300">
-                  <div className={`mb-2 sm:mb-6 mx-auto w-8 h-8 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${benefit.color} flex items-center justify-center text-white shadow-lg`}>
+            }].map((benefit, index) => <div key={index} className={`text-center p-3 sm:p-6 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-lg transition-all duration-300 hover-lift animate-scale-in stagger-${index + 1}`}>
+                  <div className={`mb-2 sm:mb-6 mx-auto w-8 h-8 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${benefit.color} flex items-center justify-center text-white shadow-lg animate-float`} style={{animationDelay: `${index * 0.5}s`}}>
                     {benefit.icon}
                   </div>
                   <h3 className="font-semibold text-gray-800 mb-1 sm:mb-2 text-sm sm:text-lg">{benefit.text}</h3>
@@ -105,11 +105,11 @@ const AIAutomation = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in px-4" style={{
           animationDelay: '0.4s'
         }}>
-            <Button size="lg" onClick={() => scrollToSection('contact')} className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold shadow-lg">
+            <Button size="lg" onClick={() => scrollToSection('contact')} className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold shadow-lg hover-lift animate-pulse-glow">
               <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Plan een gratis demo
             </Button>
-            <Button size="lg" variant="outline" onClick={() => scrollToSection('how-it-works')} className="w-full sm:w-auto border-2 border-gray-300 hover:border-blue-500 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold hover:bg-blue-50 transition-all">
+            <Button size="lg" variant="outline" onClick={() => scrollToSection('how-it-works')} className="w-full sm:w-auto border-2 border-gray-300 hover:border-blue-500 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold hover:bg-blue-50 transition-all hover-lift">
               Bekijk hoe het werkt
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
@@ -131,10 +131,10 @@ const AIAutomation = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             {/* Salons Block */}
-            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 overflow-hidden hover-lift animate-slide-in-left">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center text-white shadow-lg mr-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center text-white shadow-lg mr-4 animate-bounce-gentle">
                     <Scissors className="h-8 w-8" />
                   </div>
                   <div>
@@ -150,10 +150,10 @@ const AIAutomation = () => {
             </Card>
 
             {/* Horeca Block */}
-            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 overflow-hidden hover-lift animate-slide-in-right">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white shadow-lg mr-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white shadow-lg mr-4 animate-bounce-gentle" style={{animationDelay: '0.5s'}}>
                     <Utensils className="h-8 w-8" />
                   </div>
                   <div>
@@ -184,12 +184,12 @@ const AIAutomation = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
-            {howItWorksSteps.map((step, index) => <div key={index} className="text-center group">
+            {howItWorksSteps.map((step, index) => <div key={index} className={`text-center group animate-fade-in stagger-${index + 1}`}>
                 <div className="relative mb-8">
-                  <div className={`w-20 h-20 mx-auto bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-20 h-20 mx-auto bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 animate-bounce-gentle`} style={{animationDelay: `${index * 0.3}s`}}>
                     {step.icon}
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold animate-pulse">
                     {step.number}
                   </div>
                 </div>
