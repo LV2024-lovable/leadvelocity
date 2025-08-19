@@ -268,24 +268,6 @@ const AIAutomation = () => {
         </div>
       </section>
 
-      {/* Integration Trust Section */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent leading-tight pb-2">
-            Integraties
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Werkt met populaire salon- en horeca-systemen via API/partnerkoppelingen. 
-            Tijdens de onboarding checken we jouw systeem en zetten we de snelste, stabielste koppeling op.
-          </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
-            {["Salonsoftware", "Reserveringssystemen", "POS/Kassa", "Agenda-apps", "CRM"].map((category, index) => <div key={index} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <p className="text-gray-700 font-medium text-sm">{category}</p>
-              </div>)}
-          </div>
-        </div>
-      </section>
 
       {/* Workflow Examples */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
