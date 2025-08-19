@@ -200,31 +200,8 @@ const AIAutomation = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent leading-tight pb-2">
-              Alles wat je nodig hebt
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Speciaal ontwikkeld voor salons en horeca
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {features.map((feature, index) => <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                <CardContent className="p-6 text-center">
-                  <CheckCircle2 className="h-8 w-8 text-blue-600 mx-auto mb-4" />
-                  <p className="text-gray-700 font-medium">{feature}</p>
-                </CardContent>
-              </Card>)}
-          </div>
-        </div>
-      </section>
-
       {/* Social Proof & Results Section */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50/60 to-indigo-50/60">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent leading-tight pb-2">
@@ -264,6 +241,29 @@ const AIAutomation = () => {
               <Calendar className="mr-2 h-5 w-5" />
               Plan een gratis demo
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent leading-tight pb-2">
+              Alles wat je nodig hebt
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Speciaal ontwikkeld voor salons en horeca
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {features.map((feature, index) => <Card key={index} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                <CardContent className="p-6 text-center">
+                  <CheckCircle2 className="h-8 w-8 text-blue-600 mx-auto mb-4" />
+                  <p className="text-gray-700 font-medium">{feature}</p>
+                </CardContent>
+              </Card>)}
           </div>
         </div>
       </section>
