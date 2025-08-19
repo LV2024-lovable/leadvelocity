@@ -387,6 +387,30 @@ const AIAutomation = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-900">Over ons team</h3>
+              
+              {/* Team Member Profile */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6 sm:mb-8 p-6 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 rounded-2xl border border-blue-100/50">
+                <div className="relative">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                    <img 
+                      src="/lovable-uploads/bart-profile.png" 
+                      alt="Bart - Lead Velocity Team"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
+                    <CheckCircle className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+                <div className="text-center sm:text-left">
+                  <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">Bart</h4>
+                  <p className="text-blue-600 font-medium mb-3">AI Automation Specialist</p>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    Gespecialiseerd in AI-telefonie voor salons en horeca. Helpt ondernemers om meer tijd te besteden aan hun klanten.
+                  </p>
+                </div>
+              </div>
+              
               <p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
                 Wij zijn gespecialiseerd in AI-oplossingen voor salons en horeca. Als ondernemers zelf weten we hoe frustrerend gemiste telefoontjes en no-shows kunnen zijn. Onze missie is om salon- en horeca-eigenaren te helpen meer tijd te besteden aan hun klanten in plaats van aan de telefoon.
               </p>
