@@ -393,7 +393,7 @@ const AIAutomation = () => {
                 <div className="relative">
                   <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
                     <img 
-                      src="/lovable-uploads/bart-profile.png" 
+                      src="/lovable-uploads/e63e2942-46a9-4993-a1d4-a6b0c7ade3fc.png" 
                       alt="Bart - Lead Velocity Team"
                       className="w-full h-full object-cover"
                     />
