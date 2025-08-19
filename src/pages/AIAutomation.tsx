@@ -61,7 +61,7 @@ const AIAutomation = () => {
       <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent leading-tight pb-2">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent leading-tight pb-2">
               <TypeWriter text="Laat AI al je afspraken en reserveringen regelen — 24/7, zonder wachtrij" speed={80} />
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-12 sm:mb-16 max-w-4xl mx-auto leading-relaxed px-4">Onze voice agent neemt de telefoon op, plant afspraken in jouw systeem en stuurt direct een bevestiging. </p>
