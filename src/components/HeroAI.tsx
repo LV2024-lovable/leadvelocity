@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-ai.jpg";
 
 const HeroAI = () => {
+  console.log('HeroAI component mounting...');
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {

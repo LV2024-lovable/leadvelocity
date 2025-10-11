@@ -12,7 +12,7 @@ const AIAutomation = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <HeroAI />
+      <HeroAI key="hero-ai-section" />
       <LiveDemo />
       <FeaturesAI />
       <HowItWorksAI />
