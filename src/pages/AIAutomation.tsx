@@ -7,6 +7,8 @@ import USPsAI from "@/components/USPsAI";
 import PricingAI from "@/components/PricingAI";
 import TestimonialsAI from "@/components/TestimonialsAI";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
+import WhatsAppChat from "@/components/WhatsAppChat";
 
 const AIAutomation = () => {
   return (
@@ -20,6 +22,8 @@ const AIAutomation = () => {
       <PricingAI />
       <TestimonialsAI />
       <Footer />
+      <ChatWidget />
+      <WhatsAppChat />
     </div>
   );
 };
