@@ -1,6 +1,18 @@
 
 project_id = "ymdlgdvjfgqbpyawurnu"
 
+[functions.email-notify]
+verify_jwt = false
+
+[functions.slack-notify]
+verify_jwt = false
+
+[functions.hr-chat]
+verify_jwt = false
+
+[functions.transcribe-audio]
+verify_jwt = false
+
 [api]
 enabled = true
 port = 54321
