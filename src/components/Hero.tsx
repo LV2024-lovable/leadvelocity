@@ -1,140 +1,107 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, BarChart2, Zap, Users } from 'lucide-react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { MessageCircle, Play } from "lucide-react";
+import heroAi from "@/assets/hero-ai.jpg";
+import ContactDialog from "./ContactDialog";
 
 const Hero = () => {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [currentIndustry, setCurrentIndustry] = useState(0);
-  const {
-    toast
-  } = useToast();
-
-  // Updated industry list with more consistent lengths and better flow
-  const industries = ['Digital Agency', 'Software Company', 'Financial Service', 'Digital Platform', 'Real Estate Firm', 'IT Consultancy', 'Recruitment Agency', 'Education Platform', 'Wholesale Business', 'Business Advisory'];
+  const [contactDialogOpen, setContactDialogOpen] = useState(false);
   
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndustry(prev => (prev + 1) % industries.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-  
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !email.includes('@')) {
-      toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-        variant: "destructive"
-      });
-      return;
-    }
-    setIsSubmitting(true);
-    try {
-      const {
-        error
-      } = await supabase.from('Form_submissions').insert({
-        email: email,
-        Name: null,
-        company: null
-      });
-      if (error) {
-        console.error('Error submitting email:', error);
-        toast({
-          title: "Submission failed",
-          description: "There was an error submitting your email. Please try again.",
-          variant: "destructive"
-        });
-      } else {
-        toast({
-          title: "Thank you!",
-          description: "We'll be in touch with you shortly."
-        });
-        setEmail('');
-      }
-    } catch (error) {
-      console.error('Exception:', error);
-      toast({
-        title: "Submission failed",
-        description: "There was an error submitting your email. Please try again.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  const scrollToDemo = () => {
+    document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
   };
-  
-  return <section className="relative bg-gradient-to-br from-white to-velocity-lightblue min-h-screen flex items-center">
-      <div className="container max-w-7xl mx-auto py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
-          <div className="flex flex-col justify-between space-y-10 animate-fade-in">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight my-[63px]">
-                <span className="whitespace-nowrap">Ready to grow your</span>
-                <br />
-                <span className="text-velocity-blue inline-block min-w-[280px] transition-all duration-300">
-                  {industries[currentIndustry]}
-                </span>
-                <span>?</span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-700 max-w-lg">From outbound campaigns to internal workflows, we design smart, repeatable systems that align with your goals, drive consistent revenue, and set the foundation for long-term business success.</p>
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Animated background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-purple-50 to-blue-50" />
+      
+      {/* Floating orbs */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text content */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+              </span>
+              <span className="text-foreground/80">AI-powered HR assistant</span>
             </div>
-            <div className="py-6">
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
-                <div className="flex-grow">
-                  <Input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} className="h-11" required />
-                </div>
-                <Button type="submit" size="lg" className="group whitespace-nowrap" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Get Started'}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </form>
-              <Button variant="link" size="sm" className="mt-2" asChild>
-                <a href="#services">Discover Our Services</a>
+            
+            <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              Automatiseer je{" "}
+              <span className="gradient-text">HR-communicatie</span> met AI
+            </h1>
+            
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Een slimme HR-agent beantwoordt direct vragen over loon, ziekte, vakantiedagen, CAO, en meer – 
+              zodat jij tijd overhoudt voor de mensen zelf.
+            </p>
+            
+            <div className="flex items-center gap-4 pt-4">
+              <Button 
+                size="lg" 
+                onClick={scrollToDemo}
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground glow-whatsapp group"
+              >
+                <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                Bekijk Live Demo
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => setContactDialogOpen(true)}
+                className="border-primary/30 hover:border-primary hover:bg-primary/10"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                Vraag offerte aan
               </Button>
             </div>
-          </div>
-          
-          <div className="relative flex justify-center animate-fade-in-right">
-            <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 w-full max-w-md">
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="bg-velocity-lightblue p-3 rounded-lg">
-                    <BarChart2 className="h-6 w-6 text-velocity-blue" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl">Increase Lead Volume</h3>
-                    <p className="text-gray-600">Attract high-intent prospects through smarter outreach.</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="bg-velocity-lightblue p-3 rounded-lg">
-                    <Zap className="h-6 w-6 text-velocity-blue" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl">Accelerate Conversions</h3>
-                    <p className="text-gray-600">Refine your buyer journey and close faster.</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="bg-velocity-lightblue p-3 rounded-lg">
-                    <Users className="h-6 w-6 text-velocity-blue" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl">Build a Stronger Pipeline</h3>
-                    <p className="text-gray-600">Fuel your sales team with qualified opportunities, month after month.</p>
-                  </div>
-                </div>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/50">
+              <div>
+                <div className="text-3xl font-bold text-primary">24/7</div>
+                <div className="text-sm text-muted-foreground">Beschikbaar</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-primary">95%</div>
+                <div className="text-sm text-muted-foreground">Tevredenheid</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-primary">800+</div>
+                <div className="text-sm text-muted-foreground">Vragen/week</div>
               </div>
             </div>
           </div>
+          
+          {/* Image */}
+          <div className="relative animate-scale-in">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-3xl blur-3xl opacity-10 animate-pulse-glow" />
+            <img 
+              src={heroAi} 
+              alt="AI HR Assistant Visualization" 
+              className="relative rounded-3xl shadow-2xl w-full border border-border/50"
+            />
+          </div>
         </div>
       </div>
-    </section>;
+      
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
+        </div>
+      </div>
+      
+      <ContactDialog open={contactDialogOpen} onOpenChange={setContactDialogOpen} />
+    </section>
+  );
 };
 
 export default Hero;

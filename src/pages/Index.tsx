@@ -1,22 +1,24 @@
-
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Services from '../components/Services';
-import About from '../components/About';
-import ScaleFlowSystem from '../components/ScaleFlowSystem';
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
+import Navigation from "@/components/Navigation";
+import Hero from "@/components/Hero";
+import LiveDemo from "@/components/LiveDemo";
+import Features from "@/components/Features";
+import HowItWorks from "@/components/HowItWorks";
+import USPs from "@/components/USPs";
+import Pricing from "@/components/Pricing";
+import Testimonials from "@/components/Testimonials";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navigation />
       <Hero />
-      <Services />
-      <ScaleFlowSystem />
-      <About />
-      <Contact />
+      <LiveDemo />
+      <Features />
+      <HowItWorks />
+      <USPs />
+      <Pricing />
+      <Testimonials />
       <Footer />
     </div>
   );
