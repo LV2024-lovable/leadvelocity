@@ -29,11 +29,7 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-interface ContactFormProps {
-  onSuccess?: () => void;
-}
-
-export const ContactForm = ({ onSuccess }: ContactFormProps = {}) => {
+export const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [debugInfo, setDebugInfo] = useState<string | null>(null);
@@ -115,7 +111,6 @@ export const ContactForm = ({ onSuccess }: ContactFormProps = {}) => {
         description: "Bedankt voor je interesse. We nemen binnen 24 uur contact op voor je demo."
       });
       form.reset();
-      onSuccess?.();
     } catch (error: any) {
       console.error('Form submission error:', error);
       setDebugInfo(prev => (prev || '') + `\nGeneral Error: ${error.message}`);
