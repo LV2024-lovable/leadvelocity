@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
-import HeroAI from "@/components/HeroAI";
 import LiveDemo from "@/components/LiveDemo";
+import HeroAI from "@/components/HeroAI";
 import FeaturesAI from "@/components/FeaturesAI";
 import HowItWorksAI from "@/components/HowItWorksAI";
 import USPsAI from "@/components/USPsAI";
