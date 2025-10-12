@@ -101,9 +101,9 @@ const Pricing = () => {
           {plans.map((plan, idx) => (
             <Card
               key={idx}
-              className={`relative p-8 bg-white shadow-lg transition-all duration-300 hover:scale-105 animate-scale-in ${
+              className={`relative p-8 bg-card shadow-lg transition-all duration-300 hover:scale-105 animate-scale-in ${
                 plan.highlight 
-                  ? 'border-primary shadow-lg shadow-primary/20 gradient-border' 
+                  ? 'gradient-border shadow-lg shadow-primary/20' 
                   : 'border-border/50'
               }`}
               style={{ animationDelay: `${idx * 0.1}s` }}
