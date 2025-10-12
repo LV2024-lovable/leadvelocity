@@ -38,10 +38,10 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-transform duration-300 ${
+      <nav className={`fixed top-4 left-0 right-0 z-50 transition-transform duration-300 px-8 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
-        <div className="bg-foreground rounded-full shadow-2xl border border-background/10 px-6 max-w-6xl mx-auto">
+        <div className="bg-foreground rounded-full shadow-2xl border border-background/10 px-8 w-full max-w-[1400px] mx-auto">
           <div className="flex items-center justify-between h-16">
             {/* Logo - Text Only */}
             <a href="/" className="flex items-center gap-2 flex-shrink-0">
@@ -49,14 +49,14 @@ const Navigation = () => {
             </a>
 
             {/* Desktop Navigation - Centered */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
               <a
                 href="#features"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection('features');
                 }}
-                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer whitespace-nowrap"
               >
                 Features
               </a>
@@ -66,7 +66,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('how-it-works');
                 }}
-                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer whitespace-nowrap"
               >
                 Hoe werkt het
               </a>
@@ -76,7 +76,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('pricing');
                 }}
-                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer whitespace-nowrap"
               >
                 Prijzen
               </a>
@@ -86,7 +86,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('demo');
                 }}
-                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer whitespace-nowrap"
               >
                 Demo
               </a>
@@ -96,7 +96,7 @@ const Navigation = () => {
             <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
               <Button
                 onClick={() => setContactDialogOpen(true)}
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-6 py-2 text-sm shadow-lg h-10"
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-8 text-sm shadow-lg h-10 whitespace-nowrap"
               >
                 Start gratis
               </Button>
