@@ -12,90 +12,78 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-purple-50 to-blue-50" />
+    <section className="relative min-h-screen flex flex-col overflow-hidden pt-16 md:pt-20">
+      {/* Top announcement banner */}
+      <div className="w-full bg-black text-white py-3 text-center text-sm z-20 relative">
+        Nieuw: WhatsApp integratie, AI-gedreven antwoorden • <a href="#demo" className="underline hover:text-[#00D9FF] transition-colors">Leer meer →</a>
+      </div>
       
-      {/* Floating orbs - reduced on mobile */}
-      <div className="absolute top-20 left-5 md:left-10 w-40 h-40 md:w-64 md:h-64 bg-primary/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-5 md:right-10 w-64 h-64 md:w-96 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Text content */}
-          <div className="space-y-4 md:space-y-8 animate-fade-in text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-primary/10 border border-primary/20 rounded-full text-xs md:text-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
-              </span>
-              <span className="text-foreground/80">AI-powered HR assistant</span>
+      {/* Main hero content */}
+      <div className="flex-1 flex items-center justify-center relative">
+        {/* Clean gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#E8E4F3] via-[#F0EDF7] to-[#F5F3FA]" />
+        
+        <div className="container mx-auto px-4 relative z-10 py-12 md:py-20">
+          <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 md:px-5 py-2 bg-white rounded-full text-sm shadow-sm border border-gray-200">
+              <span className="text-gray-700">Beschikbaar via WhatsApp</span>
+              <span className="text-gray-400">•</span>
+              <a href="#demo" className="text-black font-medium hover:underline">
+                Probeer de app →
+              </a>
             </div>
             
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight">
-              Milo helpt uitzendbureaus{" "}
-              <span className="gradient-text">80% minder</span> HR-vragen te beantwoorden.
+            {/* Main heading */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-black">
+              De alles-in-één HR-assistent voor uitzendbureaus
             </h1>
             
-            <p className="text-base md:text-xl text-muted-foreground leading-relaxed">
-              Een slimme HR-agent beantwoordt direct vragen over loon, ziekte, vakantiedagen, CAO, en meer – 
-              zodat jij tijd overhoudt voor de mensen zelf.
+            {/* Subheading */}
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+              Beantwoord automatisch vragen over loon, ziekte, vakantiedagen en meer – en groei met slimme analyses en rapportages.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 pt-2 md:pt-4">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <Button 
                 size="lg" 
                 onClick={scrollToDemo}
-                className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground glow-whatsapp group"
+                className="w-full sm:w-auto bg-[#00D9FF] hover:bg-[#00C4E6] text-black font-semibold rounded-full px-8 text-base shadow-lg"
               >
-                <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                <span className="text-sm md:text-base">Bekijk Live Demo</span>
+                Start gratis
               </Button>
               
               <Button 
                 size="lg" 
-                variant="outline"
                 onClick={() => setContactDialogOpen(true)}
-                className="w-full sm:w-auto border-primary/30 hover:border-primary hover:bg-primary/10"
+                className="w-full sm:w-auto bg-black hover:bg-gray-900 text-white font-semibold rounded-full px-8 text-base"
               >
-                <Play className="mr-2 h-5 w-5" />
-                <span className="text-sm md:text-base">Vraag offerte aan</span>
+                Boek een demo
               </Button>
             </div>
             
+            {/* No credit card text */}
+            <p className="text-sm text-gray-600">
+              Geen creditcard vereist
+            </p>
+            
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-3 md:gap-6 pt-4 md:pt-8 border-t border-border/50">
-              <div className="text-center lg:text-left">
-                <div className="text-2xl md:text-3xl font-bold text-primary">24/7</div>
-                <div className="text-xs md:text-sm text-muted-foreground">Beschikbaar</div>
+            <div className="grid grid-cols-3 gap-6 md:gap-12 pt-8 md:pt-12 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-black">24/7</div>
+                <div className="text-sm text-gray-600 mt-1">Beschikbaar</div>
               </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl md:text-3xl font-bold text-primary">95%</div>
-                <div className="text-xs md:text-sm text-muted-foreground">Tevredenheid</div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-black">95%</div>
+                <div className="text-sm text-gray-600 mt-1">Tevredenheid</div>
               </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl md:text-3xl font-bold text-primary">800+</div>
-                <div className="text-xs md:text-sm text-muted-foreground">Vragen/week</div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-black">800+</div>
+                <div className="text-sm text-gray-600 mt-1">Vragen/week</div>
               </div>
             </div>
           </div>
-          
-          {/* Image */}
-          <div className="relative animate-scale-in mt-8 lg:mt-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-2xl md:rounded-3xl blur-3xl opacity-10 animate-pulse-glow" />
-            <img 
-              src={heroAi} 
-              alt="AI HR Assistant Visualization" 
-              className="relative rounded-2xl md:rounded-3xl shadow-2xl w-full border border-border/50"
-            />
-          </div>
-        </div>
-      </div>
-      
-      {/* Scroll indicator - hidden on mobile */}
-      <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
         </div>
       </div>
       

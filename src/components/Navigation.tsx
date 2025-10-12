@@ -38,14 +38,19 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/50 transition-transform duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-black transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <a href="/" className="flex items-center gap-2">
-              <img src={miloLogo} alt="MILO" className="h-8" />
+              <img 
+                src="/lovable-uploads/polygon-bimi-tiny12.svg" 
+                alt="Milo Logo" 
+                className="h-8 w-8"
+              />
+              <span className="text-xl font-bold text-white">Milo</span>
             </a>
 
             {/* Desktop Navigation */}
@@ -56,7 +61,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('features');
                 }}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
               >
                 Features
               </a>
@@ -66,7 +71,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('how-it-works');
                 }}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
               >
                 Hoe werkt het
               </a>
@@ -76,7 +81,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('pricing');
                 }}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
               >
                 Prijzen
               </a>
@@ -86,7 +91,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('demo');
                 }}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
               >
                 Demo
               </a>
@@ -95,22 +100,23 @@ const Navigation = () => {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
               <Button 
-                variant="outline"
+                variant="ghost"
                 onClick={() => setContactDialogOpen(true)}
+                className="text-white hover:text-white hover:bg-white/10"
               >
                 Contact
               </Button>
               <Button
                 onClick={() => setContactDialogOpen(true)}
-                className="bg-primary hover:bg-primary/90"
+                className="bg-[#00D9FF] hover:bg-[#00C4E6] text-black font-semibold rounded-full px-6"
               >
-                Probeer gratis
+                Start gratis
               </Button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2"
+              className="md:hidden p-2 text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -124,7 +130,7 @@ const Navigation = () => {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-border/50">
+            <div className="md:hidden py-4 border-t border-white/10">
               <div className="flex flex-col gap-4">
                 <a
                   href="#features"
@@ -132,7 +138,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('features');
                   }}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
                 >
                   Features
                 </a>
@@ -142,7 +148,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('how-it-works');
                   }}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
                 >
                   Hoe werkt het
                 </a>
@@ -152,7 +158,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('pricing');
                   }}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
                 >
                   Prijzen
                 </a>
@@ -162,17 +168,18 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('demo');
                   }}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
                 >
                   Demo
                 </a>
                 <div className="flex flex-col gap-2 pt-4">
                   <Button 
-                    variant="outline"
+                    variant="ghost"
                     onClick={() => {
                       setContactDialogOpen(true);
                       setMobileMenuOpen(false);
                     }}
+                    className="text-white hover:bg-white/10 justify-start"
                   >
                     Contact
                   </Button>
@@ -181,9 +188,9 @@ const Navigation = () => {
                       setContactDialogOpen(true);
                       setMobileMenuOpen(false);
                     }}
-                    className="bg-primary hover:bg-primary/90"
+                    className="bg-[#00D9FF] hover:bg-[#00C4E6] text-black font-semibold rounded-full"
                   >
-                    Probeer gratis
+                    Start gratis
                   </Button>
                 </div>
               </div>
