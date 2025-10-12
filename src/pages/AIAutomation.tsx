@@ -14,6 +14,11 @@ const AIAutomation = () => {
   }, []);
   return (
     <div className="min-h-screen">
+      {/* Announcement Banner - Top of page */}
+      <div className="w-full bg-foreground text-background py-3 text-center text-sm sticky top-0 z-50">
+        Nieuw: WhatsApp integratie, AI-gedreven antwoorden • <a href="#demo" className="underline hover:text-secondary transition-colors">Leer meer →</a>
+      </div>
+      
       <Navigation />
       <HeroAI />
       <Features />

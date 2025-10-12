@@ -12,12 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden pt-16 md:pt-20">
-      {/* Top announcement banner */}
-      <div className="w-full bg-foreground text-background py-3 text-center text-sm z-20 relative">
-        Nieuw: WhatsApp integratie, AI-gedreven antwoorden • <a href="#demo" className="underline hover:text-secondary transition-colors">Leer meer →</a>
-      </div>
-      
+    <section className="relative min-h-screen flex flex-col overflow-hidden pt-24 md:pt-28">
       {/* Main hero content */}
       <div className="flex-1 flex items-center justify-center relative">
         {/* Clean gradient background */}
