@@ -38,14 +38,14 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`fixed top-[52px] left-0 right-0 z-50 transition-transform duration-300 px-8 ${
+      <nav className={`fixed top-[100px] sm:top-[80px] md:top-[52px] left-0 right-0 z-50 transition-transform duration-300 px-3 sm:px-4 md:px-8 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
-        <div className="bg-foreground/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-background/10 px-8 w-full max-w-[1400px] mx-auto">
-          <div className="flex items-center justify-between h-16">
+        <div className="bg-foreground/95 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-2xl border border-background/10 px-4 sm:px-6 md:px-8 w-full max-w-[1400px] mx-auto">
+          <div className="flex items-center justify-between h-12 sm:h-14 md:h-16">
             {/* Logo - Text Only */}
             <a href="/" className="flex items-center gap-2 flex-shrink-0">
-              <span className="text-xl font-bold text-background">MILO</span>
+              <span className="text-lg sm:text-xl font-bold text-background">MILO</span>
             </a>
 
             {/* Desktop Navigation - Centered */}
@@ -106,7 +106,7 @@ const Navigation = () => {
             <div className="hidden md:flex items-center gap-3 flex-shrink-0">
               <Button
                 onClick={() => setContactDialogOpen(true)}
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-8 text-sm shadow-lg h-10 whitespace-nowrap"
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-6 md:px-8 text-sm shadow-lg h-9 md:h-10 whitespace-nowrap"
               >
                 Start gratis
               </Button>
@@ -114,14 +114,14 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-background"
+              className="md:hidden p-1.5 sm:p-2 text-background"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5 sm:h-6 sm:w-6" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
               )}
             </button>
           </div>
