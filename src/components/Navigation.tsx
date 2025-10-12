@@ -38,30 +38,25 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 bg-foreground transition-transform duration-300 ${
+      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+        <div className="bg-foreground rounded-full shadow-2xl border border-background/10 px-6 max-w-6xl mx-auto">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo - Text Only */}
             <a href="/" className="flex items-center gap-2 flex-shrink-0">
-              <img 
-                src="/lovable-uploads/polygon-bimi-tiny12.svg" 
-                alt="Milo Logo" 
-                className="h-10 w-10"
-              />
-              <span className="text-2xl font-bold text-background">Milo</span>
+              <span className="text-xl font-bold text-background">MILO</span>
             </a>
 
             {/* Desktop Navigation - Centered */}
-            <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+            <div className="hidden lg:flex items-center gap-8">
               <a
                 href="#features"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection('features');
                 }}
-                className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer"
               >
                 Features
               </a>
@@ -71,7 +66,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('how-it-works');
                 }}
-                className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer"
               >
                 Hoe werkt het
               </a>
@@ -81,7 +76,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('pricing');
                 }}
-                className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer"
               >
                 Prijzen
               </a>
@@ -91,7 +86,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('demo');
                 }}
-                className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer"
               >
                 Demo
               </a>
@@ -101,7 +96,7 @@ const Navigation = () => {
             <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
               <Button
                 onClick={() => setContactDialogOpen(true)}
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-8 py-5 text-base shadow-lg"
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-6 py-2 text-sm shadow-lg h-10"
               >
                 Start gratis
               </Button>
@@ -114,24 +109,24 @@ const Navigation = () => {
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-                <X className="h-7 w-7" />
+                <X className="h-6 w-6" />
               ) : (
-                <Menu className="h-7 w-7" />
+                <Menu className="h-6 w-6" />
               )}
             </button>
           </div>
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="lg:hidden py-6 border-t border-background/10">
-              <div className="flex flex-col gap-5">
+            <div className="lg:hidden py-4 border-t border-background/10">
+              <div className="flex flex-col gap-4">
                 <a
                   href="#features"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection('features');
                   }}
-                  className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
+                  className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer px-2"
                 >
                   Features
                 </a>
@@ -141,7 +136,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('how-it-works');
                   }}
-                  className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
+                  className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer px-2"
                 >
                   Hoe werkt het
                 </a>
@@ -151,7 +146,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('pricing');
                   }}
-                  className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
+                  className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer px-2"
                 >
                   Prijzen
                 </a>
@@ -161,17 +156,17 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('demo');
                   }}
-                  className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
+                  className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer px-2"
                 >
                   Demo
                 </a>
-                <div className="pt-4">
+                <div className="pt-2 px-2">
                   <Button
                     onClick={() => {
                       setContactDialogOpen(true);
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full py-5 text-base"
+                    className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full py-3 text-sm"
                   >
                     Start gratis
                   </Button>
