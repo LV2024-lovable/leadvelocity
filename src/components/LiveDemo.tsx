@@ -13,17 +13,17 @@ interface Message {
 }
 
 const SUGGESTED_QUESTIONS = [
-  "Hoeveel vakantiedagen heb ik nog?",
-  "Wanneer krijg ik mijn loon?",
-  "Hoe moet ik mij ziek melden?",
-  "Wat zijn de HR openingstijden?",
-  "Waar kan ik mijn loonstrook vinden?"
+  "Wanneer krijg ik mijn salaris?",
+  "Waar vind ik mijn loonstrook?",
+  "Waar kan ik mijn contract downloaden?",
+  "Ik ben ziek, wat moet ik doen?",
+  "Hoe vraag ik vakantie aan?"
 ];
 
 const LiveDemo = () => {
   const { toast } = useToast();
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Hoi! Ik ben je AI HR-assistent. Vraag me iets over vakantiedagen, loon, ziekteverzuim, of andere HR-zaken.', timestamp: new Date() }
+    { role: 'assistant', content: 'Hey 👋 ik ben Milo, je digitale HR-assistent. Je kunt me appen met vragen over loon, contract, planning of verlof — ik help je meteen verder. Wat wil je graag weten?', timestamp: new Date() }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -240,7 +240,7 @@ const LiveDemo = () => {
           </h2>
           
           <p className="text-xl text-muted-foreground">
-            Probeer vragen zoals "Hoeveel vakantiedagen heb ik nog?" of "Wanneer krijg ik mijn loon?"
+            Probeer vragen zoals "Wanneer krijg ik mijn salaris?" of "Ik ben ziek, wat moet ik doen?"
           </p>
 
           {verifiedEmail && (
@@ -397,7 +397,7 @@ const LiveDemo = () => {
             </div>
             
             <p className="text-xs text-muted-foreground mt-4 text-center">
-              🤖 Powered by AI - De agent leert van echte HR-data en kan 24/7 vragen beantwoorden
+              🤖 Powered by Milo - Je digitale HR-assistent die 24/7 je vragen beantwoordt
             </p>
           </Card>
         </div>
