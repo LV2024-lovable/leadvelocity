@@ -41,7 +41,7 @@ const Navigation = () => {
       <nav className={`fixed top-[70px] sm:top-[65px] md:top-[52px] left-0 right-0 z-50 transition-transform duration-300 px-3 sm:px-4 md:px-8 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
-        <div className="bg-foreground/95 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-2xl border border-background/10 px-4 sm:px-6 md:px-8 w-full max-w-5xl mx-auto">
+        <div className="bg-foreground/95 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-2xl border border-background/10 px-4 sm:px-6 md:px-8 w-full max-w-4xl mx-auto">
           <div className="flex items-center justify-between h-12 sm:h-14 md:h-16">
             {/* Logo - Text Only */}
             <a href="/" className="flex items-center gap-2 flex-shrink-0">
