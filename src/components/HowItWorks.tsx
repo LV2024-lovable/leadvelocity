@@ -31,7 +31,7 @@ const steps = [
 const HowItWorks = () => {
   return (
     <section id="how-it-works" className="py-24 relative">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Hoe het <span className="gradient-text">werkt</span>
