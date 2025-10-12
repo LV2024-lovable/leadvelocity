@@ -105,7 +105,7 @@ const Pricing = () => {
             {plans.map((plan, idx) => (
               <Card
                 key={idx}
-                className={`relative p-8 bg-card shadow-lg transition-all duration-300 hover:scale-105 animate-scale-in ${
+                className={`relative p-8 bg-card shadow-lg transition-all duration-300 hover:scale-105 animate-scale-in flex flex-col ${
                   plan.highlight 
                     ? 'gradient-border shadow-lg shadow-primary/20' 
                     : 'border-border/50'
@@ -139,7 +139,7 @@ const Pricing = () => {
                   </div>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-8 flex-1">
                   {plan.features.map((feature, featureIdx) => (
                     <li key={featureIdx} className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
