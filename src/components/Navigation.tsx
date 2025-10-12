@@ -38,7 +38,7 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 bg-black transition-transform duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-foreground transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
         <div className="container mx-auto px-4">
@@ -50,7 +50,7 @@ const Navigation = () => {
                 alt="Milo Logo" 
                 className="h-8 w-8"
               />
-              <span className="text-xl font-bold text-white">Milo</span>
+              <span className="text-xl font-bold text-background">Milo</span>
             </a>
 
             {/* Desktop Navigation */}
@@ -61,7 +61,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('features');
                 }}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
               >
                 Features
               </a>
@@ -71,7 +71,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('how-it-works');
                 }}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
               >
                 Hoe werkt het
               </a>
@@ -81,7 +81,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('pricing');
                 }}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
               >
                 Prijzen
               </a>
@@ -91,7 +91,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('demo');
                 }}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
+                className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
               >
                 Demo
               </a>
@@ -102,13 +102,13 @@ const Navigation = () => {
               <Button 
                 variant="ghost"
                 onClick={() => setContactDialogOpen(true)}
-                className="text-white hover:text-white hover:bg-white/10"
+                className="text-background hover:text-background hover:bg-background/10"
               >
                 Contact
               </Button>
               <Button
                 onClick={() => setContactDialogOpen(true)}
-                className="bg-[#00D9FF] hover:bg-[#00C4E6] text-black font-semibold rounded-full px-6"
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-6"
               >
                 Start gratis
               </Button>
@@ -116,7 +116,7 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-white"
+              className="md:hidden p-2 text-background"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -130,7 +130,7 @@ const Navigation = () => {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-white/10">
+            <div className="md:hidden py-4 border-t border-background/10">
               <div className="flex flex-col gap-4">
                 <a
                   href="#features"
@@ -138,7 +138,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('features');
                   }}
-                  className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
+                  className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
                 >
                   Features
                 </a>
@@ -148,7 +148,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('how-it-works');
                   }}
-                  className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
+                  className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
                 >
                   Hoe werkt het
                 </a>
@@ -158,7 +158,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('pricing');
                   }}
-                  className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
+                  className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
                 >
                   Prijzen
                 </a>
@@ -168,7 +168,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('demo');
                   }}
-                  className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
+                  className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
                 >
                   Demo
                 </a>
@@ -179,7 +179,7 @@ const Navigation = () => {
                       setContactDialogOpen(true);
                       setMobileMenuOpen(false);
                     }}
-                    className="text-white hover:bg-white/10 justify-start"
+                    className="text-background hover:bg-background/10 justify-start"
                   >
                     Contact
                   </Button>
@@ -188,7 +188,7 @@ const Navigation = () => {
                       setContactDialogOpen(true);
                       setMobileMenuOpen(false);
                     }}
-                    className="bg-[#00D9FF] hover:bg-[#00C4E6] text-black font-semibold rounded-full"
+                    className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full"
                   >
                     Start gratis
                   </Button>
