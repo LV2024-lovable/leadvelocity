@@ -67,98 +67,103 @@ const Pricing = () => {
   const [selectedPlan, setSelectedPlan] = useState<string>("");
 
   return (
-    <section id="pricing" className="py-24 relative">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Transparante <span className="gradient-text">prijzen</span>
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Kies het pakket dat bij jouw organisatie past. Opschalen kan altijd.
-          </p>
-          
-          <div className="flex items-center justify-center gap-4">
-            <ToggleGroup 
-              type="single" 
-              value={billingPeriod} 
-              onValueChange={(value) => value && setBillingPeriod(value as "monthly" | "yearly")}
-              className="bg-muted p-1 rounded-lg"
-            >
-              <ToggleGroupItem value="monthly" className="px-6 py-2 data-[state=on]:bg-background data-[state=on]:shadow-sm">
-                Maandelijks
-              </ToggleGroupItem>
-              <ToggleGroupItem value="yearly" className="px-6 py-2 data-[state=on]:bg-background data-[state=on]:shadow-sm relative">
-                Jaarlijks
-                <span className="absolute -top-2 -right-2 bg-secondary text-secondary-foreground text-xs px-2 py-0.5 rounded-full font-semibold">
-                  Bespaar 17%
-                </span>
-              </ToggleGroupItem>
-            </ToggleGroup>
-          </div>
-        </div>
-        
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, idx) => (
-            <Card
-              key={idx}
-              className={`relative p-8 bg-card shadow-lg transition-all duration-300 hover:scale-105 animate-scale-in ${
-                plan.highlight 
-                  ? 'gradient-border shadow-lg shadow-primary/20' 
-                  : 'border-border/50'
-              }`}
-              style={{ animationDelay: `${idx * 0.1}s` }}
-            >
-              {plan.highlight && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm font-semibold rounded-full">
-                  Populair
-                </div>
-              )}
-              
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{plan.description}</p>
-                <div className="mb-2 transition-all duration-300">
-                  {billingPeriod === "monthly" ? (
-                    <>
-                      <span className="text-4xl font-bold">€{plan.monthlyPrice}</span>
-                      <span className="text-muted-foreground ml-2">per maand</span>
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-4xl font-bold">€{Math.round(plan.yearlyPrice / 12)}</span>
-                      <span className="text-muted-foreground ml-2">per maand</span>
-                      <div className="text-sm text-muted-foreground mt-1">
-                        bij jaarlijkse betaling
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-              
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, featureIdx) => (
-                  <li key={featureIdx} className="flex items-start gap-2">
-                    <Check className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
-                    <span className="text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <Button 
-                onClick={() => {
-                  setSelectedPlan(plan.name);
-                  setContactDialogOpen(true);
-                }}
-                className={`w-full ${
-                  plan.highlight 
-                    ? 'bg-primary hover:bg-primary/90 glow-primary' 
-                    : 'bg-secondary hover:bg-secondary/90'
-                }`}
+    <section id="pricing" className="py-3 md:py-4 relative">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-50 via-blue-50 to-background" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-xl border border-border p-8 md:p-12">
+          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              Transparante <span className="gradient-text">prijzen</span>
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Kies het pakket dat bij jouw organisatie past. Opschalen kan altijd.
+            </p>
+            
+            <div className="flex items-center justify-center gap-4">
+              <ToggleGroup 
+                type="single" 
+                value={billingPeriod} 
+                onValueChange={(value) => value && setBillingPeriod(value as "monthly" | "yearly")}
+                className="bg-muted p-1 rounded-lg"
               >
-                {plan.name === 'Enterprise' ? 'Contact opnemen' : 'Start nu'}
-              </Button>
-            </Card>
-          ))}
+                <ToggleGroupItem value="monthly" className="px-6 py-2 data-[state=on]:bg-background data-[state=on]:shadow-sm">
+                  Maandelijks
+                </ToggleGroupItem>
+                <ToggleGroupItem value="yearly" className="px-6 py-2 data-[state=on]:bg-background data-[state=on]:shadow-sm relative">
+                  Jaarlijks
+                  <span className="absolute -top-2 -right-2 bg-secondary text-secondary-foreground text-xs px-2 py-0.5 rounded-full font-semibold">
+                    Bespaar 17%
+                  </span>
+                </ToggleGroupItem>
+              </ToggleGroup>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {plans.map((plan, idx) => (
+              <Card
+                key={idx}
+                className={`relative p-8 bg-card shadow-lg transition-all duration-300 hover:scale-105 animate-scale-in ${
+                  plan.highlight 
+                    ? 'gradient-border shadow-lg shadow-primary/20' 
+                    : 'border-border/50'
+                }`}
+                style={{ animationDelay: `${idx * 0.1}s` }}
+              >
+                {plan.highlight && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm font-semibold rounded-full">
+                    Populair
+                  </div>
+                )}
+                
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-4">{plan.description}</p>
+                  <div className="mb-2 transition-all duration-300">
+                    {billingPeriod === "monthly" ? (
+                      <>
+                        <span className="text-4xl font-bold">€{plan.monthlyPrice}</span>
+                        <span className="text-muted-foreground ml-2">per maand</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-4xl font-bold">€{Math.round(plan.yearlyPrice / 12)}</span>
+                        <span className="text-muted-foreground ml-2">per maand</span>
+                        <div className="text-sm text-muted-foreground mt-1">
+                          bij jaarlijkse betaling
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+                
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, featureIdx) => (
+                    <li key={featureIdx} className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                      <span className="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  onClick={() => {
+                    setSelectedPlan(plan.name);
+                    setContactDialogOpen(true);
+                  }}
+                  className={`w-full ${
+                    plan.highlight 
+                      ? 'bg-primary hover:bg-primary/90 glow-primary' 
+                      : 'bg-secondary hover:bg-secondary/90'
+                  }`}
+                >
+                  {plan.name === 'Enterprise' ? 'Contact opnemen' : 'Start nu'}
+                </Button>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
       
