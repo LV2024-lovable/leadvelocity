@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import HeroAI from "@/components/HeroAI";
 import Features from "@/components/Features";
@@ -8,6 +9,9 @@ import Testimonials from "@/components/Testimonials";
 import FooterAI from "@/components/FooterAI";
 
 const AIAutomation = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen">
       <Navigation />
