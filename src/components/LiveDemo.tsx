@@ -189,14 +189,14 @@ const LiveDemo = () => {
         <div className="max-w-2xl mx-auto">
           {/* Suggested Questions */}
           {showSuggestions && (
-            <div className="mb-4 animate-fade-in">
-              <p className="text-sm text-muted-foreground mb-3 text-center">Probeer één van deze vragen:</p>
+            <div className="mb-4 animate-fade-in px-2">
+              <p className="text-xs md:text-sm text-muted-foreground mb-3 text-center">Probeer één van deze vragen:</p>
               <div className="flex flex-wrap gap-2 justify-center">
                 {SUGGESTED_QUESTIONS.map((question, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSuggestedQuestion(question)}
-                    className="px-4 py-2 bg-white border border-secondary/20 rounded-full text-sm hover:bg-secondary/10 transition-colors shadow-sm"
+                    className="px-3 md:px-4 py-1.5 md:py-2 bg-white border border-secondary/20 rounded-full text-xs md:text-sm hover:bg-secondary/10 transition-colors shadow-sm"
                   >
                     {question}
                   </button>
@@ -205,13 +205,13 @@ const LiveDemo = () => {
             </div>
           )}
 
-          <Card className="bg-[#e5ddd5] shadow-xl p-6 animate-scale-in border-0" style={{
+          <Card className="bg-[#e5ddd5] shadow-xl p-3 md:p-6 animate-scale-in border-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d9d9d9' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}>
             {/* Chat messages */}
             <div 
               ref={messagesContainerRef}
-              className="space-y-4 mb-6 min-h-[300px] max-h-[400px] overflow-y-auto"
+              className="space-y-3 md:space-y-4 mb-4 md:mb-6 min-h-[250px] md:min-h-[300px] max-h-[350px] md:max-h-[400px] overflow-y-auto"
             >
               {messages.map((msg, idx) => (
                 <div
@@ -219,12 +219,12 @@ const LiveDemo = () => {
                   className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
                 >
                   {msg.role === 'assistant' && (
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center">
-                      <Bot className="h-4 w-4 text-white" />
+                    <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#25D366] flex items-center justify-center">
+                      <Bot className="h-3.5 w-3.5 md:h-4 md:w-4 text-white" />
                     </div>
                   )}
                   
-                  <div className="flex flex-col gap-1 max-w-[75%] group">
+                  <div className="flex flex-col gap-1 max-w-[80%] md:max-w-[75%] group">
                     <div
                       className={`relative rounded-lg px-3 py-2 shadow-sm ${
                         msg.role === 'user'
@@ -258,8 +258,8 @@ const LiveDemo = () => {
                   </div>
 
                   {msg.role === 'user' && (
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-400 flex items-center justify-center">
-                      <User className="h-4 w-4 text-white" />
+                    <div className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-gray-400 flex items-center justify-center">
+                      <User className="h-3.5 w-3.5 md:h-4 md:w-4 text-white" />
                     </div>
                   )}
                 </div>
@@ -287,12 +287,12 @@ const LiveDemo = () => {
             </div>
             
             {/* Input */}
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-1.5 md:gap-2 items-center">
               <Button
                 onClick={isRecording ? stopRecording : startRecording}
                 size="icon"
                 disabled={isLoading || isTranscribing}
-                className={`rounded-full h-12 w-12 shadow-md disabled:opacity-50 disabled:cursor-not-allowed ${
+                className={`rounded-full h-10 w-10 md:h-12 md:w-12 shadow-md disabled:opacity-50 disabled:cursor-not-allowed ${
                   isRecording 
                     ? 'bg-red-500 hover:bg-red-600 animate-pulse' 
                     : 'bg-gray-500 hover:bg-gray-600'
@@ -300,11 +300,11 @@ const LiveDemo = () => {
                 title={isRecording ? "Stop opname" : "Start voice memo"}
               >
                 {isTranscribing ? (
-                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <Loader2 className="h-4 w-4 md:h-5 md:w-5 animate-spin" />
                 ) : isRecording ? (
-                  <Square className="h-5 w-5" />
+                  <Square className="h-4 w-4 md:h-5 md:w-5" />
                 ) : (
-                  <Mic className="h-5 w-5" />
+                  <Mic className="h-4 w-4 md:h-5 md:w-5" />
                 )}
               </Button>
               
@@ -315,18 +315,18 @@ const LiveDemo = () => {
                 onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSend()}
                 placeholder="Typ een bericht"
                 disabled={isLoading}
-                className="flex-1 bg-white text-gray-800 border-0 rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#25D366] disabled:opacity-50 disabled:cursor-not-allowed placeholder:text-gray-400 shadow-sm"
+                className="flex-1 bg-white text-gray-800 text-sm md:text-base border-0 rounded-full px-3 md:px-4 py-2.5 md:py-3 focus:outline-none focus:ring-2 focus:ring-[#25D366] disabled:opacity-50 disabled:cursor-not-allowed placeholder:text-gray-400 shadow-sm"
               />
               <Button
                 onClick={() => handleSend()}
                 size="icon"
                 disabled={isLoading || !input.trim()}
-                className="rounded-full h-12 w-12 bg-[#25D366] hover:bg-[#20BD5C] text-white shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-300"
+                className="rounded-full h-10 w-10 md:h-12 md:w-12 bg-[#25D366] hover:bg-[#20BD5C] text-white shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-300"
               >
                 {isLoading ? (
-                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <Loader2 className="h-4 w-4 md:h-5 md:w-5 animate-spin" />
                 ) : (
-                  <Send className="h-5 w-5" />
+                  <Send className="h-4 w-4 md:h-5 md:w-5" />
                 )}
               </Button>
             </div>
