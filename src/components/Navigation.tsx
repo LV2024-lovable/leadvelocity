@@ -68,7 +68,27 @@ const Navigation = () => {
                 }}
                 className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer whitespace-nowrap"
               >
-                Hoe werkt het
+                Hoe het werkt
+              </a>
+              <a
+                href="#meet-milo"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('meet-milo');
+                }}
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer whitespace-nowrap"
+              >
+                Meet Milo
+              </a>
+              <a
+                href="#documentatie"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('documentatie');
+                }}
+                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer whitespace-nowrap"
+              >
+                Documentatie
               </a>
               <a
                 href="#pricing"
@@ -79,16 +99,6 @@ const Navigation = () => {
                 className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer whitespace-nowrap"
               >
                 Prijzen
-              </a>
-              <a
-                href="#demo"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('demo');
-                }}
-                className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer whitespace-nowrap"
-              >
-                Demo
               </a>
             </div>
 
@@ -138,7 +148,27 @@ const Navigation = () => {
                   }}
                   className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer px-2"
                 >
-                  Hoe werkt het
+                  Hoe het werkt
+                </a>
+                <a
+                  href="#meet-milo"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('meet-milo');
+                  }}
+                  className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer px-2"
+                >
+                  Meet Milo
+                </a>
+                <a
+                  href="#documentatie"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('documentatie');
+                  }}
+                  className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer px-2"
+                >
+                  Documentatie
                 </a>
                 <a
                   href="#pricing"
@@ -149,16 +179,6 @@ const Navigation = () => {
                   className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer px-2"
                 >
                   Prijzen
-                </a>
-                <a
-                  href="#demo"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('demo');
-                  }}
-                  className="text-sm font-medium text-background/80 hover:text-background transition-colors cursor-pointer px-2"
-                >
-                  Demo
                 </a>
                 <div className="pt-2 px-2">
                   <Button
