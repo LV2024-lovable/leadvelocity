@@ -71,7 +71,6 @@ const LiveDemo = () => {
     if (!messageText.trim() || isLoading) return;
     
     setInput('');
-    setShowSuggestions(false);
     setMessages(prev => [...prev, { role: 'user', content: messageText, timestamp: new Date() }]);
     setIsLoading(true);
 
