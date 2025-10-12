@@ -38,7 +38,7 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`fixed top-[100px] sm:top-[80px] md:top-[52px] left-0 right-0 z-50 transition-transform duration-300 px-3 sm:px-4 md:px-8 ${
+      <nav className={`fixed top-[70px] sm:top-[65px] md:top-[52px] left-0 right-0 z-50 transition-transform duration-300 px-3 sm:px-4 md:px-8 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
         <div className="bg-foreground/95 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-2xl border border-background/10 px-4 sm:px-6 md:px-8 w-full max-w-[1400px] mx-auto">
