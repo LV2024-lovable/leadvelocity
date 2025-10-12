@@ -16,7 +16,7 @@ const Hero = () => {
         {/* Clean gradient background */}
         <div className="absolute inset-0 bg-gradient-to-b from-purple-50 via-blue-50 to-background" />
         
-        <div className="container mx-auto px-4 relative z-10 py-12 md:py-20">
+        <div className="container mx-auto px-4 relative z-10 py-4 md:py-8">
           <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-xl border border-border p-8 md:p-12">
             <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
               {/* Badge */}
