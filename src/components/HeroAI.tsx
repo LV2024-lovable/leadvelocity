@@ -32,7 +32,7 @@ const Hero = () => {
             
             {/* Subheading */}
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Beantwoord automatisch vragen over loon, ziekte, vakantiedagen en meer – en groei met slimme analyses en rapportages.
+              Een slimme HR-agent beantwoordt direct vragen over loon, ziekte, vakantiedagen, CAO, en meer – zodat jij tijd overhoudt voor de mensen zelf.
             </p>
             
             {/* CTA Buttons */}
