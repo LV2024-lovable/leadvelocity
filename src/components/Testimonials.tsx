@@ -37,16 +37,6 @@ const Testimonials = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-xl border border-border p-8 md:p-12">
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 animate-fade-in">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold gradient-text mb-2">{stat.value}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-          
           {/* Testimonials */}
           <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
