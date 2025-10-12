@@ -3,16 +3,14 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Play } from "lucide-react";
 import heroAi from "@/assets/hero-ai.jpg";
 import ContactDialog from "./ContactDialog";
-
 const Hero = () => {
   const [contactDialogOpen, setContactDialogOpen] = useState(false);
-  
   const scrollToDemo = () => {
-    document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('demo')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden pt-24 md:pt-28">
+  return <section className="relative min-h-screen flex flex-col overflow-hidden pt-24 md:pt-28">
       {/* Main hero content */}
       <div className="flex-1 flex items-center justify-center relative">
         {/* Clean gradient background */}
@@ -30,9 +28,7 @@ const Hero = () => {
             </div>
             
             {/* Main heading */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-foreground">
-              De alles-in-één HR-assistent voor uitzendbureaus
-            </h1>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-foreground">Milo helpt uitzendbureaus 80% minder HR-vragen te beantwoorden.</h1>
             
             {/* Subheading */}
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
@@ -41,19 +37,11 @@ const Hero = () => {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Button 
-                size="lg" 
-                onClick={scrollToDemo}
-                className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-8 text-base shadow-lg glow-whatsapp"
-              >
+              <Button size="lg" onClick={scrollToDemo} className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-8 text-base shadow-lg glow-whatsapp">
                 Start gratis
               </Button>
               
-              <Button 
-                size="lg" 
-                onClick={() => setContactDialogOpen(true)}
-                className="w-full sm:w-auto bg-foreground hover:bg-foreground/90 text-background font-semibold rounded-full px-8 text-base"
-              >
+              <Button size="lg" onClick={() => setContactDialogOpen(true)} className="w-full sm:w-auto bg-foreground hover:bg-foreground/90 text-background font-semibold rounded-full px-8 text-base">
                 Boek een demo
               </Button>
             </div>
@@ -83,8 +71,6 @@ const Hero = () => {
       </div>
       
       <ContactDialog open={contactDialogOpen} onOpenChange={setContactDialogOpen} />
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
