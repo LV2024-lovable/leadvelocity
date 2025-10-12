@@ -24,13 +24,21 @@ const AIAutomation = () => {
       
       <Navigation />
       <HeroAI />
-      <Features />
-      <HowItWorks />
+      <div id="features">
+        <Features />
+      </div>
+      <div id="how-it-works">
+        <HowItWorks />
+      </div>
       <div id="demo">
         <LiveDemo />
       </div>
-      <Pricing />
-      <Testimonials />
+      <div id="pricing">
+        <Pricing />
+      </div>
+      <div id="meet-milo">
+        <Testimonials />
+      </div>
       <FooterAI />
     </div>
   );
