@@ -37,11 +37,8 @@ const features = [
 const Features = () => {
   return (
     <section id="features" className="py-3 md:py-4 relative">
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-50 via-blue-50 to-background" />
-      
       <div className="container mx-auto px-4 relative z-10">
-        <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-xl border border-border p-8 md:p-12">
+        <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-md border border-border p-8 md:p-12">
           <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Wat je <span className="gradient-text">AI HR Agent</span> kan beantwoorden

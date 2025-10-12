@@ -13,7 +13,10 @@ const AIAutomation = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Global gradient background that runs through entire page */}
+      <div className="fixed inset-0 bg-gradient-to-b from-purple-50 via-blue-50 to-background -z-10" />
+      
       {/* Announcement Banner - Top of page */}
       <div className="w-full bg-foreground text-background py-3 text-center text-sm sticky top-0 z-[60]">
         Nieuw: WhatsApp integratie, AI-gedreven antwoorden • <a href="#demo" className="underline hover:text-secondary transition-colors">Leer meer →</a>

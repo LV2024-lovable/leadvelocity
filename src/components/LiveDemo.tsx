@@ -248,11 +248,8 @@ const LiveDemo = () => {
 
   return (
     <section id="demo" className="py-3 md:py-4 relative">
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-50 via-blue-50 to-background" />
-      
       <div className="container mx-auto px-4 relative z-10">
-        <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-xl border border-border p-8 md:p-12">
+        <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-md border border-border p-8 md:p-12">
           <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 rounded-full text-sm mb-6">
               <MessageSquare className="h-4 w-4 text-secondary" />
