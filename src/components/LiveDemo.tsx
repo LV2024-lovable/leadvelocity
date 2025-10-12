@@ -1,0 +1,344 @@
+import { Card } from "@/components/ui/card";
+import { MessageSquare, Send, Loader2, Bot, User, Copy, Check, Mic, Square } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { format } from "date-fns";
+
+interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: Date;
+}
+
+const SUGGESTED_QUESTIONS = [
+  "Hoeveel vakantiedagen heb ik nog?",
+  "Wanneer krijg ik mijn loon?",
+  "Hoe moet ik mij ziek melden?",
+  "Wat zijn de HR openingstijden?",
+  "Waar kan ik mijn loonstrook vinden?"
+];
+
+const LiveDemo = () => {
+  const { toast } = useToast();
+  const [messages, setMessages] = useState<Message[]>([
+    { role: 'assistant', content: 'Hoi! Ik ben je AI HR-assistent. Vraag me iets over vakantiedagen, loon, ziekteverzuim, of andere HR-zaken.', timestamp: new Date() }
+  ]);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(true);
+  const [copiedId, setCopiedId] = useState<number | null>(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const [isTranscribing, setIsTranscribing] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isLoading]);
+
+  const handleSend = async (text?: string) => {
+    const messageText = text || input;
+    if (!messageText.trim() || isLoading) return;
+    
+    setInput('');
+    setShowSuggestions(false);
+    setMessages(prev => [...prev, { role: 'user', content: messageText, timestamp: new Date() }]);
+    setIsLoading(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('hr-chat', {
+        body: { 
+          messages: [...messages, { role: 'user', content: messageText }].map(m => ({ role: m.role, content: m.content }))
+        }
+      });
+
+      if (error) throw error;
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      setMessages(prev => [...prev, { role: 'assistant', content: data.message, timestamp: new Date() }]);
+    } catch (error: any) {
+      console.error('Error:', error);
+      toast({
+        title: "Fout",
+        description: error.message || "Er ging iets mis. Probeer het opnieuw.",
+        variant: "destructive",
+      });
+      
+      // Remove the user message if there was an error
+      setMessages(prev => prev.slice(0, -1));
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleCopy = async (content: string, idx: number) => {
+    await navigator.clipboard.writeText(content);
+    setCopiedId(idx);
+    toast({
+      title: "Gekopieerd!",
+      description: "Bericht is gekopieerd naar klembord",
+    });
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const handleSuggestedQuestion = (question: string) => {
+    handleSend(question);
+  };
+
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      audioChunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          audioChunksRef.current.push(event.data);
+        }
+      };
+
+      mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+        await transcribeAudio(audioBlob);
+        stream.getTracks().forEach(track => track.stop());
+      };
+
+      mediaRecorder.start();
+      setIsRecording(true);
+    } catch (error) {
+      console.error('Error starting recording:', error);
+      toast({
+        title: "Fout",
+        description: "Kan microfoon niet openen. Geef toegang tot de microfoon.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const stopRecording = () => {
+    if (mediaRecorderRef.current && isRecording) {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+    }
+  };
+
+  const transcribeAudio = async (audioBlob: Blob) => {
+    setIsTranscribing(true);
+    try {
+      const reader = new FileReader();
+      reader.readAsDataURL(audioBlob);
+      reader.onloadend = async () => {
+        const base64Audio = reader.result?.toString().split(',')[1];
+        
+        if (!base64Audio) {
+          throw new Error('Failed to convert audio to base64');
+        }
+
+        const { data, error } = await supabase.functions.invoke('transcribe-audio', {
+          body: { audio: base64Audio }
+        });
+
+        if (error) throw error;
+
+        if (data.error) {
+          throw new Error(data.error);
+        }
+
+        if (data.text) {
+          await handleSend(data.text);
+        }
+      };
+    } catch (error: any) {
+      console.error('Transcription error:', error);
+      toast({
+        title: "Fout",
+        description: error.message || "Kon audio niet transcriberen. Probeer het opnieuw.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsTranscribing(false);
+    }
+  };
+
+  return (
+    <section id="demo" className="py-24 relative">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 rounded-full text-sm mb-6">
+            <MessageSquare className="h-4 w-4 text-secondary" />
+            <span>Live Demo</span>
+          </div>
+          
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            Test het zelf: <span className="gradient-text">Stel een vraag</span>
+          </h2>
+          
+          <p className="text-xl text-muted-foreground">
+            Probeer vragen zoals "Hoeveel vakantiedagen heb ik nog?" of "Wanneer krijg ik mijn loon?"
+          </p>
+        </div>
+        
+        <div className="max-w-2xl mx-auto">
+          {/* Suggested Questions */}
+          {showSuggestions && (
+            <div className="mb-4 animate-fade-in">
+              <p className="text-sm text-muted-foreground mb-3 text-center">Probeer één van deze vragen:</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {SUGGESTED_QUESTIONS.map((question, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleSuggestedQuestion(question)}
+                    className="px-4 py-2 bg-white border border-secondary/20 rounded-full text-sm hover:bg-secondary/10 transition-colors shadow-sm"
+                  >
+                    {question}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <Card className="bg-[#e5ddd5] shadow-xl p-6 animate-scale-in border-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d9d9d9' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}>
+            {/* Chat messages */}
+            <div 
+              ref={messagesContainerRef}
+              className="space-y-4 mb-6 min-h-[300px] max-h-[400px] overflow-y-auto"
+            >
+              {messages.map((msg, idx) => (
+                <div
+                  key={idx}
+                  className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
+                >
+                  {msg.role === 'assistant' && (
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center">
+                      <Bot className="h-4 w-4 text-white" />
+                    </div>
+                  )}
+                  
+                  <div className="flex flex-col gap-1 max-w-[75%] group">
+                    <div
+                      className={`relative rounded-lg px-3 py-2 shadow-sm ${
+                        msg.role === 'user'
+                          ? 'bg-[#dcf8c6] text-gray-800 rounded-br-none'
+                          : 'bg-white text-gray-800 rounded-bl-none'
+                      }`}
+                      style={{
+                        boxShadow: '0 1px 0.5px rgba(0,0,0,0.13)'
+                      }}
+                    >
+                      <p className="text-sm leading-relaxed">{msg.content}</p>
+                      
+                      {msg.role === 'assistant' && (
+                        <button
+                          onClick={() => handleCopy(msg.content, idx)}
+                          className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-white rounded-full p-1.5 shadow-md hover:bg-gray-50"
+                          title="Kopieer bericht"
+                        >
+                          {copiedId === idx ? (
+                            <Check className="h-3 w-3 text-green-600" />
+                          ) : (
+                            <Copy className="h-3 w-3 text-gray-600" />
+                          )}
+                        </button>
+                      )}
+                    </div>
+                    
+                    <span className={`text-[10px] text-gray-500 px-1 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
+                      {format(msg.timestamp, 'HH:mm')}
+                    </span>
+                  </div>
+
+                  {msg.role === 'user' && (
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-400 flex items-center justify-center">
+                      <User className="h-4 w-4 text-white" />
+                    </div>
+                  )}
+                </div>
+              ))}
+              
+              {/* Typing Indicator */}
+              {isLoading && (
+                <div className="flex gap-2 justify-start animate-fade-in">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center">
+                    <Bot className="h-4 w-4 text-white" />
+                  </div>
+                  <div className="bg-white rounded-lg rounded-bl-none px-4 py-3 shadow-sm" style={{
+                    boxShadow: '0 1px 0.5px rgba(0,0,0,0.13)'
+                  }}>
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              <div ref={messagesEndRef} />
+            </div>
+            
+            {/* Input */}
+            <div className="flex gap-2 items-center">
+              <Button
+                onClick={isRecording ? stopRecording : startRecording}
+                size="icon"
+                disabled={isLoading || isTranscribing}
+                className={`rounded-full h-12 w-12 shadow-md disabled:opacity-50 disabled:cursor-not-allowed ${
+                  isRecording 
+                    ? 'bg-red-500 hover:bg-red-600 animate-pulse' 
+                    : 'bg-gray-500 hover:bg-gray-600'
+                } text-white`}
+                title={isRecording ? "Stop opname" : "Start voice memo"}
+              >
+                {isTranscribing ? (
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                ) : isRecording ? (
+                  <Square className="h-5 w-5" />
+                ) : (
+                  <Mic className="h-5 w-5" />
+                )}
+              </Button>
+              
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSend()}
+                placeholder="Typ een bericht"
+                disabled={isLoading}
+                className="flex-1 bg-white text-gray-800 border-0 rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#25D366] disabled:opacity-50 disabled:cursor-not-allowed placeholder:text-gray-400 shadow-sm"
+              />
+              <Button
+                onClick={() => handleSend()}
+                size="icon"
+                disabled={isLoading || !input.trim()}
+                className="rounded-full h-12 w-12 bg-[#25D366] hover:bg-[#20BD5C] text-white shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-300"
+              >
+                {isLoading ? (
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                ) : (
+                  <Send className="h-5 w-5" />
+                )}
+              </Button>
+            </div>
+            
+            <p className="text-xs text-muted-foreground mt-4 text-center">
+              🤖 Powered by AI - De agent leert van echte HR-data en kan 24/7 vragen beantwoorden
+            </p>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default LiveDemo;
