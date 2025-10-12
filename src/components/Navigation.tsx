@@ -49,7 +49,7 @@ const Navigation = () => {
             </a>
 
             {/* Desktop Navigation - Centered */}
-            <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+            <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
               <a
                 href="#features"
                 onClick={(e) => {
@@ -93,7 +93,7 @@ const Navigation = () => {
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+            <div className="hidden md:flex items-center gap-3 flex-shrink-0">
               <Button
                 onClick={() => setContactDialogOpen(true)}
                 className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-8 text-sm shadow-lg h-10 whitespace-nowrap"
@@ -104,7 +104,7 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 text-background"
+              className="md:hidden p-2 text-background"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -118,7 +118,7 @@ const Navigation = () => {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-background/10">
+            <div className="md:hidden py-4 border-t border-background/10">
               <div className="flex flex-col gap-4">
                 <a
                   href="#features"
