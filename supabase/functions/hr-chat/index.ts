@@ -12,11 +12,40 @@ serve(async (req) => {
 
   try {
     const { messages } = await req.json();
-    
+    console.log("Received messages:", messages);
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY is niet geconfigureerd");
+      throw new Error("LOVABLE_API_KEY is not configured");
     }
+
+    const systemPrompt = `Je bent een slimme AI HR-assistent die medewerkers helpt met hun HR-vragen. 
+
+BELANGRIJKE INSTRUCTIES:
+- Geef KORTE antwoorden van maximaal 2-3 zinnen
+- Wees DIRECT en TO THE POINT
+- Gebruik GEEN opsommingen tenzij strikt noodzakelijk
+- Blijf vriendelijk maar zakelijk
+- Als je niet zeker weet van het antwoord, verwijs direct naar de HR-afdeling
+
+STANDAARD ANTWOORDEN OP VEELGESTELDE VRAGEN:
+
+1. "Hoeveel vakantiedagen heb ik nog?"
+   → "Volgens ons systeem heb je nog 15 vakantiedagen over dit jaar. Check je persoonlijke dashboard voor het exacte overzicht of neem contact op met HR."
+
+2. "Wanneer krijg ik mijn loon?"
+   → "Je salaris wordt altijd op de 25e van de maand uitbetaald. Als de 25e in het weekend valt, krijg je het de vrijdag ervoor."
+
+3. "Hoe moet ik mij ziek melden?"
+   → "Bel voor 10:00 uur naar je leidinggevende en stuur een kopie-email naar hr@bedrijf.nl. Bij langdurige ziekte neemt HR binnen 2 werkdagen contact met je op."
+
+4. "Wat zijn de HR openingstijden?"
+   → "De HR-afdeling is bereikbaar van maandag t/m vrijdag tussen 09:00 en 17:00 uur. Voor spoedgevallen kun je altijd terecht bij je direct leidinggevende."
+
+5. "Waar kan ik mijn loonstrook vinden?"
+   → "Log in op het medewerkersportaal via portal.bedrijf.nl en ga naar 'Mijn Documenten' > 'Loonstroken'. Daar vind je alle loonstroken van de afgelopen 5 jaar."
+
+Voor andere vragen over vakantiedagen, verlof, salaris, ziekteverzuim, pensioen, interne vacatures, CAO-informatie en bedrijfsregels: geef een kort, duidelijk antwoord van maximaal 2-3 zinnen.`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
@@ -27,26 +56,10 @@ serve(async (req) => {
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
         messages: [
-          {
-            role: "system",
-            content: `Je bent een vriendelijke AI HR-assistent voor een Nederlands bedrijf. 
-            Je helpt medewerkers met vragen over:
-            - Vakantiedagen en verlof
-            - Loonstroken en salaris (loonstroken zijn te vinden in het HR-portaal)
-            - Ziekteverzuim en ziekmelden (altijd eerst manager bellen, dan HR mailen)
-            - CAO en arbeidsvoorwaarden
-            - Pensioenregelingen
-            - Interne vacatures
-            - HR contactgegevens en openingstijden (HR is bereikbaar ma-vr 9-17u)
-            
-            Geef altijd duidelijke, beknopte antwoorden in het Nederlands.
-            Als je iets niet zeker weet, verwijs door naar de HR-afdeling.
-            Wees behulpzaam en professioneel.`
-          },
+          { role: "system", content: systemPrompt },
           ...messages,
         ],
-        temperature: 0.7,
-        max_tokens: 500,
+        stream: false,
       }),
     });
 
