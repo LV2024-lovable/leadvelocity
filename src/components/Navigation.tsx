@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import ContactDialog from "./ContactDialog";
+import miloLogo from "@/assets/milo-logo.png";
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,8 +22,8 @@ const Navigation = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="/" className="flex items-center">
-              <span className="text-xl font-bold gradient-text">PEOPLE</span>
+            <a href="/" className="flex items-center gap-2">
+              <img src={miloLogo} alt="MILO" className="h-8" />
             </a>
 
             {/* Desktop Navigation */}

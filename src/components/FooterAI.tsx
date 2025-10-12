@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Mail, Linkedin } from "lucide-react";
 import ContactDialog from "./ContactDialog";
+import miloLogo from "@/assets/milo-logo.png";
 const Footer = () => {
   const [contactDialogOpen, setContactDialogOpen] = useState(false);
   return <footer className="relative py-16 border-t border-border/50">
@@ -33,7 +34,7 @@ const Footer = () => {
         {/* Footer Links */}
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="font-bold text-xl mb-4 gradient-text">PEOPLE</h3>
+            <img src={miloLogo} alt="MILO" className="h-8 mb-4" />
             <p className="text-muted-foreground text-sm">
               Automatiseer je HR-communicatie met AI. Via WhatsApp. Realtime. 24/7.
             </p>
