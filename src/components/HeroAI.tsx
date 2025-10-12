@@ -28,7 +28,7 @@ const Hero = () => {
             </div>
             
             {/* Main heading */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-foreground">Milo helpt uitzendbureaus 80% minder HR-vragen te beantwoorden.</h1>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-foreground">Milo helpt uitzendbureaus <span className="gradient-text">80% minder</span> HR-vragen te beantwoorden.</h1>
             
             {/* Subheading */}
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
