@@ -37,33 +37,33 @@ const features = [
 const Features = () => {
   return (
     <section id="features" className="py-3 md:py-4 relative">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-md border border-border p-8 md:p-12">
-          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
+        <div className="bg-background/80 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-md border border-border p-4 sm:p-6 md:p-12">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">
               Wat je <span className="gradient-text">AI HR Agent</span> kan beantwoorden
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-2">
               Van eenvoudige vragen tot complexe HR-zaken. De AI leert van je eigen documenten en processen.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {features.map((feature, idx) => (
               <Card 
                 key={idx}
-                className="group p-6 bg-white shadow-md border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/10 animate-scale-in cursor-pointer"
+                className="group p-4 sm:p-6 bg-white shadow-md border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/10 animate-scale-in cursor-pointer"
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
-                <feature.icon className={`h-10 w-10 mb-4 ${feature.color} group-hover:scale-110 transition-transform`} />
-                <h3 className="text-lg font-semibold">{feature.title}</h3>
+                <feature.icon className={`h-8 w-8 sm:h-10 sm:w-10 mb-3 sm:mb-4 ${feature.color} group-hover:scale-110 transition-transform`} />
+                <h3 className="text-base sm:text-lg font-semibold">{feature.title}</h3>
               </Card>
             ))}
           </div>
           
-          <div className="text-center">
-            <Card className="inline-block gradient-border bg-white/80 shadow-lg px-8 py-6 animate-fade-in">
-              <p className="text-lg">
+          <div className="text-center px-2">
+            <Card className="inline-block gradient-border bg-white/80 shadow-lg px-4 sm:px-6 md:px-8 py-4 sm:py-6 animate-fade-in">
+              <p className="text-sm sm:text-base md:text-lg">
                 <span className="font-semibold text-primary">Jij bepaalt de kennisbasis.</span>{" "}
                 <span className="text-muted-foreground">
                   Wij trainen de AI op jouw documenten, portalen en taal.

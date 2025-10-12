@@ -248,19 +248,19 @@ const LiveDemo = () => {
 
   return (
     <section id="demo" className="py-3 md:py-4 relative">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-md border border-border p-8 md:p-12">
-          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 rounded-full text-sm mb-6">
-              <MessageSquare className="h-4 w-4 text-secondary" />
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
+        <div className="bg-background/80 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-md border border-border p-4 sm:p-6 md:p-12">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-secondary/10 border border-secondary/20 rounded-full text-xs sm:text-sm mb-4 sm:mb-6">
+              <MessageSquare className="h-3 w-3 sm:h-4 sm:w-4 text-secondary" />
               <span>Live Demo</span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">
               Test het zelf: <span className="gradient-text">Stel een vraag</span>
             </h2>
             
-            <p className="text-xl text-muted-foreground">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-2">
               Probeer vragen zoals "Wanneer krijg ik mijn salaris?" of "Ik ben ziek, wat moet ik doen?"
             </p>
 
