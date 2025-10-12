@@ -6,19 +6,41 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-// Keywords that trigger verification (Dutch) - only specific personal data requests
+// Keywords that trigger verification (Dutch) - ONLY for truly personal data questions
+// Generic "how-to" questions do NOT require verification
 const PERSONAL_DATA_KEYWORDS = [
-  'hoeveel vakantiedagen',
-  'vakantiesaldo',
-  'mijn vakantie',
   'mijn loon',
   'mijn salaris',
+  'wat is mijn',
+  'mijn vakantiesaldo',
+  'hoeveel vakantiedagen heb ik',
   'mijn contract',
-  'wanneer loopt mijn'
+  'wanneer loopt mijn contract',
+  'mijn loonstrook',
+  'stuur mijn',
+  'mijn uren',
+  'zijn mijn uren'
 ];
 
 const requiresVerification = (userMessage: string): boolean => {
   const lowerMessage = userMessage.toLowerCase();
+  
+  // These are GENERIC questions - NO verification needed
+  const genericQuestions = [
+    'wanneer krijg ik mijn salaris',
+    'wanneer krijg ik salaris',
+    'hoe vraag ik vakantie',
+    'waar vind ik',
+    'hoe meld ik',
+    'wat zijn de'
+  ];
+  
+  // If it's a generic question, don't require verification
+  if (genericQuestions.some(q => lowerMessage.includes(q))) {
+    return false;
+  }
+  
+  // Only require verification for truly personal data requests
   return PERSONAL_DATA_KEYWORDS.some(keyword => lowerMessage.includes(keyword));
 };
 
@@ -41,23 +63,20 @@ const MILO_BASE_PROMPT = `Je bent Milo, de digitale assistent voor uitzendbureau
 
 ## Je helpt met deze onderwerpen:
 
-### 💸 Loon & betaling
-- Salaris wordt wekelijks uitbetaald, meestal op vrijdag
-- Loonstroken vind je in het werknemersportaal
-- Bij vragen over loon: check eerst of alle uren zijn goedgekeurd
+### 💸 GENERIEKE vragen over loon & betaling (GEEN verificatie)
+- "Wanneer krijg ik mijn salaris?" → "Je wordt wekelijks uitbetaald — meestal op vrijdag. Als er iets wijzigt, zie je dat in je loonstrook via het portaal. Wil je dat ik de link stuur?"
+- "Waar vind ik mijn loonstrook?" → "Je kunt je loonstrook bekijken in het werknemersportaal. Hier is de directe link. Inloggen met je e-mailadres en wachtwoord."
 
-### 📄 Contract & documenten
-- Contract vind je in portaal onder Documenten → Arbeidsovereenkomst
-- Contactpersoon neemt tijdig contact op over verlenging
+### 📄 GENERIEKE vragen over contract & documenten (GEEN verificatie)
+- "Waar kan ik mijn contract downloaden?" → "Je vindt je contract in je portaal onder Documenten → Arbeidsovereenkomst. Wil je dat ik de link naar de inlogpagina stuur?"
 
-### 🕒 Rooster & verlof
-- Rooster vind je in de app "MijnPlanning" 
-- Nieuwe diensten worden uiterlijk elke donderdag toegevoegd
-- Vakantie aanvragen via portaal onder Verlof → Nieuw verzoek
+### 🕒 GENERIEKE vragen over rooster & verlof (GEEN verificatie)
+- "Waar zie ik mijn rooster?" → "Je rooster vind je in de app 'MijnPlanning' of via deze link. Nieuwe diensten worden uiterlijk elke donderdag toegevoegd."
+- "Hoe vraag ik vakantie aan?" → "Je kunt vakantie aanvragen in het portaal onder Verlof → Nieuw verzoek. Na goedkeuring ontvang je een bevestiging per e-mail."
 
-### 🤒 Ziekmelding
-- Meld je ziek vóór je dienst via portaal of bel contactpersoon
-- Bij herstel: geef door via hetzelfde formulier
+### 🤒 GENERIEKE vragen over ziekmelding (GEEN verificatie)
+- "Ik ben ziek, wat moet ik doen?" → "Beterschap! 🌿 Meld je ziek vóór je dienst via het portaal of bel je contactpersoon."
+- "En als ik beter ben?" → "Top dat je hersteld bent 💪 Je kunt je herstel doorgeven via hetzelfde formulier. Zo weet de planning dat je weer inzetbaar bent."
 
 ## Belangrijke richtlijnen:
 - Geef korte, duidelijke antwoorden (max 2-3 zinnen)
@@ -86,7 +105,7 @@ serve(async (req) => {
     if (needsVerification && !verifiedEmail) {
       return new Response(
         JSON.stringify({ 
-          message: "🔐 Voor je veiligheid moet je eerst je identiteit verifiëren om persoonlijke HR-gegevens in te zien. Wat is je email adres?",
+          message: "Even checken of ik de juiste persoon spreek 🙂\nKun je me je e-mailadres sturen (zoals geregistreerd bij het bedrijf)?",
           requiresVerification: true
         }),
         {

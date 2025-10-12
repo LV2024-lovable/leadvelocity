@@ -62,7 +62,7 @@ const LiveDemo = () => {
         setAwaitingEmailVerification(false);
         setMessages(prev => [...prev, { 
           role: 'assistant', 
-          content: `✅ Je bent nu geverifieerd als ${messageText.trim()}. Stel gerust je persoonlijke HR-vragen!`,
+          content: `Top, dankjewel ✅\nJe bent nu geverifieerd — ik help je verder. Wat wil je weten?`,
           timestamp: new Date() 
         }]);
         setIsLoading(false);
@@ -70,9 +70,29 @@ const LiveDemo = () => {
       return;
     }
 
-    // DEMO MODE: Check for personal data keywords
-    const personalKeywords = ['vakantiedagen', 'vakantie', 'verlof', 'loon', 'salaris', 'betaling', 'loonstrook'];
-    const needsVerification = personalKeywords.some(keyword => 
+    // DEMO MODE: Check for TRULY personal data keywords (not generic questions)
+    const personalKeywords = [
+      'mijn loon',
+      'mijn salaris', 
+      'wat is mijn',
+      'mijn vakantiesaldo',
+      'hoeveel vakantiedagen heb ik',
+      'mijn contract',
+      'wanneer loopt mijn contract',
+      'mijn loonstrook',
+      'stuur mijn'
+    ];
+    
+    // Generic questions that should NOT trigger verification
+    const genericQuestions = [
+      'wanneer krijg ik mijn salaris',
+      'hoe vraag ik vakantie',
+      'waar vind ik',
+      'hoe meld ik'
+    ];
+    
+    const isGeneric = genericQuestions.some(q => messageText.toLowerCase().includes(q));
+    const needsVerification = !isGeneric && personalKeywords.some(keyword => 
       messageText.toLowerCase().includes(keyword)
     );
 
@@ -81,7 +101,7 @@ const LiveDemo = () => {
       if (needsVerification && !verifiedEmail) {
         setMessages(prev => [...prev, { 
           role: 'assistant', 
-          content: "🔐 Voor je veiligheid moet je eerst je identiteit verifiëren om persoonlijke HR-gegevens in te zien. Wat is je email adres?",
+          content: "Even checken of ik de juiste persoon spreek 🙂\nKun je me je e-mailadres sturen (zoals geregistreerd bij het bedrijf)?",
           timestamp: new Date() 
         }]);
         setAwaitingEmailVerification(true);
