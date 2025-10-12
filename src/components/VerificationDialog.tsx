@@ -29,33 +29,24 @@ const VerificationDialog = ({ open, onOpenChange }: VerificationDialogProps) => 
 
     setIsLoading(true);
 
-    try {
-      const { data, error } = await supabase.functions.invoke('send-verification', {
-        body: { email }
-      });
-
-      if (error) throw error;
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
+    // DEMO MODE: Simulate verification after 1.5 seconds
+    setTimeout(() => {
       setEmailSent(true);
+      setIsLoading(false);
+      
       toast({
-        title: "✅ Email verstuurd!",
-        description: "Check je inbox voor de verificatie link",
+        title: "✅ Demo: Verificatie geslaagd!",
+        description: "In de echte tool zou je nu een email ontvangen",
       });
 
-    } catch (error: any) {
-      console.error('Verification error:', error);
-      toast({
-        title: "Fout",
-        description: error.message || "Kon verificatie niet versturen",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+      // Auto-verify after 2 seconds for smooth demo experience
+      setTimeout(() => {
+        // Trigger verification in parent component
+        const event = new CustomEvent('demo-verified', { detail: { email } });
+        window.dispatchEvent(event);
+        handleClose();
+      }, 2000);
+    }, 1500);
   };
 
   const handleClose = () => {
@@ -116,17 +107,19 @@ const VerificationDialog = ({ open, onOpenChange }: VerificationDialogProps) => 
           <div className="py-6 text-center space-y-4">
             <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto" />
             <div>
-              <h3 className="font-semibold text-lg mb-2">Email verstuurd!</h3>
+              <h3 className="font-semibold text-lg mb-2">Demo: Verificatie actief!</h3>
               <p className="text-sm text-muted-foreground">
-                Check je inbox op <strong>{email}</strong> en klik op de verificatie link.
+                Je bent nu geverifieerd als <strong>{email}</strong>
               </p>
               <p className="text-xs text-muted-foreground mt-2">
-                De link is 60 minuten geldig.
+                💡 In de echte tool ontvang je een email met verificatie link
               </p>
             </div>
-            <Button variant="outline" onClick={handleClose} className="w-full">
-              Sluiten
-            </Button>
+            <div className="flex gap-1">
+              <div className="h-1 flex-1 bg-primary animate-pulse"></div>
+              <div className="h-1 flex-1 bg-primary animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+              <div className="h-1 flex-1 bg-primary animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+            </div>
           </div>
         )}
       </DialogContent>

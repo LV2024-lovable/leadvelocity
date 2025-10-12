@@ -39,53 +39,28 @@ const LiveDemo = () => {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
 
-  // Check for verification token in URL on mount
+  // DEMO MODE: Listen for demo verification events
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const verifyToken = urlParams.get('verify');
-    
-    if (verifyToken) {
-      handleVerifyToken(verifyToken);
-      // Clean URL
-      window.history.replaceState({}, '', window.location.pathname);
-    }
-  }, []);
-
-  const handleVerifyToken = async (token: string) => {
-    try {
-      const { data, error } = await supabase.functions.invoke('verify-token', {
-        body: { token }
-      });
-
-      if (error) throw error;
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      if (data.success) {
-        setVerifiedEmail(data.email);
-        toast({
-          title: "✅ Verificatie geslaagd!",
-          description: data.message,
-        });
-        
-        // Add system message to chat
-        setMessages(prev => [...prev, {
-          role: 'assistant',
-          content: `✅ Je bent nu geverifieerd als ${data.email}. Je kunt nu vragen stellen over je persoonlijke HR-gegevens!`,
-          timestamp: new Date()
-        }]);
-      }
-    } catch (error: any) {
-      console.error('Verification error:', error);
+    const handleDemoVerification = (event: any) => {
+      const email = event.detail.email;
+      setVerifiedEmail(email);
+      
       toast({
-        title: "Verificatie mislukt",
-        description: error.message || "Ongeldige of verlopen verificatie link",
-        variant: "destructive",
+        title: "✅ Demo verificatie geslaagd!",
+        description: "Je kunt nu persoonsgebonden vragen stellen",
       });
-    }
-  };
+      
+      // Add system message to chat
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: `✅ Je bent nu geverifieerd als ${email}. Stel gerust je persoonlijke HR-vragen!`,
+        timestamp: new Date()
+      }]);
+    };
+
+    window.addEventListener('demo-verified', handleDemoVerification);
+    return () => window.removeEventListener('demo-verified', handleDemoVerification);
+  }, []);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -100,6 +75,47 @@ const LiveDemo = () => {
     setMessages(prev => [...prev, { role: 'user', content: messageText, timestamp: new Date() }]);
     setIsLoading(true);
 
+    // DEMO MODE: Check for personal data keywords
+    const personalKeywords = ['vakantiedagen', 'vakantie', 'verlof', 'loon', 'salaris', 'betaling', 'loonstrook'];
+    const needsVerification = personalKeywords.some(keyword => 
+      messageText.toLowerCase().includes(keyword)
+    );
+
+    // Simulate API delay
+    setTimeout(() => {
+      if (needsVerification && !verifiedEmail) {
+        setMessages(prev => [...prev, { 
+          role: 'assistant', 
+          content: "🔐 Voor je veiligheid moet je eerst je identiteit verifiëren om persoonlijke HR-gegevens in te zien. Wat is je email adres?",
+          timestamp: new Date() 
+        }]);
+        setVerificationDialogOpen(true);
+        setIsLoading(false);
+      } else if (needsVerification && verifiedEmail) {
+        // Show demo data for verified users
+        let demoResponse = "";
+        if (messageText.toLowerCase().includes('vakantie')) {
+          demoResponse = `Volgens ons systeem heb je nog 22 vakantiedagen over dit jaar, ${verifiedEmail.split('@')[0]}! 🌴`;
+        } else if (messageText.toLowerCase().includes('loon') || messageText.toLowerCase().includes('salaris')) {
+          demoResponse = `Je salaris van €3.800 wordt altijd op de 25e van de maand uitbetaald. Als de 25e in het weekend valt, krijg je het de vrijdag ervoor.`;
+        } else {
+          demoResponse = `Als geverifieerde gebruiker (${verifiedEmail}) kan ik je helpen met je persoonlijke HR-gegevens. Wat wil je precies weten?`;
+        }
+        
+        setMessages(prev => [...prev, { 
+          role: 'assistant', 
+          content: demoResponse,
+          timestamp: new Date() 
+        }]);
+        setIsLoading(false);
+      } else {
+        // Regular questions - call actual API
+        callHRChat(messageText);
+      }
+    }, 800);
+  };
+
+  const callHRChat = async (messageText: string) => {
     try {
       const { data, error } = await supabase.functions.invoke('hr-chat', {
         body: { 
@@ -109,18 +125,9 @@ const LiveDemo = () => {
       });
 
       if (error) throw error;
+      if (data.error) throw new Error(data.error);
 
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      // Check if verification is required
-      if (data.requiresVerification) {
-        setMessages(prev => [...prev, { role: 'assistant', content: data.message, timestamp: new Date() }]);
-        setVerificationDialogOpen(true);
-      } else {
-        setMessages(prev => [...prev, { role: 'assistant', content: data.message, timestamp: new Date() }]);
-      }
+      setMessages(prev => [...prev, { role: 'assistant', content: data.message, timestamp: new Date() }]);
     } catch (error: any) {
       console.error('Error:', error);
       toast({
@@ -128,8 +135,6 @@ const LiveDemo = () => {
         description: error.message || "Er ging iets mis. Probeer het opnieuw.",
         variant: "destructive",
       });
-      
-      // Remove the user message if there was an error
       setMessages(prev => prev.slice(0, -1));
     } finally {
       setIsLoading(false);
