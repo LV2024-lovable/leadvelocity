@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
-import VerificationDialog from "./VerificationDialog";
 
 interface Message {
   role: 'user' | 'assistant';
@@ -32,35 +31,13 @@ const LiveDemo = () => {
   const [copiedId, setCopiedId] = useState<number | null>(null);
   const [isRecording, setIsRecording] = useState(false);
   const [isTranscribing, setIsTranscribing] = useState(false);
-  const [verificationDialogOpen, setVerificationDialogOpen] = useState(false);
+  const [awaitingEmailVerification, setAwaitingEmailVerification] = useState(false);
   const [verifiedEmail, setVerifiedEmail] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
 
-  // DEMO MODE: Listen for demo verification events
-  useEffect(() => {
-    const handleDemoVerification = (event: any) => {
-      const email = event.detail.email;
-      setVerifiedEmail(email);
-      
-      toast({
-        title: "✅ Demo verificatie geslaagd!",
-        description: "Je kunt nu persoonsgebonden vragen stellen",
-      });
-      
-      // Add system message to chat
-      setMessages(prev => [...prev, {
-        role: 'assistant',
-        content: `✅ Je bent nu geverifieerd als ${email}. Stel gerust je persoonlijke HR-vragen!`,
-        timestamp: new Date()
-      }]);
-    };
-
-    window.addEventListener('demo-verified', handleDemoVerification);
-    return () => window.removeEventListener('demo-verified', handleDemoVerification);
-  }, []);
 
   useEffect(() => {
     if (messagesContainerRef.current) {
@@ -76,6 +53,23 @@ const LiveDemo = () => {
     setMessages(prev => [...prev, { role: 'user', content: messageText, timestamp: new Date() }]);
     setIsLoading(true);
 
+    // Check if user is providing email for verification
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (awaitingEmailVerification && emailRegex.test(messageText.trim())) {
+      // Simulate verification process
+      setTimeout(() => {
+        setVerifiedEmail(messageText.trim());
+        setAwaitingEmailVerification(false);
+        setMessages(prev => [...prev, { 
+          role: 'assistant', 
+          content: `✅ Je bent nu geverifieerd als ${messageText.trim()}. Stel gerust je persoonlijke HR-vragen!`,
+          timestamp: new Date() 
+        }]);
+        setIsLoading(false);
+      }, 1500);
+      return;
+    }
+
     // DEMO MODE: Check for personal data keywords
     const personalKeywords = ['vakantiedagen', 'vakantie', 'verlof', 'loon', 'salaris', 'betaling', 'loonstrook'];
     const needsVerification = personalKeywords.some(keyword => 
@@ -90,7 +84,7 @@ const LiveDemo = () => {
           content: "🔐 Voor je veiligheid moet je eerst je identiteit verifiëren om persoonlijke HR-gegevens in te zien. Wat is je email adres?",
           timestamp: new Date() 
         }]);
-        setVerificationDialogOpen(true);
+        setAwaitingEmailVerification(true);
         setIsLoading(false);
       } else if (needsVerification && verifiedEmail) {
         // Show demo data for verified users
@@ -409,10 +403,6 @@ const LiveDemo = () => {
         </div>
       </div>
 
-      <VerificationDialog 
-        open={verificationDialogOpen} 
-        onOpenChange={setVerificationDialogOpen} 
-      />
     </section>
   );
 };
