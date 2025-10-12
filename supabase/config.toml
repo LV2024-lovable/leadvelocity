@@ -33,3 +33,9 @@ verify_jwt = false
 
 [functions.transcribe-audio]
 verify_jwt = false
+
+[functions.send-verification]
+verify_jwt = false
+
+[functions.verify-token]
+verify_jwt = false

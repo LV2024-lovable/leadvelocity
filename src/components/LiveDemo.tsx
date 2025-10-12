@@ -1,10 +1,11 @@
 import { Card } from "@/components/ui/card";
-import { MessageSquare, Send, Loader2, Bot, User, Copy, Check, Mic, Square } from "lucide-react";
+import { MessageSquare, Send, Loader2, Bot, User, Copy, Check, Mic, Square, Shield } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
+import VerificationDialog from "./VerificationDialog";
 
 interface Message {
   role: 'user' | 'assistant';
@@ -31,10 +32,60 @@ const LiveDemo = () => {
   const [copiedId, setCopiedId] = useState<number | null>(null);
   const [isRecording, setIsRecording] = useState(false);
   const [isTranscribing, setIsTranscribing] = useState(false);
+  const [verificationDialogOpen, setVerificationDialogOpen] = useState(false);
+  const [verifiedEmail, setVerifiedEmail] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
+
+  // Check for verification token in URL on mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const verifyToken = urlParams.get('verify');
+    
+    if (verifyToken) {
+      handleVerifyToken(verifyToken);
+      // Clean URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }, []);
+
+  const handleVerifyToken = async (token: string) => {
+    try {
+      const { data, error } = await supabase.functions.invoke('verify-token', {
+        body: { token }
+      });
+
+      if (error) throw error;
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      if (data.success) {
+        setVerifiedEmail(data.email);
+        toast({
+          title: "✅ Verificatie geslaagd!",
+          description: data.message,
+        });
+        
+        // Add system message to chat
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: `✅ Je bent nu geverifieerd als ${data.email}. Je kunt nu vragen stellen over je persoonlijke HR-gegevens!`,
+          timestamp: new Date()
+        }]);
+      }
+    } catch (error: any) {
+      console.error('Verification error:', error);
+      toast({
+        title: "Verificatie mislukt",
+        description: error.message || "Ongeldige of verlopen verificatie link",
+        variant: "destructive",
+      });
+    }
+  };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -52,7 +103,8 @@ const LiveDemo = () => {
     try {
       const { data, error } = await supabase.functions.invoke('hr-chat', {
         body: { 
-          messages: [...messages, { role: 'user', content: messageText }].map(m => ({ role: m.role, content: m.content }))
+          messages: [...messages, { role: 'user', content: messageText }].map(m => ({ role: m.role, content: m.content })),
+          verifiedEmail: verifiedEmail
         }
       });
 
@@ -62,7 +114,13 @@ const LiveDemo = () => {
         throw new Error(data.error);
       }
 
-      setMessages(prev => [...prev, { role: 'assistant', content: data.message, timestamp: new Date() }]);
+      // Check if verification is required
+      if (data.requiresVerification) {
+        setMessages(prev => [...prev, { role: 'assistant', content: data.message, timestamp: new Date() }]);
+        setVerificationDialogOpen(true);
+      } else {
+        setMessages(prev => [...prev, { role: 'assistant', content: data.message, timestamp: new Date() }]);
+      }
     } catch (error: any) {
       console.error('Error:', error);
       toast({
@@ -184,6 +242,13 @@ const LiveDemo = () => {
           <p className="text-xl text-muted-foreground">
             Probeer vragen zoals "Hoeveel vakantiedagen heb ik nog?" of "Wanneer krijg ik mijn loon?"
           </p>
+
+          {verifiedEmail && (
+            <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm text-green-700">
+              <Shield className="h-4 w-4" />
+              <span>Geverifieerd als {verifiedEmail}</span>
+            </div>
+          )}
         </div>
         
         <div className="max-w-2xl mx-auto">
@@ -337,6 +402,11 @@ const LiveDemo = () => {
           </Card>
         </div>
       </div>
+
+      <VerificationDialog 
+        open={verificationDialogOpen} 
+        onOpenChange={setVerificationDialogOpen} 
+      />
     </section>
   );
 };

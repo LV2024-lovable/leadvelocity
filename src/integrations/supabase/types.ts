@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      employee_data: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          name: string
+          phone: string | null
+          salary_amount: number | null
+          salary_payment_date: string | null
+          vacation_days: number
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          phone?: string | null
+          salary_amount?: number | null
+          salary_payment_date?: string | null
+          vacation_days?: number
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          phone?: string | null
+          salary_amount?: number | null
+          salary_payment_date?: string | null
+          vacation_days?: number
+        }
+        Relationships: []
+      }
       Form_submissions: {
         Row: {
           company: string | null
@@ -62,6 +95,36 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
+        }
+        Relationships: []
+      }
+      verification_sessions: {
+        Row: {
+          created_at: string
+          email: string
+          expires_at: string
+          id: string
+          token: string
+          verified: boolean
+          verified_at: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          expires_at: string
+          id?: string
+          token: string
+          verified?: boolean
+          verified_at?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          expires_at?: string
+          id?: string
+          token?: string
+          verified?: boolean
+          verified_at?: string | null
         }
         Relationships: []
       }

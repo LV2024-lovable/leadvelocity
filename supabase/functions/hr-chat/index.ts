@@ -1,8 +1,23 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.4';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
+
+// Keywords that indicate personal data requests
+const PERSONAL_DATA_KEYWORDS = [
+  'vakantiedagen', 'vakantie', 'verlof',
+  'loon', 'salaris', 'betaling', 'loonstrook',
+  'contract', 'arbeidsovereenkomst',
+  'personeelsdossier', 'mijn gegevens',
+  'hoeveel', 'wanneer krijg ik'
+];
+
+const requiresVerification = (userMessage: string): boolean => {
+  const lowerMessage = userMessage.toLowerCase();
+  return PERSONAL_DATA_KEYWORDS.some(keyword => lowerMessage.includes(keyword));
 };
 
 serve(async (req) => {
@@ -11,15 +26,60 @@ serve(async (req) => {
   }
 
   try {
-    const { messages } = await req.json();
+    const { messages, verifiedEmail } = await req.json();
     console.log("Received messages:", messages);
+    console.log("Verified email:", verifiedEmail);
+
+    // Check if user message requires verification
+    const lastUserMessage = messages[messages.length - 1]?.content || '';
+    const needsVerification = requiresVerification(lastUserMessage);
+
+    if (needsVerification && !verifiedEmail) {
+      return new Response(
+        JSON.stringify({ 
+          message: "🔐 Voor je veiligheid moet je eerst je identiteit verifiëren om persoonlijke HR-gegevens in te zien. Wat is je email adres?",
+          requiresVerification: true
+        }),
+        {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
       throw new Error("LOVABLE_API_KEY is not configured");
     }
 
-    const systemPrompt = `Je bent een slimme AI HR-assistent die medewerkers helpt met hun HR-vragen. 
+    // If verified and asking for personal data, fetch from database
+    let employeeContext = "";
+    if (needsVerification && verifiedEmail) {
+      const supabase = createClient(
+        Deno.env.get('SUPABASE_URL') ?? '',
+        Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+      );
+
+      const { data: employeeData, error } = await supabase
+        .from('employee_data')
+        .select('*')
+        .eq('email', verifiedEmail)
+        .maybeSingle();
+
+      if (employeeData && !error) {
+        employeeContext = `
+        
+GEVERIFIEERDE MEDEWERKER DATA voor ${employeeData.name} (${verifiedEmail}):
+- Naam: ${employeeData.name}
+- Resterende vakantiedagen: ${employeeData.vacation_days} dagen
+- Salaris: €${employeeData.salary_amount}
+- Betalingsdatum: ${employeeData.salary_payment_date}
+- Telefoonnummer: ${employeeData.phone}
+
+Gebruik ALLEEN deze echte data als de vraag hierover gaat. Wees SPECIFIEK en noem de exacte cijfers.`;
+      }
+    }
+
+    const systemPrompt = `Je bent een slimme AI HR-assistent die medewerkers helpt met hun HR-vragen.${employeeContext}
 
 BELANGRIJKE INSTRUCTIES:
 - Geef KORTE antwoorden van maximaal 2-3 zinnen
