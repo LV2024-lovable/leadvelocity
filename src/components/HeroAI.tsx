@@ -33,8 +33,8 @@ const Hero = () => {
             </div>
             
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight">
-              Automatiseer je{" "}
-              <span className="gradient-text">HR-communicatie</span> met AI
+              Milo helpt uitzendbureaus{" "}
+              <span className="gradient-text">80% minder</span> HR-vragen te beantwoorden.
             </h1>
             
             <p className="text-base md:text-xl text-muted-foreground leading-relaxed">
