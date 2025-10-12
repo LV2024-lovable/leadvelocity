@@ -14,7 +14,10 @@ const Hero = () => {
       {/* Main hero content */}
       <div className="flex-1 flex items-center justify-center relative">
         <div className="container mx-auto px-4 relative z-10 py-3 md:py-4">
-          <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-sm border border-border p-8 md:p-12">
+          <div className="relative">
+            {/* Subtle purple blur background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/5 via-blue-400/5 to-purple-400/5 blur-3xl -z-10 scale-110" />
+            <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-sm border border-border p-8 md:p-12">
             <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 md:px-5 py-2 bg-background rounded-full text-sm shadow-sm border border-border">
@@ -66,8 +69,9 @@ const Hero = () => {
               </div>
             </div>
           </div>
+            </div>
+          </div>
         </div>
-      </div>
       
       <ContactDialog open={contactDialogOpen} onOpenChange={setContactDialogOpen} />
     </section>;
