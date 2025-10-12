@@ -275,7 +275,9 @@ const LiveDemo = () => {
           <div className="max-w-2xl mx-auto">
             {/* Suggested Questions */}
             {showSuggestions && (
-              <div className="mb-4 animate-fade-in px-2">
+              <div className="mb-4 animate-fade-in px-2 relative">
+                {/* Blue blur background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-blue-400/20 blur-2xl -z-10 scale-110" />
                 <p className="text-xs md:text-sm text-muted-foreground mb-3 text-center">Probeer één van deze vragen:</p>
                 <div className="flex flex-wrap gap-2 justify-center">
                   {SUGGESTED_QUESTIONS.map((question, idx) => (
@@ -291,9 +293,12 @@ const LiveDemo = () => {
               </div>
             )}
 
-            <Card className="bg-[#e5ddd5] shadow-xl p-3 md:p-6 animate-scale-in border-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d9d9d9' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-            }}>
+            <div className="relative">
+              {/* Blue blur background for chat */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-blue-400/30 to-purple-400/30 blur-3xl -z-10 scale-105" />
+              <Card className="bg-[#e5ddd5] shadow-xl p-3 md:p-6 animate-scale-in border-0" style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d9d9d9' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+              }}>
               {/* Chat messages */}
               <div 
                 ref={messagesContainerRef}
@@ -420,7 +425,8 @@ const LiveDemo = () => {
               <p className="text-xs text-muted-foreground mt-4 text-center">
                 🤖 Powered by Milo - Je digitale HR-assistent die 24/7 je vragen beantwoordt
               </p>
-            </Card>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
