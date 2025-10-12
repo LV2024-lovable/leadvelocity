@@ -36,7 +36,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-24 relative">
+    <section id="features" className="py-3 md:py-4 relative">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-50 via-blue-50 to-background" />
       
