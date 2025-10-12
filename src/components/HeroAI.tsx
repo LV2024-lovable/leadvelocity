@@ -14,7 +14,7 @@ const Hero = () => {
       {/* Main hero content */}
       <div className="flex-1 flex items-center justify-center relative">
         <div className="container mx-auto px-4 relative z-10 py-3 md:py-4">
-          <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-md border border-border p-8 md:p-12">
+          <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-sm border border-border p-8 md:p-12">
             <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 md:px-5 py-2 bg-background rounded-full text-sm shadow-sm border border-border">
