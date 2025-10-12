@@ -41,27 +41,27 @@ const Navigation = () => {
       <nav className={`fixed top-0 left-0 right-0 z-50 bg-foreground transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2">
+            <a href="/" className="flex items-center gap-2 flex-shrink-0">
               <img 
                 src="/lovable-uploads/polygon-bimi-tiny12.svg" 
                 alt="Milo Logo" 
-                className="h-8 w-8"
+                className="h-10 w-10"
               />
-              <span className="text-xl font-bold text-background">Milo</span>
+              <span className="text-2xl font-bold text-background">Milo</span>
             </a>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            {/* Desktop Navigation - Centered */}
+            <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
               <a
                 href="#features"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection('features');
                 }}
-                className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
+                className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
               >
                 Features
               </a>
@@ -71,7 +71,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('how-it-works');
                 }}
-                className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
+                className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
               >
                 Hoe werkt het
               </a>
@@ -81,7 +81,7 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('pricing');
                 }}
-                className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
+                className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
               >
                 Prijzen
               </a>
@@ -91,24 +91,17 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection('demo');
                 }}
-                className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
+                className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
               >
                 Demo
               </a>
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-4">
-              <Button 
-                variant="ghost"
-                onClick={() => setContactDialogOpen(true)}
-                className="text-background hover:text-background hover:bg-background/10"
-              >
-                Contact
-              </Button>
+            <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
               <Button
                 onClick={() => setContactDialogOpen(true)}
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-6"
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full px-8 py-5 text-base shadow-lg"
               >
                 Start gratis
               </Button>
@@ -116,29 +109,29 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-background"
+              className="lg:hidden p-2 text-background"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-7 w-7" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-7 w-7" />
               )}
             </button>
           </div>
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-background/10">
-              <div className="flex flex-col gap-4">
+            <div className="lg:hidden py-6 border-t border-background/10">
+              <div className="flex flex-col gap-5">
                 <a
                   href="#features"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection('features');
                   }}
-                  className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
+                  className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
                 >
                   Features
                 </a>
@@ -148,7 +141,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('how-it-works');
                   }}
-                  className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
+                  className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
                 >
                   Hoe werkt het
                 </a>
@@ -158,7 +151,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('pricing');
                   }}
-                  className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
+                  className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
                 >
                   Prijzen
                 </a>
@@ -168,27 +161,17 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection('demo');
                   }}
-                  className="text-sm font-medium text-background/70 hover:text-background transition-colors cursor-pointer"
+                  className="text-base font-medium text-background hover:text-background/80 transition-colors cursor-pointer"
                 >
                   Demo
                 </a>
-                <div className="flex flex-col gap-2 pt-4">
-                  <Button 
-                    variant="ghost"
-                    onClick={() => {
-                      setContactDialogOpen(true);
-                      setMobileMenuOpen(false);
-                    }}
-                    className="text-background hover:bg-background/10 justify-start"
-                  >
-                    Contact
-                  </Button>
+                <div className="pt-4">
                   <Button
                     onClick={() => {
                       setContactDialogOpen(true);
                       setMobileMenuOpen(false);
                     }}
-                    className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full"
+                    className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-full py-5 text-base"
                   >
                     Start gratis
                   </Button>
