@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Menu, X, ArrowUpRight, ChevronDown, Package, Factory, Truck } from 'lucide-react';
 
 type NavItem =
@@ -41,6 +41,20 @@ const NavbarNew = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileSectorOpen, setMobileSectorOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openDropdown = useCallback(() => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setDropdownOpen(true);
+  }, []);
+
+  const scheduleCloseDropdown = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -94,11 +108,11 @@ const NavbarNew = () => {
                 key={item.label}
                 ref={dropdownRef}
                 className="relative"
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
+                onMouseEnter={openDropdown}
+                onMouseLeave={scheduleCloseDropdown}
               >
                 <button
-                  onClick={() => setDropdownOpen((v) => !v)}
+                  onClick={() => (dropdownOpen ? setDropdownOpen(false) : openDropdown())}
                   className="inline-flex items-center gap-1 font-body text-sm font-500 text-lv-text-muted hover:text-lv-text transition-colors duration-200 relative group"
                 >
                   {item.label}
@@ -108,29 +122,35 @@ const NavbarNew = () => {
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-lv-accent transition-all duration-300 group-hover:w-full" />
                 </button>
                 {dropdownOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 bg-lv-surface border border-lv-border rounded-xl shadow-2xl p-2 animate-fade-in">
-                    {item.items.map((sub) => {
-                      const Icon = sub.icon;
-                      return (
-                        <a
-                          key={sub.href}
-                          href={sub.href}
-                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-lv-surface-raised transition-colors group/item"
-                        >
-                          <div className="w-9 h-9 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Icon className="w-4 h-4 text-lv-accent" />
-                          </div>
-                          <div className="flex-1">
-                            <div className="font-display text-sm font-700 text-lv-text group-hover/item:text-lv-accent transition-colors">
-                              {sub.label}
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 animate-fade-in"
+                    onMouseEnter={openDropdown}
+                    onMouseLeave={scheduleCloseDropdown}
+                  >
+                    <div className="w-80 bg-lv-surface border border-lv-border rounded-xl shadow-2xl p-2">
+                      {item.items.map((sub) => {
+                        const Icon = sub.icon;
+                        return (
+                          <a
+                            key={sub.href}
+                            href={sub.href}
+                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-lv-surface-raised transition-colors group/item"
+                          >
+                            <div className="w-9 h-9 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <Icon className="w-4 h-4 text-lv-accent" />
                             </div>
-                            <div className="font-body text-xs text-lv-text-subtle leading-snug mt-0.5">
-                              {sub.description}
+                            <div className="flex-1">
+                              <div className="font-display text-sm font-700 text-lv-text group-hover/item:text-lv-accent transition-colors">
+                                {sub.label}
+                              </div>
+                              <div className="font-body text-xs text-lv-text-subtle leading-snug mt-0.5">
+                                {sub.description}
+                              </div>
                             </div>
-                          </div>
-                        </a>
-                      );
-                    })}
+                          </a>
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
               </div>
