@@ -83,12 +83,25 @@ const NavbarNew = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4 md:px-6">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-1 group">
-          <span className="font-display text-xl md:text-2xl font-700 tracking-tight text-lv-text">
-            Lead
-          </span>
-          <span className="font-display text-xl md:text-2xl font-700 tracking-tight text-lv-accent">
-            velocity
+        <a href="/" className="flex items-center gap-2.5 group">
+          <svg
+            viewBox="0 0 512 512"
+            aria-hidden="true"
+            className="w-7 h-7 md:w-8 md:h-8 rounded-md"
+          >
+            <rect width="512" height="512" rx="112" fill="#09090B" />
+            <g fill="#C8FF00">
+              <path d="M 112 120 L 192 120 L 192 336 L 288 336 L 288 392 L 112 392 Z" />
+              <path d="M 296 120 L 360 120 L 392 272 L 424 120 L 488 120 L 424 392 L 360 392 Z" />
+            </g>
+          </svg>
+          <span className="flex items-center gap-1">
+            <span className="font-display text-xl md:text-2xl font-700 tracking-tight text-lv-text">
+              Lead
+            </span>
+            <span className="font-display text-xl md:text-2xl font-700 tracking-tight text-lv-accent">
+              velocity
+            </span>
           </span>
         </a>
 

@@ -11,9 +11,18 @@ const FooterNew = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-1 mb-4">
-              <span className="font-display text-xl font-700 text-lv-text">Lead</span>
-              <span className="font-display text-xl font-700 text-lv-accent">velocity</span>
+            <div className="flex items-center gap-2.5 mb-4">
+              <svg viewBox="0 0 512 512" aria-hidden="true" className="w-7 h-7 rounded-md flex-shrink-0">
+                <rect width="512" height="512" rx="112" fill="#09090B" />
+                <g fill="#C8FF00">
+                  <path d="M 112 120 L 192 120 L 192 336 L 288 336 L 288 392 L 112 392 Z" />
+                  <path d="M 296 120 L 360 120 L 392 272 L 424 120 L 488 120 L 424 392 L 360 392 Z" />
+                </g>
+              </svg>
+              <span className="flex items-center gap-1">
+                <span className="font-display text-xl font-700 text-lv-text">Lead</span>
+                <span className="font-display text-xl font-700 text-lv-accent">velocity</span>
+              </span>
             </div>
             <p className="font-body text-sm text-lv-text-muted leading-relaxed">
               AI Operations Partner voor Nederlandse groothandel, maakindustrie en transport.
