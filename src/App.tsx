@@ -22,6 +22,12 @@ import GroothandelWhitepaper2026 from "./pages/whitepapers/GroothandelWhitepaper
 import MaakindustrieWhitepaper2026 from "./pages/whitepapers/MaakindustrieWhitepaper2026";
 import TransportWhitepaper2026 from "./pages/whitepapers/TransportWhitepaper2026";
 import Cases from "./pages/Cases";
+import Bronnen from "./pages/Bronnen";
+import Nieuwsbrief from "./pages/Nieuwsbrief";
+import AiReadinessAssessment from "./pages/AiReadinessAssessment";
+import GroothandelPromptPack from "./pages/promptpacks/GroothandelPromptPack";
+import MaakindustriePromptPack from "./pages/promptpacks/MaakindustriePromptPack";
+import TransportPromptPack from "./pages/promptpacks/TransportPromptPack";
 import NotFound from "./pages/NotFound";
 import React from "react";
 
@@ -53,6 +59,12 @@ const App = () => (
             <Route path="/whitepapers/ai-voor-nederlandse-maakindustrie-2026" element={<MaakindustrieWhitepaper2026 />} />
             <Route path="/whitepapers/ai-voor-nederlandse-transport-2026" element={<TransportWhitepaper2026 />} />
             <Route path="/cases" element={<Cases />} />
+            <Route path="/bronnen" element={<Bronnen />} />
+            <Route path="/bronnen/ai-readiness-assessment" element={<AiReadinessAssessment />} />
+            <Route path="/bronnen/prompts/groothandel-2026" element={<GroothandelPromptPack />} />
+            <Route path="/bronnen/prompts/maakindustrie-2026" element={<MaakindustriePromptPack />} />
+            <Route path="/bronnen/prompts/transport-2026" element={<TransportPromptPack />} />
+            <Route path="/nieuwsbrief" element={<Nieuwsbrief />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
