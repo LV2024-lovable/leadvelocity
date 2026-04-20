@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowUpRight, Calendar, Clock } from 'lucide-react';
+import { ArrowUpRight, Calendar, Clock, FileText } from 'lucide-react';
 import NavbarNew from '../components/NavbarNew';
 import FooterNew from '../components/FooterNew';
 import { useReveal } from '../hooks/useReveal';
@@ -185,6 +185,44 @@ const Inzichten = () => {
                 </div>
               )}
             </div>
+          </div>
+        </section>
+
+        {/* WHITEPAPER CTA */}
+        <section className="py-14 md:py-16 relative">
+          <div className="container mx-auto px-4 md:px-6">
+            <a
+              href="/whitepapers/ai-in-technische-groothandel-2026"
+              className="block max-w-5xl mx-auto group"
+            >
+              <div className="p-8 md:p-12 rounded-2xl bg-lv-accent/[0.04] border border-lv-accent/20 hover:border-lv-accent/40 transition-colors relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-lv-accent/[0.04] rounded-full blur-[100px] pointer-events-none" />
+                <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                  <div className="md:col-span-2 flex justify-center md:justify-start">
+                    <div className="w-20 h-24 rounded-xl bg-lv-accent/10 border border-lv-accent/30 flex items-center justify-center">
+                      <FileText className="w-10 h-10 text-lv-accent" />
+                    </div>
+                  </div>
+                  <div className="md:col-span-7">
+                    <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest mb-3">
+                      Nieuwe whitepaper · 25 pagina&apos;s
+                    </div>
+                    <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-3 leading-tight group-hover:text-lv-accent transition-colors">
+                      AI in de Nederlandse Technische Groothandel 2026
+                    </h3>
+                    <p className="font-body text-base text-lv-text-muted leading-relaxed">
+                      15 bewezen AI-use-cases met ROI-ranges, een 12-maanden-implementatieroadmap en 3 scenario-cases voor groothandels van €10M tot €75M.
+                    </p>
+                  </div>
+                  <div className="md:col-span-3 flex md:justify-end">
+                    <span className="inline-flex items-center gap-2 font-display text-sm font-700 text-lv-accent">
+                      Download whitepaper
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
         </section>
 

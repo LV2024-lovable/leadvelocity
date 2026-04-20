@@ -18,6 +18,7 @@ import AiVoorMaakindustrieOee from "./pages/inzichten/AiVoorMaakindustrieOee";
 import PredictiveMaintenanceMachinebouw from "./pages/inzichten/PredictiveMaintenanceMachinebouw";
 import VrachtwagenheffingAiCompensatie from "./pages/inzichten/VrachtwagenheffingAiCompensatie";
 import CsrdScope3AutomatiseringTransport from "./pages/inzichten/CsrdScope3AutomatiseringTransport";
+import GroothandelWhitepaper2026 from "./pages/whitepapers/GroothandelWhitepaper2026";
 import NotFound from "./pages/NotFound";
 import React from "react";
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/inzichten/predictive-maintenance-machinebouw" element={<PredictiveMaintenanceMachinebouw />} />
             <Route path="/inzichten/vrachtwagenheffing-2026-ai-compensatie" element={<VrachtwagenheffingAiCompensatie />} />
             <Route path="/inzichten/csrd-scope-3-automatisering-transport" element={<CsrdScope3AutomatiseringTransport />} />
+            <Route path="/whitepapers/ai-in-technische-groothandel-2026" element={<GroothandelWhitepaper2026 />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
