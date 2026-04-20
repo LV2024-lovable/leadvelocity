@@ -1,25 +1,27 @@
 import React from 'react';
-import { ArrowUpRight, Check, LucideIcon } from 'lucide-react';
+import { ArrowUpRight, Rocket, LayoutDashboard, Bot, LucideIcon } from 'lucide-react';
 import NavbarNew from './NavbarNew';
 import FooterNew from './FooterNew';
 import { useReveal } from '../hooks/useReveal';
 
-export type VerticalUseCase = {
-  title: string;
-  description: string;
-  roi: string;
-  timeToValue: string;
-};
-
 export type VerticalStat = {
   value: string;
   label: string;
-  source: string;
+  source?: string;
 };
 
 export type VerticalPainPoint = {
   title: string;
   description: string;
+};
+
+export type ProductApplication = {
+  productKey: 'sales' | 'dashboard' | 'assistant';
+  intro: string;
+  applications: Array<{
+    title: string;
+    description: string;
+  }>;
 };
 
 export type VerticalConfig = {
@@ -33,9 +35,9 @@ export type VerticalConfig = {
   painHeadline: string;
   painIntro: string;
   painPoints: VerticalPainPoint[];
-  useCaseHeadline: string;
-  useCaseIntro: string;
-  useCases: VerticalUseCase[];
+  productsHeadline: string;
+  productsIntro: string;
+  productApplications: ProductApplication[];
   scenario: {
     headline: string;
     company: string;
@@ -50,6 +52,12 @@ export type VerticalConfig = {
   icon?: LucideIcon;
 };
 
+const PRODUCT_META: Record<ProductApplication['productKey'], { name: string; icon: LucideIcon; tagline: string }> = {
+  sales: { name: 'AI Sales Systeem', icon: Rocket, tagline: 'Meer leads · hogere conversie' },
+  dashboard: { name: 'AI Operations Dashboard', icon: LayoutDashboard, tagline: 'Eén live waarheid' },
+  assistant: { name: 'AI Assistent', icon: Bot, tagline: 'Chatbot, voice of intern' },
+};
+
 type Props = {
   config: VerticalConfig;
 };
@@ -57,7 +65,7 @@ type Props = {
 const VerticalPage: React.FC<Props> = ({ config }) => {
   const heroRef = useReveal();
   const painHeaderRef = useReveal();
-  const useCaseHeaderRef = useReveal();
+  const productsHeaderRef = useReveal();
   const scenarioRef = useReveal();
   const factsRef = useReveal();
   const closingRef = useReveal();
@@ -108,14 +116,14 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
                   href="/#contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
                 >
-                  {config.primaryCtaLabel || 'Boek een gratis AI-Scan'}
+                  {config.primaryCtaLabel || 'Plan een gesprek'}
                   <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
-                  href="#use-cases"
+                  href="#producten"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-border text-lv-text font-display font-600 text-base rounded-lg hover:border-lv-text-subtle transition-all duration-300"
                 >
-                  Bekijk use-cases
+                  Bekijk toepassingen
                 </a>
               </div>
 
@@ -176,63 +184,83 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
           </div>
         </section>
 
-        {/* USE CASES */}
-        <section id="use-cases" className="section-padding relative">
+        {/* PRODUCT APPLICATIONS FOR THIS SECTOR */}
+        <section id="producten" className="section-padding relative">
           <div className="container mx-auto px-4 md:px-6">
-            <div ref={useCaseHeaderRef} className="reveal mb-14 md:mb-16 max-w-4xl">
+            <div ref={productsHeaderRef} className="reveal mb-14 md:mb-16 max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-12 bg-lv-accent" />
                 <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
-                  Wat AI concreet oplost
+                  Onze producten, hier toegepast
                 </span>
               </div>
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-6 leading-[1.1]">
-                {config.useCaseHeadline}
+                {config.productsHeadline}
               </h2>
               <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-3xl">
-                {config.useCaseIntro}
+                {config.productsIntro}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {config.useCases.map((uc, i) => {
-                const cardRef = useReveal(i * 0.05);
+            <div className="space-y-14">
+              {config.productApplications.map((product, idx) => {
+                const meta = PRODUCT_META[product.productKey];
+                const ProductIcon = meta.icon;
+                const blockRef = useReveal(idx * 0.1);
                 return (
-                  <div
-                    key={uc.title}
-                    ref={cardRef}
-                    className="reveal p-6 md:p-8 rounded-xl bg-lv-surface border border-lv-border-subtle hover:border-lv-accent/20 transition-colors flex flex-col"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center mb-5">
-                      <Check className="w-5 h-5 text-lv-accent" />
-                    </div>
-                    <h3 className="font-display text-lg md:text-xl font-700 text-lv-text mb-3">
-                      {uc.title}
-                    </h3>
-                    <p className="font-body text-sm text-lv-text-muted leading-relaxed mb-5 flex-1">
-                      {uc.description}
-                    </p>
-                    <div className="pt-5 border-t border-lv-border-subtle flex items-center justify-between">
-                      <div>
-                        <div className="font-display text-xs text-lv-text-subtle uppercase tracking-wider mb-1">
-                          ROI-range
+                  <div key={product.productKey} ref={blockRef} className="reveal">
+                    <div className="flex flex-col md:flex-row gap-8 md:gap-10">
+                      {/* Left: product heading */}
+                      <div className="md:w-1/3 md:sticky md:top-24 self-start">
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="w-12 h-12 rounded-xl bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center flex-shrink-0">
+                            <ProductIcon className="w-6 h-6 text-lv-accent" />
+                          </div>
+                          <div>
+                            <div className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider">
+                              {meta.tagline}
+                            </div>
+                          </div>
                         </div>
-                        <div className="font-display text-sm font-700 text-lv-accent">
-                          {uc.roi}
-                        </div>
+                        <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-4">
+                          {meta.name}
+                        </h3>
+                        <p className="font-body text-base text-lv-text-muted leading-relaxed">
+                          {product.intro}
+                        </p>
                       </div>
-                      <div className="text-right">
-                        <div className="font-display text-xs text-lv-text-subtle uppercase tracking-wider mb-1">
-                          Time-to-value
-                        </div>
-                        <div className="font-display text-sm font-700 text-lv-text">
-                          {uc.timeToValue}
-                        </div>
+
+                      {/* Right: applications */}
+                      <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {product.applications.map((app) => (
+                          <div
+                            key={app.title}
+                            className="p-6 rounded-xl bg-lv-surface border border-lv-border-subtle hover:border-lv-accent/20 transition-colors"
+                          >
+                            <h4 className="font-display text-base md:text-lg font-700 text-lv-text mb-3 leading-tight">
+                              {app.title}
+                            </h4>
+                            <p className="font-body text-sm text-lv-text-muted leading-relaxed">
+                              {app.description}
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
                 );
               })}
+            </div>
+
+            {/* Link to full product overview */}
+            <div className="mt-16 text-center">
+              <a
+                href="/#diensten"
+                className="inline-flex items-center gap-2 font-display text-sm font-600 text-lv-accent hover:underline"
+              >
+                Bekijk onze volledige dienstencatalogus
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </section>
@@ -245,7 +273,7 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-12 bg-lv-accent" />
                 <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
-                  Scenario-case (voorbeeld)
+                  Scenario (voorbeeld)
                 </span>
               </div>
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-10 leading-[1.1]">
@@ -271,7 +299,7 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
                 </div>
                 <div className="p-6 md:p-8 rounded-xl bg-lv-accent/[0.05] border border-lv-accent/20">
                   <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-wider mb-3">
-                    Na 90 dagen
+                    Na implementatie
                   </div>
                   <p className="font-body text-sm md:text-base text-lv-text leading-relaxed">
                     {config.scenario.after}
@@ -294,18 +322,18 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
           </div>
         </section>
 
-        {/* INDUSTRY FACTS */}
+        {/* SECTOR FACTS */}
         <section className="section-padding relative">
           <div className="container mx-auto px-4 md:px-6">
             <div ref={factsRef} className="reveal mb-14 max-w-3xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-12 bg-lv-accent" />
                 <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
-                  De cijfers
+                  De sector-cijfers
                 </span>
               </div>
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text leading-[1.1]">
-                De sector-cijfers die het momentum bepalen.
+                Wat het momentum bepaalt.
               </h2>
             </div>
 
@@ -340,7 +368,7 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
                   href="/#contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
                 >
-                  Boek een gratis AI-Scan
+                  Plan een gesprek
                   <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
