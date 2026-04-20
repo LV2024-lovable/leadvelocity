@@ -57,7 +57,7 @@ const config: BlogPostConfig = {
     {
       type: 'list',
       items: [
-        <><strong>Pricing op long-tail SKU\'s</strong> die 3+ jaar niet herzien is — vaak 100-200 basispunten marge gelaten.</>,
+        <><strong>Pricing op long-tail SKU\'s</strong> die 3+ jaar niet herzien is — vaak 1-2% marge gelaten.</>,
         <><strong>RFQ-turnaround van 3-5 dagen</strong> door handmatig werk — concurrent met AI doet 24 uur en wint ~50% vaker.</>,
         <><strong>Inkoop op gut feel</strong> met 15-20% dead stock en regelmatig nee-verkoop op runners — werkkapitaal vastgezet.</>,
         <><strong>Binnendienst-tijd</strong> op handmatige orderinvoer en productvragen — senior productspecialisten besteden 40% tijd aan routine.</>,
@@ -105,7 +105,7 @@ const config: BlogPostConfig = {
     {
       type: 'paragraph',
       content:
-        'De grootste marge-hefboom. McKinsey documenteerde bij een B2B-distributeur van $15 miljard een marge-uplift van 200 basispunten over 1,5 miljoen SKU\'s via AI price advisor. Bij Turtle (Amerikaanse elektro-distributie): +130 basispunten marge, en pricing-snelheid 98% sneller, allemaal binnen 12 weken. Voor een €30M-groothandel met 27% brutomarge betekent +150 bps een structurele €450k extra marge — elk jaar.',
+        'De grootste marge-hefboom. McKinsey documenteerde bij een B2B-distributeur van $15 miljard een marge-uplift van 2 procentpunten over 1,5 miljoen SKU\'s via AI price advisor. Bij Turtle (Amerikaanse elektro-distributie): +1,3 procentpunt marge, en pricing-snelheid 98% sneller, allemaal binnen 12 weken. Voor een €30M-groothandel met 27% brutomarge betekent +1,5 procentpunt een structurele €450k extra marge — elk jaar.',
     },
 
     {

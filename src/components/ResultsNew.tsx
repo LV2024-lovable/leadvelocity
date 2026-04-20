@@ -6,9 +6,9 @@ import { useReveal } from '../hooks/useReveal';
 const benchmarks = [
   {
     icon: DollarSign,
-    value: '+130-200',
-    unit: 'bps',
-    label: 'Brutomarge-uplift via AI-pricing in B2B-distributie',
+    value: '1-2%',
+    unit: '',
+    label: 'Extra brutomarge via AI-pricing in B2B-distributie',
     source: 'McKinsey — B2B Pricing AI Revolution, 2025',
   },
   {

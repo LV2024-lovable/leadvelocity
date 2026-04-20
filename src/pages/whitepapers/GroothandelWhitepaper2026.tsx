@@ -190,7 +190,7 @@ const GroothandelWhitepaper2026 = () => {
               <ul className="space-y-4">
                 {[
                   'Slechts 7% van NL handels-/logistiekbedrijven heeft concreet AI-beleid. Hier zit het adoptie-gat waar voorsprong wordt opgebouwd.',
-                  'AI-pricing op long-tail SKU\'s levert 130-200 basispunten brutomarge. Voor een €30M-groothandel is dat €450k jaarlijks, zonder extra omzet.',
+                  'AI-pricing op long-tail SKU\'s levert 1-2% extra brutomarge. Voor een €30M-groothandel is dat €300-450k jaarlijks, zonder extra omzet.',
                   'Quote-automatisering versnelt RFQ-turnaround tot 93% — first-responders winnen ~50% vaker.',
                   'Binnendienst-AI maakt nieuwe medewerkers productief in 6 weken in plaats van 6 maanden. Cruciaal nu 68% van NL technische bedrijven personeelstekort ervaart.',
                   'WBSO 2026 verlaagt AI-investeringen effectief met 20-30% via R&D-aftrek. Slechts weinig agencies rekenen dit door in hun offertes — jij moet wel vragen.',

@@ -24,7 +24,7 @@ export const posts: PostIndexEntry[] = [
   },
   {
     slug: 'ai-pricing-voor-groothandel',
-    title: 'Van Excel-pricing naar AI: +130-200 bps marge zonder je ERP te vervangen',
+    title: 'Van Excel-pricing naar AI: 1-2% extra marge zonder je ERP te vervangen',
     subtitle:
       'AI-pricing is de snelste marge-hefboom voor technische groothandels. Hoe het werkt, wat het oplevert, en waarom je niets hoeft te vervangen.',
     category: 'Groothandel',

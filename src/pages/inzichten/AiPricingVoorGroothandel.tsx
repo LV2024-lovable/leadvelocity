@@ -4,14 +4,14 @@ import { getRelated } from '../../data/blogPosts';
 
 const config: BlogPostConfig = {
   slug: 'ai-pricing-voor-groothandel',
-  title: 'Van Excel-pricing naar AI: +130-200 bps marge zonder je ERP te vervangen',
+  title: 'Van Excel-pricing naar AI: 1-2% extra marge zonder je ERP te vervangen',
   subtitle:
     'AI-pricing is de snelste marge-hefboom voor technische groothandels. Hoe het werkt, wat het oplevert, en waarom je niets hoeft te vervangen.',
   category: 'Groothandel',
   publishedAt: '20 april 2026',
   readingMinutes: 7,
   metaDescription:
-    'Hoe AI-pricing werkt voor technische groothandels. Bewezen 130-200 basispunten brutomarge extra, zonder ERP-vervanging, live in 12 weken.',
+    'Hoe AI-pricing werkt voor technische groothandels. Bewezen 1-2% extra brutomarge, zonder ERP-vervanging, live in 12 weken.',
 
   intro: (
     <>
@@ -33,7 +33,7 @@ const config: BlogPostConfig = {
     {
       type: 'stat-row',
       stats: [
-        { value: '+130-200 bps', label: 'brutomarge via AI-pricing in B2B-distributie' },
+        { value: '1-2%', label: 'extra brutomarge via AI-pricing in B2B-distributie' },
         { value: '98%', label: 'snellere pricing-cyclus (Turtle-case, US elektro-distributie)' },
         { value: '12 wk', label: 'tot productie-launch bij typische implementatie' },
       ],
@@ -41,7 +41,7 @@ const config: BlogPostConfig = {
     {
       type: 'paragraph',
       content:
-        'McKinsey documenteerde bij een B2B-distributeur van $15 miljard een marge-uplift van 200 basispunten over 1,5 miljoen SKU\'s. Agentic AI-laag erbovenop leverde 50 bps extra binnen 10 weken. Turtle — een Amerikaanse elektro-distributeur — implementeerde Infor\'s AI-pricing in 12 weken en zag 130 basispunten marge en 98% snellere item-pricing. Wilbur-Ellis (Amerikaanse landbouw-distributie) behaalde 2% marge-winst op 6.000+ SKU\'s via PROS Gen IV AI.',
+        'McKinsey documenteerde bij een B2B-distributeur van $15 miljard een marge-uplift van 2 procentpunten over 1,5 miljoen SKU\'s. Agentic AI-laag erbovenop leverde nog eens 0,5 procentpunt extra binnen 10 weken. Turtle — een Amerikaanse elektro-distributeur — implementeerde Infor\'s AI-pricing in 12 weken en zag 1,3% extra marge en 98% snellere item-pricing. Wilbur-Ellis (Amerikaanse landbouw-distributie) behaalde 2% marge-winst op 6.000+ SKU\'s via PROS Gen IV AI.',
     },
 
     {
@@ -49,7 +49,7 @@ const config: BlogPostConfig = {
       title: 'Wat dit concreet betekent voor €30M-groothandel',
       content: (
         <>
-          Typische NL technische groothandel: €30M omzet, 27% brutomarge. +150 basispunten = <strong>+€450.000 jaarlijkse brutomarge</strong> bij gelijke volume. Dat is pure winst — geen nieuwe klanten, geen extra personeel. De rekensom voor jullie bedrijf kan overtuigender zijn dan menig salaris-investering.
+          Typische NL technische groothandel: €30M omzet, 27% brutomarge. +1,5 procentpunt = <strong>+€450.000 jaarlijkse brutomarge</strong> bij gelijke volume. Dat is pure winst — geen nieuwe klanten, geen extra personeel. De rekensom voor jullie bedrijf kan overtuigender zijn dan menig salaris-investering.
           </>
       ),
     },
@@ -200,7 +200,7 @@ const config: BlogPostConfig = {
   ],
 
   keyTakeaways: [
-    'AI-pricing levert structureel 130-200 bps brutomarge-uplift — bewezen bij NL/EU/US distributeurs.',
+    'AI-pricing levert structureel 1-2% extra brutomarge — bewezen bij NL/EU/US distributeurs.',
     'Voor een €30M-groothandel met 27% marge = ~€450k extra jaarlijkse marge zonder extra omzet.',
     'Je hoeft geen ERP te vervangen. AI werkt als read-only laag bovenop SAP, AFAS, Isah, Exact, Ridder.',
     'Binnendienst krijgt aanbevelingen, kan overrulen — AI leert van elke overrule. Geen black-box.',

@@ -179,7 +179,7 @@ const ServicesNew = () => {
                 Voor klanten die echt samen willen bouwen
               </h3>
               <p className="font-body text-base text-lv-text-muted leading-relaxed max-w-3xl">
-                Bovenop de maandelijkse Operating Partnership kan een performance-kicker. Je krijgt een vergoeding per bewezen KPI-overtreffing (bijvoorbeeld per bps marge-winst of per procentpunt efficiency). Maakt ons extra aligned op jullie succes, zonder dat we harde garanties hoeven af te geven.
+                Bovenop de maandelijkse Operating Partnership kan een performance-kicker. Je krijgt een vergoeding per bewezen KPI-overtreffing (bijvoorbeeld per procentpunt marge-winst of per procentpunt efficiency). Maakt ons extra aligned op jullie succes, zonder dat we harde garanties hoeven af te geven.
               </p>
             </div>
           </div>

@@ -13,7 +13,7 @@ const groothandelConfig: VerticalConfig = {
   heroSubtitle:
     'Wij helpen Nederlandse technische groothandels hun inkoop, pricing en pipeline AI-gedreven maken — van snelle automatiseringen die direct tijd winnen tot zwaardere trajecten met structurele marge-impact.',
   heroStats: [
-    { value: '+130-200 bps', label: 'hogere brutomarge via AI-pricing' },
+    { value: '1-2%', label: 'extra brutomarge via AI-pricing' },
     { value: '-20 tot -30%', label: 'voorraad via AI-forecasting' },
     { value: '93%', label: 'snellere quote-verwerking' },
   ],
@@ -26,7 +26,7 @@ const groothandelConfig: VerticalConfig = {
     {
       title: 'D2C, Amazon Business en Chinese platforms',
       description:
-        'Fabrikanten gaan rechtstreeks naar jouw klanten. Amazon Business groeit hard in EU. Elk basispunt marge telt. Niche-kennis is niet meer genoeg — je moet sneller, scherper en dataslimmer zijn dan generieke platforms.',
+        'Fabrikanten gaan rechtstreeks naar jouw klanten. Amazon Business groeit hard in EU. Elk procent marge telt. Niche-kennis is niet meer genoeg — je moet sneller, scherper en dataslimmer zijn dan generieke platforms.',
     },
     {
       title: 'Binnendienst-tijd lekt weg op offertes en orders',
