@@ -139,15 +139,6 @@ const ResultsNew = () => {
           </div>
         </div>
 
-        {/* Note */}
-        <div className="mt-16 pt-8 border-t border-lv-border-subtle max-w-3xl">
-          <p className="font-body text-sm text-lv-text-subtle leading-relaxed">
-            <span className="text-lv-text-muted">Waarom geen eigen klantcijfers hier?</span> Wij publiceren cijfers pas als ze geverifieerd zijn — niet eerder. Wil je één van onze eerste gedocumenteerde cases worden?{' '}
-            <a href="#contact" className="text-lv-accent hover:underline">
-              Laat het weten →
-            </a>
-          </p>
-        </div>
       </div>
     </section>
   );

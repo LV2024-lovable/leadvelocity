@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarNew from '../components/NavbarNew';
 import HeroNew from '../components/HeroNew';
+import ClientLogos from '../components/ClientLogos';
 import TrustBars from '../components/TrustBars';
 import VerticalsNew from '../components/VerticalsNew';
 import ServicesNew from '../components/ServicesNew';
@@ -16,6 +17,7 @@ const Home = () => {
       <NavbarNew />
       <main>
         <HeroNew />
+        <ClientLogos />
         <TrustBars />
         <VerticalsNew />
         <ServicesNew />
