@@ -12,7 +12,19 @@ const rows: TrustRow[] = [
   {
     icon: Cpu,
     label: 'Waarmee we bouwen',
-    items: ['Anthropic Claude', 'OpenAI', 'Supabase', 'Resend', 'Vercel', 'Next.js', 'n8n'],
+    items: [
+      'Anthropic Claude',
+      'OpenAI',
+      'Supabase',
+      'PostgreSQL',
+      'TypeScript',
+      'Next.js',
+      'Vercel',
+      'Resend',
+      'Twilio',
+      'Playwright',
+      'Docker',
+    ],
   },
   {
     icon: Database,

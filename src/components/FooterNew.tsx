@@ -57,6 +57,11 @@ const FooterNew = () => {
                 </a>
               </li>
               <li>
+                <a href="/inzichten" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                  Inzichten
+                </a>
+              </li>
+              <li>
                 <a href="/over-ons" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
                   Over ons
                 </a>

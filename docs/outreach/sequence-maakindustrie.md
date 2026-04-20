@@ -38,9 +38,9 @@ Concreet zien we bij vergelijkbare bedrijven drie plekken waar AI snel rendeert:
 - Shop-floor copilot die senior-kennis vasthoudt voor de volgende generatie operators
 - Engineering-AI die documentatie doorzoekbaar maakt — engineers winnen 30% tijd terug
 
-We hebben deze maand ruimte voor 3 gratis 60-min scans bij maakbedrijven in jullie segment. Deliverable is een kort rapport met de 3 grootste AI-kansen voor jullie specifieke operatie.
+Onze instap is een AI Ops Audit: €2.500, 2 weken, geschreven rapport met de top-3 AI-kansen specifiek voor jullie productieomgeving. Vaste prijs, geen verplicht vervolg.
 
-Interesse? Woensdag 14:00 of vrijdag 11:00 past?
+Zou zo'n audit relevant zijn voor [bedrijfsnaam]? Woensdag 14:00 of vrijdag 11:00 voor een kort kennismakingsgesprek?
 
 Groeten,
 Bart Wilbrink

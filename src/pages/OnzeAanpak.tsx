@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ArrowUpRight, Search, Hammer, Repeat, GraduationCap, Check } from 'lucide-react';
+import { ArrowUpRight, Compass, Hammer, Repeat, TrendingUp, Check } from 'lucide-react';
 import NavbarNew from '../components/NavbarNew';
 import FooterNew from '../components/FooterNew';
 import { useReveal } from '../hooks/useReveal';
@@ -14,71 +14,77 @@ type Step = {
   outcome: string;
 };
 
-const steps: Step[] = [
+type LadderStep = Step & { price: string };
+
+const steps: LadderStep[] = [
   {
     number: '01',
-    icon: Search,
-    title: 'Verkennen & prioriteren',
-    meta: 'Week 1-2 · Kennismaking + scan',
+    icon: Compass,
+    title: 'AI Ops Audit',
+    meta: '2 weken · laagdrempelig instappen',
+    price: '€2.500',
     lead:
-      'We beginnen met een vrijblijvend kennismakingsgesprek. Daarna brengen we in kaart welke drie AI-kansen voor jullie operatie het meeste opleveren — concreet, in euro\'s, met duidelijke prioritering.',
+      'Je start met een AI Ops Audit. Wij scannen jullie operatie, sales, inkoop en klantcontact en leveren een rapport met de top-3 AI-kansen, impact-inschatting en prioritering. Geen verplicht vervolg — je krijgt het rapport en beslist zelf.',
     details: [
-      'Diepte-scan van operatie, sales, inkoop en klantcontact',
-      'Interviews met directie en relevante operationele leiders',
-      'Top-3 AI-kansen met impact-inschatting per use-case',
-      'Implementatie-prioritering en risico-analyse',
+      'Vaste prijs van €2.500, geen verrassingen',
+      'Interviews met directie en operationele leiding',
+      'Top-3 AI-kansen met realistische impact-inschatting',
+      'Geschreven rapport, geen generieke PowerPoint',
     ],
     outcome:
-      'Een geschreven rapport dat jullie hét overzicht geeft: waar staan we, waar is de grootste winst, en wat doen we eerst. Zonder vervolg-verplichting — maar meestal rollen we door.',
+      'Je weet waar de grootste AI-winst zit voordat je iets bouwt. Filtert goede plannen van hype-projecten. Deze stap betaal je sowieso, ook als je daarna beslist het met een andere partij te doen.',
   },
   {
     number: '02',
     icon: Hammer,
-    title: 'Bouwen in sprints',
-    meta: 'Kwartaal 1 · Eerste use-case live',
+    title: 'Pilot Build',
+    meta: '6-8 weken · één use-case live',
+    price: '€12.000 - €20.000',
     lead:
-      'We kiezen één AI-toepassing waar het snelst resultaat te halen is en bouwen die end-to-end. Van data-integratie tot productie-gebruik. Meetbaar resultaat binnen één kwartaal — of we herzien samen de scope.',
+      'We bouwen één AI-toepassing end-to-end. Vaste scope, vaste prijs, draait op onze infrastructuur. Data-integratie, UI, optimalisatie en handover zitten in één pakket. Kleinste scope met meetbaar resultaat.',
     details: [
-      'End-to-end build van één concrete AI-toepassing',
-      'Integratie met bestaande systemen (ERP, CRM, webshop) zonder ze te vervangen',
-      'Testing en pilot-gebruik door één afdeling voordat we schalen',
-      'Wekelijkse voortgangs-check op vooraf afgesproken KPI',
+      'End-to-end build: van data-integratie tot productie-gebruik',
+      'Gehost op Leadvelocity-infrastructuur (geen IT-belasting voor jullie)',
+      'Geen ERP- of MES-vervanging: wij werken ernaast',
+      'Wekelijkse voortgangs-syncs op vooraf afgesproken KPI',
     ],
     outcome:
-      'Een werkend AI-systeem in productie. Jouw team werkt er dagelijks mee. Meetbaar resultaat op de vooraf afgesproken KPI — zichtbaar in een dashboard dat wij samen met jullie hebben ingericht.',
+      'Een werkend AI-systeem in productie binnen één kwartaal. Jullie team werkt er dagelijks mee. Resultaat meetbaar op de afgesproken KPI. Hiermee bewijs je voor jezelf of deze aanpak werkt voordat je verder investeert.',
   },
   {
     number: '03',
     icon: Repeat,
-    title: 'Doorlopend partnership',
-    meta: 'Na de eerste sprint · Retainer',
+    title: 'Operating Partnership',
+    meta: '12 mnd min · 30 dgn opzeg',
+    price: '€3.000 - €8.000 / mnd',
     lead:
-      'Na de eerste succesvolle use-case rollen we door in een AI Operations Partnership. Flexibel per maand ingevuld — nieuwe use-cases, optimalisatie van bestaande, coaching voor je interne team.',
+      'Na de pilot rollen we door in een doorlopende Operating Partnership. Jullie systeem blijft draaien op onze infrastructuur. Wij hosten, monitoren en optimaliseren elke maand. Nieuwe verbeteringen zitten standaard in je abonnement.',
     details: [
-      'Doorlopende optimalisatie van bestaande AI-systemen',
-      'Maandelijkse nieuwe use-case-verkenning',
-      'Coaching van intern team (data, AI, processen)',
-      'Sector-benchmarks en trendsignalen',
-      'Priority access op nieuwe AI-technieken',
+      'Hosted op LV-infrastructuur: wij regelen uptime, security, updates',
+      'Maandelijkse optimalisatie van bestaande AI-componenten',
+      'KPI-dashboard met wekelijkse monitoring',
+      'Minimaal 12 maanden, dan 30 dagen opzegtermijn',
+      'Optioneel: performance-kicker bovenop het maandbedrag',
     ],
     outcome:
-      'Structurele AI-voorsprong. Elke maand wordt jullie AI-stack breder en beter. Geen losse projectofferte bij elke nieuwe use-case — vast aanspreekpunt, snelle schakels, voorspelbare kosten.',
+      'Jullie AI-operatie draait voorspelbaar, wordt elke maand beter, zonder dat je elke keer een offerte hoeft te tekenen voor kleine verbeteringen. Wij zijn bereikbaar als je vast team, niet als project.',
   },
   {
     number: '04',
-    icon: GraduationCap,
-    title: 'Zelfredzaam',
-    meta: 'Doorlopend · Kennisoverdracht',
+    icon: TrendingUp,
+    title: 'Scale & Expand',
+    meta: 'Doorlopend · breder bouwen',
+    price: '€8.000 - €15.000 / mnd',
     lead:
-      'Ons doel is dat jullie ons op termijn niet meer nodig hebben voor het dagelijkse werk. We dragen kennis, methodiek en playbooks over zodat AI een structurele bedrijfscapaciteit wordt — niet een extern project.',
+      'Bij klanten die doorgroeien bouwen we nieuwe use-cases bovenop wat al draait. Diepere integraties, meer modules, breder AI-bereik. Hier wordt AI een echte bedrijfscapaciteit in plaats van een losstaand systeem.',
     details: [
-      'Gedocumenteerde playbooks voor elke opgeleverde AI-oplossing',
-      'Training voor het interne team op tools, data en methodiek',
-      'Sector-benchmarks beschikbaar in eigen dashboard',
-      'Mogelijkheid om retainer om te zetten naar lichte supervisie',
+      'Meerdere AI-toepassingen onder één partnership',
+      'Diepere integraties met ERP, CRM, webshop, MES',
+      'Strategische kwartaal-reviews met directie',
+      'Coaching van jullie interne team richting zelfredzaamheid',
     ],
     outcome:
-      'AI-capaciteit ingebed in jullie organisatie. Je kiest of je met ons blijft werken, of zelfstandig verdergaat. Geen vendor lock-in — de regie is en blijft bij jullie.',
+      'AI-capaciteit ingebed in jullie organisatie, aangestuurd door ons maar gedragen door jullie team. De regie blijft bij jullie; wij leveren de uitvoering, kennis en schaal.',
   },
 ];
 
@@ -179,9 +185,12 @@ const OnzeAanpak = () => {
                             <Icon className="w-6 h-6 text-lv-accent" />
                           </div>
                         </div>
-                        <div className="mt-5">
+                        <div className="mt-5 space-y-1">
                           <div className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-widest">
                             {step.meta}
+                          </div>
+                          <div className="font-display text-sm font-700 text-lv-accent">
+                            {step.price}
                           </div>
                         </div>
                       </div>

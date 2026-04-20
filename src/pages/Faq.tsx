@@ -35,11 +35,22 @@ const sections: FaqSection[] = [
     items: [
       {
         q: 'Wat kost een traject?',
-        a: 'Dat hangt af van scope en wat jullie het meest nodig hebben. We werken niet met vaste prijzen op de website omdat we eerst willen weten waar de grootste winst zit voordat we praten over investering. Elk traject start met een vrijblijvend gesprek. Als er een match is, maken we een concreet voorstel met transparante scope en prijs.',
+        a: (
+          <>
+            <p className="mb-3">Wij werken in vier trappen waar elke stap eigen prijs heeft. Je commit alleen aan de volgende trap als de vorige je overtuigd heeft:</p>
+            <ul className="list-disc pl-5 space-y-1.5 mb-3">
+              <li><strong>Trap 1 — AI Ops Audit:</strong> €2.500, 2 weken. Je krijgt een rapport met top-3 AI-kansen. Geen verplicht vervolg.</li>
+              <li><strong>Trap 2 — Pilot Build:</strong> €12.000 - €20.000, 6-8 weken. Eén AI-use-case end-to-end live op onze hosted infrastructuur.</li>
+              <li><strong>Trap 3 — Operating Partnership:</strong> €3.000 - €8.000 per maand. Hosted, beheerd, doorlopend geoptimaliseerd. Minimaal 12 maanden, 30 dagen opzegtermijn.</li>
+              <li><strong>Trap 4 — Scale & Expand:</strong> €8.000 - €15.000 per maand bij klanten die doorbouwen naar meerdere use-cases.</li>
+            </ul>
+            <p>Precieze prijs hangt af van scope en complexiteit. Eerste kennismakingsgesprek is gratis en vrijblijvend.</p>
+          </>
+        ),
       },
       {
         q: 'Hoe snel zien we resultaat?',
-        a: 'We streven naar meetbaar resultaat binnen één kwartaal na start. Eerste bruikbare output (dashboard, eerste automatisering, pipeline-leads) zien jullie vaak al binnen 6-8 weken. Voor diepere use-cases (voorraadoptimalisatie, predictive maintenance) rekenen we op 2-4 maanden. We houden wekelijks de voortgang bij met concrete KPI\'s die we vooraf afspreken.',
+        a: 'De audit duurt 2 weken en levert direct inzicht op. De Pilot Build is 6-8 weken waarna je een werkend AI-systeem in productie hebt. Voor grotere use-cases (voorraadoptimalisatie, predictive maintenance) rekenen we 2-4 maanden. We houden wekelijks de voortgang bij met concrete KPI\'s die we vooraf afspreken.',
       },
       {
         q: 'Moeten we onze ERP of MES vervangen?',
@@ -72,7 +83,7 @@ const sections: FaqSection[] = [
       },
       {
         q: 'Wat als we met jullie stoppen — hebben we dan vendor lock-in?',
-        a: 'Nee. Alle code, alle data, alle documentatie is van jullie. We bouwen geen proprietary platforms waar jullie in vastzitten. Als jullie na een sprint beslissen het intern verder te doen, dragen we netjes over en geven we de playbook mee. Retainers zijn maandelijks opzegbaar.',
+        a: 'Jullie klantdata blijft altijd van jullie en is exporteerbaar. Onze stack (code, AI-modellen, orchestration) blijft eigendom van Leadvelocity, maar na Operating Partnership-contract is er een 30-dagen-overdrachtsperiode waarin we netjes handoff doen. Het 12-maanden-minimum beschermt beide partijen: jullie tegen onze schommelende beschikbaarheid, ons tegen cliënten die na 2 maanden zonder reden weg willen. Na die 12 maanden is opzeggen laagdrempelig met 30 dagen notice.',
       },
     ],
   },

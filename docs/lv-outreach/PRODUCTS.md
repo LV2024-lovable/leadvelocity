@@ -1,260 +1,225 @@
-# PRODUCTS.md — Leadvelocity Product-catalogus voor Scribe & Analyst
+# PRODUCTS.md — Leadvelocity Commitment Ladder voor Scribe & Analyst
 
-**Versie:** 1.0 — 2026-04-20
-**Afnemers:** Scribe-LV (kiest welk product in welke mail te pitchen), Analyst-LV (mapt signalen naar product-fit)
+**Versie:** 2.0 — 2026-04-20 (hybrid agency + managed ops model, 4-traps ladder)
+**Afnemers:** Scribe-LV (welke trap in welke mail pitchen), Analyst-LV (signaal-naar-trap-fit)
 
 ---
 
-## 1. De 4 producten + retainer-paraplu
+## 1. Wat Leadvelocity verkoopt
 
-### 1.1 AI Kickstart Assessment
+**Geen product, wel een trap-voor-trap partnership.** De "agency-vs-SaaS" dichotomie vermijden we bewust — we zijn een **hybride**: agency-DNA (custom builds per klant) met een doorlopende managed-ops-laag (hosted op onze infrastructuur) plus optionele performance-kicker.
+
+De klant committeert per trap. Elke trap bouwt voort op de vorige. Geen lange verkoopcycli voor grote deals — wel laagdrempelig instappen en groeien binnen de samenwerking.
+
+---
+
+## 2. De 4 trappen (met prijzen)
+
+### Trap 1 — AI Ops Audit
 
 ```yaml
-id: assessment
-name: AI Kickstart Assessment
-one_liner: "Diepte-scan van jullie operatie, sales en inkoop met drie concrete AI-kansen."
-role_in_funnel: entry / qualifier
+id: audit
+name: AI Ops Audit
+one_liner: "Scan van jullie operatie met de top-3 AI-kansen, impact-inschatting en prioritering."
+commitment: "Geen verplicht vervolg"
+price: "€2.500 (vaste prijs)"
+duration: "2 weken"
 for_persona: [dga, coo, cro]
 for_situation:
   - "Bedrijf wil AI serieus inzetten maar weet niet waar te beginnen"
   - "Directie wil objectieve second opinion vóór ze budget committeren"
-  - "Nieuwe DGA/COO die AI-roadmap moet opleveren aan stakeholders"
+  - "Nieuwe DGA/COO die AI-roadmap moet opleveren"
 deliverables:
-  - "60-90 min interview-sessie met directie en operationele leiding"
-  - "Geschreven rapport met top-3 AI-kansen en impact-inschatting"
-  - "Prioritering + implementatie-volgorde advies"
-  - "Optioneel: advies-gesprek over vervolgstappen"
-typical_value:
-  - "Duidelijkheid over welke use-case eerst rendeert"
-  - "ROI-forecast per AI-kans — grondslag voor business case"
-  - "Vermijden van €50-100k aan verkeerd-gerichte AI-investeringen"
-price_range: "op maat — nog bewust niet publiek"
-cta_phrase: "Plan een Kickstart Assessment"
+  - "60-90 min interviews met directie + operationele leiders"
+  - "Geschreven rapport (2-3 pagina's) met top-3 AI-kansen"
+  - "Realistische impact-inschatting per kans (in euro's)"
+  - "Implementatie-prioritering: wat eerst, wat later, wat niet"
+role_in_funnel: "Entry + kwalificatie + cashflow"
+cta_phrase: "Start met een AI Ops Audit"
 ```
 
-### 1.2 AI Sales Systeem
+### Trap 2 — Pilot Build
 
 ```yaml
-id: sales_system
-name: AI Sales Systeem
-one_liner: "Complete AI-gedreven sales-motor — van prospecting tot pipeline-scoring, zonder dat je team extra uren draait."
-role_in_funnel: primary build
-for_persona: [cro, sales_director, dga]
+id: pilot
+name: Pilot Build
+one_liner: "Eén AI-use-case end-to-end gebouwd op onze hosted infrastructuur."
+commitment: "Scope-gecapt, vaste prijs"
+price: "€12.000 - €20.000"
+duration: "6-8 weken"
+hosted_on: "Leadvelocity-infrastructuur (Supabase, Vercel, PostgreSQL)"
+for_persona: [coo, cro, dga]
 for_situation:
-  - "Pipeline valt tegen, huidige outbound werkt niet"
-  - "SDR's zijn duur en niet schaalbaar"
-  - "Offertes duren te lang, conversie is te laag"
-  - "Accountmanagers besteden te veel tijd aan koude acquisitie"
-components:
-  - "AI-prospecting + enrichment op named accounts"
-  - "Gepersonaliseerde outbound-sequences (email + LinkedIn + WhatsApp)"
-  - "Scrapers voor competitor-pricing en intent-signalen"
-  - "Pipeline-scoring + white-space-detection op bestaand klantbestand"
-  - "Sales intelligence dashboard"
-typical_value:
-  - "Meer leads bij gelijke FTE-inzet"
-  - "Hogere reply-rates door AI-personalisatie"
-  - "Zichtbare ondergeleverde accounts in huidige klantportfolio"
-  - "Schaalbaar zonder SDR-team te hoeven aannemen"
-time_to_value: "4-8 weken eerste concrete output"
-price_range: "op maat"
-cta_phrase: "Praten over jullie pipeline"
+  - "Na Audit: klant wil concreet resultaat voordat grotere commitment"
+  - "Bewijs nodig dat aanpak werkt bij hun specifieke data/processen"
+  - "Nog geen vertrouwen om direct in langdurig partnership te stappen"
+deliverables:
+  - "End-to-end build van één concrete AI-toepassing"
+  - "Data-integratie met bestaande ERP/CRM/TMS zonder vervanging"
+  - "Werkend systeem in productie"
+  - "Documentatie + kennisoverdracht naar klant-eigenaar"
+role_in_funnel: "Bewijs-van-waarde + trustbuilder voor retainer"
+cta_phrase: "Boek een pilot"
 ```
 
-### 1.3 AI Operations Dashboard
+### Trap 3 — Operating Partnership
 
 ```yaml
-id: ops_dashboard
-name: AI Operations Dashboard
-one_liner: "Eén live dashboard dat ERP, webshop, CRM, Excel en finance samenbrengt — voor het eerst echt zicht op marge en operatie."
-role_in_funnel: primary build
-for_persona: [coo, cfo, dga]
+id: operating
+name: AI Operating Partnership
+one_liner: "Doorlopende hosting, beheer en optimalisatie van de AI-systemen die we bouwden."
+commitment: "12 maanden minimum, 30 dagen opzegtermijn"
+price: "€3.000 - €8.000 per maand"
+auto_renewal: "Jaarlijks, tenzij 30 dgn vooraf opgezegd"
+for_persona: [coo, cro, dga]
 for_situation:
-  - "Data zit verspreid over 5+ systemen, niemand heeft één waarheid"
-  - "Maandelijkse rapportages kosten dagen handwerk"
-  - "KPI-zicht is reactief (pas aan einde van kwartaal zichtbaar)"
-  - "CSRD-rapportage komt eraan en blijkt nu puur handwerk"
-components:
-  - "Multi-bron data-integratie (ERP + CRM + webshop + Excel + finance)"
-  - "Live marge-, OEE- of cent-per-km-dashboards (sector-afhankelijk)"
-  - "Geautomatiseerde rapportage + waarschuwingen"
-  - "Scope-3 CSRD-module optioneel"
-typical_value:
-  - "Beslissingen op data, niet op gut feel"
-  - "FTE-tijd op rapportage naar bijna nul"
-  - "Lekken in marge/productie/planning zichtbaar binnen dagen i.p.v. kwartalen"
-  - "Contract-behoud bij grote klanten die ESG-rapportage eisen"
-time_to_value: "6-10 weken eerste bruikbare dashboard"
-price_range: "op maat"
-cta_phrase: "Jullie data-puzzel in beeld brengen"
+  - "Na Pilot: systeem draait, klant wil het houden + verbeteren"
+  - "Geen interne capaciteit om zelf te hosten/onderhouden"
+  - "Wil structureel AI-voorsprong opbouwen ipv losse projectjes"
+deliverables:
+  - "Hosting + uptime monitoring + security op LV-infrastructuur"
+  - "Maandelijkse optimalisatie bestaande AI-componenten"
+  - "KPI-dashboard met wekelijkse performance-data"
+  - "Nieuwe kleine use-cases zonder extra offerte"
+role_in_funnel: "Recurring revenue motor — hier zit LV ARR"
+cta_phrase: "Bespreek een partnership"
 ```
 
-### 1.4 AI Assistent
+### Trap 4 — Scale & Expand
 
 ```yaml
-id: ai_assistant
-name: AI Assistent
-one_liner: "Een AI-assistent die past waar jij hem nodig hebt: klantenservice 24/7, binnendienst-ondersteuning, voice-agent of interne kennis-bot."
-role_in_funnel: primary build
-for_persona: [coo, service_director, cro, dga]
+id: scale
+name: Scale & Expand
+one_liner: "Nieuwe use-cases, diepere integraties, strategische AI-bedrijfscapaciteit."
+commitment: "Doorlopend op Operating Partnership-basis, upgrade-pad"
+price: "€8.000 - €15.000 per maand"
+for_persona: [dga, coo_bij_groeiende_klanten]
 for_situation:
-  - "Klantenservice draait op kantooruren, routine-vragen overbelasten service-desk"
-  - "Senior-medewerkers gaan met pensioen, kennis verdwijnt"
-  - "Binnendienst besteedt 40%+ tijd aan product- en spec-vragen"
-  - "Nieuwe medewerkers inwerken kost 3-6 maanden"
-variants:
-  - id: chatbot
-    use: "Klant-facing of intern web/Teams/Outlook"
-  - id: voice_agent
-    use: "Telefonisch, multilingual (NL/EN/PL/RO)"
-  - id: internal_copilot
-    use: "Shop-floor, binnendienst, engineering documentatie"
-typical_value:
-  - "30-50% deflectie op routine-vragen"
-  - "24/7 beschikbaarheid zonder nachtbezetting"
-  - "Onboarding van 6 mnd naar 6 weken"
-  - "Senior-kennis vastgehouden in plaats van uitgestroomd"
-time_to_value: "3-8 weken afhankelijk van complexiteit"
-price_range: "op maat"
-cta_phrase: "Kijken waar een AI-assistent past"
+  - "Klant heeft meerdere AI-behoeftes die onder één partnership passen"
+  - "Nieuwe modules (inkoop + sales + service) tegelijk uitrollen"
+  - "Strategisch partner-gesprek ipv leveranciersrelatie"
+deliverables:
+  - "Meerdere AI-toepassingen onder één partnership"
+  - "Diepere integratie ERP/CRM/MES/TMS"
+  - "Strategische kwartaal-reviews met directie"
+  - "Coaching intern team richting zelfredzaamheid"
+role_in_funnel: "Expansion — hogere LTV, stickiness"
+cta_phrase: "Ga voor strategische schaal"
 ```
 
-### 1.5 AI Operations Partnership (retainer-paraplu)
+### Optioneel: Performance Kicker
 
 ```yaml
-id: partnership
-name: AI Operations Partnership
-one_liner: "Doorlopend partnership na je eerste product — nieuwe use-cases, optimalisatie, coaching. Flexibel ingevuld per maand."
-role_in_funnel: expansion / recurring
-for_persona: [alle, na_eerste_product]
-for_situation:
-  - "Na levering van eerste product wil je structureel AI-voorsprong opbouwen"
-  - "Geen zin in losse projectofferte bij elke nieuwe use-case"
-  - "Wil dat iemand meedenkt over sector-ontwikkelingen"
-components:
-  - "Doorlopende optimalisatie bestaande AI-systemen"
-  - "Maandelijkse nieuwe use-case-verkenning"
-  - "Coaching intern team"
-  - "Sector-benchmarks + trendsignalen"
-  - "Priority access op nieuwe AI-technieken"
-typical_value:
-  - "Structurele AI-voorsprong in plaats van losse projectjes"
-  - "Vast aanspreekpunt, snelle schakels"
-  - "Marginale kosten nieuwe AI-use-cases veel lager dan eerste build"
-price_model: retainer / month
-price_range: "op maat per klant, flexibel"
-cta_phrase: "Doorlopend partnership bespreken"
+id: performance_kicker
+name: Performance-kicker (optioneel bovenop Trap 3 of 4)
+description: "Voor klanten die diepere alignment willen: extra vergoeding per bewezen KPI-overtreffing."
+when_to_offer:
+  - "Klant met goede data-infrastructuur (meetbaarheid gewaarborgd)"
+  - "KPI die objectief meetbaar is (marge, OEE, cent-per-km)"
+  - "Klant die alignment wil voelen, niet alleen tijd inkopen"
+when_NOT_to_offer:
+  - "Klant met slechte datakwaliteit (meetgeschil-risico)"
+  - "Klant die na ervaring met ons onzeker is over delivery"
+  - "Standaardaanbod — dit is uitzondering, niet regel"
+mechanism_options:
+  - "€X per procentpunt marge-winst boven baseline"
+  - "€X per uur downtime-reductie boven baseline"
+  - "Een vast bonusbedrag bij hit van vooraf afgesproken target"
 ```
 
 ---
 
-## 2. Signal → Product Matrix
+## 3. Stickiness-mechanismen (zonder harde garanties)
 
-Deze matrix is de **primaire routing-logica** voor Scribe-LV. Gegeven een gedetecteerd signaal van Analyst-LV, welk product is het meest relevant om in de eerste mail te pitchen?
+Leadvelocity beschermt de recurring revenue via 5 lagen tegelijk — geen outcome-garantie nodig:
 
-| Intent-signaal (uit INTENT-SIGNALS.md) | Primair product | Secundair | Waarom |
-|---|---|---|---|
-| 1. Vacature data-analist/BI-specialist | `ops_dashboard` | `assessment` | Data-pijn → dashboard brengt het samen |
-| 2. Vacature werkvoorbereider/planner | `ops_dashboard` | `ai_assistant` | Planning-bottleneck → dashboard + AI-assist |
-| 3. Vacature inside sales/binnendienst | `sales_system` | `ai_assistant` | Sales-volume groeit → automate first |
-| 4. Vacature e-commerce/category manager | `sales_system` | `ops_dashboard` | Digital push → AI-pricing + merchandising |
-| 5. Vacature >3 mnd open, krimp-sector | `ai_assistant` | `partnership` | Recruitment-pijn → custom ATS of matching |
-| 6. Overname/fusie laatste 12 mnd | `ops_dashboard` | `assessment` | Integratie → één waarheid nodig |
-| 7. Nieuwe vestiging/DC | `ops_dashboard` | `sales_system` | Schaal → centrale sturing + cross-sell |
-| 8. Award (FD Gazellen, Fast 50) | `assessment` | elk | Groei + budget → start met scan |
-| 9. Grote klant gewonnen | `ops_dashboard` | `sales_system` | Compliance-eisen + pipeline-stress |
-| 10. Familiebedrijf / lange historie | `ai_assistant` | `partnership` | Kennisbehoud → copilot + doorlopend |
-| 11. ERP-naam zichtbaar (Isah/AFAS/Exact/SAP/Transpas) | `ops_dashboard` | `sales_system` | Stack helder → AI-laag erop |
-| 12. Webshop met beperkte features | `sales_system` | `ops_dashboard` | B2B-gap → pricing + personalisatie |
-| 13. "Bel ons voor prijs" op product-pagina | `sales_system` | `ai_assistant` | Quote-pijn → automate |
-| 14. Service-desk kantooruren | `ai_assistant` | `sales_system` | 24/7 gap → chatbot/voice |
-| 15. Primitieve chatbot op site | `ai_assistant` | `partnership` | Upgrade-opportunity |
-| 16. CSRD / duurzaamheidsverslag | `ops_dashboard` | `partnership` | Scope-3 handwerk → automation |
-| 17. "Smart Industry" / Industrie 4.0 claim | `assessment` | `ops_dashboard` | Gap-meter tussen ambitie & uitvoering |
-| 18. DGA in branche-pers | `assessment` | elk | Zichtbaar, leesbaar → kwalificeer intent |
-| 19. Blog over sector-pijnpunten | elk | `assessment` | Alignment-bewijs → scan de rest |
-| 20. Grote klanten in logo-wall | `ops_dashboard` | `ai_assistant` | High-stakes → strakke processen verplicht |
+| Laag | Mechanisme | Hoe het werkt |
+|---|---|---|
+| **1. Hosted infrastructuur** | Alles draait op LV-infra (Supabase, Vercel, PostgreSQL) | Klant heeft geen eigen dev-ops, stoppen = ops-breuk |
+| **2. Data-verrijking** | AI verrijkt klantdata over tijd (profielen, patronen, taxonomie) | Weggaan = verrijkte data en patronen kwijt |
+| **3. Integratie-diepte** | ERP/CRM/TMS-koppelingen groeien maand na maand | Switchkosten stijgen met tijd |
+| **4. Governance-embedding** | Wekelijkse syncs, maandelijkse KPI-dashboards, kwartaal-reviews | Wij worden onderdeel van stuurproces |
+| **5. Team-dependency** | Klantteam leert werken met onze tools en patronen | Weggaan = omscholen |
 
-### Combinatie-regels (2 signalen samen)
+Resultaat: **90%+ retentie na Pilot → Operating overgang**, zonder dat contracten eng voelen voor klant.
 
-Sommige combinaties zijn **"killer"** — die rechtvaardigen een sterkere pitch en expliciete product-combinatie:
+---
 
-```yaml
-killer_combinations:
-  - signals: [vacature_data_analist, nieuwe_vestiging]
-    hook: "Groei + datazicht tegelijk aanpakken"
-    primary_pitch: ops_dashboard + sales_system
-    message_angle: "Bundel van inzicht + commerciële laag"
+## 4. Signal → Trap Matrix
 
-  - signals: [csrd_statement, erp_zichtbaar]
-    hook: "ESG-rapportage bovenop legacy stack"
-    primary_pitch: ops_dashboard (ESG-module)
-    message_angle: "Automate CSRD zonder ERP te vervangen"
+Gegeven een signaal van Analyst-LV, welke trap pitchen we in eerste mail? Regel: **altijd Trap 1 (Audit)** als entry, tenzij prospect al warmer is. In de body van de mail pitch je wel de downstream-waarde zodat ze begrijpen wat er na de Audit komt.
 
-  - signals: [familiebedrijf_lange_historie, vacature_planner]
-    hook: "Kennisbehoud + planning-modernisering"
-    primary_pitch: ai_assistant
-    message_angle: "Senior-ervaring vasthouden, junioren sneller productief"
+| Signaal-type | Eerste pitch | Sub-pitch (downstream) |
+|---|---|---|
+| Vacature data-analist | Audit | Operating — vervangt of ondersteunt die rol |
+| Vacature planner / werkvoorbereider | Audit | Pilot op planning-AI, daarna Operating |
+| Vacature inside sales / binnendienst | Audit | Pilot op sales-AI, daarna Operating |
+| Vacature e-commerce manager | Audit | Scale — meerdere modules |
+| Vacature langdurig open | Audit | Pilot op recruitment/ondersteunings-AI |
+| Overname/fusie | Audit | Scale — data-integratie multi-locatie |
+| Nieuwe vestiging | Audit | Pilot op operationele expansion |
+| Award / groei-erkenning | Audit | Scale — passende groei |
+| Grote klant gewonnen | Audit | Pilot op compliance/rapportage |
+| Familiebedrijf | Audit | Operating — stabiel, lange termijn |
+| ERP-stack zichtbaar | Audit | Pilot op AI-laag op ERP |
+| Webshop met beperkte features | Audit | Pilot op pricing of personalisatie |
+| "Bel ons voor prijs" | Audit | Pilot op quote-automatisering |
+| Service-desk kantooruren | Audit | Pilot op AI-assistent |
+| Primitieve chatbot | Audit | Pilot op upgrade |
+| CSRD-statement | Audit | Pilot op CSRD-automation, Operating daarna |
+| Smart Industry claim | Audit | Scale — ambitie hardmaken |
+| DGA in branche-pers | Audit | Alle trappen openhouden — leidt gesprek |
+| Blog sector-pijnpunten | Audit | Variabel |
+| Grote klanten in logo-wall | Audit | Pilot op compliance, Operating voor schaal |
 
-  - signals: [grote_klant_gewonnen, service_desk_kantooruren]
-    hook: "High-stakes klanten + beperkte service-capaciteit"
-    primary_pitch: ai_assistant
-    message_angle: "24/7 beschikbaarheid als de klant dat vraagt"
+**Vuistregel voor Scribe:** eerste e-mail positioneert altijd de Audit (laagdrempelig, gecommitteerde waarde voor klant), hint naar de downstream-waarde (Pilot → Operating → Scale), maar *vraagt* alleen om de Audit.
 
-  - signals: [smart_industry_claim, primitieve_chatbot]
-    hook: "AI-ambitie hardgemaakt met concrete stappen"
-    primary_pitch: assessment → ai_assistant
-    message_angle: "De claim waarmaken, niet alleen adverteren"
-```
+---
 
-### Anti-matches (signalen die *niet* naar dat product leiden)
+## 5. Prijs-communicatie in outreach
 
-```yaml
-never_route:
-  - signal: csrd_statement
-    not_to: sales_system
-    reason: "CSRD is operationeel, niet commercieel"
+**Regel 1:** Noem in eerste mail alleen de Audit-prijs (€2.500). Andere trappen komen pas na eerste gesprek.
 
-  - signal: webshop_beperkt_features
-    not_to: partnership
-    reason: "Partnership is expansion, eerste product moet eerst"
+**Regel 2:** Gebruik deze formuleringen:
+- ✅ *"Start met een AI Ops Audit — €2.500, vaste prijs, rapport binnen 2 weken"*
+- ✅ *"Na de Audit beslist u zelf of we samen verder bouwen — geen verplicht vervolg"*
+- ✅ *"Partnerships starten vanaf €3.000 per maand, op 12-maanden-basis met 30-dagen-opzegging"*
+- ❌ *"Vanaf €X duizend"* als eerste prijsindicatie — vermijd, te vaag
+- ❌ *"Inclusief alles"* — zet nooit met Audit-aanbieding
+- ❌ *"Gratis pilot"* — wij doen geen gratis builds
 
-  - signal: vacature_chauffeur
-    not_to: ops_dashboard
-    reason: "Recruitment-pijn leidt naar ai_assistant (matching) of custom ATS, niet dashboard"
+**Regel 3:** Prijstransparantie = vertrouwen. De Audit-prijs mag expliciet in alle outreach, op de site, en in LinkedIn-posts. Zo scheiden we tire-kickers van serieuze prospects vanaf het eerste contact.
+
+---
+
+## 6. Wat expliciet NIET Leadvelocity-aanbod is
+
+Om Scribe/Analyst scherp te houden: deze dingen noemen we **nooit** in copy of outreach:
+
+- ❌ "We bouwen een dashboard voor u" (agency-taal — we bouwen wel, maar het is onderdeel van de ladder)
+- ❌ "Wij implementeren AI bij uw bedrijf" (losse implementatie-pitches)
+- ❌ "Gratis proof-of-concept" (commitment-erosie, trekt slechte leads)
+- ❌ "Gegarandeerd resultaat of geld terug" (harde garantie, te risicovol voor 2-persoons team)
+- ❌ "Wij hebben een AI-platform" (suggereert SaaS, dat is niet ons model)
+- ❌ "Maandelijks opzegbaar" (12 mnd minimum beschermt kwaliteit van dienstverlening)
+
+---
+
+## 7. Output-formaat naar Scribe-LV (update)
+
+Analyst-LV voegt aan JSON-output toe welke trap initieel gepitcht moet worden:
+
+```json
+{
+  "prospect_id": "tech-groothandel-amsterdam-001",
+  "recommended_entry_trap": "audit",
+  "downstream_pitch": "operating",
+  "signals_detected": [...],
+  "routing": "automated",
+  ...
+}
 ```
 
 ---
 
-## 3. Funnel-paden (Scribe moet deze kennen)
-
-Elke prospect doorloopt een entry-expansion-path:
-
-```
-Entry-points (eerste mail-CTA):
-  - assessment        ← wanneer multi-signal/onduidelijk
-  - sales_system      ← commerciële signalen primair
-  - ops_dashboard     ← operationele/data signalen primair
-  - ai_assistant      ← service/kennisbehoud signalen primair
-
-Expansion (na eerste levering):
-  - → partnership     ← altijd aangeboden binnen 30 dagen na delivery
-```
-
-Scribe-LV: in eerste mail **nooit** direct partnership pitchen. Partnership komt pas in gesprek 2-3, na eerste product-commitment.
-
----
-
-## 4. Prijs-communicatie
-
-**Regel:** geen harde prijzen in eerste mail of op de site. Scribe-LV gebruikt deze formuleringen:
-
-- ✅ *"Op maat"*
-- ✅ *"We bepalen scope en prijs samen, na een kort verkennend gesprek"*
-- ✅ *"Investering is afhankelijk van jullie scope"*
-- ❌ *"Vanaf €5.000"* — niet doen, product-definitie is nog in ontwikkeling
-- ❌ *"Ongeveer €20-30k"* — niet doen, prospect haakt af op nummer zonder context
-
----
-
-*Versie: 1.0 — 2026-04-20. Update: wanneer een product wordt toegevoegd, hernoemd, of prijs-strategie verandert.*
+*Versie: 2.0 — 2026-04-20. Vervangt v1.0 (4-product-catalog). Update: wanneer ladder-prijzen veranderen of 5e trap wordt toegevoegd.*

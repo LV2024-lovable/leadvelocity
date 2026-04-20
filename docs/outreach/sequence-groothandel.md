@@ -36,9 +36,9 @@ Wij helpen Nederlandse technische groothandels tussen €10-100M omzet hun inkoo
 - Quote-automatisering voor RFQ's versnelt offerte van dagen naar uren
 - Binnendienst-AI maakt een senior productspecialist 30-40% productiever
 
-Ik heb deze maand ruimte voor 3 gratis 60-min scans bij groothandels in jullie segment. Deliverable: kort rapport met de 3 grootste AI-kansen specifiek voor jullie.
+Onze instap is een AI Ops Audit: €2.500, 2 weken, geschreven rapport met de top-3 AI-kansen specifiek voor jullie organisatie. Vaste prijs, geen verplicht vervolg.
 
-Interesse? Woensdag 14:00 of donderdag 10:00 past?
+Zou zo'n audit relevant zijn voor [bedrijfsnaam]? Dinsdag 14:00 of donderdag 10:00 voor een kort kennismakingsgesprek?
 
 Groeten,
 Bart Wilbrink

@@ -32,12 +32,12 @@ const forWho = [
 
 const LpAssessment = () => {
   useEffect(() => {
-    document.title = 'Gratis AI Opportunity Scan — Leadvelocity';
+    document.title = 'AI Ops Audit — Leadvelocity';
     const desc = document.querySelector('meta[name="description"]');
     if (desc) {
       desc.setAttribute(
         'content',
-        'Gratis AI Opportunity Scan voor Nederlandse MKB-bedrijven. 60 min gesprek + geschreven rapport met 3 concrete AI-kansen voor jouw organisatie.'
+        'AI Ops Audit voor Nederlandse MKB-bedrijven. Vaste prijs €2.500, 2 weken doorlooptijd, geschreven rapport met de top-3 AI-kansen voor jouw organisatie.'
       );
     }
   }, []);
@@ -159,7 +159,7 @@ const LpAssessment = () => {
                   Deze scan is voor jou als…
                 </h2>
                 <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed">
-                  Wij selecteren wie we gratis meekijken. Niet uit exclusiviteit — omdat we kwaliteit boven volume verkiezen. De scan werkt het best wanneer we aansluiten bij jullie profiel:
+                  Wij nemen gericht bedrijven aan. Niet uit exclusiviteit, maar omdat we kwaliteit boven volume verkiezen. De audit werkt het best wanneer we aansluiten bij jullie profiel:
                 </p>
               </div>
 
@@ -194,7 +194,7 @@ const LpAssessment = () => {
                 <div className="relative z-10">
                   <div className="text-center mb-10">
                     <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-5 leading-[1.1]">
-                      Plan je gratis scan.
+                      Plan je AI Ops Audit.
                     </h2>
                     <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-2xl mx-auto">
                       Vul in waar jullie tegenaan lopen, wij reageren binnen één werkdag. Liever bellen?{' '}

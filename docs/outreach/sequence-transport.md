@@ -38,9 +38,9 @@ Concreet: de vrachtwagenheffing vanaf 1 juli 2026 (gem. €0,19/km) moet ergens 
 - Fuel-coaching per chauffeur: 2-4% brandstofbesparing (20-25% van kostenbasis)
 - Tachograaf/document-AI: 60% snellere documentverwerking, planner-uren vrij voor uitzonderingen
 
-We doen deze maand 3 gratis 60-min scans bij NL transporteurs. Deliverable: rapport met de 3 grootste AI-kansen voor [bedrijfsnaam].
+Onze instap is een AI Ops Audit: €2.500, 2 weken, geschreven rapport met de top-3 AI-kansen specifiek voor [bedrijfsnaam]. Vaste prijs, geen verplicht vervolg — je krijgt het rapport en beslist zelf.
 
-Interesse? Dinsdag 10:00 of donderdag 14:00 past?
+Zou zo'n audit relevant zijn? Dinsdag 10:00 of donderdag 14:00 voor een kort kennismakingsgesprek?
 
 Groeten,
 Bart Wilbrink
