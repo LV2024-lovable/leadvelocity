@@ -1,52 +1,49 @@
 import React from 'react';
-import { Compass, Zap, Infinity as InfinityIcon, BookOpen, ArrowUpRight } from 'lucide-react';
+import { Compass, Rocket, LayoutDashboard, Bot, Infinity as InfinityIcon, ArrowUpRight } from 'lucide-react';
 import { useReveal } from '../hooks/useReveal';
 
-const services = [
+const products = [
   {
     icon: Compass,
-    label: 'Stap 1',
-    title: 'AI Opportunity Scan',
-    meta: 'Kennismaken · op maat',
+    label: 'Product 1',
+    title: 'AI Kickstart Assessment',
+    meta: 'Diepte-scan · op maat',
     description:
-      'We kijken samen naar jullie operatie, sales, inkoop en klantenservice. Uitkomst: drie concrete AI-kansen die voor jullie het meeste opleveren, met realistische impact-inschatting en prioritering.',
-    features: ['Kosteloze intake', 'Concrete AI-kansen', 'Impact-inschatting', 'Prioritering'],
-    accent: false,
+      'We duiken in jullie operatie, sales, inkoop en klantcontact. Je krijgt een concrete top-3 aan AI-kansen met realistische impact-inschatting en prioritering — zodat je weet waar je eerst moet bouwen.',
+    features: ['Diepte-scan', 'Top-3 AI-kansen', 'Impact-inschatting', 'Duidelijke prioriteit'],
   },
   {
-    icon: Zap,
-    label: 'Stap 2',
-    title: 'AI Sprint',
-    meta: 'Bouwen · in één kwartaal',
+    icon: Rocket,
+    label: 'Product 2',
+    title: 'AI Sales Systeem',
+    meta: 'Meer leads · hogere conversie',
     description:
-      'We bouwen één concrete AI-toepassing end-to-end: van data-integratie tot productie-gebruik. Sales-automatisering, inkoopvoorspelling, ops-orchestratie, klantenservice-AI of BI — waar de ROI het snelst ligt.',
-    features: ['End-to-end build', 'Vaste scope', 'Live in één kwartaal', 'Meetbaar resultaat'],
-    accent: true,
+      'Een compleet AI-gedreven sales-systeem: prospecting, enrichment, gepersonaliseerde outbound-sequences en pipeline-scoring. Van koude prospect naar warme afspraak zonder dat je team extra uren draait.',
+    features: ['AI-prospecting', 'Outbound-sequences', 'Sales intelligence', 'Pipeline-scoring'],
   },
   {
-    icon: InfinityIcon,
-    label: 'Stap 3',
-    title: 'AI Operations Partnership',
-    meta: 'Doorlopend · retainer',
+    icon: LayoutDashboard,
+    label: 'Product 3',
+    title: 'AI Operations Dashboard',
+    meta: 'Eindelijk één waarheid',
     description:
-      'Wij blijven naast jullie team staan: doorontwikkeling, monitoring, nieuwe use-cases, coaching. Een maandelijks retainer betekent snelle bijsturing, vaste sparringpartner en een voortdurend groeiende AI-voorsprong.',
-    features: ['Vast aanspreekpunt', 'Doorlopende optimalisatie', 'Nieuwe use-cases', 'Retainer-basis'],
-    accent: false,
+      'Eén live dashboard dat ERP, webshop, CRM, Excel en finance samenbrengt. Real-time zicht op marge, KPI\'s en waar geld lekt — zonder dat er iemand \'s avonds rapporten moet maken.',
+    features: ['Multi-bron integratie', 'Live KPI-monitoring', 'Marge-analyse', 'Geautomatiseerde rapportage'],
   },
   {
-    icon: BookOpen,
-    label: 'Stap 4',
-    title: 'AI in je DNA',
-    meta: 'Kennisoverdracht',
+    icon: Bot,
+    label: 'Product 4',
+    title: 'AI Assistent',
+    meta: 'Chatbot, voice of intern',
     description:
-      'Onze methodiek, playbooks en sector-benchmarks maken jullie team zelfredzaam. Zodat AI een bedrijfscapaciteit wordt, niet een extern project — en jullie de regie houden over de toekomst.',
-    features: ['Playbooks', 'Training', 'Sector-benchmarks', 'Zelfredzaamheid'],
-    accent: false,
+      'Een AI-assistent die past waar jij hem nodig hebt. Klantenservice 24/7, binnendienst-ondersteuning, voice-agent voor telefoon of een interne kennisassistent. Gebouwd op jullie data, getraind op jullie taal.',
+    features: ['Chatbot of voice', 'Klant of intern', 'Getraind op jullie data', 'Integreert met je stack'],
   },
 ];
 
 const ServicesNew = () => {
   const sectionRef = useReveal();
+  const paraplulRef = useReveal(0.2);
 
   return (
     <section id="diensten" className="section-padding relative">
@@ -56,84 +53,60 @@ const ServicesNew = () => {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-12 bg-lv-accent" />
             <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
-              Hoe wij werken
+              Wat we bouwen
             </span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text mb-6 leading-[1.1]">
-            Vier stappen.{' '}
-            <span className="text-lv-text-muted">Van verkenning naar zelfstandig AI-gedreven bedrijf.</span>
+            Vier producten.{' '}
+            <span className="text-lv-text-muted">Elk oplost een universeel MKB-probleem.</span>
           </h2>
           <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-2xl">
-            Geen losse projecten. Geen "digitale transformatie". Een productized stappenplan met vaste scope, vaste prijs en meetbare resultaten in één kwartaal.
+            Geen losse AI-projectjes. Vier duidelijk gedefinieerde producten — elk gericht op een tastbaar pijnpunt dat we in bijna elk MKB-bedrijf zien. Start met één, groei door naar een doorlopend partnership.
           </p>
         </div>
 
-        {/* Service cards — 2x2 grid on large, stacked on mobile */}
+        {/* Product cards — 2x2 grid on large, stacked on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service, i) => {
-            const cardRef = useReveal(i * 0.1);
-            const Icon = service.icon;
+          {products.map((product, i) => {
+            const cardRef = useReveal(i * 0.08);
+            const Icon = product.icon;
             return (
               <div
-                key={service.title}
+                key={product.title}
                 ref={cardRef}
-                className={`reveal group relative rounded-2xl p-8 md:p-10 border transition-all duration-500 hover-lift ${
-                  service.accent
-                    ? 'bg-lv-accent/[0.04] border-lv-accent/20 hover:border-lv-accent/40'
-                    : 'bg-lv-surface border-lv-border-subtle hover:border-lv-border'
-                }`}
+                className="reveal group relative rounded-2xl p-8 md:p-10 border border-lv-border-subtle bg-lv-surface hover:border-lv-accent/30 transition-all duration-500 hover-lift"
               >
                 {/* Top row: label + meta */}
                 <div className="flex items-center justify-between mb-6">
-                  <span
-                    className={`font-body text-xs font-600 uppercase tracking-widest ${
-                      service.accent ? 'text-lv-accent' : 'text-lv-text-subtle'
-                    }`}
-                  >
-                    {service.label}
+                  <span className="font-body text-xs font-600 uppercase tracking-widest text-lv-text-subtle">
+                    {product.label}
                   </span>
-                  <div
-                    className={`font-body text-xs font-500 ${
-                      service.accent ? 'text-lv-accent' : 'text-lv-text-subtle'
-                    }`}
-                  >
-                    {service.meta}
+                  <div className="font-body text-xs font-500 text-lv-text-subtle">
+                    {product.meta}
                   </div>
                 </div>
 
                 {/* Icon */}
-                <div
-                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
-                    service.accent
-                      ? 'bg-lv-accent/10 border border-lv-accent/20'
-                      : 'bg-lv-surface-raised border border-lv-border'
-                  }`}
-                >
-                  <Icon
-                    className={`w-7 h-7 ${service.accent ? 'text-lv-accent' : 'text-lv-text-muted'}`}
-                  />
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-lv-surface-raised border border-lv-border group-hover:bg-lv-accent/10 group-hover:border-lv-accent/20 transition-colors duration-500">
+                  <Icon className="w-7 h-7 text-lv-text-muted group-hover:text-lv-accent transition-colors duration-500" />
                 </div>
 
                 {/* Title */}
                 <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-4">
-                  {service.title}
+                  {product.title}
                 </h3>
 
                 {/* Description */}
                 <p className="font-body text-base text-lv-text-muted leading-relaxed mb-6">
-                  {service.description}
+                  {product.description}
                 </p>
 
                 {/* Features */}
                 <div className="flex flex-wrap gap-2 mb-8">
-                  {service.features.map((feature) => (
+                  {product.features.map((feature) => (
                     <span
                       key={feature}
-                      className={`px-3 py-1.5 rounded-md text-xs font-body font-500 ${
-                        service.accent
-                          ? 'bg-lv-accent/10 text-lv-accent border border-lv-accent/10'
-                          : 'bg-lv-surface-raised text-lv-text-muted border border-lv-border-subtle'
-                      }`}
+                      className="px-3 py-1.5 rounded-md text-xs font-body font-500 bg-lv-surface-raised text-lv-text-muted border border-lv-border-subtle"
                     >
                       {feature}
                     </span>
@@ -143,22 +116,48 @@ const ServicesNew = () => {
                 {/* Link */}
                 <a
                   href="#contact"
-                  className={`inline-flex items-center gap-2 font-display text-sm font-600 transition-all duration-200 group/link ${
-                    service.accent
-                      ? 'text-lv-accent hover:text-lv-accent/80'
-                      : 'text-lv-text-muted hover:text-lv-text'
-                  }`}
+                  className="inline-flex items-center gap-2 font-display text-sm font-600 text-lv-text-muted group-hover:text-lv-accent transition-colors duration-200"
                 >
-                  {i === 0 ? 'Plan een Assessment' : i === 1 ? 'Kies je Sprint' : 'Meer weten'}
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  Plan een gesprek
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </div>
             );
           })}
         </div>
 
+        {/* Retainer paraplu */}
+        <div
+          ref={paraplulRef}
+          className="reveal mt-12 md:mt-16 p-8 md:p-10 rounded-2xl bg-lv-accent/[0.04] border border-lv-accent/20"
+        >
+          <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-10">
+            <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center">
+              <InfinityIcon className="w-8 h-8 text-lv-accent" />
+            </div>
+            <div className="flex-1">
+              <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest mb-2">
+                Doorlopend · Retainer-paraplu
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-3 leading-tight">
+                AI Operations Partnership
+              </h3>
+              <p className="font-body text-base text-lv-text-muted leading-relaxed max-w-3xl">
+                Na je eerste product rol je door in een doorlopend partnership. Flexibele invulling, nieuwe use-cases, doorlopende optimalisatie en coaching. Zo bouw je structureel AI-voorsprong op — in plaats van losse projecten.
+              </p>
+            </div>
+            <a
+              href="#contact"
+              className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-lv-accent text-lv-ink font-display font-700 text-sm rounded-lg hover:shadow-[0_0_20px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+            >
+              Bespreek een partnership
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
+        </div>
+
         {/* Bottom note */}
-        <div className="mt-12 md:mt-16 text-center">
+        <div className="mt-10 text-center">
           <p className="font-body text-base text-lv-text-muted max-w-2xl mx-auto">
             Elk traject start met een vrijblijvende kennismaking. We kijken pas naar scope en prijs als we weten waar jullie écht winst kunnen maken.{' '}
             <a href="#contact" className="text-lv-accent hover:underline">
