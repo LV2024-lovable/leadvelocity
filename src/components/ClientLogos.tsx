@@ -9,7 +9,6 @@ const clients = [
   'Upply Jobs',
   'Solar Access',
   'Somo Agency',
-  'Creative ICT',
   'Faslet',
   'Dome Auctions',
   'Cape',
