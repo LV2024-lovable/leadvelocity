@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { ArrowUpRight, Check, Clock, FileText, Sparkles, Phone, Mail } from 'lucide-react';
+import { ArrowUpRight, Check, Clock, FileText, Sparkles, Phone } from 'lucide-react';
+import ContactForm from '../components/ContactForm';
 
 const whatYouGet = [
   {
@@ -190,35 +191,23 @@ const LpAssessment = () => {
               <div className="p-8 md:p-14 rounded-3xl bg-lv-accent/[0.04] border border-lv-accent/20 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-lv-accent/[0.06] rounded-full blur-[80px] pointer-events-none" />
 
-                <div className="relative z-10 text-center">
-                  <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-6 leading-[1.1]">
-                    Plan je gratis scan.
-                  </h2>
-                  <p className="font-body text-lg text-lv-text-muted leading-relaxed mb-10 max-w-2xl mx-auto">
-                    Kies de makkelijkste weg: bel, mail of plan direct een tijdslot. We reageren binnen één werkdag.
-                  </p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto">
-                    <a
-                      href="mailto:info@leadvelocity.nl?subject=AI Opportunity Scan"
-                      className="flex items-center justify-center gap-3 px-6 py-5 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-xl hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
-                    >
-                      <Mail className="w-5 h-5" />
-                      Mail ons
-                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </a>
-                    <a
-                      href="tel:+31625471528"
-                      className="flex items-center justify-center gap-3 px-6 py-5 border-2 border-lv-accent/40 text-lv-text font-display font-700 text-base rounded-xl hover:border-lv-accent hover:bg-lv-accent/[0.05] transition-all duration-300"
-                    >
-                      <Phone className="w-5 h-5 text-lv-accent" />
-                      +31 6 25 47 15 28
-                    </a>
+                <div className="relative z-10">
+                  <div className="text-center mb-10">
+                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-5 leading-[1.1]">
+                      Plan je gratis scan.
+                    </h2>
+                    <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-2xl mx-auto">
+                      Vul in waar jullie tegenaan lopen, wij reageren binnen één werkdag. Liever bellen?{' '}
+                      <a href="tel:+31625471528" className="text-lv-accent hover:underline font-500 inline-flex items-center gap-1">
+                        <Phone className="w-3.5 h-3.5" />
+                        +31 6 25 47 15 28
+                      </a>
+                    </p>
                   </div>
 
-                  <p className="font-body text-xs text-lv-text-subtle mt-8 max-w-md mx-auto">
-                    Geen verkooppraatje, geen verplicht vervolg. Je krijgt het rapport — wij sturen het op. Als het waarde heeft, bespreken we eventueel een vervolg.
-                  </p>
+                  <div className="max-w-2xl mx-auto">
+                    <ContactForm sourceHint="Leadvelocity.nl · /lp/assessment (campaign landing)" />
+                  </div>
                 </div>
               </div>
             </div>
