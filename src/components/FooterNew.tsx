@@ -52,13 +52,18 @@ const FooterNew = () => {
                 </a>
               </li>
               <li>
-                <a href="/#werkwijze" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
-                  Werkwijze
+                <a href="/onze-aanpak" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                  Onze aanpak
                 </a>
               </li>
               <li>
-                <a href="/#over-ons" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/over-ons" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
                   Over ons
+                </a>
+              </li>
+              <li>
+                <a href="/veelgestelde-vragen" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                  Veelgestelde vragen
                 </a>
               </li>
               <li>

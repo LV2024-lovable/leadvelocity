@@ -7,6 +7,9 @@ import Home from "./pages/Home";
 import Groothandel from "./pages/Groothandel";
 import Maakindustrie from "./pages/Maakindustrie";
 import Transport from "./pages/Transport";
+import OverOns from "./pages/OverOns";
+import OnzeAanpak from "./pages/OnzeAanpak";
+import Faq from "./pages/Faq";
 import LpAssessment from "./pages/LpAssessment";
 import NotFound from "./pages/NotFound";
 import React from "react";
@@ -23,6 +26,10 @@ const App = () => (
             <Route path="/groothandel" element={<Groothandel />} />
             <Route path="/maakindustrie" element={<Maakindustrie />} />
             <Route path="/transport" element={<Transport />} />
+            <Route path="/over-ons" element={<OverOns />} />
+            <Route path="/onze-aanpak" element={<OnzeAanpak />} />
+            <Route path="/veelgestelde-vragen" element={<Faq />} />
+            <Route path="/faq" element={<Faq />} />
             <Route path="/lp/assessment" element={<LpAssessment />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

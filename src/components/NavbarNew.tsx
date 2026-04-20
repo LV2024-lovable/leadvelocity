@@ -31,8 +31,9 @@ const navItems: NavItem[] = [
     ],
   },
   { label: 'Diensten', href: '/#diensten', type: 'link' },
-  { label: 'Werkwijze', href: '/#werkwijze', type: 'link' },
-  { label: 'Over ons', href: '/#over-ons', type: 'link' },
+  { label: 'Werkwijze', href: '/onze-aanpak', type: 'link' },
+  { label: 'Over ons', href: '/over-ons', type: 'link' },
+  { label: 'FAQ', href: '/veelgestelde-vragen', type: 'link' },
 ];
 
 const NavbarNew = () => {
