@@ -2,41 +2,37 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Zap, TrendingUp, Bot } from 'lucide-react';
 
 // Three headline variants that rotate per visit.
-// Option 6 is primary (most "receiving"), 4 and 8 are alternates.
 const HEADLINES = [
   {
     id: 'empowerment',
     headline: ['Geef je team de bouwblokken.', 'Geef je bedrijf de voorsprong.'],
-    sub: 'Wij bouwen AI-systemen die vakmensen slimmer laten werken — en bedrijven die stil staan laten inhalen door iedereen die dat wél doet. Voor Nederlandse groothandel, maakindustrie en transport.',
+    sub: 'Wij bouwen AI-systemen die MKB-teams slimmer, sneller en met minder gedoe laten werken — en bedrijven die stil staan laten inhalen door iedereen die wél beweegt.',
   },
   {
     id: 'outcome',
     headline: ['Meer marge.', 'Minder handwerk.', 'AI die écht rendeert.'],
-    sub: 'Van slimme inkoopvoorspelling tot pipeline-automatisering — wij bouwen productized AI-oplossingen voor Nederlandse MKB-industrie met meetbare ROI binnen één kwartaal.',
+    sub: 'Van slimmere inkoop en automatisering tot AI-gedreven sales en klantenservice — wij helpen Nederlandse MKB-bedrijven hun operatie werkelijk AI-gedreven maken.',
   },
   {
     id: 'question',
     headline: ['Wat als je morgen 40% van het handwerk', 'uit je operatie kon halen?'],
-    sub: 'Voor Nederlandse groothandels, maakindustrie en transporteurs tussen 50-250 FTE — wij bouwen de AI-systemen die dat mogelijk maken. Binnen 8 weken, niet 8 kwartalen.',
+    sub: 'Voor Nederlandse MKB-bedrijven die vóór willen lopen — wij bouwen de AI-systemen die dat mogelijk maken. Concreet, meetbaar en samen met je team.',
   },
 ] as const;
 
-// Sourced industry benchmarks — every claim is defensible.
+// Outcome-oriented stats (no sources here — bronnenvermelding op /#resultaten).
 const benchmarks = [
   {
     value: '5-20%',
-    label: 'lagere logistiekkosten via AI',
-    source: 'McKinsey, 2024',
+    label: 'lagere operationele kosten via AI',
   },
   {
-    value: '+130-200 bps',
-    label: 'brutomarge via AI-pricing',
-    source: 'McKinsey B2B Pricing, 2025',
+    value: '+15-30%',
+    label: 'hogere marges bij AI-gedreven MKB',
   },
   {
     value: '60%',
-    label: 'snellere documentverwerking',
-    source: 'McKinsey Beyond Automation, 2024',
+    label: 'minder handwerk op routinetaken',
   },
 ];
 
@@ -85,7 +81,7 @@ const HeroNew = () => {
           >
             <Zap className="w-4 h-4 text-lv-accent" />
             <span className="font-body text-sm font-500 text-lv-accent">
-              AI Operations Partner · Groothandel · Maakindustrie · Transport
+              AI Operations Partner voor het Nederlandse MKB
             </span>
           </div>
 
@@ -133,7 +129,7 @@ const HeroNew = () => {
             </a>
           </div>
 
-          {/* Industry benchmarks — sourced, not invented */}
+          {/* Outcome stats — sources documented once on /#resultaten */}
           <div
             className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10 opacity-0 animate-fade-in-up"
             style={{ animationDelay: '0.65s' }}
@@ -143,11 +139,8 @@ const HeroNew = () => {
                 <div className="font-display text-2xl sm:text-3xl md:text-4xl font-700 text-lv-accent mb-2 leading-none">
                   {b.value}
                 </div>
-                <div className="font-body text-sm text-lv-text leading-snug mb-1">
+                <div className="font-body text-sm text-lv-text leading-snug">
                   {b.label}
-                </div>
-                <div className="font-body text-xs text-lv-text-subtle italic">
-                  {b.source}
                 </div>
               </div>
             ))}

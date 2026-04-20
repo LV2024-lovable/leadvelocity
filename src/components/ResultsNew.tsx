@@ -142,7 +142,7 @@ const ResultsNew = () => {
         {/* Note */}
         <div className="mt-16 pt-8 border-t border-lv-border-subtle max-w-3xl">
           <p className="font-body text-sm text-lv-text-subtle leading-relaxed">
-            <span className="text-lv-text-muted">Waarom geen eigen klantcijfers hier?</span> Wij zijn eerlijk: we zijn een lean 2-persoons agency in opbouwfase. Wel hebben we een selecte groep pilot-klanten waar we cases uitwerken. Publiceren doen we pas als de cijfers geverifieerd zijn — niet eerder. Geïnteresseerd om pilot-klant te worden tegen sterk gereduceerd tarief?{' '}
+            <span className="text-lv-text-muted">Waarom geen eigen klantcijfers hier?</span> Wij publiceren cijfers pas als ze geverifieerd zijn — niet eerder. Wil je één van onze eerste gedocumenteerde cases worden?{' '}
             <a href="#contact" className="text-lv-accent hover:underline">
               Laat het weten →
             </a>

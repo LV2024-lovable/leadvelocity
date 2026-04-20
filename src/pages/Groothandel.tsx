@@ -169,7 +169,7 @@ const groothandelConfig: VerticalConfig = {
     impact:
       '+4% brutomarge op €30M = €1,2M extra. Binnendienst wint 8 uur per dag terug. Offerte-conversie naar 38%. Totale jaarlijkse impact: ~€1,8M.',
     disclaimer:
-      'Scenario op basis van McKinsey, Distro.app en PROS benchmarks voor vergelijkbare segmenten. Werkelijke resultaten verschillen per bedrijf. Geen klantspecifieke data.',
+      'Illustratief scenario op basis van sector-benchmarks voor vergelijkbare segmenten. Werkelijke resultaten verschillen per bedrijf.',
   },
 
   facts: [

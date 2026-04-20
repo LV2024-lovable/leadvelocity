@@ -6,30 +6,30 @@ const steps = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Gratis scan of betaalde Assessment',
+    title: 'Kennismaking & scan',
     description:
-      'We starten met een AI Opportunity Scan — 60 min gesprek + geschreven rapport met 3 concrete AI-kansen. Diepgaander nodig? De betaalde Assessment (€5k, 2 weken) levert een volledige opportunity-map inclusief ROI-forecast en implementatie-prioritering.',
+      'We starten met een vrijblijvend gesprek en brengen samen in kaart waar AI voor jullie organisatie het meeste oplevert. Geen verkooppraatje, wel een concreet overzicht van de drie kansrijkste toepassingen.',
   },
   {
     number: '02',
     icon: Search,
-    title: 'Sprint — één use-case, één kwartaal',
+    title: 'Bouwen in sprints',
     description:
-      'Jij kiest één van zes AI Sprints: pipeline, inkoop, ops, service, BI of sales-enablement. Vaste scope, vaste prijs (€20-30k), 6-8 weken doorlooptijd. ROI zichtbaar in het kwartaal of je stopt.',
+      'We pakken één AI-toepassing tegelijk — van data-integratie tot productie-gebruik. Denk aan sales-automatisering, inkoopvoorspelling, ops-orchestratie of klantenservice-AI. Meetbaar resultaat binnen één kwartaal.',
   },
   {
     number: '03',
     icon: Cpu,
-    title: 'Partnership — wij zitten ernaast',
+    title: 'Doorlopend naast jullie team',
     description:
-      'Na sprint-levering rollen we in een AI Operations Partnership (€6-15k/maand). Maandelijkse optimalisatie, nieuwe use-cases, live ROI-dashboard. Wij zitten naast je planner of inkoper tot je team het zelf draait — 90 dagen mee op de werkvloer.',
+      'In een doorlopend partnership blijven we naast jullie team staan. Nieuwe use-cases, optimalisatie, coaching, monitoring. We bouwen structureel AI-voorsprong op, in plaats van losse projectjes.',
   },
   {
     number: '04',
     icon: Rocket,
-    title: 'Zelfstandig — op eigen kracht',
+    title: 'Zelfstandig AI-gedreven',
     description:
-      'Je krijgt onze methodiek, playbooks en sector-benchmarks. Zodra je team het zonder ons kan, mag je opzeggen. Geen vendor lock-in, geen hidden fees. Onze KPI is dat jij ons niet meer nodig hebt.',
+      'Onze methodiek, playbooks en sector-kennis worden jullie bedrijfscapaciteit. Zodat AI ingebed raakt in je organisatie — en jullie straks zelf de regie pakken zonder externe afhankelijkheid.',
   },
 ];
 

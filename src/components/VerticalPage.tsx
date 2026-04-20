@@ -125,11 +125,8 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
                     <div className="font-display text-2xl sm:text-3xl md:text-4xl font-700 text-lv-accent mb-2 leading-none">
                       {s.value}
                     </div>
-                    <div className="font-body text-sm text-lv-text leading-snug mb-1">
+                    <div className="font-body text-sm text-lv-text leading-snug">
                       {s.label}
-                    </div>
-                    <div className="font-body text-xs text-lv-text-subtle italic">
-                      {s.source}
                     </div>
                   </div>
                 ))}
@@ -318,11 +315,8 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
                   <div className="font-display text-3xl md:text-4xl font-700 text-lv-text mb-2 leading-none">
                     {f.value}
                   </div>
-                  <div className="font-body text-sm text-lv-text-muted leading-snug mb-2">
+                  <div className="font-body text-sm text-lv-text-muted leading-snug">
                     {f.label}
-                  </div>
-                  <div className="font-body text-xs text-lv-text-subtle italic">
-                    {f.source}
                   </div>
                 </div>
               ))}

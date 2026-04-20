@@ -6,45 +6,41 @@ const services = [
   {
     icon: Compass,
     label: 'Stap 1',
-    title: 'AI Opportunity Assessment',
-    price: '€5.000',
-    duration: '2 weken',
+    title: 'AI Opportunity Scan',
+    meta: 'Kennismaken · op maat',
     description:
-      'Wij scannen jullie operatie, sales en inkoop. Concreet rapport met 3-5 AI-kansen, verwachte €-impact en implementatie-prioritering. Vast resultaat, vaste prijs.',
-    features: ['Vaste scope', 'Geschreven rapport', 'ROI-forecast', 'Concrete use-cases'],
+      'We kijken samen naar jullie operatie, sales, inkoop en klantenservice. Uitkomst: drie concrete AI-kansen die voor jullie het meeste opleveren, met realistische impact-inschatting en prioritering.',
+    features: ['Kosteloze intake', 'Concrete AI-kansen', 'Impact-inschatting', 'Prioritering'],
     accent: false,
   },
   {
     icon: Zap,
     label: 'Stap 2',
     title: 'AI Sprint',
-    price: '€20-30k',
-    duration: '6-8 weken',
+    meta: 'Bouwen · in één kwartaal',
     description:
-      'Een gestandaardiseerde sprint op één use-case: pipeline-scoring, inkoopvoorspelling, ops-orchestratie, klantenservice, BI-dashboards of sales-enablement. Live in het kwartaal.',
-    features: ['6 sprint-types', 'Playbook-gedreven', 'ROI binnen het kwartaal', 'Fixed price'],
+      'We bouwen één concrete AI-toepassing end-to-end: van data-integratie tot productie-gebruik. Sales-automatisering, inkoopvoorspelling, ops-orchestratie, klantenservice-AI of BI — waar de ROI het snelst ligt.',
+    features: ['End-to-end build', 'Vaste scope', 'Live in één kwartaal', 'Meetbaar resultaat'],
     accent: true,
   },
   {
     icon: InfinityIcon,
     label: 'Stap 3',
     title: 'AI Operations Partnership',
-    price: '€6-15k/mnd',
-    duration: 'Doorlopend',
+    meta: 'Doorlopend · retainer',
     description:
-      'Maandelijkse optimalisatie van je AI-stack, monitoring via live ROI-dashboard, en nieuwe use-cases op aanvraag. Wij zitten naast je planner, inkoper of sales-team — 90 dagen tot je team het zelf draait.',
-    features: ['Live ROI-dashboard', 'Nieuwe use-cases', 'Monthly optimization', 'Opzegbaar per maand'],
+      'Wij blijven naast jullie team staan: doorontwikkeling, monitoring, nieuwe use-cases, coaching. Een maandelijks retainer betekent snelle bijsturing, vaste sparringpartner en een voortdurend groeiende AI-voorsprong.',
+    features: ['Vast aanspreekpunt', 'Doorlopende optimalisatie', 'Nieuwe use-cases', 'Retainer-basis'],
     accent: false,
   },
   {
     icon: BookOpen,
     label: 'Stap 4',
-    title: 'Leadvelocity AI Ops Framework',
-    price: 'Inbegrepen',
-    duration: 'Doorlopend',
+    title: 'AI in je DNA',
+    meta: 'Kennisoverdracht',
     description:
-      'Onze methodiek, playbooks en sector-benchmarks beschikbaar voor alle partnership-klanten. Jullie team krijgt de kennis, niet alleen het resultaat. Exit-klaar voor wanneer je het zonder ons wilt.',
-    features: ['Playbook-bibliotheek', 'Sector-benchmarks', 'Training', 'Niet founder-afhankelijk'],
+      'Onze methodiek, playbooks en sector-benchmarks maken jullie team zelfredzaam. Zodat AI een bedrijfscapaciteit wordt, niet een extern project — en jullie de regie houden over de toekomst.',
+    features: ['Playbooks', 'Training', 'Sector-benchmarks', 'Zelfredzaamheid'],
     accent: false,
   },
 ];
@@ -87,7 +83,7 @@ const ServicesNew = () => {
                     : 'bg-lv-surface border-lv-border-subtle hover:border-lv-border'
                 }`}
               >
-                {/* Top row: label + price */}
+                {/* Top row: label + meta */}
                 <div className="flex items-center justify-between mb-6">
                   <span
                     className={`font-body text-xs font-600 uppercase tracking-widest ${
@@ -96,15 +92,12 @@ const ServicesNew = () => {
                   >
                     {service.label}
                   </span>
-                  <div className="text-right">
-                    <div
-                      className={`font-display text-lg font-700 ${
-                        service.accent ? 'text-lv-accent' : 'text-lv-text'
-                      }`}
-                    >
-                      {service.price}
-                    </div>
-                    <div className="font-body text-xs text-lv-text-subtle">{service.duration}</div>
+                  <div
+                    className={`font-body text-xs font-500 ${
+                      service.accent ? 'text-lv-accent' : 'text-lv-text-subtle'
+                    }`}
+                  >
+                    {service.meta}
                   </div>
                 </div>
 
@@ -167,9 +160,9 @@ const ServicesNew = () => {
         {/* Bottom note */}
         <div className="mt-12 md:mt-16 text-center">
           <p className="font-body text-base text-lv-text-muted max-w-2xl mx-auto">
-            Wij nemen <span className="text-lv-text font-600">maximaal 8 klanten tegelijk</span> aan. Geen vendor lock-in, geen hidden fees, geen retainer-valstrikken. Wil je eerst sparren?{' '}
+            Elk traject start met een vrijblijvende kennismaking. We kijken pas naar scope en prijs als we weten waar jullie écht winst kunnen maken.{' '}
             <a href="#contact" className="text-lv-accent hover:underline">
-              Plan een 30-min verkennend gesprek →
+              Plan een gesprek →
             </a>
           </p>
         </div>

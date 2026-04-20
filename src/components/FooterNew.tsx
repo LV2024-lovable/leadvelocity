@@ -106,7 +106,7 @@ const FooterNew = () => {
             &copy; {year} Leadvelocity · Amsterdam, Nederland
           </span>
           <span className="font-body text-xs text-lv-text-subtle italic">
-            Wij nemen maximaal 8 klanten tegelijk aan.
+            AI-systemen die écht rendement leveren.
           </span>
         </div>
       </div>

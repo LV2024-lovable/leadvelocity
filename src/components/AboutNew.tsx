@@ -4,22 +4,22 @@ import { useReveal } from '../hooks/useReveal';
 
 const values = [
   {
-    icon: Users,
-    title: 'Twee mensen. Maximaal acht klanten.',
+    icon: Gauge,
+    title: 'Commerciële én operationele DNA.',
     description:
-      'Geen hiërarchie, geen accountmanagers, geen handovers. Je krijgt Bart en zijn broer — direct, hands-on, beslissing binnen een uur. Maximaal 8 klanten tegelijk zodat niemand achter in de rij staat.',
+      'Wij komen uit sales en lead generation én uit operations, finance en inkoop. Geen AI-bureau dat alleen kan bouwen, maar niet snapt hoe jouw pipeline, inkoop of productie écht werkt — wij snappen beide kanten van het huis.',
   },
   {
-    icon: Gauge,
-    title: 'Commerciële DNA + Operationele DNA.',
+    icon: Users,
+    title: 'Direct contact. Geen handovers.',
     description:
-      'Bart komt uit lead generation, z\'n broer uit operations, finance en inkoop. Niet het gemiddelde AI-bureau dat alleen kan bouwen maar niet weet hoe jouw sales- of inkoopproces écht werkt.',
+      'Je praat met dezelfde mensen die je systeem bouwen. Geen junior account-managers, geen vertalen van eisen tussen lagen. Beslissingen binnen een uur, niet binnen een stuurgroep-cyclus van drie weken.',
   },
   {
     icon: Shield,
     title: 'Wij eten ons eigen hondenvoer.',
     description:
-      'Elke workflow die we jou verkopen, draaien we zelf. Outbound, onboarding, rapportage, facturatie — alles AI-geautomatiseerd. Wij zijn jullie beste case study van dag één.',
+      'Elke workflow die we jou verkopen — outbound, onboarding, rapportage, facturatie — draaien we bij onszelf AI-geautomatiseerd. Wij zijn onze eigen eerste case study. Als het bij ons niet werkt, vertellen we het je voordat je betaalt.',
   },
 ];
 
@@ -56,7 +56,7 @@ const AboutNew = () => {
                 De vraag is niet óf AI jouw bedrijf verandert. De vraag is: <span className="text-lv-text font-600">ben jij degene die ermee bouwt, of degene die wordt ingehaald?</span>
               </p>
               <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed">
-                Leadvelocity is een Amsterdamse 2-persoons-studio. Twee broers, twintig jaar gecombineerde ervaring in sales, lead generation, inkoop en operations. Wij kiezen bewust klein te blijven — scherp, snel, selectief, met maximaal 8 klanten tegelijk. Zo kunnen we diep gaan, beslissen in uren in plaats van weken, en resultaten leveren die groot-consulting niet haalt.
+                Leadvelocity werkt met MKB-bedrijven in heel Nederland. Wij kiezen bewust voor kwaliteit boven volume: scherp, snel, selectief. Wij gaan diep met de bedrijven die we aannemen, beslissen in uren in plaats van weken, en leveren resultaten waar groot-consulting te log voor is.
               </p>
             </div>
           </div>

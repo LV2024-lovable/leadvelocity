@@ -5,40 +5,40 @@ import { useReveal } from '../hooks/useReveal';
 const verticals = [
   {
     icon: Package,
-    label: 'Primair',
+    label: 'Sector-expertise',
     title: 'Technische groothandel',
     pain:
-      'Margedruk van D2C, Amazon Business en Chinese B2B-platforms. Handmatige inkoop, Excel-pricing en long-tail voorraad vreet aan je marge.',
+      'Margedruk van D2C, Amazon Business en Chinese B2B-platforms. Handmatige inkoop, Excel-pricing en long-tail voorraad vreten aan je marge.',
     outcome:
-      'AI-inkoopvoorspelling, dynamic pricing en pipeline-scoring — bewezen 5-15% inkoopbesparing en +130-200 bps brutomarge in B2B-distributie.',
+      'AI-inkoopvoorspelling, dynamic pricing en pipeline-scoring die inkoopbesparingen en structureel hogere brutomarge opleveren.',
     stat: '5-15%',
-    statLabel: 'inkoopbesparing volgens McKinsey',
+    statLabel: 'typische inkoopbesparing bij AI-distributie',
     href: '/groothandel',
     accent: true,
   },
   {
     icon: Factory,
-    label: 'Secundair',
+    label: 'Sector-expertise',
     title: 'Maakindustrie',
     pain:
-      'Personeelstekort, stilstand, handmatige kwaliteitscontrole en gefragmenteerde MES/ERP-data. Industrie 4.0 beloftes, maar weinig echte operationele winst.',
+      'Personeelstekort, ongeplande stilstand, handmatige kwaliteitscontrole en gefragmenteerde MES/ERP-data.',
     outcome:
-      'Predictive maintenance, AI-planning en quality automation — bewezen 10-40% minder onderhoudskosten en tot 50% minder downtime.',
+      'Predictive maintenance, AI-planning en computer vision voor kwaliteit — met aantoonbaar lagere onderhoudskosten en minder downtime.',
     stat: '-50%',
-    statLabel: 'downtime via predictive maintenance',
+    statLabel: 'minder downtime via predictive maintenance',
     href: '/maakindustrie',
     accent: false,
   },
   {
     icon: Truck,
-    label: 'Secundair',
+    label: 'Sector-expertise',
     title: 'Transport & logistiek',
     pain:
-      'Dunne marges (7,1% → 1,5% bij vrachtwagenheffing), 6.800 openstaande chauffeursvacatures, ZE-zones en CSRD-ketendruk. Elke cent per km telt.',
+      'Dunne marges onder druk van de vrachtwagenheffing, chauffeurstekort, ZE-zones en CSRD-ketendruk. Elke cent per km telt.',
     outcome:
-      'Route-optimalisatie, ETA-predictie, tachograaf-analyse en fuel-coaching — bewezen 5-10% transportkostenreductie en 60% snellere documentverwerking.',
+      'Route-optimalisatie, ETA-predictie, tachograaf-analyse en fuel-coaching — lagere transportkosten en snellere documentverwerking.',
     stat: '5-10%',
-    statLabel: 'lagere transportkosten',
+    statLabel: 'lagere transportkosten via route-AI',
     href: '/transport',
     accent: false,
   },
@@ -61,11 +61,11 @@ const VerticalsNew = () => {
             </span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text mb-6 leading-[1.1]">
-            Drie sectoren.{' '}
-            <span className="text-lv-text-muted">Eén overtuiging: stilstaan kost je de toekomst.</span>
+            AI werkt overal in het MKB.{' '}
+            <span className="text-lv-text-muted">In deze drie sectoren kennen wij het speelveld het best.</span>
           </h2>
           <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-3xl">
-            Wij richten ons op Nederlandse bedrijven tussen 50-250 FTE waar de marges onder druk staan, de concurrentie digitaliseert en AI het verschil maakt tussen winnen en inhalen worden.
+            Wij werken met MKB-bedrijven in heel Nederland. Onze diepste sector-expertise zit in groothandel, maakindustrie en transport — daar hebben we de playbooks, de benchmarks en het netwerk om sneller impact te leveren.
           </p>
         </div>
 

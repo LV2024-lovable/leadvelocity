@@ -174,7 +174,7 @@ const maakindustrieConfig: VerticalConfig = {
     impact:
       'Circa €1,4M jaarlijkse waarde — €900k downtime-besparing, €300k kwaliteitswinst, €200k herinzet FTE. OEE van 68% naar 78%.',
     disclaimer:
-      'Scenario op basis van McKinsey en Deloitte industrie-benchmarks voor NL machinebouw. Werkelijke resultaten verschillen per bedrijf. Geen klantspecifieke data.',
+      'Illustratief scenario op basis van sector-benchmarks voor NL machinebouw. Werkelijke resultaten verschillen per bedrijf.',
   },
 
   facts: [

@@ -169,7 +169,7 @@ const transportConfig: VerticalConfig = {
     impact:
       '~€1,2M/jaar besparing. Compenseert 52% van de vrachtwagenheffing. Marge blijft overeind bij €1,85/km effectief.',
     disclaimer:
-      'Scenario op basis van McKinsey, ORTEC/NEA en Panteia benchmarks voor pallet-distributie. Werkelijke resultaten verschillen per bedrijf. Geen klantspecifieke data.',
+      'Illustratief scenario op basis van sector-benchmarks voor pallet-distributie. Werkelijke resultaten verschillen per bedrijf.',
   },
 
   facts: [

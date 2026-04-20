@@ -20,26 +20,19 @@ const CTANew = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
               {/* Left: CTA text */}
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-lv-accent/30 bg-lv-accent/[0.05] mb-6">
-                  <span className="w-2 h-2 rounded-full bg-lv-accent animate-pulse" />
-                  <span className="font-body text-xs font-600 text-lv-accent uppercase tracking-wider">
-                    Nog 7 plekken deze maand
-                  </span>
-                </div>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text mb-6 leading-[1.1]">
-                  Gratis AI-Scan voor{' '}
-                  <span className="text-gradient-accent">10 bedrijven</span>{' '}
-                  per maand.
+                  Laat ons eens{' '}
+                  <span className="text-gradient-accent">meekijken</span>.
                 </h2>
                 <p className="font-body text-lg text-lv-text-muted leading-relaxed mb-10 max-w-lg">
-                  Een 60-min gesprek + geschreven rapport met 3 concrete AI-kansen voor jouw organisatie. Normaal €5.000 — gratis voor de eerste 10 NL-bedrijven in jouw sector per maand. Geen vervolg verplicht.
+                  Plan een vrijblijvend gesprek. We brengen samen in kaart waar AI voor jullie het meeste oplevert — binnen sales, inkoop, operatie of klantenservice. Geen verkooppraatje, wel een eerlijk gesprek.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                <div className="flex flex-col sm:flex-row gap-3 mb-4">
                   <a
-                    href="mailto:info@leadvelocity.nl?subject=Gratis AI Opportunity Scan"
+                    href="mailto:info@leadvelocity.nl?subject=Kennismakingsgesprek"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
                   >
-                    Boek je gratis scan
+                    Plan een gesprek
                     <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                   <a
@@ -49,9 +42,6 @@ const CTANew = () => {
                     Of bel direct
                   </a>
                 </div>
-                <p className="font-body text-xs text-lv-text-subtle leading-relaxed max-w-md">
-                  Geen verkooppraatje, geen verplicht vervolg. Je krijgt het rapport — wij sturen het op, einde. Als het waarde heeft, bespreken we daarna eventueel een vervolg op standaard prijs.
-                </p>
               </div>
 
               {/* Right: Contact details */}
@@ -73,7 +63,7 @@ const CTANew = () => {
                     <Phone className="w-5 h-5 text-lv-accent" />
                   </div>
                   <div>
-                    <div className="font-body text-sm text-lv-text-subtle mb-1">Telefoon — Bart</div>
+                    <div className="font-body text-sm text-lv-text-subtle mb-1">Telefoon</div>
                     <a href="tel:+31625471528" className="font-body text-base text-lv-text hover:text-lv-accent transition-colors">
                       +31 6 25 47 15 28
                     </a>
