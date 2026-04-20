@@ -15,6 +15,7 @@ Dit is de kern-outreach-stack voor Leadvelocity. Elke vertical krijgt een eigen 
 | Document | Inhoud |
 |---|---|
 | [`playbook.md`](./playbook.md) | Scrape-to-opening proces: hoe je in 3 min een persoonlijke opener schrijft per prospect |
+| [`intent-signals.md`](./intent-signals.md) | 20 concrete signalen op websites die latente AI-intent verraden, met opener-templates |
 | [`targeting-guide.md`](./targeting-guide.md) | Hoe je named accounts vindt + kwalificeert per vertical (100 accounts-template) |
 | [`sequence-groothandel.md`](./sequence-groothandel.md) | 5-touch campaign voor technische groothandel |
 | [`sequence-maakindustrie.md`](./sequence-maakindustrie.md) | 5-touch campaign voor maakindustrie |
