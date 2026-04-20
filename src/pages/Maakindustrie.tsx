@@ -11,7 +11,7 @@ const maakindustrieConfig: VerticalConfig = {
   ],
   heroGradientPart: 'AI voor maakindustrie.',
   heroSubtitle:
-    'Wij bouwen AI-systemen voor Nederlandse maakbedrijven — van predictive maintenance en productieplanning tot kwaliteit, MES-orchestratie en engineering-AI. Geen industrie 4.0-beloftes, wel meetbare OEE-winst per kwartaal.',
+    'Wij helpen Nederlandse maakbedrijven hun operatie AI-gedreven maken — van snelle kennis-automatiseringen tot diepere oplossingen voor OEE, kwaliteit en planning.',
   heroStats: [
     { value: 'Tot -50%', label: 'downtime via predictive maintenance' },
     { value: '+15-20 pp', label: 'OEE-winst in eerste 12 maanden' },
@@ -21,139 +21,152 @@ const maakindustrieConfig: VerticalConfig = {
   painHeadline:
     'De Nederlandse maakindustrie wordt geknepen door personeel, energie en klantvolatiliteit.',
   painIntro:
-    'Vergrijzing, energie onder druk, reshoring-mogelijkheden, CSRD en vraag-pieken die nooit meer stabiel zijn. Tegelijk zijn MES en ERP legacy (Isah, Ridder, Exact, Navision) en ligt data verspreid. AI is geen "industrie 4.0-droom" meer — het is hoe je in dit tempo vóór blijft.',
+    'Vergrijzing, energie onder druk, reshoring-mogelijkheden, CSRD en vraag-pieken die nooit meer stabiel zijn. Tegelijk zijn MES en ERP legacy (Isah, Ridder, Exact, Navision) en ligt data verspreid.',
   painPoints: [
     {
       title: 'Personeelstekort en vergrijzing',
       description:
-        'Een groot deel van NL technische bedrijven meldt personeelstekort. Senior operators, werkvoorbereiders en kwaliteit-experts gaan met pensioen zonder opvolger. AI houdt hun kennis vast en maakt junioren sneller productief.',
+        'Een groot deel van NL technische bedrijven meldt personeelstekort. Senior operators, werkvoorbereiders en kwaliteit-experts gaan met pensioen zonder opvolger.',
     },
     {
       title: 'Ongeplande stilstand vreet aan OEE',
       description:
-        'Eén storing op een kritieke lijn kost vaak duizenden euro\'s per uur. Onderhoud is reactief. Predictive maintenance levert aantoonbaar minder downtime en lagere onderhoudskosten — zonder MES te vervangen.',
+        'Eén storing op een kritieke lijn kost vaak duizenden euro\'s per uur. Onderhoud is reactief. Predictive maintenance levert aantoonbaar minder downtime en lagere onderhoudskosten.',
     },
     {
       title: 'Productieplanning = Excel + ervaring',
       description:
-        'Werkvoorbereiders puzzelen dagelijks met orders, capaciteit, omsteltijd, materiaal en personeel. Het lukt — maar kost uren en is fragiel bij spoedorders. AI-planning rekent scenario\'s in seconden.',
+        'Werkvoorbereiders puzzelen dagelijks met orders, capaciteit, omsteltijd, materiaal en personeel. Het lukt — maar kost uren en is fragiel bij spoedorders.',
     },
     {
       title: 'Quality control is handmatig en duur',
       description:
-        'Eindcontrole op visuele defects en maatvoering gebeurt vaak met het blote oog. Computer vision haalt consistent hoge detection rates en werkt 24/7. First-pass yield stijgt, scrap en klachten dalen.',
+        'Eindcontrole op visuele defects en maatvoering gebeurt vaak met het blote oog. Computer vision haalt consistent hoge detection rates en werkt 24/7.',
     },
     {
       title: 'MES-ERP-Excel-hybride',
       description:
-        'Isah, Ridder, Navision en Exact draaien naast losse Excels en shop-floor-terminals. De voor- en nacalculatie-gap blijft onzichtbaar. AI maakt één waarheid over werkelijke kostprijs, doorlooptijd en marge per order.',
+        'Isah, Ridder, Navision en Exact draaien naast losse Excels en shop-floor-terminals. De voor- en nacalculatie-gap blijft onzichtbaar.',
     },
     {
       title: 'CSRD en energiekosten = nieuwe KPI\'s',
       description:
-        'Grote klanten eisen scope-3 data per product. Energie is structureel hoge kostenpost. AI meet, voorspelt en optimaliseert energie per eenheid — en maakt CSRD-rapportage schaalbaar.',
+        'Grote klanten eisen scope-3 data per product. Energie is structureel hoge kostenpost. AI meet, voorspelt en optimaliseert energie per eenheid.',
     },
   ],
 
-  productsHeadline:
-    'Hoe onze vier producten eruit zien voor een maakbedrijf.',
-  productsIntro:
-    'We beginnen altijd op plekken waar data al bestaat: machine-telemetrie, MES-logs, ERP-historie, PDM-tekeningen. Snelle wins (documentatie-zoek, nacalculatie, quality vision) voor grote orchestratie-projecten.',
-  productApplications: [
+  quickWinsHeadline:
+    'Laagdrempelige automatiseringen — voor directe tijdwinst op de werkvloer.',
+  quickWinsIntro:
+    'Kleinere automatiseringen die snel zichtbare waarde opleveren voor werkvoorbereiders, engineers en kwaliteitsteams. Goede opstap naar diepere AI-trajecten.',
+  quickWins: [
     {
-      productKey: 'sales',
-      intro:
-        'Voor maakbedrijven gaat sales-AI niet over cold outbound — het gaat over offerte-workflow, klant-aftermarket en het vasthouden van de klantrelatie. Wij bouwen AI die jullie commerciële cyclus versnelt.',
-      applications: [
-        {
-          title: 'Quote-to-order AI',
-          description:
-            'AI analyseert klantaanvraag (tekening + specificatie) en stelt automatisch een eerste offerte-calculatie voor op basis van vergelijkbare eerdere orders. Offerte-doorlooptijd van dagen naar uren.',
-        },
-        {
-          title: 'Aftermarket & service-AI',
-          description:
-            'Voor eigen geleverde machines: predictive service bij klanten als recurring revenue-stroom. Wordt van "leveren en vergeten" naar doorlopende klantrelatie.',
-        },
-        {
-          title: 'Klantsegmentatie & upsell',
-          description:
-            'AI identificeert welke klanten ondergeleverd zijn op welke productgroepen. Account-managers krijgen een concrete upsell-lijst in plaats van op gevoel te werken.',
-        },
-        {
-          title: 'Tender & RFP-scraping',
-          description:
-            'Publieke tenders en RFP\'s worden automatisch gescand en gematcht met jullie capabilities. Geen handmatige aanbestedingen-research meer.',
-        },
+      title: 'Engineering Documentation Search',
+      description:
+        'RAG-AI op alle technische tekeningen, stuklijsten, normen en werkinstructies. Engineer stelt vraag, krijgt binnen seconden de juiste referentie.',
+      duration: '2-3 weken',
+    },
+    {
+      title: 'Meeting Intelligence',
+      description:
+        'Productie-overleg of klant-meetings worden automatisch samengevat met actiepunten in Teams/CRM. Planner hoeft niet zelf notities te maken.',
+      duration: '1-2 weken',
+    },
+    {
+      title: 'Voice-to-CRM notities',
+      description:
+        'Service-monteur of chauffeur dicteert; notities staan direct in jullie systemen. Geen administratie achteraf meer.',
+      duration: '1-2 weken',
+    },
+    {
+      title: 'Document-OCR naar ERP',
+      description:
+        'Leveranciers-facturen, orderbevestigingen en CMR worden automatisch uitgelezen en geboekt. Geen handmatig invoer meer.',
+      duration: '2-3 weken',
+    },
+    {
+      title: 'Onboarding AI-gids',
+      description:
+        'Nieuwe operator stelt vragen over machines, processen en veiligheid; AI antwoordt op basis van interne werkinstructies. Productief in weken, niet maanden.',
+      duration: '1-2 weken',
+    },
+    {
+      title: 'Automated reporting',
+      description:
+        'Wekelijkse OEE- en productie-dashboards uit MES- en ERP-data. Automatisch gegenereerd, naar management of klanten verzonden.',
+      duration: '2-3 weken',
+    },
+  ],
+
+  sectorSolutionsHeadline:
+    'Diepere oplossingen, specifiek voor maakbedrijven.',
+  sectorSolutionsIntro:
+    'Wanneer Quick Wins draaien en de eerste zichtbaarheid er is, bouwen we diepere oplossingen die OEE, marge en kwaliteit structureel verbeteren.',
+  sectorSolutions: [
+    {
+      title: 'Shop-Floor Copilot',
+      tagline: 'Kennis vastgehouden, onboarding versneld',
+      description:
+        'AI-assistent op tablet of shop-floor-terminal voor operators. Machine-instellingen, storingen, werkinstructies — direct antwoord in de taal van jouw fabriek.',
+      bullets: [
+        'RAG op werkinstructies + storingsgeschiedenis',
+        'Senior-kennis doorzoekbaar voor elke shift',
+        'Junior productief in 6-10 weken',
+        'Multilingual (NL/EN/PL/RO) indien nodig',
       ],
     },
     {
-      productKey: 'dashboard',
-      intro:
-        'Eén dashboard dat MES, ERP, machine-telemetrie, personeel en finance samenbrengt. Voor het eerst echt live zicht op OEE, doorlooptijd, energie en marge per order.',
-      applications: [
-        {
-          title: 'Live OEE & stilstand-dashboard',
-          description:
-            'Real-time OEE per lijn met root-cause-analyse op stilstand. Niet pas aan het einde van de maand — meteen tijdens de shift, met concrete handvatten voor de werkvoorbereider.',
-        },
-        {
-          title: 'Nacalculatie vs voorcalculatie loop',
-          description:
-            'De gap tussen begroting en werkelijkheid wordt zichtbaar per order. Iteratief leren op marge — de voorcalculatie wordt elke maand scherper in plaats van constant te missen.',
-        },
-        {
-          title: 'Energy & ESG analytics',
-          description:
-            'Energie per lijn, per machine, per product. Identificeer spilling, standby-verspilling en piekbelasting. CSRD-rapportage wordt geautomatiseerd in plaats van handwerk.',
-        },
-        {
-          title: 'WIP & voorraad-optimalisatie',
-          description:
-            'Work-in-progress en grondstof gebalanceerd tegen servicelevel. Werkkapitaal vrij, zonder dat levertijden in gevaar komen.',
-        },
+      title: 'Order Margin Tracker',
+      tagline: 'Voor- en nacalculatie real-time',
+      description:
+        'Real-time inzicht in marge per order. Gap tussen voor- en nacalculatie zichtbaar binnen dagen, niet kwartalen. Werkvoorbereiding en commercial leren iteratief.',
+      bullets: [
+        'Shop-floor data gekoppeld aan ERP-financials',
+        'Afwijking per order zichtbaar op moment zelf',
+        'Voorcalculatie wordt scherper met elke order',
+        'Typische impact: 3-8% marge-verbetering',
       ],
     },
     {
-      productKey: 'assistant',
-      intro:
-        'AI-assistenten die exact daar zitten waar de kennis verdwijnt: op de shopfloor, in engineering, en in de klantenservice. Senior kennis wordt doorzoekbaar — niet iets wat met pensioen gaat.',
-      applications: [
-        {
-          title: 'Shop-floor copilot',
-          description:
-            'Operators krijgen direct antwoord op machine-instellingen, storingen en werkinstructies. Ervaring wordt gedeeld in plaats van verloren. Oplossings­tijd gaat fors omlaag.',
-        },
-        {
-          title: 'Engineering-AI documentzoek',
-          description:
-            'AI doorzoekt alle tekeningen, stuklijsten, normen en werkinstructies. Engineer vraagt, AI levert binnen seconden. Zoektijd per project daalt drastisch.',
-        },
-        {
-          title: 'Computer vision kwaliteit',
-          description:
-            'Camera op de lijn detecteert defects, maatafwijking en assemblage-fouten real-time. Consistent hoge detection rate, 24/7. Scrap en terugroepacties dalen.',
-        },
-        {
-          title: 'Voice agent voor service-desk',
-          description:
-            'Inkomende storingsmeldingen van klanten worden 24/7 afgehandeld — triage, prioritering, escalatie naar de juiste engineer. Service-desk draait door zonder nachtbezetting.',
-        },
+      title: 'Kwaliteits-rapport Generator',
+      tagline: 'Automatisch, klantspecifiek, compliance-ready',
+      description:
+        'AI genereert klantspecifieke kwaliteitsrapporten uit MES/QC-data. Elk OEM-klantformat ondersteund, handmatig werk elimineren.',
+      bullets: [
+        'Klant-specifieke templates (BMW, ASML, Philips-formats)',
+        'Automatische trend-analyse per charge/batch',
+        'Certificeringen automatisch bijgehouden',
+        'Contract-behoud bij veeleisende OEMs',
+      ],
+    },
+    {
+      title: 'Engineering Doc Search (Pro)',
+      tagline: 'Volledige technische kennisbank doorzoekbaar',
+      description:
+        'Uitgebreide versie van de Quick Win: alle CAD-tekeningen, stuklijsten, normen, historische projecten doorzoekbaar met context. Integreert met PDM.',
+      bullets: [
+        'PDM-integratie (SolidWorks, Autodesk Vault)',
+        'Contextuele zoekopdrachten ("vergelijkbaar met project X")',
+        'Automatische normen-links bij tekeningen',
+        'Engineers winnen 30% tijd op zoeken',
       ],
     },
   ],
+
+  tier3Hint:
+    'Voor maakbedrijven die hun volledige productie AI-gedreven willen maken, hebben we zwaardere projecten rond predictive maintenance en computer vision-kwaliteit. Die bespreken we in een persoonlijk gesprek — data-maturiteit en assets bepalen of het past.',
 
   scenario: {
     headline:
-      'Wat predictive maintenance + kwaliteits-AI oplevert bij een 150-FTE machinebouwer.',
+      'Wat AI oplevert bij een 150-FTE machinebouwer.',
     company:
-      'Metaalbewerking en machinebouw, 150 FTE, €35M omzet, 40% exportaandeel. OEE gemiddeld rond 68% op kritieke lijnen. Eindkwaliteit grotendeels handmatig gecontroleerd.',
+      'Metaalbewerking en machinebouw, 150 FTE, €35M omzet, 40% exportaandeel. OEE gemiddeld rond 68% op kritieke lijnen.',
     before:
-      'Meerdere honderden uren ongeplande stilstand per jaar op kritieke assets. Kwaliteitscontrole mist een klein percentage defecten, leidt tot klachten en retouren. First-pass yield rond 91%.',
+      'Meerdere honderden uren ongeplande stilstand per jaar op kritieke assets. Kwaliteitscontrole mist een klein percentage defecten. First-pass yield rond 91%.',
     after:
-      'Predictive maintenance op kritieke assets reduceert stilstand fors. Vision-AI ondersteunt kwaliteitscontrole met hoge accuracy. QC-FTE\'s schuiven naar procesverbetering.',
+      'Shop-Floor Copilot maakt senior-kennis doorzoekbaar. Order Margin Tracker wijst marge-lekken binnen dagen. Engineering Doc Search versnelt offerte-cyclus.',
     impact:
-      'Aanzienlijke jaarlijkse waarde — downtime-besparing, kwaliteitswinst en herinzet FTE. OEE stijgt naar ~78%.',
+      'Aanzienlijke jaarlijkse waarde via tijdwinst, marge-verbetering en kennisbehoud. OEE stijgt merkbaar richting wereldklasse-niveau.',
     disclaimer:
       'Illustratief scenario op basis van sector-benchmarks voor NL machinebouw. Werkelijke resultaten verschillen per bedrijf.',
   },
@@ -178,7 +191,7 @@ const Maakindustrie = () => {
     if (desc) {
       desc.setAttribute(
         'content',
-        'AI voor Nederlandse maakbedrijven. Predictive maintenance, AI-planning, kwaliteit via computer vision, engineering-AI. OEE-winst per kwartaal.'
+        'AI voor Nederlandse maakbedrijven. Van snelle automatiseringen voor engineering en shop-floor tot diepere oplossingen voor OEE, kwaliteit en planning.'
       );
     }
   }, []);

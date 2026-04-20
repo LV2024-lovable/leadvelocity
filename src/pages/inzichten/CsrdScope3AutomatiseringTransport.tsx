@@ -178,11 +178,21 @@ const config: BlogPostConfig = {
 
   relatedPosts: getRelated('csrd-scope-3-automatisering-transport'),
 
-  cta: {
+  ctas: {
     heading: 'Hoeveel CSRD-werk kost jullie binnendienst nu?',
-    body: 'Wij kijken in een AI Ops Audit of scope-3 automatisering bij jullie stack past én wat het concreet oplevert aan tijd en contract-zekerheid. Audit duurt 2 weken, vaste prijs €2.500.',
-    primaryHref: '/#contact',
-    primaryLabel: 'Start een audit',
+    body: 'Drie paden om CSRD-rapportage te automatiseren.',
+    hot: {
+      href: '/#contact',
+      label: 'Start een CSRD-pilot',
+    },
+    warm: {
+      href: '/#contact',
+      label: 'Plan een kennismaking',
+    },
+    cold: {
+      href: '/whitepapers/ai-voor-nederlandse-transport-2026',
+      label: 'Download de whitepaper',
+    },
   },
 };
 

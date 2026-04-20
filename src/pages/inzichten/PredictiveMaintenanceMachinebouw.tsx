@@ -225,11 +225,21 @@ const config: BlogPostConfig = {
 
   relatedPosts: getRelated('predictive-maintenance-machinebouw'),
 
-  cta: {
+  ctas: {
     heading: 'Welke machines in jullie fabriek rechtvaardigen predictive maintenance?',
-    body: 'Wij helpen in een kritiekheids-analyse identificeren welke 5-10 assets het meeste opleveren — en welke je voorlopig met traditioneel onderhoud kunt laten.',
-    primaryHref: '/#contact',
-    primaryLabel: 'Start een kritiekheids-scan',
+    body: 'Drie paden om te ontdekken waar de grootste winst ligt.',
+    hot: {
+      href: '/#contact',
+      label: 'Plan een kritiekheids-scan',
+    },
+    warm: {
+      href: '/#contact',
+      label: 'Plan een kennismaking',
+    },
+    cold: {
+      href: '/whitepapers/ai-voor-nederlandse-maakindustrie-2026',
+      label: 'Download de whitepaper',
+    },
   },
 };
 

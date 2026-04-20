@@ -10,7 +10,7 @@ const transportConfig: VerticalConfig = {
   ],
   heroGradientPart: 'AI voor Nederlandse transport.',
   heroSubtitle:
-    'Wij bouwen AI-systemen voor Nederlandse transport- en logistiekbedrijven — van ritoptimalisatie tot chauffeursacquisitie, tachograaf-analyse en CSRD-rapportage. Geen TMS-vervanging, geen driver-disruption, wel meetbare winst per km.',
+    'Wij helpen Nederlandse transport- en logistiekbedrijven AI inzetten waar het direct op cent-per-km bijt — van snelle automatiseringen voor de planner tot zwaardere oplossingen voor routing en CSRD.',
   heroStats: [
     { value: '5-10%', label: 'lagere transportkosten via route-AI' },
     { value: '60%', label: 'snellere documentverwerking' },
@@ -25,132 +25,145 @@ const transportConfig: VerticalConfig = {
     {
       title: 'Vrachtwagenheffing vanaf 1 juli 2026',
       description:
-        'Gemiddeld €0,19 per gereden kilometer extra. Voor een gemiddelde vrachtwagen van 100.000 km/jaar: €19.000 extra kosten. AI-routeoptimalisatie levert direct compensatie op hetzelfde wagenpark.',
+        'Gemiddeld €0,19 per gereden kilometer extra. Voor een gemiddelde vrachtwagen van 100.000 km/jaar: €19.000 extra kosten. AI-routeoptimalisatie levert direct compensatie.',
     },
     {
       title: 'Chauffeurstekort structureel',
       description:
-        '6.800 openstaande vacatures op ~92.000 actieve chauffeurs. EU-breed 426.000 onvervulde HGV-posities. Vergrijzing, taalbarrière, concurrentie van buitenlandse vervoerders. AI ondersteunt selectie, matching en retentie.',
+        '6.800 openstaande vacatures op ~92.000 actieve chauffeurs. EU-breed 426.000 onvervulde HGV-posities. AI ondersteunt selectie, matching en retentie.',
     },
     {
       title: 'ZE-zones sinds 2025, CSRD vanaf 2027',
       description:
-        'Amsterdam, Rotterdam, Utrecht, Den Haag en 14 andere gemeenten hebben zero-emissie-zones. Grote verladers vragen nu al CSRD-ketendata. Planning, vlootinzet en rapportage worden complexer per dag.',
+        'Grote verladers vragen nu al CSRD-ketendata. Planning, vlootinzet en rapportage worden complexer per dag.',
     },
     {
       title: 'TMS-legacy en gefragmenteerde data',
       description:
-        'Transpas, Carlo, Plan&Go, PTV, Simacan. On-board computers van Trimble, Webfleet, FleetGO, Volvo Dynafleet. Data zit overal, nergens bij elkaar. AI heeft geen rip-and-replace nodig — wij lezen uit.',
+        'Transpas, Carlo, Plan&Go, PTV, Simacan. On-board computers van Trimble, Webfleet, FleetGO, Volvo Dynafleet. AI heeft geen rip-and-replace nodig.',
     },
     {
       title: 'Beladingsgraad en empty running',
       description:
-        'Nederlandse vrachtwagens rijden gemiddeld ~30% leeg. Beladingsgraad wordt niet consistent gemeten. Elk procentpunt beter is een cent per km. AI op load-planning haalt structureel pp\'s erbij.',
+        'Nederlandse vrachtwagens rijden gemiddeld ~30% leeg. Elk procentpunt beter is een cent per km. AI op load-planning haalt structureel pp\'s erbij.',
     },
     {
       title: 'Planner is overbelast, doet reactief werk',
       description:
-        'Elke storing (vertraging, no-show, uitval) drukt direct op de planner. Handmatig puzzelen met charters, rij-rusttijd en klantafspraken. AI neemt de rekenkracht over — planner houdt de regie.',
+        'Elke storing (vertraging, no-show, uitval) drukt direct op de planner. Handmatig puzzelen met charters, rij-rusttijd en klantafspraken. AI neemt de rekenkracht over.',
     },
   ],
 
-  productsHeadline:
-    'Hoe onze vier producten eruit zien voor transporteurs.',
-  productsIntro:
-    'We beginnen altijd bij data die al bestaat (tachograaf-export, FMS, e-mail). In fase 1 schrijven we níet terug naar je TMS — zo heb je geen rip-and-replace en bewijs je ROI voordat er aan kernsystemen gesleuteld wordt.',
-  productApplications: [
+  quickWinsHeadline:
+    'Laagdrempelige automatiseringen — direct tijdwinst voor planner en admin.',
+  quickWinsIntro:
+    'Kleinere automatiseringen die de planner ontlasten, admin-werk wegnemen en data doorzoekbaar maken. Goede opstap naar diepere transport-AI-trajecten.',
+  quickWins: [
     {
-      productKey: 'sales',
-      intro:
-        'Sales in transport draait om verladers, charters en spot freight. Wij bouwen AI die je commerciële pipeline verstevigt en je spot-margeslagkracht vergroot.',
-      applications: [
-        {
-          title: 'Verlader-acquisitie via AI-prospecting',
-          description:
-            'AI identificeert verladers met vracht-patronen die matchen met jullie vloot en regio. Outreach wordt gepersonaliseerd, schaalbaar, en gericht op het juiste decision-level.',
-        },
-        {
-          title: 'Spot freight quote-automatisering',
-          description:
-            'Spot-aanvragen worden automatisch beoordeeld op beschikbaarheid, rit-marge en acceptabel tarief. Quotes gaan binnen minuten uit in plaats van uren.',
-        },
-        {
-          title: 'Charter-matching',
-          description:
-            'AI matcht charter-vraag aan beschikbare partners in het netwerk op basis van ritprofiel, certificeringen en historische prestaties. Planner bespaart belrondes.',
-        },
-        {
-          title: 'Chauffeur-recruitment AI',
-          description:
-            'AI matcht kandidaten op vereisten (C/CE, code 95, ADR, taal), roosterwensen en cultuur-fit. Time-to-hire en no-show rates dalen — relevant bij structureel tekort.',
-        },
+      title: 'Voice-to-CRM notities',
+      description:
+        'Chauffeurs en buitendienst dicteren; notities staan direct in CRM. Geen administratieve achterstand meer na lange dag onderweg.',
+      duration: '1-2 weken',
+    },
+    {
+      title: 'Document-OCR naar TMS/ERP',
+      description:
+        'CMR, vrachtbrieven, douane-documenten en facturen automatisch uitgelezen. Admin-werklast drastisch omlaag.',
+      duration: '2-3 weken',
+    },
+    {
+      title: 'WhatsApp auto-responder',
+      description:
+        'Klant vraagt "waar is mijn zending?" — AI geeft 24/7 automatisch antwoord. Planner wordt niet meer afgeleid door routine-vragen.',
+      duration: '2-3 weken',
+    },
+    {
+      title: 'Meeting Intelligence',
+      description:
+        'Klant-meetings en interne syncs automatisch samengevat. Actiepunten in CRM, geen handmatig notuleren meer.',
+      duration: '1-2 weken',
+    },
+    {
+      title: 'Nieuws & signaal-monitor',
+      description:
+        'Sector-nieuws (vrachtwagenheffing, ZE-zones, CSRD-updates) automatisch verzameld en naar directie gestuurd. Altijd als eerste op de hoogte.',
+      duration: '1 week',
+    },
+    {
+      title: 'Automated reporting',
+      description:
+        'Wekelijkse dashboards met cent-per-km, beladingsgraad, brandstofverbruik. Automatisch uit TMS/FMS-data, geen handmatige Excel-pulls.',
+      duration: '2-3 weken',
+    },
+  ],
+
+  sectorSolutionsHeadline:
+    'Diepere oplossingen, specifiek voor transport en logistiek.',
+  sectorSolutionsIntro:
+    'Wanneer Quick Wins draaien en data-infrastructuur staat, bouwen we diepere oplossingen die structureel impact hebben op marge, planning en compliance.',
+  sectorSolutions: [
+    {
+      title: 'Planner Copilot',
+      tagline: 'Planner-rekenkracht 10x',
+      description:
+        'AI-assistent naast de planner: "kan deze rit erbij?", ritcombinaties, rij/rusttijd-constraints, charter-voorstellen. Planner houdt regie, AI doet rekenpuzzel.',
+      bullets: [
+        'Integreert met Transpas, Carlo, Plan&Go, PTV',
+        'Real-time ritcombinaties en alternatieven',
+        'Rij- en rusttijd-constraints ingebakken',
+        'Planner-uren dalen, capaciteit stijgt',
       ],
     },
     {
-      productKey: 'dashboard',
-      intro:
-        'Eén dashboard dat TMS, FMS, tachograaf, brandstof en finance samenbrengt. Voor het eerst echt zicht op cent-per-km, beladingsgraad en downtime in real-time.',
-      applications: [
-        {
-          title: 'Cent-per-km dashboard',
-          description:
-            'Real-time kosten per km per rit, voertuig, chauffeur en klant. Marge-lekken worden zichtbaar op de dag dat ze ontstaan — niet pas bij de kwartaalrapportage.',
-        },
-        {
-          title: 'Beladingsgraad & route-efficiency',
-          description:
-            'Live beladingsgraad per rit en lege-km-analyse. Combineerbare ritten worden automatisch voorgesteld. Direct impact op de marge bij gelijkblijvend volume.',
-        },
-        {
-          title: 'Predictive maintenance fleet',
-          description:
-            'FMS-data voedt modellen die componentuitval voorspellen. Onderhoud wordt planbaar. Nood-interventies en pechkosten dalen substantieel.',
-        },
-        {
-          title: 'CSRD & CO2-rapportage',
-          description:
-            'Scope-1 emissies per zending automatisch berekend uit tachograaf en FMS. Levert direct aan verlader wat die nodig heeft. Contract-behoud wordt niet langer handwerk.',
-        },
+      title: 'Fuel Coaching Engine',
+      tagline: 'Brandstofbesparing per chauffeur',
+      description:
+        'FMS-data per chauffeur wordt vergeleken met peers op identieke ritten. Gepersonaliseerde coaching, wekelijkse rankings, structurele 2-4% brandstofbesparing.',
+      bullets: [
+        'Webfleet, Trimble, FleetGO, Volvo Dynafleet ondersteund',
+        'Per-chauffeur coaching-dashboard',
+        'Gamification optioneel',
+        'Brandstof = 20-25% kostenbasis — directe marge-winst',
       ],
     },
     {
-      productKey: 'assistant',
-      intro:
-        'AI-assistenten die de planner ontlasten, de chauffeur ondersteunen en de klant 24/7 antwoord geven — zonder dat iemand nachtdienst draait.',
-      applications: [
-        {
-          title: '"Waar is mijn zending?" chatbot',
-          description:
-            '24/7 automatische antwoorden op ETA, POD en status-vragen. Planner wordt niet meer afgeleid door routine-verkeer. Klant krijgt directe, consistente info.',
-        },
-        {
-          title: 'Planner-assistent',
-          description:
-            'AI doet het rekenwerk: "kan deze rit erbij?", "wat is het alternatief bij vertraging?", "welke chauffeur heeft rij-uren over?". Planner houdt overrule.',
-        },
-        {
-          title: 'Voice agent voor chauffeurs',
-          description:
-            'Chauffeurs bellen de voice-agent voor check-in/uit, loadstatus, wachtlocatie. Multilingual (NL/EN/PL/RO). Planner-tijd blijft vrij voor echte uitzonderingen.',
-        },
-        {
-          title: 'Tachograaf & compliance-AI',
-          description:
-            'AI voorspelt rij/rusttijd-overtredingen vóór ze gebeuren en stuurt preventief bij. ILT-boetes dalen, planner-uren dalen, chauffeur heeft rustigere dag.',
-        },
+      title: 'CSRD-rapport Generator',
+      tagline: 'Scope-3 automation per klant',
+      description:
+        'Tachograaf + FMS + TMS-data worden samengebracht in klant-specifieke CSRD-rapportages. Van 30-40 uur handmatig werk naar 2-4 uur review per maand.',
+      bullets: [
+        'Elke verlader krijgt eigen template',
+        'Scope-3 emissies per zending automatisch berekend',
+        'Contract-behoud bij grote verladers',
+        'Audit-proof, CE Delft-factoren',
+      ],
+    },
+    {
+      title: 'Charter-matching Assistent',
+      tagline: 'Slimmer uitbesteden, lagere kosten',
+      description:
+        'AI stelt charter-combinaties voor op basis van ritprofiel, certificeringen (ADR, koel), historische prestatie en tarief. Planner bespaart belrondes, marge stijgt.',
+      bullets: [
+        'Charter-netwerk matching op ritvereisten',
+        'Historische prestatie per partner',
+        'Automatische tarief-benchmarking',
+        'Minder ad-hoc dure spot-charters',
       ],
     },
   ],
+
+  tier3Hint:
+    'Voor transporteurs die hun hele route-operatie AI-gedreven willen maken of een volledige CSRD-automation-pipeline willen, hebben we zwaardere anchor-projecten. Die bespreken we in een persoonlijk gesprek — vloot-omvang en TMS-stack bepalen of het past.',
 
   scenario: {
     headline:
-      'Wat AI-ritoptimalisatie + fuel-coaching oplevert bij een 120-wagen-transporteur.',
+      'Wat AI oplevert bij een 120-wagen-transporteur.',
     company:
       'Pallet-distributeur, 180 FTE, 120 vrachtwagens, €25M omzet. Gemiddelde kosten ~€1,40/km, marge 6,5%. Rijdt 12M km per jaar, ~20% van kosten is brandstof.',
     before:
       'Planners optimaliseren op ervaring + Excel. Geen zicht op chauffeurs-verschillen in brandstofverbruik. CSRD-aanvragen van topklant kosten elke maand handwerk. Vrachtwagenheffing 2026 komt eraan.',
     after:
-      'AI-ritoptimalisatie bespaart ~6% op transportkosten. Fuel-coaching per chauffeur levert meerdere procenten brandstofreductie. CSRD-rapportage is geautomatiseerd. Planner richt zich op uitzonderingen.',
+      'Planner Copilot helpt bij rit-combinaties. Fuel Coaching per chauffeur levert meerdere procenten brandstofreductie. CSRD-rapportage is geautomatiseerd. Charter-matching wijst slimmere combinaties.',
     impact:
       'Ordergrootte besparing per jaar — genoeg om een substantieel deel van de vrachtwagenheffing te compenseren en marge overeind te houden.',
     disclaimer:
@@ -177,7 +190,7 @@ const Transport = () => {
     if (desc) {
       desc.setAttribute(
         'content',
-        'AI voor Nederlandse transport- en logistiekbedrijven. Ritoptimalisatie, chauffeursacquisitie, tachograaf-analyse, CSRD-rapportage. Compenseer de vrachtwagenheffing.'
+        'AI voor Nederlandse transport- en logistiekbedrijven. Van laagdrempelige automatiseringen voor planner en admin tot diepere oplossingen voor routing, fuel en CSRD.'
       );
     }
   }, []);

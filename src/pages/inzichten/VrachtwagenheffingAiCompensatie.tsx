@@ -164,11 +164,21 @@ const config: BlogPostConfig = {
 
   relatedPosts: getRelated('vrachtwagenheffing-2026-ai-compensatie'),
 
-  cta: {
+  ctas: {
     heading: 'Hoeveel van de heffing kun jij compenseren met AI?',
-    body: 'Wij maken in een AI Ops Audit (€2.500, 2 weken) concreet zichtbaar welke van deze drie compensaties bij jullie vloot het meeste oplevert. Daarna beslis je of we samen verder bouwen.',
-    primaryHref: '/#contact',
-    primaryLabel: 'Start een audit',
+    body: 'Drie paden om te starten met AI-compensatie voor de vrachtwagenheffing.',
+    hot: {
+      href: '/#contact',
+      label: 'Start met Fuel Coaching',
+    },
+    warm: {
+      href: '/#contact',
+      label: 'Plan een AI Ops Audit',
+    },
+    cold: {
+      href: '/whitepapers/ai-voor-nederlandse-transport-2026',
+      label: 'Download de whitepaper',
+    },
   },
 };
 

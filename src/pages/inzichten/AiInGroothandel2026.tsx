@@ -199,11 +199,21 @@ const config: BlogPostConfig = {
 
   relatedPosts: getRelated('ai-in-nederlandse-technische-groothandel-2026'),
 
-  cta: {
+  ctas: {
     heading: 'Waar zit de grootste AI-kans bij jullie groothandel?',
-    body: 'Wij kijken in een vrijblijvend gesprek mee naar jullie operatie en identificeren de drie meest kansrijke AI-toepassingen. Concreet, in euro\'s, met duidelijke prioritering.',
-    primaryHref: '/#contact',
-    primaryLabel: 'Plan een gesprek',
+    body: 'Kies zelf hoe ver je nu wilt gaan — van verdiepen tot direct starten met een concrete AI-toepassing.',
+    hot: {
+      href: '/#contact',
+      label: 'Start een AI Ops Audit',
+    },
+    warm: {
+      href: '/#contact',
+      label: 'Plan een 30-min kennismaking',
+    },
+    cold: {
+      href: '/whitepapers/ai-in-technische-groothandel-2026',
+      label: 'Download eerst de whitepaper',
+    },
   },
 };
 

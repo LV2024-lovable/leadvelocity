@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Rocket, LayoutDashboard, Bot, LucideIcon } from 'lucide-react';
+import { ArrowUpRight, Zap, Sparkles, Lock, LucideIcon } from 'lucide-react';
 import NavbarNew from './NavbarNew';
 import FooterNew from './FooterNew';
 import { useReveal } from '../hooks/useReveal';
@@ -15,13 +15,17 @@ export type VerticalPainPoint = {
   description: string;
 };
 
-export type ProductApplication = {
-  productKey: 'sales' | 'dashboard' | 'assistant';
-  intro: string;
-  applications: Array<{
-    title: string;
-    description: string;
-  }>;
+export type QuickWin = {
+  title: string;
+  description: string;
+  duration: string; // e.g. "2 weken"
+};
+
+export type SectorSolution = {
+  title: string;
+  tagline: string;
+  description: string;
+  bullets: string[];
 };
 
 export type VerticalConfig = {
@@ -35,9 +39,13 @@ export type VerticalConfig = {
   painHeadline: string;
   painIntro: string;
   painPoints: VerticalPainPoint[];
-  productsHeadline: string;
-  productsIntro: string;
-  productApplications: ProductApplication[];
+  quickWinsHeadline: string;
+  quickWinsIntro: string;
+  quickWins: QuickWin[];
+  sectorSolutionsHeadline: string;
+  sectorSolutionsIntro: string;
+  sectorSolutions: SectorSolution[];
+  tier3Hint?: string;
   scenario: {
     headline: string;
     company: string;
@@ -52,12 +60,6 @@ export type VerticalConfig = {
   icon?: LucideIcon;
 };
 
-const PRODUCT_META: Record<ProductApplication['productKey'], { name: string; icon: LucideIcon; tagline: string }> = {
-  sales: { name: 'AI Sales Systeem', icon: Rocket, tagline: 'Meer leads · hogere conversie' },
-  dashboard: { name: 'AI Operations Dashboard', icon: LayoutDashboard, tagline: 'Eén live waarheid' },
-  assistant: { name: 'AI Assistent', icon: Bot, tagline: 'Chatbot, voice of intern' },
-};
-
 type Props = {
   config: VerticalConfig;
 };
@@ -65,7 +67,9 @@ type Props = {
 const VerticalPage: React.FC<Props> = ({ config }) => {
   const heroRef = useReveal();
   const painHeaderRef = useReveal();
-  const productsHeaderRef = useReveal();
+  const quickWinsHeaderRef = useReveal();
+  const solutionsHeaderRef = useReveal();
+  const tier3Ref = useReveal();
   const scenarioRef = useReveal();
   const factsRef = useReveal();
   const closingRef = useReveal();
@@ -120,10 +124,10 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
                   <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
-                  href="#producten"
+                  href="#quick-wins"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-border text-lv-text font-display font-600 text-base rounded-lg hover:border-lv-text-subtle transition-all duration-300"
                 >
-                  Bekijk toepassingen
+                  Bekijk oplossingen
                 </a>
               </div>
 
@@ -184,86 +188,128 @@ const VerticalPage: React.FC<Props> = ({ config }) => {
           </div>
         </section>
 
-        {/* PRODUCT APPLICATIONS FOR THIS SECTOR */}
-        <section id="producten" className="section-padding relative">
+        {/* QUICK WINS — Tier 1 for this sector */}
+        <section id="quick-wins" className="section-padding relative">
           <div className="container mx-auto px-4 md:px-6">
-            <div ref={productsHeaderRef} className="reveal mb-14 md:mb-16 max-w-4xl">
+            <div ref={quickWinsHeaderRef} className="reveal mb-12 md:mb-14 max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-12 bg-lv-accent" />
                 <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
-                  Onze producten, hier toegepast
+                  Laagdrempelig starten
                 </span>
               </div>
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-6 leading-[1.1]">
-                {config.productsHeadline}
+                {config.quickWinsHeadline}
               </h2>
               <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-3xl">
-                {config.productsIntro}
+                {config.quickWinsIntro}
               </p>
             </div>
 
-            <div className="space-y-14">
-              {config.productApplications.map((product, idx) => {
-                const meta = PRODUCT_META[product.productKey];
-                const ProductIcon = meta.icon;
-                const blockRef = useReveal(idx * 0.1);
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {config.quickWins.map((qw, i) => {
+                const cardRef = useReveal(i * 0.05);
                 return (
-                  <div key={product.productKey} ref={blockRef} className="reveal">
-                    <div className="flex flex-col md:flex-row gap-8 md:gap-10">
-                      {/* Left: product heading */}
-                      <div className="md:w-1/3 md:sticky md:top-24 self-start">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-12 h-12 rounded-xl bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center flex-shrink-0">
-                            <ProductIcon className="w-6 h-6 text-lv-accent" />
-                          </div>
-                          <div>
-                            <div className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider">
-                              {meta.tagline}
-                            </div>
-                          </div>
-                        </div>
-                        <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-4">
-                          {meta.name}
-                        </h3>
-                        <p className="font-body text-base text-lv-text-muted leading-relaxed">
-                          {product.intro}
-                        </p>
-                      </div>
-
-                      {/* Right: applications */}
-                      <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {product.applications.map((app) => (
-                          <div
-                            key={app.title}
-                            className="p-6 rounded-xl bg-lv-surface border border-lv-border-subtle hover:border-lv-accent/20 transition-colors"
-                          >
-                            <h4 className="font-display text-base md:text-lg font-700 text-lv-text mb-3 leading-tight">
-                              {app.title}
-                            </h4>
-                            <p className="font-body text-sm text-lv-text-muted leading-relaxed">
-                              {app.description}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
+                  <div
+                    key={qw.title}
+                    ref={cardRef}
+                    className="reveal p-6 rounded-xl bg-lv-surface border border-lv-border-subtle hover:border-lv-accent/30 transition-colors"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center mb-4">
+                      <Zap className="w-4 h-4 text-lv-accent" />
+                    </div>
+                    <h3 className="font-display text-base md:text-lg font-700 text-lv-text mb-2 leading-tight">
+                      {qw.title}
+                    </h3>
+                    <p className="font-body text-sm text-lv-text-muted leading-relaxed mb-4">
+                      {qw.description}
+                    </p>
+                    <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-wider">
+                      Live in {qw.duration}
                     </div>
                   </div>
                 );
               })}
             </div>
+          </div>
+        </section>
 
-            {/* Link to full product overview */}
-            <div className="mt-16 text-center">
-              <a
-                href="/#diensten"
-                className="inline-flex items-center gap-2 font-display text-sm font-600 text-lv-accent hover:underline"
-              >
-                Bekijk onze volledige dienstencatalogus
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
+        {/* SECTOR SOLUTIONS — Tier 2 specific to this vertical */}
+        <section id="sector-solutions" className="section-padding relative bg-lv-surface border-y border-lv-border-subtle">
+          <div className="container mx-auto px-4 md:px-6">
+            <div ref={solutionsHeaderRef} className="reveal mb-12 md:mb-14 max-w-4xl">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-12 bg-lv-accent" />
+                <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
+                  Sector-specifieke oplossingen
+                </span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-6 leading-[1.1]">
+                {config.sectorSolutionsHeadline}
+              </h2>
+              <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-3xl">
+                {config.sectorSolutionsIntro}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {config.sectorSolutions.map((sol, i) => {
+                const cardRef = useReveal(i * 0.08);
+                return (
+                  <div
+                    key={sol.title}
+                    ref={cardRef}
+                    className="reveal p-7 md:p-8 rounded-2xl bg-lv-ink border border-lv-border-subtle hover:border-lv-accent/30 transition-colors"
+                  >
+                    <div className="w-11 h-11 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center mb-5">
+                      <Sparkles className="w-5 h-5 text-lv-accent" />
+                    </div>
+                    <div className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-widest mb-2">
+                      {sol.tagline}
+                    </div>
+                    <h3 className="font-display text-xl md:text-2xl font-700 text-lv-text mb-4 leading-tight">
+                      {sol.title}
+                    </h3>
+                    <p className="font-body text-sm md:text-base text-lv-text-muted leading-relaxed mb-5">
+                      {sol.description}
+                    </p>
+                    <ul className="space-y-2">
+                      {sol.bullets.map((b) => (
+                        <li key={b} className="flex items-start gap-2.5">
+                          <div className="w-1.5 h-1.5 rounded-full bg-lv-accent flex-shrink-0 mt-2" />
+                          <span className="font-body text-sm text-lv-text-muted leading-relaxed">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
+
+        {/* TIER 3 HINT — vague reference to heavier projects */}
+        {config.tier3Hint && (
+          <section ref={tier3Ref} className="reveal py-16 md:py-20 relative">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="max-w-3xl mx-auto">
+                <div className="p-8 md:p-10 rounded-2xl border border-lv-border-subtle bg-lv-surface flex items-start gap-5">
+                  <div className="w-11 h-11 rounded-lg bg-lv-surface-raised border border-lv-border flex items-center justify-center flex-shrink-0">
+                    <Lock className="w-5 h-5 text-lv-text-muted" />
+                  </div>
+                  <div>
+                    <div className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-widest mb-2">
+                      Voor wie verder gaat
+                    </div>
+                    <p className="font-body text-base md:text-lg text-lv-text leading-relaxed">
+                      {config.tier3Hint}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* SCENARIO CASE */}
         <section className="section-padding relative bg-lv-surface">

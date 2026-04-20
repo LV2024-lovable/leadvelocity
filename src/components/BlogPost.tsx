@@ -21,6 +21,11 @@ export type RelatedPost = {
   category: string;
 };
 
+export type BlogCtaAction = {
+  href: string;
+  label: string;
+};
+
 export type BlogPostConfig = {
   slug: string;
   title: string;
@@ -33,11 +38,25 @@ export type BlogPostConfig = {
   sections: BlogPostSection[];
   keyTakeaways: string[];
   relatedPosts?: RelatedPost[];
+  /** Legacy single-CTA (kept for backwards compatibility). Use ctas instead. */
   cta?: {
     heading: string;
     body: string;
     primaryHref: string;
     primaryLabel: string;
+  };
+  /**
+   * Three-level CTAs at different commitment levels:
+   * - cold: lowest commitment (e.g. download whitepaper)
+   * - warm: medium commitment (e.g. plan gesprek)
+   * - hot: highest commitment (e.g. start specific solution)
+   */
+  ctas?: {
+    heading: string;
+    body: string;
+    cold?: BlogCtaAction;
+    warm: BlogCtaAction;
+    hot?: BlogCtaAction;
   };
 };
 
@@ -302,24 +321,60 @@ const BlogPost: React.FC<{ config: BlogPostConfig }> = ({ config }) => {
           </div>
         </section>
 
-        {/* CTA */}
-        {config.cta && (
+        {/* CTA — three-level (or legacy single) */}
+        {(config.ctas || config.cta) && (
           <section ref={ctaRef} className="reveal py-16 md:py-20 relative">
             <div className="container mx-auto px-4 md:px-6">
               <div className="max-w-3xl mx-auto text-center">
                 <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-text mb-5 leading-[1.1]">
-                  {config.cta.heading}
+                  {config.ctas?.heading ?? config.cta?.heading}
                 </h2>
-                <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed mb-8">
-                  {config.cta.body}
+                <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed mb-10">
+                  {config.ctas?.body ?? config.cta?.body}
                 </p>
-                <a
-                  href={config.cta.primaryHref}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
-                >
-                  {config.cta.primaryLabel}
-                  <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
+
+                {config.ctas ? (
+                  <div className="flex flex-col items-center gap-5">
+                    {/* Three-level CTA layout */}
+                    <div className="flex flex-wrap justify-center items-center gap-3">
+                      {config.ctas.hot && (
+                        <a
+                          href={config.ctas.hot.href}
+                          className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+                        >
+                          {config.ctas.hot.label}
+                          <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </a>
+                      )}
+                      <a
+                        href={config.ctas.warm.href}
+                        className="inline-flex items-center justify-center gap-2 px-7 py-4 border border-lv-border text-lv-text font-display font-600 text-base rounded-lg hover:border-lv-accent/40 hover:text-lv-accent transition-all duration-300"
+                      >
+                        {config.ctas.warm.label}
+                      </a>
+                      {config.ctas.cold && (
+                        <a
+                          href={config.ctas.cold.href}
+                          className="inline-flex items-center justify-center gap-2 px-7 py-4 text-lv-text-muted hover:text-lv-accent font-body font-500 text-base transition-colors duration-200"
+                        >
+                          {config.ctas.cold.label}
+                          <ArrowUpRight className="w-4 h-4" />
+                        </a>
+                      )}
+                    </div>
+                    <p className="font-body text-xs text-lv-text-subtle mt-2">
+                      Kies wat bij jouw situatie past — geen verplichting
+                    </p>
+                  </div>
+                ) : (
+                  <a
+                    href={config.cta!.primaryHref}
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+                  >
+                    {config.cta!.primaryLabel}
+                    <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                )}
               </div>
             </div>
           </section>

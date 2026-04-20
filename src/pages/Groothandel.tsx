@@ -11,7 +11,7 @@ const groothandelConfig: VerticalConfig = {
   ],
   heroGradientPart: 'AI voor de groothandel.',
   heroSubtitle:
-    'Wij helpen Nederlandse technische groothandels hun inkoop, pricing en pipeline AI-gedreven maken — voordat Amazon Business, D2C-merken en Chinese B2B-platforms nog meer marge pakken.',
+    'Wij helpen Nederlandse technische groothandels hun inkoop, pricing en pipeline AI-gedreven maken — van snelle automatiseringen die direct tijd winnen tot zwaardere trajecten met structurele marge-impact.',
   heroStats: [
     { value: '+130-200 bps', label: 'hogere brutomarge via AI-pricing' },
     { value: '-20 tot -30%', label: 'voorraad via AI-forecasting' },
@@ -46,102 +46,115 @@ const groothandelConfig: VerticalConfig = {
     {
       title: 'Data versplinterd over 5+ systemen',
       description:
-        'ERP (SAP/AFAS/Ridder/Exact), PIM, webshop, CRM en losse Excels. Niemand heeft één waarheid. Rapportages kosten dagen. KPI-zicht is reactief. Elke AI-use-case begint bij data-plumbing — wij snappen dat.',
+        'ERP (SAP/AFAS/Ridder/Exact), PIM, webshop, CRM en losse Excels. Niemand heeft één waarheid. Rapportages kosten dagen. KPI-zicht is reactief.',
     },
     {
       title: 'Klantverwachting stijgt — B2B wordt B2C',
       description:
-        'B2B-kopers verkiezen steeds vaker digitale kanalen. Ze willen real-time voorraadzicht, directe quotes, persoonlijke aanbevelingen, 24/7 support. Als jouw catalogus niet zelf uitlegt wat een klant nodig heeft, koopt die klant ergens anders.',
+        'B2B-kopers verkiezen steeds vaker digitale kanalen. Real-time voorraadzicht, directe quotes, persoonlijke aanbevelingen, 24/7 support. Als jouw catalogus niet zelf uitlegt wat een klant nodig heeft, koopt die klant ergens anders.',
     },
   ],
 
-  productsHeadline:
-    'Hoe onze vier producten eruit zien voor een technische groothandel.',
-  productsIntro:
-    'Geen generiek AI-aanbod. Elk van onze producten vertaalt zich direct naar concrete toepassingen in de wereld van de technische groothandel — van pipeline en marge tot binnendienst en klantcontact.',
-  productApplications: [
+  quickWinsHeadline:
+    'Laagdrempelige automatiseringen — live binnen 2-3 weken.',
+  quickWinsIntro:
+    'Kleinere automatiseringen die direct tijd winnen voor de binnendienst en commercieel team. Goede manier om AI-adoptie te starten zonder groot project.',
+  quickWins: [
     {
-      productKey: 'sales',
-      intro:
-        'Wij bouwen een AI-gedreven sales-systeem dat het hele traject dekt — van ondergeleverde accounts in je bestaande klantenbestand tot koude prospects die je nog niet in het vizier hebt.',
-      applications: [
-        {
-          title: 'White-space detection',
-          description:
-            'AI scant je klantenbestand en identificeert ondergeleverde productgroepen per klant. Accountmanagers krijgen een concrete upsell-lijst in plaats van gokken.',
-        },
-        {
-          title: 'Pipeline & lead-scoring',
-          description:
-            'Leads worden automatisch gescoord op koopintentie op basis van bestelgedrag, webshop-activiteit en externe signalen. Buitendienst richt zich op de top 20%.',
-        },
-        {
-          title: 'Outbound AI-agent',
-          description:
-            'AI stuurt gepersonaliseerde follow-ups via e-mail, LinkedIn en WhatsApp op basis van sectorsegment, productcategorie en historische relatie. Schaalt zonder extra FTE.',
-        },
-        {
-          title: 'Concurrent-pricing monitoring',
-          description:
-            'Scrapers die Amazon Business, concurrent-webshops en Chinese platforms monitoren op jouw SKU\'s. Je prijszetting wordt proactief in plaats van reactief.',
-        },
+      title: 'Offerte-template filler',
+      description:
+        'RFQ komt binnen via e-mail of PDF. AI maakt basis-offerte met staffel-pricing klaar; binnendienst controleert en verzendt.',
+      duration: '2-3 weken',
+    },
+    {
+      title: 'Document-OCR naar ERP',
+      description:
+        'Inkomende facturen, orders en leveranciersdocumenten worden automatisch uitgelezen en geboekt in AFAS, Exact of Isah.',
+      duration: '2-3 weken',
+    },
+    {
+      title: 'Klant-segmentatie',
+      description:
+        'AI clustert je klantbestand op bestelgedrag, omzet-potentie en retentie-risico. Account-managers krijgen duidelijke focuslijst.',
+      duration: '1 week',
+    },
+    {
+      title: 'E-mail response AI',
+      description:
+        'Voor binnendienst: concept-antwoorden op routine-vragen direct in Outlook. Medewerker klikt verzenden na check.',
+      duration: '1-2 weken',
+    },
+    {
+      title: 'Interne kennis-zoeker',
+      description:
+        'RAG-AI op productcatalogus, specs, leveranciers-documenten. Junior medewerker krijgt instant antwoord op klant-vragen.',
+      duration: '2-3 weken',
+    },
+    {
+      title: 'Automated reporting',
+      description:
+        'Wekelijks dashboard met marge, DSO, voorraadpositie en top-klanten — automatisch gegenereerd uit ERP.',
+      duration: '2-3 weken',
+    },
+  ],
+
+  sectorSolutionsHeadline:
+    'Diepere oplossingen, specifiek voor technische groothandel.',
+  sectorSolutionsIntro:
+    'Wanneer Quick Wins draaien en er meer ambitie is, bouwen we diepere oplossingen met structurele commerciële impact.',
+  sectorSolutions: [
+    {
+      title: 'Inside Sales Copilot',
+      tagline: 'Binnendienst versterkt',
+      description:
+        'AI-assistent in Outlook/Teams met volledige productkennis, specs en alternatieven uit jullie catalogus. Senior-kennis doorzoekbaar voor elke binnendienster.',
+      bullets: [
+        'RAG op productcatalogus + historische klantvragen',
+        'Matcht productspecs met klant-eisen',
+        'Stelt alternatieven voor bij nee-verkoop',
+        'Onboarding junior van 6 maanden naar 6 weken',
       ],
     },
     {
-      productKey: 'dashboard',
-      intro:
-        'Eén live dashboard dat ERP, webshop, PIM, CRM en Excel samenbrengt. Voor het eerst echt zicht op waar marge ontstaat — en waar zij lekt.',
-      applications: [
-        {
-          title: 'Live marge-dashboard',
-          description:
-            'Inkoopprijs, verkoopprijs, staffel-korting, DSO en voorraadrotatie per klant-SKU in real-time. Pricing-beslissingen gaan van gut feel naar data-gedreven.',
-        },
-        {
-          title: 'Inkoopanalytics & leveranciersscoring',
-          description:
-            'Welke leveranciers leveren OTIF? Waar kan volume geconsolideerd worden? Waar zit prijsruimte? AI-analytics maakt elke onderhandeling scherper.',
-        },
-        {
-          title: 'DSO & werkkapitaal-monitor',
-          description:
-            'Voorspelt per klant de waarschijnlijke betaaldatum. Incassomoment wordt geoptimaliseerd. Direct zichtbare cash op de bank zonder relatiebeschadiging.',
-        },
-        {
-          title: 'Voorraad-AI & reorder-optimalisatie',
-          description:
-            'Demand-forecasting op SKU-niveau. Magazijn stopt met reorder-points op gut feel. Emergency orders en dead stock worden structureel minder.',
-        },
+      title: 'Quote Automator',
+      tagline: 'RFQ-to-offerte geautomatiseerd',
+      description:
+        'Klant-RFQ (e-mail, PDF, webshop) wordt automatisch geïnterpreteerd, gematcht met catalogus, voorzien van klant-specifieke pricing en als concept-offerte klaargezet.',
+      bullets: [
+        'Turnaround van 3-5 dagen naar 4-8 uur',
+        'Staffel-berekening klant-specifiek',
+        'Binnendienst controleert en verzendt',
+        'First-responders winnen ~50% vaker',
       ],
     },
     {
-      productKey: 'assistant',
-      intro:
-        'AI-assistenten die exact daar zitten waar ze moeten zijn: in de inbox van de binnendienst, op de webshop van de klant, of als 24/7 chatbot voor technische vragen.',
-      applications: [
-        {
-          title: 'Binnendienst-AI in Outlook/Teams',
-          description:
-            'Bij iedere klantvraag levert de AI direct het juiste product, de specs en vergelijkbare alternatieven. Onboarding van nieuwe medewerkers gaat van maanden naar weken.',
-        },
-        {
-          title: 'Quote & RFQ automatisering',
-          description:
-            'AI leest klant-RFQ (e-mail, PDF, webshop), matcht met catalogus, berekent prijs volgens staffels en stelt offerte op. Van 3-5 dagen naar enkele uren turnaround.',
-        },
-        {
-          title: 'OCR voor inkooporders & facturen',
-          description:
-            'Inkomende orders en facturen worden automatisch uitgelezen en in het ERP geboekt. De orderinvoer-FTE-belasting wordt drastisch lager, met nagenoeg foutloze verwerking.',
-        },
-        {
-          title: 'Klant-facing chatbot',
-          description:
-            '24/7 technische vragen op webshop en WhatsApp — productcompatibiliteit, specs, alternatieven. Binnendienst wordt ontlast van routine, klant krijgt directe antwoorden.',
-        },
+      title: 'White-Space Detector',
+      tagline: 'Commerciële kansen in eigen portfolio',
+      description:
+        'AI analyseert CRM en orderhistorie om ondergeleverde klanten te identificeren per productcategorie. Accountmanagers krijgen concrete upsell-lijst in plaats van op gevoel te werken.',
+      bullets: [
+        'Cross-sell-signalen per klant-productgroep',
+        'Churn-risico-scoring',
+        'Maandelijkse opportunity-lijst',
+        'Typische revenue-uplift 3-15%',
+      ],
+    },
+    {
+      title: 'Supplier Catalog Enricher',
+      tagline: 'PIM op steroïden',
+      description:
+        'AI-verrijking van leveranciers-feeds met specs, afbeeldingen, categorisatie en SEO-data. Webshop-conversie stijgt, time-to-market van nieuwe producten daalt 50-70%.',
+      bullets: [
+        'Automatische catalogus-verrijking',
+        'SEO-optimalisatie per product',
+        'Standaardisatie across leveranciers',
+        'Snellere productlancering',
       ],
     },
   ],
+
+  tier3Hint:
+    'Voor groothandels die hun hele pricing- of voorraadstrategie AI-gedreven willen maken, hebben we zwaardere anchor-projecten. Die bespreken we in een persoonlijk gesprek — data-staat en commitment bepalen of het past.',
 
   scenario: {
     headline: 'Wat AI oplevert bij een €30M technische groothandel.',
@@ -178,7 +191,7 @@ const Groothandel = () => {
     if (desc) {
       desc.setAttribute(
         'content',
-        'AI Operations Partner voor Nederlandse technische groothandels. Van AI-pricing en inkoopvoorspelling tot pipeline-scoring en quote-automatisering.'
+        'AI Operations Partner voor Nederlandse technische groothandels. Van laagdrempelige automatiseringen tot AI-pricing, inkoopvoorspelling en pipeline-scoring.'
       );
     }
   }, []);

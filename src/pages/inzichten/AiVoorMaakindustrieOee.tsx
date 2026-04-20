@@ -227,11 +227,21 @@ const config: BlogPostConfig = {
 
   relatedPosts: getRelated('ai-voor-nederlandse-maakindustrie-oee'),
 
-  cta: {
+  ctas: {
     heading: 'Welke OEE-sprong is bij jullie fabriek haalbaar?',
-    body: 'Wij scannen in een kennismakingsgesprek jullie huidige OEE-niveau, kritische assets en data-beschikbaarheid. Uitkomst: concrete top-3 AI-kansen met impact-inschatting per use-case.',
-    primaryHref: '/#contact',
-    primaryLabel: 'Plan een OEE-scan',
+    body: 'Van verdiepen tot direct bouwen — jij kiest wat nu past.',
+    hot: {
+      href: '/#contact',
+      label: 'Start een Shop-Floor Copilot',
+    },
+    warm: {
+      href: '/#contact',
+      label: 'Plan een OEE-kennismaking',
+    },
+    cold: {
+      href: '/whitepapers/ai-voor-nederlandse-maakindustrie-2026',
+      label: 'Download de whitepaper',
+    },
   },
 };
 

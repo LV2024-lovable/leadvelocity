@@ -210,11 +210,21 @@ const config: BlogPostConfig = {
 
   relatedPosts: getRelated('ai-pricing-voor-groothandel'),
 
-  cta: {
+  ctas: {
     heading: 'Is jullie pricing-data klaar voor AI?',
-    body: 'Wij beoordelen in een vrijblijvend gesprek of AI-pricing bij jullie operatie past — én wat het concreet zou opleveren. Eerlijk, ook als het antwoord "nog niet" is.',
-    primaryHref: '/#contact',
-    primaryLabel: 'Plan een pricing-scan',
+    body: 'Niet elke groothandel is direct klaar voor AI-pricing. Drie paden, jij kiest wat nu past.',
+    hot: {
+      href: '/#contact',
+      label: 'Plan een pricing-scan',
+    },
+    warm: {
+      href: '/#contact',
+      label: 'Plan een kennismaking',
+    },
+    cold: {
+      href: '/whitepapers/ai-in-technische-groothandel-2026',
+      label: 'Download de whitepaper',
+    },
   },
 };
 
