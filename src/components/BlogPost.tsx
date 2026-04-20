@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { ArrowUpRight, Calendar, Clock, Tag } from 'lucide-react';
 import NavbarNew from './NavbarNew';
 import FooterNew from './FooterNew';
+import SchemaMarkup, { nlDateToIso } from './SchemaMarkup';
+import SocialShare from './SocialShare';
 import { useReveal } from '../hooks/useReveal';
 
 export type BlogPostSection =
@@ -60,6 +62,17 @@ const BlogPost: React.FC<{ config: BlogPostConfig }> = ({ config }) => {
 
   return (
     <div className="min-h-screen bg-lv-ink">
+      <SchemaMarkup
+        schema={{
+          type: 'Article',
+          title: config.title,
+          description: config.metaDescription,
+          datePublished: nlDateToIso(config.publishedAt),
+          slug: config.slug,
+          category: config.category,
+          readingMinutes: config.readingMinutes,
+        }}
+      />
       <NavbarNew />
 
       <article>
@@ -90,19 +103,22 @@ const BlogPost: React.FC<{ config: BlogPostConfig }> = ({ config }) => {
               </p>
 
               {/* Meta row */}
-              <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-lv-text-subtle border-t border-lv-border-subtle pt-6">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  <span className="font-body">{config.publishedAt}</span>
+              <div className="flex flex-wrap items-center justify-between gap-4 md:gap-6 text-sm text-lv-text-subtle border-t border-lv-border-subtle pt-6">
+                <div className="flex flex-wrap items-center gap-4 md:gap-6">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    <span className="font-body">{config.publishedAt}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    <span className="font-body">{config.readingMinutes} min leestijd</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Tag className="w-4 h-4" />
+                    <span className="font-body">{config.category}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  <span className="font-body">{config.readingMinutes} min leestijd</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Tag className="w-4 h-4" />
-                  <span className="font-body">{config.category}</span>
-                </div>
+                <SocialShare title={config.title} variant="compact" />
               </div>
             </div>
           </div>
@@ -273,6 +289,15 @@ const BlogPost: React.FC<{ config: BlogPostConfig }> = ({ config }) => {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* SHARE (between takeaways and CTA) */}
+        <section className="py-10 relative">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-3xl mx-auto">
+              <SocialShare title={config.title} />
             </div>
           </div>
         </section>

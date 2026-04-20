@@ -1,5 +1,6 @@
 import React from 'react';
 import { Linkedin, Mail, Phone } from 'lucide-react';
+import NewsletterSignup from './NewsletterSignup';
 
 const FooterNew = () => {
   const year = new Date().getFullYear();
@@ -7,6 +8,23 @@ const FooterNew = () => {
   return (
     <footer className="border-t border-lv-border bg-lv-ink">
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+        {/* Newsletter strip */}
+        <div className="mb-14 pb-10 border-b border-lv-border-subtle">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <div className="font-display text-xl md:text-2xl font-700 text-lv-text leading-tight mb-2">
+                Maandelijkse AI-briefing voor NL MKB
+              </div>
+              <p className="font-body text-sm text-lv-text-muted leading-relaxed max-w-lg">
+                Eén doordachte lange-lees per maand, over wat echt werkt in AI voor Nederlandse industrie. Geen spam.
+              </p>
+            </div>
+            <div>
+              <NewsletterSignup variant="compact" sourceHint="Footer" />
+            </div>
+          </div>
+        </div>
+
         {/* Top grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
           {/* Brand */}
@@ -71,6 +89,11 @@ const FooterNew = () => {
               <li>
                 <a href="/inzichten" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
                   Inzichten
+                </a>
+              </li>
+              <li>
+                <a href="/cases" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                  Cases
                 </a>
               </li>
               <li>

@@ -4,6 +4,7 @@ import NavbarNew from '../components/NavbarNew';
 import FooterNew from '../components/FooterNew';
 import { useReveal } from '../hooks/useReveal';
 import { posts, PostIndexEntry } from '../data/blogPosts';
+import NewsletterSignup from '../components/NewsletterSignup';
 
 type Category = 'Alles' | PostIndexEntry['category'];
 
@@ -236,13 +237,9 @@ const Inzichten = () => {
               <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed mb-8">
                 Eén keer per maand een diepgaande analyse van AI-ontwikkelingen die ertoe doen voor Nederlandse MKB-industrie. Geen spam, direct opzegbaar.
               </p>
-              <a
-                href="/#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
-              >
-                Aanmelden voor de nieuwsbrief
-                <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              <div className="max-w-lg mx-auto">
+                <NewsletterSignup sourceHint="Inzichten-hub newsletter CTA" />
+              </div>
             </div>
           </div>
         </section>
