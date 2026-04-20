@@ -81,7 +81,7 @@ const HeroNew = () => {
           >
             <Zap className="w-4 h-4 text-lv-accent" />
             <span className="font-body text-sm font-500 text-lv-accent">
-              AI Operations Partner voor het Nederlandse MKB
+              Jouw AI operations partner
             </span>
           </div>
 

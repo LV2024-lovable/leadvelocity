@@ -24,8 +24,11 @@ const FooterNew = () => {
                 <span className="font-display text-xl font-700 text-lv-accent">velocity</span>
               </span>
             </div>
-            <p className="font-body text-sm text-lv-text-muted leading-relaxed">
-              AI Operations Partner voor Nederlandse groothandel, maakindustrie en transport.
+            <p className="font-body text-sm text-lv-text-muted leading-relaxed mb-2">
+              Jouw AI operations partner.
+            </p>
+            <p className="font-body text-xs text-lv-text-subtle leading-relaxed">
+              Diepe sector-expertise in groothandel, maakindustrie en transport.
             </p>
           </div>
 
