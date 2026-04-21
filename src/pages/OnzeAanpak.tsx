@@ -279,17 +279,17 @@ const OnzeAanpak = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="/#contact"
+                  href="/ai-ops-audit"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
                 >
-                  Plan een gesprek
+                  Start met een audit
                   <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
-                  href="/veelgestelde-vragen"
+                  href="/#contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-border text-lv-text font-display font-600 text-base rounded-lg hover:border-lv-text-subtle transition-all duration-300"
                 >
-                  Bekijk FAQ
+                  Of plan een kennismaking
                 </a>
               </div>
             </div>

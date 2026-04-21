@@ -1,5 +1,5 @@
 
-project_id = "ymdlgdvjfgqbpyawurnu"
+project_id = "gkjgrmnvfmlhinxordtz"
 
 [api]
 enabled = true
@@ -20,12 +20,14 @@ port = 54324
 
 [storage]
 enabled = true
-port = 54325
 
 [functions.slack-notify]
 verify_jwt = false
 
 [functions.email-notify]
+verify_jwt = false
+
+[functions.auto-respond-asset]
 verify_jwt = false
 
 [functions.hr-chat]

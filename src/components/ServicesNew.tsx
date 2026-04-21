@@ -147,14 +147,14 @@ const ServicesNew = () => {
 
                 {/* CTA */}
                 <a
-                  href="#contact"
+                  href={i === 0 ? '/ai-ops-audit' : '#contact'}
                   className={`inline-flex items-center gap-2 font-display text-sm font-600 transition-colors duration-200 ${
                     tier.primary
                       ? 'text-lv-accent hover:text-lv-accent/80'
                       : 'text-lv-text-muted group-hover:text-lv-accent'
                   }`}
                 >
-                  {i === 0 ? 'Start met een audit' : i === 1 ? 'Kom in gesprek' : 'Meer weten'}
+                  {i === 0 ? 'Bekijk de audit' : i === 1 ? 'Kom in gesprek' : 'Meer weten'}
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </div>
