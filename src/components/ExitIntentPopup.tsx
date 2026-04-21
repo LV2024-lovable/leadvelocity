@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { X, ArrowUpRight, Check, Loader2, FileText } from 'lucide-react';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
+import { triggerAutoRespond } from '../lib/autoRespond';
 
 const STORAGE_KEY = 'lv-exit-intent-shown';
 const SESSION_KEY = 'lv-exit-intent-session-shown';
@@ -110,6 +111,12 @@ const ExitIntentPopup = () => {
         body: { name, company: '', email, phone: '', message: body },
       });
       if (error) throw error;
+
+      triggerAutoRespond({
+        name: name.trim(),
+        email: email.trim(),
+        assetType: 'tips_tricks',
+      });
 
       try {
         localStorage.setItem(STORAGE_KEY, Date.now().toString());

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUpRight, FileText, Check, Loader2, Download } from 'lucide-react';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
+import { triggerAutoRespond } from '../lib/autoRespond';
 
 type Props = {
   /** Welk asset-type bieden we aan? Default = tips_tricks */
@@ -72,6 +73,13 @@ const ContentUpgrade: React.FC<Props> = ({
         },
       });
       if (error) throw error;
+
+      triggerAutoRespond({
+        name: 'daar',
+        email,
+        assetType: assetType === 'tips_tricks' ? 'tips_tricks' : 'newsletter',
+      });
+
       setSubmitted(true);
       toast.success(
         assetType === 'tips_tricks'

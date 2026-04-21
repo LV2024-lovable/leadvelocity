@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUpRight, Check, Loader2 } from 'lucide-react';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
+import { triggerAutoRespond } from '../lib/autoRespond';
 
 type FormData = {
   name: string;
@@ -66,6 +67,12 @@ const ContactForm: React.FC<Props> = ({ variant = 'default', sourceHint }) => {
       });
 
       if (error) throw error;
+
+      triggerAutoRespond({
+        name: data.name.trim(),
+        email: data.email.trim(),
+        assetType: 'contact',
+      });
 
       setSubmitted(true);
       setData(initialData);

@@ -12,6 +12,7 @@ import NavbarNew from '../components/NavbarNew';
 import FooterNew from '../components/FooterNew';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
+import { triggerAutoRespond } from '../lib/autoRespond';
 import { useReveal } from '../hooks/useReveal';
 
 const chapters = [
@@ -91,6 +92,13 @@ const TipsEnTricks = () => {
         body: { name, company: '', email, phone: '', message: body },
       });
       if (error) throw error;
+
+      triggerAutoRespond({
+        name,
+        email,
+        assetType: 'tips_tricks',
+      });
+
       setSubmitted(true);
       toast.success('PDF onderweg naar je inbox');
     } catch (err) {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUpRight, Check, Loader2, Mail } from 'lucide-react';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
+import { triggerAutoRespond } from '../lib/autoRespond';
 
 const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -48,6 +49,12 @@ const NewsletterSignup: React.FC<Props> = ({ variant = 'default', sourceHint }) 
       });
 
       if (error) throw error;
+
+      triggerAutoRespond({
+        name: name.trim() || 'daar',
+        email: email.trim(),
+        assetType: 'newsletter',
+      });
 
       setSubmitted(true);
       toast.success('Bedankt! Je staat op de lijst.');

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUpRight, Check, Loader2, FileText } from 'lucide-react';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
+import { triggerAutoRespond, AssetType } from '../lib/autoRespond';
 
 type FormData = {
   name: string;
@@ -73,6 +74,20 @@ const WhitepaperRequestForm: React.FC<Props> = ({ whitepaperTitle, whitepaperSlu
       });
 
       if (error) throw error;
+
+      // Map whitepaperSlug to AssetType
+      const slugToAsset: Record<string, AssetType> = {
+        'groothandel-2026': 'whitepaper_groothandel',
+        'maakindustrie-2026': 'whitepaper_maakindustrie',
+        'transport-2026': 'whitepaper_transport',
+      };
+      const assetType = slugToAsset[whitepaperSlug] ?? 'whitepaper_groothandel';
+
+      triggerAutoRespond({
+        name: data.name.trim(),
+        email: data.email.trim(),
+        assetType,
+      });
 
       setSubmitted(true);
       toast.success('Whitepaper onderweg! Je ontvangt hem binnen enkele minuten.');

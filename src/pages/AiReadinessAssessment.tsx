@@ -4,6 +4,7 @@ import NavbarNew from '../components/NavbarNew';
 import FooterNew from '../components/FooterNew';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
+import { triggerAutoRespond } from '../lib/autoRespond';
 import {
   questions,
   dimensions,
@@ -100,6 +101,16 @@ const AiReadinessAssessment = () => {
         },
       });
       if (error) throw error;
+
+      triggerAutoRespond({
+        name,
+        email,
+        assetType: 'ai_readiness_assessment',
+        extra: {
+          score: String(result?.percentage ?? 0),
+          level: result?.readinessLevel ?? '',
+        },
+      });
 
       setStage('result');
       toast.success('Resultaat beschikbaar — we sturen ook een kopie naar je inbox');

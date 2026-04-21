@@ -4,6 +4,7 @@ import NavbarNew from './NavbarNew';
 import FooterNew from './FooterNew';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
+import { triggerAutoRespond, AssetType } from '../lib/autoRespond';
 import { useReveal } from '../hooks/useReveal';
 import { PromptPack } from '../data/promptPacks';
 
@@ -54,6 +55,19 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
         body: { name, company: '', email, phone: '', message: body },
       });
       if (error) throw error;
+
+      const slugToAsset: Record<string, AssetType> = {
+        'groothandel-prompts-2026': 'prompts_groothandel',
+        'maakindustrie-prompts-2026': 'prompts_maakindustrie',
+        'transport-prompts-2026': 'prompts_transport',
+      };
+      const assetType = slugToAsset[pack.slug] ?? 'prompts_groothandel';
+
+      triggerAutoRespond({
+        name,
+        email,
+        assetType,
+      });
 
       setUnlocked(true);
       toast.success('Pack ontgrendeld — we sturen ook een kopie naar je inbox.');
