@@ -32,11 +32,11 @@ Deze dubbele boodschap (AI als *enabler* + AI als *vervanger van traagheid*) is 
 
 ## 3. Wat we verkopen — 4 producten + retainer-paraplu
 
-### Product 1 — AI Kickstart Assessment (betaalde intake)
-- **Wat:** diepte-scan van operatie, sales, inkoop en klantcontact
-- **Deliverable:** top-3 concrete AI-kansen met impact-inschatting en prioritering
-- **Prijs:** op maat (bewust niet publiek gelabeld — we evalueren nog wat we echt kunnen leveren)
-- **Rol:** kwalificeert serieuze prospects, directe cashflow, hoeksteen van funnel
+### Product 1 — AI Ops Audit (betaalde intake)
+- **Wat:** diepte-scan van operatie, sales, inkoop en klantcontact via 60 min kickoff + 2-4 team-interviews
+- **Deliverable:** top-3 concrete AI-kansen met impact-inschatting en prioritering, geschreven rapport (2-3 p.) binnen 5 werkdagen
+- **Prijs:** €2.500 vast, 2 weken doorlooptijd (gepubliceerd op [/ai-ops-audit](./src/pages/AiOpsAudit.tsx))
+- **Rol:** kwalificeert serieuze prospects, directe cashflow, hoeksteen van funnel (Funnel D in master-funnel-doc)
 
 ### Product 2 — AI Sales Systeem
 - **Wat:** complete AI-gedreven sales-motor: prospecting, scrapers, outbound-sequences, sales intelligence, pipeline-scoring
@@ -250,7 +250,7 @@ Gebruik deze voor nieuwe copy, use-cases, blog-content. Elke sector heeft TL;DR 
 
 ### Hoe een klant typisch bij ons komt
 1. Inbound via website (formulier op `/` of `/lp/assessment`) **OF** cold outreach-sequence
-2. 30-min kennismakingsgesprek (gratis) → AI Kickstart Assessment (betaald) of direct door naar Sprint
+2. 30-min kennismakingsgesprek (gratis) → AI Ops Audit (€2.500, 2 weken) of direct door naar Pilot Build
 3. Na eerste product: doorrol in AI Operations Partnership (retainer)
 
 ### Contact-routing
