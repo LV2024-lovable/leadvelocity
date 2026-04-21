@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ExitIntentPopup from "./components/ExitIntentPopup";
 import Home from "./pages/Home";
 import Groothandel from "./pages/Groothandel";
 import Maakindustrie from "./pages/Maakindustrie";
@@ -28,6 +29,7 @@ import AiReadinessAssessment from "./pages/AiReadinessAssessment";
 import GroothandelPromptPack from "./pages/promptpacks/GroothandelPromptPack";
 import MaakindustriePromptPack from "./pages/promptpacks/MaakindustriePromptPack";
 import TransportPromptPack from "./pages/promptpacks/TransportPromptPack";
+import TipsEnTricks from "./pages/TipsEnTricks";
 import NotFound from "./pages/NotFound";
 import React from "react";
 
@@ -38,6 +40,7 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <TooltipProvider>
+          <ExitIntentPopup />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/groothandel" element={<Groothandel />} />
@@ -64,6 +67,7 @@ const App = () => (
             <Route path="/bronnen/prompts/groothandel-2026" element={<GroothandelPromptPack />} />
             <Route path="/bronnen/prompts/maakindustrie-2026" element={<MaakindustriePromptPack />} />
             <Route path="/bronnen/prompts/transport-2026" element={<TransportPromptPack />} />
+            <Route path="/bronnen/tips-en-tricks" element={<TipsEnTricks />} />
             <Route path="/nieuwsbrief" element={<Nieuwsbrief />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

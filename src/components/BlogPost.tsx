@@ -4,6 +4,7 @@ import NavbarNew from './NavbarNew';
 import FooterNew from './FooterNew';
 import SchemaMarkup, { nlDateToIso } from './SchemaMarkup';
 import SocialShare from './SocialShare';
+import ContentUpgrade from './ContentUpgrade';
 import { useReveal } from '../hooks/useReveal';
 
 export type BlogPostSection =
@@ -282,6 +283,15 @@ const BlogPost: React.FC<{ config: BlogPostConfig }> = ({ config }) => {
                 }
                 return null;
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* CONTENT UPGRADE — between body and takeaways */}
+        <section className="pt-2 pb-10 relative">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-3xl mx-auto">
+              <ContentUpgrade assetType="tips_tricks" source={`blog:${config.slug}`} />
             </div>
           </div>
         </section>
