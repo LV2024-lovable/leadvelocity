@@ -263,7 +263,7 @@ const TipsEnTricks = () => {
               <div className="max-w-3xl mx-auto text-center">
                 <p className="font-body text-base text-lv-text-muted leading-relaxed">
                   Al klaar om verder te gaan? Bekijk de{' '}
-                  <a href="/bronnen/ai-readiness-assessment" className="text-lv-accent hover:underline font-500">
+                  <a href="/ai-readiness-assessment" className="text-lv-accent hover:underline font-500">
                     AI-Readiness Assessment
                   </a>
                   {' '}of{' '}

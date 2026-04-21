@@ -50,7 +50,7 @@ const templates: Record<
       <p>Vijf hoofdstukken, 20 tips, 25 pagina's. Lees 'm rustig door — er staan er zeker een paar tussen die je vandaag al kan toepassen.</p>
       <p><strong>Wat doe je hierna?</strong></p>
       <ul>
-        <li>Wil je zien hoe jouw organisatie scoort op AI-readiness? <a href="${BASE_URL}/bronnen/ai-readiness-assessment">Doe de Assessment</a> (5 min, persoonlijk rapport).</li>
+        <li>Wil je zien hoe jouw organisatie scoort op AI-readiness? <a href="${BASE_URL}/ai-readiness-assessment">Doe de Assessment</a> (5 min, persoonlijk rapport).</li>
         <li>Dieper in jouw sector duiken? Bekijk de <a href="${BASE_URL}/bronnen">whitepapers per sector</a>.</li>
       </ul>
       <p>Veel leesplezier.</p>
@@ -62,7 +62,7 @@ Hier is je PDF met 20 AI-tips:
 ${BASE_URL}/downloads/tips-en-tricks-2026.pdf
 
 Wat doe je hierna?
-- Doe de AI-Readiness Assessment: ${BASE_URL}/bronnen/ai-readiness-assessment
+- Doe de AI-Readiness Assessment: ${BASE_URL}/ai-readiness-assessment
 - Bekijk sector-whitepapers: ${BASE_URL}/bronnen
 
 Veel leesplezier.
@@ -105,7 +105,7 @@ Leadvelocity`,
         <li>WBSO-subsidiegids voor AI-projecten 2026</li>
       </ul>
       <p><strong>Meest gestelde vervolgvragen:</strong></p>
-      <p>Veel lezers vragen zich na deze whitepaper af: "Waar staan wij nu, en wat past bij onze specifieke situatie?" Daar hebben we iets voor gebouwd: de <a href="${BASE_URL}/bronnen/ai-readiness-assessment">AI-Readiness Assessment</a>. Duurt 5 minuten, geeft een persoonlijk rapport met aanbevolen vervolgstappen.</p>
+      <p>Veel lezers vragen zich na deze whitepaper af: "Waar staan wij nu, en wat past bij onze specifieke situatie?" Daar hebben we iets voor gebouwd: de <a href="${BASE_URL}/ai-readiness-assessment">AI-Readiness Assessment</a>. Duurt 5 minuten, geeft een persoonlijk rapport met aanbevolen vervolgstappen.</p>
       <p>Of plan direct een gesprek als je concreet wilt sparren: <a href="${BASE_URL}/#contact">leadvelocity.nl/#contact</a></p>
       <p>— Bart<br />Leadvelocity</p>
     `),
@@ -119,7 +119,7 @@ Inhoud:
 - 12-maanden roadmap
 - WBSO-subsidiegids
 
-Vervolg: doe de AI-Readiness Assessment: ${BASE_URL}/bronnen/ai-readiness-assessment
+Vervolg: doe de AI-Readiness Assessment: ${BASE_URL}/ai-readiness-assessment
 Of plan gesprek: ${BASE_URL}/#contact
 
 — Bart
@@ -138,7 +138,7 @@ Leadvelocity`,
         <li>Predictive maintenance, shop-floor copilot, CSRD-automation</li>
         <li>Scenario's voor €15M / €35M / €80M maakbedrijven</li>
       </ul>
-      <p><strong>Vervolgstap:</strong> doe de <a href="${BASE_URL}/bronnen/ai-readiness-assessment">AI-Readiness Assessment</a> (5 min, persoonlijk rapport) of <a href="${BASE_URL}/#contact">plan een gesprek</a>.</p>
+      <p><strong>Vervolgstap:</strong> doe de <a href="${BASE_URL}/ai-readiness-assessment">AI-Readiness Assessment</a> (5 min, persoonlijk rapport) of <a href="${BASE_URL}/#contact">plan een gesprek</a>.</p>
       <p>— Bart<br />Leadvelocity</p>
     `),
     text: `Hi ${name},
@@ -146,7 +146,7 @@ Leadvelocity`,
 Whitepaper: ${BASE_URL}/downloads/whitepaper-maakindustrie-2026.pdf
 
 Vervolg:
-- AI-Readiness Assessment: ${BASE_URL}/bronnen/ai-readiness-assessment
+- AI-Readiness Assessment: ${BASE_URL}/ai-readiness-assessment
 - Gesprek plannen: ${BASE_URL}/#contact
 
 — Bart
@@ -165,7 +165,7 @@ Leadvelocity`,
         <li>CSRD scope-3 automation blueprint</li>
         <li>Scenario's voor pallet / FTL / 3PL</li>
       </ul>
-      <p><strong>Vervolgstap:</strong> doe de <a href="${BASE_URL}/bronnen/ai-readiness-assessment">AI-Readiness Assessment</a> of <a href="${BASE_URL}/#contact">plan een gesprek</a>.</p>
+      <p><strong>Vervolgstap:</strong> doe de <a href="${BASE_URL}/ai-readiness-assessment">AI-Readiness Assessment</a> of <a href="${BASE_URL}/#contact">plan een gesprek</a>.</p>
       <p>— Bart<br />Leadvelocity</p>
     `),
     text: `Hi ${name},
@@ -173,7 +173,7 @@ Leadvelocity`,
 Whitepaper: ${BASE_URL}/downloads/whitepaper-transport-2026.pdf
 
 Vervolg:
-- AI-Readiness Assessment: ${BASE_URL}/bronnen/ai-readiness-assessment
+- AI-Readiness Assessment: ${BASE_URL}/ai-readiness-assessment
 - Gesprek: ${BASE_URL}/#contact
 
 — Bart
@@ -248,38 +248,57 @@ Gesprek: ${BASE_URL}/#contact
 Leadvelocity`,
   }),
 
-  ai_readiness_assessment: ({ name, extra }) => ({
-    subject: `Jouw AI-Readiness Score: ${extra?.score ?? "?"}% — ${extra?.level ?? ""}`,
-    html: wrap(`
-      <p>Hi ${esc(name)},</p>
-      <p>Hier is je AI-Readiness rapport, zoals beloofd.</p>
-      <p><strong>Score: ${esc(extra?.score ?? "")}% — ${esc(extra?.level ?? "")}</strong></p>
-      <p>Je kan het volledige rapport altijd terugzien op <a href="${BASE_URL}/bronnen/ai-readiness-assessment">leadvelocity.nl/bronnen/ai-readiness-assessment</a>.</p>
-      <p><strong>Vervolgstappen die bij jouw score passen:</strong></p>
-      <ul>
-        <li>Begin met de <a href="${BASE_URL}/downloads/tips-en-tricks-2026.pdf">20 AI-tips-PDF</a> als je nog zoekt waar je kan starten.</li>
-        <li>Diepgaander in jouw sector duiken? Zie de <a href="${BASE_URL}/bronnen">sector-whitepapers</a>.</li>
-        <li>Klaar voor een gesprek? <a href="${BASE_URL}/#contact">Plan een 30-min kennismaking</a> — we luisteren meer dan we praten.</li>
-      </ul>
-      <p>Over 3 dagen stuur ik je 3 concrete vervolgstappen specifiek op basis van je score.</p>
-      <p>— Bart<br />Leadvelocity</p>
-    `),
-    text: `Hi ${name},
+  ai_readiness_assessment: ({ name, extra }) => {
+    const score = extra?.score ?? "?";
+    const band = extra?.band ?? "";
+    const sector = extra?.sector ?? "jullie sector";
+    const strongest = extra?.strongestDimension ?? "";
+    const weakest = extra?.weakestDimension ?? "";
+    const useCaseTitle = extra?.recommendedUseCaseTitle ?? "";
+    const useCaseDescription = extra?.recommendedUseCaseDescription ?? "";
+    return {
+      subject: `Jouw AI-Readiness score: ${score}/100 — ${band}`,
+      html: wrap(`
+        <p>Hi ${esc(name)},</p>
+        <p>Hier is jullie AI-Readiness uitslag, afgestemd op <strong>${esc(sector)}</strong>.</p>
+        <div style="padding:20px;border-radius:12px;background:#f5f7f0;border:1px solid #c8ff0033;margin:20px 0">
+          <div style="font-size:44px;font-weight:700;color:#6a9000;line-height:1">${esc(score)}<span style="font-size:20px;color:#888">/100</span></div>
+          <div style="font-size:18px;font-weight:600;margin-top:6px">${esc(band)}</div>
+        </div>
+        <p><strong>Sterkste dimensie:</strong> ${esc(strongest)}<br/>
+        <strong>Grootste rem:</strong> ${esc(weakest)}</p>
+        ${useCaseTitle ? `<p><strong>Meest logische eerste toepassing:</strong> ${esc(useCaseTitle)}<br/><em>${esc(useCaseDescription)}</em></p>` : ""}
+        <p>Het complete rapport met 30-dagen-advies en sector-specifieke aanbevelingen staat op <a href="${BASE_URL}/ai-readiness-assessment/resultaat">jullie result-pagina</a> (gebruik dezelfde browser) en is ook via deze mail terug te vinden.</p>
+        <p><strong>Wat zou de logische volgende stap zijn?</strong></p>
+        <ul>
+          <li>Wil je hier gericht over sparren? <a href="${BASE_URL}/ai-ops-audit">Bekijk de AI Ops Audit</a> — 2 weken, vaste prijs, geschreven rapport.</li>
+          <li>Nog inspiratie verzamelen? <a href="${BASE_URL}/downloads/tips-en-tricks-2026.pdf">Download de 20 AI-tips-PDF</a>.</li>
+          <li>Dieper in jullie sector duiken? <a href="${BASE_URL}/bronnen">Bekijk de sector-whitepapers</a>.</li>
+        </ul>
+        <p>Veel sterkte met de volgende stap.</p>
+        <p>— Team Leadvelocity</p>
+      `),
+      text: `Hi ${name},
 
-AI-Readiness Score: ${extra?.score ?? "?"}% — ${extra?.level ?? ""}
+AI-Readiness uitslag voor ${sector}:
+Score: ${score}/100 — ${band}
 
-Terugkijken: ${BASE_URL}/bronnen/ai-readiness-assessment
+Sterkste dimensie: ${strongest}
+Grootste rem: ${weakest}
+${useCaseTitle ? `\nMeest logische eerste toepassing: ${useCaseTitle}\n${useCaseDescription}\n` : ""}
 
-Volgende stappen:
+Volledige uitslag terugzien: ${BASE_URL}/ai-readiness-assessment/resultaat
+
+Volgende stap:
+- AI Ops Audit (2 weken, vaste prijs): ${BASE_URL}/ai-ops-audit
 - 20 AI-tips PDF: ${BASE_URL}/downloads/tips-en-tricks-2026.pdf
 - Sector-whitepapers: ${BASE_URL}/bronnen
-- Gesprek plannen: ${BASE_URL}/#contact
 
-Over 3 dagen stuur ik 3 concrete vervolgstappen op basis van je score.
+Veel sterkte met de volgende stap.
 
-— Bart
-Leadvelocity`,
-  }),
+— Team Leadvelocity`,
+    };
+  },
 
   contact: ({ name }) => ({
     subject: "Bedankt voor je bericht — ik reageer binnen 1 werkdag",
@@ -288,7 +307,7 @@ Leadvelocity`,
       <p>Je bericht is binnen. Ik reageer binnen één werkdag persoonlijk.</p>
       <p>Intussen, voor de niet-dringende nieuwsgierigheid:</p>
       <ul>
-        <li><a href="${BASE_URL}/bronnen/ai-readiness-assessment">Doe de AI-Readiness Assessment</a> (5 min, persoonlijk rapport)</li>
+        <li><a href="${BASE_URL}/ai-readiness-assessment">Doe de AI-Readiness Assessment</a> (5 min, persoonlijk rapport)</li>
         <li><a href="${BASE_URL}/downloads/tips-en-tricks-2026.pdf">Download de 20 AI-tips-PDF</a></li>
       </ul>
       <p>Tot snel.</p>
@@ -299,7 +318,7 @@ Leadvelocity`,
 Je bericht is binnen. Ik reageer binnen één werkdag.
 
 Intussen:
-- AI-Readiness Assessment: ${BASE_URL}/bronnen/ai-readiness-assessment
+- AI-Readiness Assessment: ${BASE_URL}/ai-readiness-assessment
 - 20 AI-tips PDF: ${BASE_URL}/downloads/tips-en-tricks-2026.pdf
 
 Tot snel.

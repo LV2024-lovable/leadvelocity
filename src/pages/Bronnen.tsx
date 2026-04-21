@@ -62,7 +62,7 @@ const resources: Resource[] = [
     title: 'AI-Readiness Assessment',
     description:
       '15 vragen, persoonlijke score (0-100%), aanbevolen vervolgstappen. Direct zicht op waar jullie staan in AI-volwassenheid.',
-    href: '/bronnen/ai-readiness-assessment',
+    href: '/ai-readiness-assessment',
     vertical: 'Alle sectoren',
     status: 'Beschikbaar',
     gatedType: 'Gratis · direct',

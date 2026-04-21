@@ -36,7 +36,7 @@ const ExitIntentPopup = () => {
     // Don't show on certain pages (lead magnets themselves — user is already mid-conversion)
     const excludedPaths = [
       '/bronnen/tips-en-tricks',
-      '/bronnen/ai-readiness-assessment',
+      '/ai-readiness-assessment',
       '/lp/assessment',
     ];
     if (excludedPaths.some((p) => window.location.pathname.startsWith(p))) {
