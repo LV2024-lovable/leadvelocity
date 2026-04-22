@@ -30,3 +30,7 @@ dist-ssr
 
 # Supabase CLI temp files
 supabase/.temp/
+
+# Prospect data (contains personal data — don't commit)
+data/prospects/*.csv
+
