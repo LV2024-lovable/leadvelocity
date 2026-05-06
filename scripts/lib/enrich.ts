@@ -46,11 +46,12 @@ export async function classifyRow(args: {
   pagesFetched: string[];
 }): Promise<Classification> {
   const anthropic = getClient();
+  const todayIso = new Date().toISOString().slice(0, 10);
   const resp = await anthropic.messages.create({
     model: HAIKU_MODEL,
     max_tokens: 512,
     system: CLASSIFY_SYSTEM_PROMPT,
-    messages: [{ role: "user", content: buildClassifyUserPrompt(args) }],
+    messages: [{ role: "user", content: buildClassifyUserPrompt({ ...args, todayIso }) }],
   });
   const text = extractText(resp);
   return parseJsonResponse<Classification>(text, "classify");

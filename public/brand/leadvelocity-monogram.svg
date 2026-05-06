@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Leadvelocity monogram">
+  <!-- LV monogram on dark accent square -->
+  <rect width="200" height="200" rx="32" fill="#09090B"/>
+  <text x="100" y="135"
+        font-family="-apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="120" font-weight="700" letter-spacing="-4"
+        text-anchor="middle">
+    <tspan fill="#FAFAF9">L</tspan><tspan fill="#C8FF00">V</tspan>
+  </text>
+</svg>
