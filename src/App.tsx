@@ -32,6 +32,7 @@ import MaakindustriePromptPack from "./pages/promptpacks/MaakindustriePromptPack
 import TransportPromptPack from "./pages/promptpacks/TransportPromptPack";
 import TipsEnTricks from "./pages/TipsEnTricks";
 import AiOpsAudit from "./pages/AiOpsAudit";
+import OplossingPage from "./pages/OplossingPage";
 import NotFound from "./pages/NotFound";
 import React from "react";
 
@@ -73,6 +74,7 @@ const App = () => (
             <Route path="/bronnen/prompts/transport-2026" element={<TransportPromptPack />} />
             <Route path="/bronnen/tips-en-tricks" element={<TipsEnTricks />} />
             <Route path="/ai-ops-audit" element={<AiOpsAudit />} />
+            <Route path="/oplossingen/:slug" element={<OplossingPage />} />
             <Route path="/nieuwsbrief" element={<Nieuwsbrief />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
