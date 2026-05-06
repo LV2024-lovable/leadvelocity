@@ -1,26 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { ArrowUpRight, Zap, TrendingUp, Bot } from 'lucide-react';
 
-// Three headline variants that rotate per visit.
-const HEADLINES = [
-  {
-    id: 'empowerment',
-    headline: ['Geef je team de bouwblokken.', 'Geef je bedrijf de voorsprong.'],
-    sub: 'Wij bouwen AI-systemen die MKB-teams slimmer, sneller en met minder gedoe laten werken — en bedrijven die stil staan laten inhalen door iedereen die wél beweegt.',
-  },
-  {
-    id: 'outcome',
-    headline: ['Meer marge.', 'Minder handwerk.', 'AI die écht rendeert.'],
-    sub: 'Van slimmere inkoop en automatisering tot AI-gedreven sales en klantenservice — wij helpen Nederlandse MKB-bedrijven hun operatie werkelijk AI-gedreven maken.',
-  },
-  {
-    id: 'question',
-    headline: ['Wat als je morgen 40% van het handwerk', 'uit je operatie kon halen?'],
-    sub: 'Voor Nederlandse MKB-bedrijven die vóór willen lopen — wij bouwen de AI-systemen die dat mogelijk maken. Concreet, meetbaar en samen met je team.',
-  },
-] as const;
-
-// Outcome-oriented stats (no sources here — bronnenvermelding op /#resultaten).
+// Outcome-oriented stats (sourced on /#resultaten — industry-broad benchmarks).
 const benchmarks = [
   {
     value: '5-20%',
@@ -36,33 +17,7 @@ const benchmarks = [
   },
 ];
 
-function pickHeadlineIndex() {
-  // Stable per session but rotating across visits.
-  if (typeof window === 'undefined') return 0;
-  try {
-    const stored = sessionStorage.getItem('lv-hero-variant');
-    if (stored !== null) {
-      const n = Number(stored);
-      if (Number.isInteger(n) && n >= 0 && n < HEADLINES.length) return n;
-    }
-    const pick = Math.floor(Math.random() * HEADLINES.length);
-    sessionStorage.setItem('lv-hero-variant', String(pick));
-    return pick;
-  } catch {
-    return 0;
-  }
-}
-
 const HeroNew = () => {
-  // SSR-safe default = option 6 (empowerment) as primary H1 for crawlers.
-  const [variantIndex, setVariantIndex] = useState(0);
-
-  useEffect(() => {
-    setVariantIndex(pickHeadlineIndex());
-  }, []);
-
-  const variant = HEADLINES[variantIndex];
-
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden grain">
       {/* Background gradient orb */}
@@ -85,28 +40,22 @@ const HeroNew = () => {
             </span>
           </div>
 
-          {/* Headline — rotates across visits */}
+          {/* Headline — concrete and permanent */}
           <h1
-            key={variant.id}
             className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-display font-700 leading-[1.05] tracking-tight mb-8 opacity-0 animate-fade-in-up"
             style={{ animationDelay: '0.2s' }}
           >
-            {variant.headline.map((line, i) => (
-              <React.Fragment key={i}>
-                <span className={i === variant.headline.length - 1 ? 'text-gradient-accent' : 'text-lv-text'}>
-                  {line}
-                </span>
-                {i < variant.headline.length - 1 && <br />}
-              </React.Fragment>
-            ))}
+            <span className="text-lv-text">Wij bouwen AI-toepassingen</span>
+            <br />
+            <span className="text-gradient-accent">die werk uit handen nemen.</span>
           </h1>
 
-          {/* Subheadline */}
+          {/* Subheadline — direct list of WHAT we build + WHO it's for */}
           <p
-            className="text-lg md:text-xl text-lv-text-muted max-w-2xl leading-relaxed mb-12 font-body opacity-0 animate-fade-in-up"
+            className="text-lg md:text-xl text-lv-text-muted max-w-3xl leading-relaxed mb-12 font-body opacity-0 animate-fade-in-up"
             style={{ animationDelay: '0.35s' }}
           >
-            {variant.sub}
+            Chatbots, AI-agenten, workflow-automatisering en operations-dashboards — gemaakt voor technische groothandel, maakindustrie en transport. Vaste prijs, vaste scope, op onze infrastructuur.
           </p>
 
           {/* CTAs */}
@@ -115,17 +64,17 @@ const HeroNew = () => {
             style={{ animationDelay: '0.5s' }}
           >
             <a
-              href="#contact"
+              href="#wat-we-bouwen"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
             >
-              Start met een AI Ops Audit
+              Bekijk de oplossingen
               <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="#verticals"
+              href="/ai-ops-audit"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-border text-lv-text font-display font-600 text-base rounded-lg hover:border-lv-text-subtle transition-all duration-300"
             >
-              Bekijk voor jouw sector
+              Plan een AI Ops Audit
             </a>
           </div>
 
