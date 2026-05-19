@@ -111,6 +111,11 @@ const FooterNew = () => {
                   Contact
                 </a>
               </li>
+              <li>
+                <a href="/brand" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                  Brand-assets
+                </a>
+              </li>
             </ul>
           </div>
 
