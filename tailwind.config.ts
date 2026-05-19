@@ -19,8 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['Geist', 'system-ui', 'sans-serif'],
-				body: ['Manrope', 'system-ui', 'sans-serif'],
+				display: ['Syne', 'system-ui', 'sans-serif'],
+				body: ['Instrument Sans', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
