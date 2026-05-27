@@ -32,31 +32,39 @@ Deze dubbele boodschap (AI als *enabler* + AI als *vervanger van traagheid*) is 
 
 ## 3. Wat we verkopen — 4 producten + retainer-paraplu
 
-### Product 1 — AI Ops Audit (betaalde intake)
+### Intake — AI Ops Audit (betaalde gateway)
 - **Wat:** diepte-scan van operatie, sales, inkoop en klantcontact via 60 min kickoff + 2-4 team-interviews
 - **Deliverable:** top-3 concrete AI-kansen met impact-inschatting en prioritering, geschreven rapport (2-3 p.) binnen 5 werkdagen
 - **Prijs:** €2.500 vast, 2 weken doorlooptijd (gepubliceerd op [/ai-ops-audit](./src/pages/AiOpsAudit.tsx))
-- **Rol:** kwalificeert serieuze prospects, directe cashflow, hoeksteen van funnel (Funnel D in master-funnel-doc)
+- **Rol:** kwalificeert serieuze prospects, directe cashflow, hoeksteen van funnel
 
-### Product 2 — AI Sales Systeem
-- **Wat:** complete AI-gedreven sales-motor: prospecting, scrapers, outbound-sequences, sales intelligence, pipeline-scoring
-- **Wie:** CRO / Commercieel directeur / DGA met pipeline-druk
-- **Waarom sterk voor ons:** Bart komt uit lead generation — hier zijn we expert, niet alleen bouwer
-- **Snelste close** van de vier, meest universele pijn ("meer leads")
+### 5 Diensten — homepage-positionering (`ServicesNew`)
 
-### Product 3 — AI Operations Dashboard
-- **Wat:** één live dashboard dat ERP + webshop + Excel + CRM + finance samenbrengt
-- **Wie:** COO / Operationeel directeur die geen zicht heeft op live marge/KPI's
-- **Waarom sterk:** universele MKB-pijn (data-chaos), direct zichtbare waarde
+Dit is de WAT-laag: welk business-vraagstuk we oplossen. Getoond op homepage met prijs-vanaf-bedragen.
 
-### Product 4 — AI Assistent
-- **Wat:** chatbot, voice-agent of interne AI-assistent, getraind op klant-data
-- **Wie:** klantenservice-lead, binnendienst-manager, DGA die "ChatGPT-achtig" iets wil
-- **Waarom sterk:** ChatGPT-halo + schaarse kunde (voice agents)
+1. **Commerciële Infrastructuur** — Vanaf €5.000 + retainer
+2. **Procesautomatisering** — Vanaf €4.000 + retainer
+3. **Inkoop & Supply Chain** — Vanaf €6.000 + retainer
+4. **HR & Onboarding** — Vanaf €3.500 + retainer
+5. **Klantenservice & After-Sales** — Vanaf €4.000 + retainer
+
+### 5 Oplossingen — implementation-types (`/oplossingen/[slug]`)
+
+Dit is de HOE-laag: welk type AI-systeem we bouwen om de diensten te leveren. Dieper-pagina's onder `/oplossingen/*`.
+
+| Slug | Titel | Pilot Build |
+|---|---|---|
+| `ai-agenten` | AI-agenten | €12.000-€18.000 |
+| `chatbots` | Chatbots & klantenservice | €12.000-€18.000 |
+| `workflows` | Workflow-automatisering | €12.000-€20.000 |
+| `dashboards` | Operations-dashboards | €15.000-€20.000 |
+| `voice-agents` | Voice-agents | €18.000-€25.000 |
+
+Data-bron: [src/data/oplossingen.ts](./src/data/oplossingen.ts). Cross-links roteren met wrap-around (zie [OplossingPage.tsx:41-47](./src/pages/OplossingPage.tsx#L41-L47)).
 
 ### AI Operations Partnership (retainer-paraplu)
-- **Wat:** doorlopend partnership na eerste product — nieuwe use-cases, optimalisatie, coaching
-- **Prijs:** op maat per klant (flexibel)
+- **Wat:** doorlopend partnership na eerste levering — nieuwe use-cases, optimalisatie, coaching
+- **Prijs:** op maat per klant — niet publiek gepubliceerd
 - **Rol:** recurring revenue, lange klantrelatie, catch-all voor custom builds (CRM-platforms, ATS, energie-analyse, platform-builds)
 
 ---
@@ -171,7 +179,7 @@ src/components/
   NavbarNew.tsx           Fixed nav met Sectoren-dropdown (hover-stable)
   HeroNew.tsx             Rotating headlines (3 varianten, sessionStorage)
   VerticalsNew.tsx        3-card sector-picker op homepage
-  ServicesNew.tsx         4 producten + retainer-paraplu
+  ServicesNew.tsx         5 diensten met vanaf-prijzen + retainer-paraplu
   ProcessNew.tsx          4-stap werkwijze
   ResultsNew.tsx          Bronvermeldingen wonen hier (en nergens anders)
   AboutNew.tsx            POV + "wij/ons" — geen Bart/broer namen
@@ -223,13 +231,13 @@ Gebruik deze voor nieuwe copy, use-cases, blog-content. Elke sector heeft TL;DR 
 ## 9. Beslissingen al genomen (niet meer open ter discussie)
 
 - **Path C** — hybride 12-maanden lean, beslisdatum juni 2027 voor schaal vs. lifestyle
-- **4 producten** — Assessment + Sales + Dashboard + Assistent, plus retainer-paraplu
+- **5 Diensten + 5 Oplossingen** — positionering. Diensten = WAT (business-vraagstuk), Oplossingen = HOE (AI-systeem-type). Niet meer de oude 4-producten-framing.
 - **Homepage vertical-agnostic** — sector-pagina's als aparte routes, niet als homepage-focus
 - **Geen "8-klanten"-tagline** — we willen schalen als het werkt, niet kunstmatig beperken
 - **Geen persoonlijke namen in copy** — altijd "wij/ons"
 - **Retainers zijn positief gepositioneerd** — we willen ze, we zoeken ze
 - **Sources alleen op ResultsNew** — niet overal door site heen
-- **Geen harde prijzen op de site** (nog niet) — product-definitie is nog in ontwikkeling
+- **Prijzen WEL gepubliceerd op de site:** AI Ops Audit (€2.500), Diensten-tegels (vanaf-bedragen €3.500-€6.000), Oplossingen-pilot-ranges (€12k-€25k). Retainer-bedragen blijven op-maat, niet gepubliceerd.
 
 ---
 
