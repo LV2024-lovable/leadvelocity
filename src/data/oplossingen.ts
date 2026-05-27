@@ -102,7 +102,7 @@ export const oplossingen: Record<OplossingSlug, Oplossing> = {
     ],
 
     investmentLine:
-      "Pilot Build vanaf €12.000 (vaste prijs, 6-8 weken). Audit eerst om de juiste eerste agent te kiezen — €2.500, 2 weken.",
+      "Pilot Build €12.000-€18.000 (vaste prijs, 6-8 weken). Audit eerst om de juiste eerste agent te kiezen — €2.500, 2 weken.",
 
     faq: [
       {
@@ -123,9 +123,9 @@ export const oplossingen: Record<OplossingSlug, Oplossing> = {
       },
     ],
 
-    metaTitle: "AI-agenten voor binnendienst, sales en werkvoorbereiding — Leadvelocity",
+    metaTitle: "AI-agenten voor binnendienst en sales — Leadvelocity",
     metaDescription:
-      "Interne AI-assistenten op jullie productkennis, klantdata en historische offertes. Voor groothandel, maakindustrie en transport. Pilot vanaf €12.000.",
+      "Interne AI-assistenten op jullie productkennis, klantdata en historische offertes. Voor groothandel, maakindustrie en transport. Pilot €12.000-€18.000.",
   },
 
   chatbots: {
@@ -172,7 +172,7 @@ export const oplossingen: Record<OplossingSlug, Oplossing> = {
     ],
 
     investmentLine:
-      "Pilot Build vanaf €12.000 (vaste prijs, 6-8 weken). Integratie-complexiteit bepaalt definitieve prijs.",
+      "Pilot Build €12.000-€18.000 (vaste prijs, 6-8 weken). Integratie-complexiteit bepaalt waar in de range.",
 
     faq: [
       {
@@ -195,7 +195,7 @@ export const oplossingen: Record<OplossingSlug, Oplossing> = {
 
     metaTitle: "AI-chatbots & klantenservice voor B2B — Leadvelocity",
     metaDescription:
-      "AI-bots die klantvragen 24/7 beantwoorden met data uit jullie ERP, PIM of CRM. Voor groothandel, maakindustrie en transport. Pilot vanaf €12.000.",
+      "AI-bots die klantvragen 24/7 beantwoorden met data uit jullie ERP, PIM of CRM. Voor groothandel, maakindustrie en transport. Pilot €12.000-€18.000.",
   },
 
   workflows: {
@@ -344,8 +344,8 @@ export const oplossingen: Record<OplossingSlug, Oplossing> = {
     pillBadge: "Telefonische AI",
     icon: Phone,
 
-    heroH1: "Telefonische AI —",
-    heroH1Accent: "schaarse capability in NL.",
+    heroH1: "Voice-agents die telefoongesprekken",
+    heroH1Accent: "écht kunnen voeren.",
     heroSub:
       "AI-voice-agents voor inbound-triage en outbound-campagnes. Een schaarse kunde in Nederland waar wij actief mee bouwen. Voor klantenservice, scheduling, after-sales-checks of outbound-bevestigingen.",
 

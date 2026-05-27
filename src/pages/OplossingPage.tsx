@@ -38,8 +38,13 @@ const OplossingPage: React.FC = () => {
 
   const Icon = data.icon;
 
-  // Pick 2 cross-link suggestions (other oplossingen)
-  const crossLinks = oplossingenList.filter((o) => o.slug !== data.slug).slice(0, 2);
+  // Pick 2 cross-link suggestions — roteer met wrap-around zodat elke oplossing
+  // op minstens 2 andere pagina's als cross-link verschijnt.
+  const currentIdx = oplossingenList.findIndex((o) => o.slug === data.slug);
+  const crossLinks = [
+    oplossingenList[(currentIdx + 1) % oplossingenList.length],
+    oplossingenList[(currentIdx + 2) % oplossingenList.length],
+  ];
 
   return (
     <div className="min-h-screen bg-lv-ink">
