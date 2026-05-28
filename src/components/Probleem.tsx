@@ -37,7 +37,7 @@ const Probleem = () => {
             </span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text leading-[1.1] mb-6">
-            De meeste industriële bedrijven groeien op geluk en netwerk.{' '}
+            De meeste MKB-bedrijven groeien op geluk en netwerk.{' '}
             <span className="text-lv-text-muted">Tot dat ophoudt.</span>
           </h2>
         </div>
