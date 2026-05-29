@@ -52,15 +52,15 @@ const ServicesNew = () => {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-12 bg-lv-accent" />
             <span className="font-mono text-xs uppercase tracking-widest text-lv-accent">
-              Wat we bouwen
+              Diensten · Vijf businessvraagstukken
             </span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text mb-6 leading-[1.1]">
-            Vijf systemen.{' '}
-            <span className="text-gradient-accent">Eén partner.</span>
+            Wij bouwen niet "AI in het algemeen".{' '}
+            <span className="text-gradient-accent">Wij lossen vijf concrete vraagstukken op.</span>
           </h2>
           <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-3xl">
-            Wij pakken de twee grootste verliespunten aan in het industriële MKB: commerciële stilstand en operationele inefficiëntie.
+            Elke dienst start met een vaste audit. Daarna een pilot binnen 4–8 weken. Daarna doorlopend partnership. Geen losse projecten, geen black-box, geen verrassingen.
           </p>
         </div>
 
