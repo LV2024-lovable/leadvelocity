@@ -57,12 +57,12 @@ const VerticalsNew = () => {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-12 bg-lv-accent" />
             <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
-              Voor wie wij bouwen
+              Sectoren · Waar we de diepste expertise hebben
             </span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text mb-6 leading-[1.1]">
-            AI werkt overal in het MKB.{' '}
-            <span className="text-lv-text-muted">In deze drie sectoren kennen wij het speelveld het best.</span>
+            Generieke AI-bureaus pakken alles aan.{' '}
+            <span className="text-lv-text-muted">Wij gaan diep in drie sectoren.</span>
           </h2>
           <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-3xl">
             Wij werken met MKB-bedrijven in heel Nederland. Onze diepste sector-expertise zit in groothandel, maakindustrie en transport — daar hebben we de playbooks, de benchmarks en het netwerk om sneller impact te leveren.
