@@ -43,14 +43,17 @@ const ProcessNew = () => {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-12 bg-lv-accent" />
             <span className="font-mono text-xs uppercase tracking-widest text-lv-accent">
-              Hoe het werkt
+              Aanpak · Vier stappen, geen verrassingen
             </span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text leading-[1.1]">
-            Wij beginnen klein.{' '}
-            <span className="text-lv-text-muted">Wij leveren snel.</span>{' '}
-            <span className="text-gradient-accent">Wij blijven.</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text leading-[1.1] mb-6">
+            Stap voor stap naar{' '}
+            <span className="text-gradient-accent">werkende AI</span>.{' '}
+            <span className="text-lv-text-muted">Geen moonshots.</span>
           </h2>
+          <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-3xl">
+            Vaste prijzen tot en met de pilot. Pas daarna een retainer, en alleen als het werkt.
+          </p>
         </div>
 
         {/* Steps grid (compact summary) */}
