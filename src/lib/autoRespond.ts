@@ -14,6 +14,10 @@ export type AssetType =
   | 'prompts_maakindustrie'
   | 'prompts_transport'
   | 'ai_readiness_assessment'
+  // De AI-kansenscan-rapportmail wordt door de opportunity-scan Edge Function
+  // zelf verzonden. Dit asset-type staat hier alleen voor type-consistentie/
+  // toekomstig gebruik — roep triggerAutoRespond hier NIET voor aan.
+  | 'ai_opportunity_scan'
   | 'contact';
 
 type AutoRespondInput = {

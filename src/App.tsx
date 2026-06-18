@@ -34,6 +34,8 @@ import TipsEnTricks from "./pages/TipsEnTricks";
 import AiOpsAudit from "./pages/AiOpsAudit";
 import OplossingPage from "./pages/OplossingPage";
 import BrandAssets from "./pages/BrandAssets";
+import AiKansenscan from "./pages/AiKansenscan";
+import AiKansenscanResult from "./pages/AiKansenscanResult";
 import NotFound from "./pages/NotFound";
 import React from "react";
 
@@ -77,6 +79,8 @@ const App = () => (
             <Route path="/ai-ops-audit" element={<AiOpsAudit />} />
             <Route path="/oplossingen/:slug" element={<OplossingPage />} />
             <Route path="/brand" element={<BrandAssets />} />
+            <Route path="/ai-kansenscan" element={<AiKansenscan />} />
+            <Route path="/ai-kansenscan/resultaat" element={<AiKansenscanResult />} />
             <Route path="/nieuwsbrief" element={<Nieuwsbrief />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
