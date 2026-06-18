@@ -30,6 +30,9 @@ verify_jwt = false
 [functions.auto-respond-asset]
 verify_jwt = false
 
+[functions.opportunity-scan]
+verify_jwt = false
+
 [functions.hr-chat]
 verify_jwt = false
 
