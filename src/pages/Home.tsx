@@ -7,6 +7,7 @@ import VerticalsNew from '../components/VerticalsNew';
 import ProcessNew from '../components/ProcessNew';
 import VoorWie from '../components/VoorWie';
 import ResultsNew from '../components/ResultsNew';
+import KansenscanCTA from '../components/KansenscanCTA';
 import CTANew from '../components/CTANew';
 import FooterNew from '../components/FooterNew';
 
@@ -22,6 +23,7 @@ const Home = () => {
         <ProcessNew />
         <VoorWie />
         <ResultsNew />
+        <KansenscanCTA />
         <CTANew />
       </main>
       <FooterNew />
