@@ -1,6 +1,6 @@
 # Leadvelocity — Project Context voor Claude
 
-**Laatst bijgewerkt:** 2026-04-20
+**Laatst bijgewerkt:** 2026-10-08
 
 Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken aan Leadvelocity. Lees het in z'n geheel voordat je begint met taken — positionering, product, tone-of-voice en do-not's staan hier allemaal.
 
@@ -8,11 +8,17 @@ Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken a
 
 ## 1. Wat is Leadvelocity?
 
-Leadvelocity is een **AI Operations Partner voor het Nederlandse MKB**. We bouwen AI-systemen die teams slimmer laten werken en bedrijven die stilstaan laten inhalen door degenen die wél bewegen.
+Leadvelocity helpt **MKB-bedrijven ontdekken en inzetten wat AI voor hen kan**. De kernvraag:
 
-**We zijn geen consultancy en geen AI-bureau.** We zijn een lean, gefocust agency dat vier concrete AI-producten bouwt voor MKB-bedrijven in Nederland, met diepe expertise in drie sectoren. Na de eerste levering rollen klanten door in een doorlopend partnership (retainer).
+> **Weet jouw bedrijf wat het met AI kan?**
 
-**Huidige fase:** bootstrapping, 2-persoons-studio in opbouw. Pilot-klanten worden in 2026 verworven. Path C-strategie: jaar 1 lean opereren met exit-architectuur onder de motorkap, beslisdatum juni 2027 voor lifestyle-anker vs. exit-schaling.
+We vertalen AI naar vier concrete uitkomsten — **tijd besparen, klantbehoud, kennisbank, data & inzicht** — elk als vast pakket met vaste prijs, live in 2-4 weken, met een maandtier voor hosting, support en doorontwikkeling. Kleinere bedrijven (5-50 medewerkers) zijn de basis; grotere, complexe projecten doen we als maatwerk.
+
+**We zijn geen consultancy en geen AI-bureau met vage trajecten.** Een prospect moet na één alinea weten wat we doen, wat het kost en hoe snel het werkt.
+
+**Huidige fase:** bootstrapping, 2-persoons-studio in opbouw. Path C-strategie: jaar 1 lean opereren met exit-architectuur onder de motorkap, beslisdatum juni 2027 voor lifestyle-anker vs. exit-schaling.
+
+**Bron van waarheid voor aanbod en prijzen:** [`src/data/aanbod.ts`](./src/data/aanbod.ts). Spec: [`docs/superpowers/specs/2026-10-08-positionering-aanbod-v2-design.md`](./docs/superpowers/specs/2026-10-08-positionering-aanbod-v2-design.md).
 
 ---
 
@@ -30,42 +36,38 @@ Deze dubbele boodschap (AI als *enabler* + AI als *vervanger van traagheid*) is 
 
 ---
 
-## 3. Wat we verkopen — 4 producten + retainer-paraplu
+## 3. Wat we verkopen — 4 uitkomsten, vaste pakketten, maandtier
 
-### Intake — AI Ops Audit (betaalde gateway)
-- **Wat:** diepte-scan van operatie, sales, inkoop en klantcontact via 60 min kickoff + 2-4 team-interviews
-- **Deliverable:** top-3 concrete AI-kansen met impact-inschatting en prioritering, geschreven rapport (2-3 p.) binnen 5 werkdagen
-- **Prijs:** €2.500 vast, 2 weken doorlooptijd (gepubliceerd op [/ai-ops-audit](./src/pages/AiOpsAudit.tsx))
-- **Rol:** kwalificeert serieuze prospects, directe cashflow, hoeksteen van funnel
+Prijzen staan in [`src/data/aanbod.ts`](./src/data/aanbod.ts). Wijzig je een prijs, wijzig hem daar én hier; `npx tsx scripts/check-aanbod.ts` controleert dat ze gelijk zijn.
 
-### 5 Diensten — homepage-positionering (`ServicesNew`)
+### De ladder
+1. **AI-kansenscan (gratis)** — `/ai-kansenscan`: *"Ontdek in 5 minuten wat AI voor jouw bedrijf kan."* Toont welke uitkomsten passen en welk pakket erbij hoort. CTA in elke cold e-mail.
+2. **Kennismaking (gratis, 30 min)** — scan-uitkomst doorlopen, één pakket voorstellen.
+3. **Vast pakket per uitkomst** — vaste scope, vaste setup-prijs, live in 2-4 weken.
+4. **Maandtier** — hosting, AI-gebruik (fair use), monitoring, support, doorontwikkeling.
+5. **Maatwerk** — via de betaalde audit, voor grotere/complexe vraagstukken.
 
-Dit is de WAT-laag: welk business-vraagstuk we oplossen. Getoond op homepage met prijs-vanaf-bedragen.
+### Pakketten (setup, eenmalig, excl. btw)
+- **Kennisbank — €2.000** — 1 documentbron, tot ~500 documenten, chat via browser of Teams
+- **Tijd besparen — €2.500** per workflow — 1 proces end-to-end, koppeling met max. 2 systemen
+- **Klantbehoud — €2.500** — signalen uit order-/CRM-data + 1 opvolg- of heractivatie-flow
+- **Data & inzicht — €3.000** — 2-3 bronnen gekoppeld, 1 dashboard met max. ~10 kerncijfers
 
-1. **Commerciële Infrastructuur** — Vanaf €5.000 + retainer
-2. **Procesautomatisering** — Vanaf €4.000 + retainer
-3. **Inkoop & Supply Chain** — Vanaf €6.000 + retainer
-4. **HR & Onboarding** — Vanaf €3.500 + retainer
-5. **Klantenservice & After-Sales** — Vanaf €4.000 + retainer
+Werk buiten de standaard-scope offreren we vooraf apart.
 
-### 5 Oplossingen — implementation-types (`/oplossingen/[slug]`)
+### Maandtiers (excl. btw)
+- **Basis — €149/maand** — 1 pakket, kleine aanpassingen
+- **Groei — €399/maand** — 2-3 pakketten + 4 uur verbeteringen per maand
+- **Partner — €799/maand** — alle pakketten, 8 uur + maandelijkse verbetersessie + voorrang
 
-Dit is de HOE-laag: welk type AI-systeem we bouwen om de diensten te leveren. Dieper-pagina's onder `/oplossingen/*`.
+Minimale looptijd 6 maanden, daarna maandelijks opzegbaar. Een pakket draait alleen met een actieve maandtier.
 
-| Slug | Titel | Pilot Build |
-|---|---|---|
-| `ai-agenten` | AI-agenten | €12.000-€18.000 |
-| `chatbots` | Chatbots & klantenservice | €12.000-€18.000 |
-| `workflows` | Workflow-automatisering | €12.000-€20.000 |
-| `dashboards` | Operations-dashboards | €15.000-€20.000 |
-| `voice-agents` | Voice-agents | €18.000-€25.000 |
+### Maatwerk
+- **AI Ops Audit — €2.500** — 60 min kickoff + 2-4 team-interviews, rapport met top-3 AI-kansen binnen 5 werkdagen. Ingang voor maatwerk.
+- **Maatwerk vanaf ~€10.000, op offerte** — voice-agents, maatwerk-platformen (CRM, ATS, klantportalen), complexe agents over meerdere systemen.
 
-Data-bron: [src/data/oplossingen.ts](./src/data/oplossingen.ts). Cross-links roteren met wrap-around (zie [OplossingPage.tsx:41-47](./src/pages/OplossingPage.tsx#L41-L47)).
-
-### AI Operations Partnership (retainer-paraplu)
-- **Wat:** doorlopend partnership na eerste levering — nieuwe use-cases, optimalisatie, coaching
-- **Prijs:** op maat per klant — niet publiek gepubliceerd
-- **Rol:** recurring revenue, lange klantrelatie, catch-all voor custom builds (CRM-platforms, ATS, energie-analyse, platform-builds)
+### Uitgefaseerd
+De oude 5 diensten (`ServicesNew`) en 5 oplossingen (`/oplossingen/*`, pilot-ranges €12-25k) zijn niet langer de hoofdstructuur. Deelproject 2 (site-structuur) beslist per pagina wat blijft, verhuist naar maatwerk of verdwijnt.
 
 ---
 
@@ -84,35 +86,25 @@ Dit is wat we aantoonbaar kunnen bouwen vandaag:
 ## 5. Doelgroep (ICP)
 
 ### Geografisch + grootte
-- **Nederland** (NL + België als adjacent)
-- **MKB** (vermijd "50-250 FTE"-framing in copy → zeg "MKB")
-- **Omzetbereik:** typisch €5-100M
+- **Nederland** (België adjacent)
+- **MKB met 5-50 medewerkers** als basis. Groter = maatwerk-route.
+- In klantcopy altijd **"MKB"** — nooit FTE-ranges.
 
-### Personas
+### Beslisser
+- **Eigenaar / DGA** — beslist meestal alleen. Wil weten: wat levert het op, wat kost het, hoe snel. Skeptisch over hype.
+- **Operationeel manager / kantoormanager** — voelt de pijn (handwerk, zoeken, overtypen), bereidt de beslissing voor.
+- Wat ze NIET willen horen: "digitale transformatie", "AI-revolutie", "toekomstbestendig", "journey".
 
-**Primair: COO / Operationeel Directeur**
-- 40-55 jaar, techniek-/bedrijfskunde-achtergrond
-- Pijn: Excel-chaos, handmatige processen, WhatsApp-communicatie, geen live KPI-zicht
-- Wat ze willen horen: *concreet, meetbaar, binnen 6-8 weken eerste resultaat, geen moonshots*
-- Wat ze NIET willen horen: "digitale transformatie", "AI-revolutie", "toekomstbestendig", "journey"
+### 4 doelmarkten (cold outreach + marktpagina's)
 
-**Primair: Commercieel Directeur / CRO**
-- 35-50 jaar, commerciële achtergrond, pipeline-druk van DGA
-- Pijn: pipeline valt tegen, SDR's duur, offertes duren te lang
-- Wat ze willen horen: *meer leads, hogere conversie, lager CAC, binnen dit kwartaal*
+| Markt | Leidende uitkomst | Haak |
+|---|---|---|
+| **Groothandel** | Tijd besparen + Klantbehoud | "Hoeveel orders worden er nog handmatig uit de mail overgetypt?" |
+| **Maakindustrie** | Kennisbank + Tijd besparen | "Wat gebeurt er met jullie configuratiekennis als je senior engineer met pensioen gaat?" |
+| **Zakelijke dienstverlening** | Tijd besparen + Kennisbank | "Hoeveel uur per week gaat er naar intake, administratie en documenten zoeken?" |
+| **MKB algemeen** | Instap via kansenscan | "Weet jij wat AI voor jouw bedrijf kan? Ontdek het in 5 minuten." |
 
-**Secundair: DGA / Eigenaar**
-- 50-65 jaar, eindbeslisser bij retainers, vaak in opvolgings- of exitmodus
-- Pijn: bedrijf verkoopklaar maken, EBITDA-boost
-- Hook: *AI is nu je grootste EBITDA-hefboom, dat telt bij waardering*
-
-### Sector-focus (waar we diepste expertise claimen)
-
-1. **Technische groothandel** (primair in outreach) — MRO, industriële onderdelen, machine-onderdelen, HVAC, installatie. ERIKS, Wasco, Wiltec, ~400 NL-bedrijven in ICP.
-2. **Maakindustrie** (secundair) — metaalbewerking, machinebouw, precisiemechatronica, voedingsmachines.
-3. **Transport & logistiek** (secundair) — pallet-distributie, 3PL, FTL, bulk, koel/vries.
-
-Homepage is **vertical-agnostic** (generiek MKB). Sector-expertise wordt getoond als sectie-onder-de-fold + in 3 dedicated landing pages.
+Transport & logistiek is **geen focusmarkt meer**. Bestaande transport-content blijft voorlopig staan tot deelproject 2.
 
 ---
 
@@ -231,35 +223,37 @@ Gebruik deze voor nieuwe copy, use-cases, blog-content. Elke sector heeft TL;DR 
 ## 9. Beslissingen al genomen (niet meer open ter discussie)
 
 - **Path C** — hybride 12-maanden lean, beslisdatum juni 2027 voor schaal vs. lifestyle
-- **5 Diensten + 5 Oplossingen** — positionering. Diensten = WAT (business-vraagstuk), Oplossingen = HOE (AI-systeem-type). Niet meer de oude 4-producten-framing.
-- **Homepage vertical-agnostic** — sector-pagina's als aparte routes, niet als homepage-focus
-- **Geen "8-klanten"-tagline** — we willen schalen als het werkt, niet kunstmatig beperken
+- **Positionering v2 (2026-10-08)** — kernvraag "Weet jouw bedrijf wat het met AI kan?", 4 uitkomsten als vaste pakketten. Vervangt de 5 diensten + 5 oplossingen.
+- **ICP 5-50 medewerkers** — kleinere bedrijven als basis, maatwerk voor groter
+- **4 markten** — groothandel, maakindustrie, zakelijke dienstverlening, MKB algemeen. Transport valt af.
+- **Prijsmodel** — vaste setup per pakket + maandtier (Basis/Groei/Partner), 6 maanden minimum
+- **Prijzen WEL gepubliceerd:** pakket-setups, maandtiers, AI Ops Audit, maatwerk "vanaf ~€10.000"
+- **Retainers positief gepositioneerd** — als concrete maandtier, niet als open "partnership op maat"
 - **Geen persoonlijke namen in copy** — altijd "wij/ons"
-- **Retainers zijn positief gepositioneerd** — we willen ze, we zoeken ze
-- **Sources alleen op ResultsNew** — niet overal door site heen
-- **Prijzen WEL gepubliceerd op de site:** AI Ops Audit (€2.500), Diensten-tegels (vanaf-bedragen €3.500-€6.000), Oplossingen-pilot-ranges (€12k-€25k). Retainer-bedragen blijven op-maat, niet gepubliceerd.
+- **Sources alleen op één resultaten-sectie** — niet overal door site heen
+- **Geen "8-klanten"-tagline** — we willen schalen als het werkt
 
 ---
 
-## 10. Open werkpunten / roadmap-komend
+## 10. Open werkpunten
 
-1. **Cold outreach uitvoeren** — eerste batch technische groothandel Q2 2026 (20-30 prospects)
-2. **Targeting-guide + tools-stack docs** nog aanvullen in `docs/outreach/`
-3. **Pilot-klanten werven** — 3 stuks in Q1-Q2 voor case studies
-4. **LinkedIn-content-engine starten** — 3x/week vanuit Bart, 1x/week bedrijfsaccount
-5. **Whitepapers**: "AI in NL Technische Groothandel 2026" en "AI voor NL Maakindustrie 2026"
-6. **`/over-ons` als aparte route** (nu als anchor op homepage)
-7. **Blog/inzichten-sectie** — zodra we 3+ posts hebben
-8. **Case-studies-pagina** — zodra eerste klant mag/wil publiceren
+Site-brede herpositionering in 4 deelprojecten (elk eigen spec → plan → uitvoering):
+
+1. ~~Positionering & aanbod v2~~ — afgerond (`src/data/aanbod.ts`)
+2. **Site-structuur + minimal design system** — welke van de ~37 pagina's blijven; component libraries via shadcn-registry/MCP (o.a. `@aceternity/sticky-scroll-reveal-demo`); oude componenten opruimen
+3. **Bouw** — homepage, 4 marktpagina's, pakket-/prijspagina, kansenscan-resultaat gemapt op de 4 uitkomsten
+4. **Cold outreach** — één 5-touch sequence per markt op basis van §5
+
+Daarnaast: pilot-klanten werven voor case studies, LinkedIn-content-engine.
 
 ---
 
 ## 11. Commerciële workflow-context
 
 ### Hoe een klant typisch bij ons komt
-1. Inbound via website (formulier op `/` of `/lp/assessment`) **OF** cold outreach-sequence
-2. 30-min kennismakingsgesprek (gratis) → AI Ops Audit (€2.500, 2 weken) of direct door naar Pilot Build
-3. Na eerste product: doorrol in AI Operations Partnership (retainer)
+1. Cold outreach-sequence **OF** inbound via website → AI-kansenscan (`/ai-kansenscan`)
+2. 30-min kennismakingsgesprek (gratis) → één vast pakket + maandtier. Groter/complex → AI Ops Audit (€2.500) → maatwerk-offerte
+3. Na eerste pakket: tweede pakket toevoegen, tier groeit mee (Basis → Groei → Partner)
 
 ### Contact-routing
 - Formulieren landen in **info@leadvelocity.nl** via Supabase/Resend
@@ -307,4 +301,4 @@ Gebruik deze voor nieuwe copy, use-cases, blog-content. Elke sector heeft TL;DR 
 
 ---
 
-*Einde project-context. Laatst bijgewerkt: 2026-04-20. Update dit document wanneer positionering, aanbod of werkstijl significant verandert.*
+*Einde project-context. Laatst bijgewerkt: 2026-10-08. Update dit document wanneer positionering, aanbod of werkstijl significant verandert.*

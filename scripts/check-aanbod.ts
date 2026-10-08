@@ -4,6 +4,7 @@
  * Faalt (exit 1) bij elke afwijking van de spec
  * docs/superpowers/specs/2026-10-08-positionering-aanbod-v2-design.md
  */
+import { readFileSync } from "node:fs";
 import {
   uitkomsten,
   pakketten,
@@ -118,6 +119,32 @@ for (const { veld, tekst } of alleTeksten()) {
     check(!new RegExp(`\\b${woord}\\b`).test(laag), `${veld}: verboden woord "${woord}"`);
   }
   check(!/\d+\s?%/.test(tekst), `${veld}: percentage-claim in "${tekst}"`);
+}
+
+// --- CLAUDE.md moet dezelfde prijzen noemen en geen oude positionering bevatten ---
+const claudeMd = readFileSync(new URL("../CLAUDE.md", import.meta.url), "utf8");
+const verplicht = [
+  ...pakketten.map((p) => `${p.naam} — ${formatEuro(p.setupPrijs)}`),
+  ...maandtiers.map((t) => `${t.naam} — ${formatEuro(t.prijsPerMaand)}/maand`),
+  `AI Ops Audit — ${formatEuro(maatwerk.auditPrijs)}`,
+  `vanaf ~${formatEuro(maatwerk.vanafPrijs)}`,
+  `${voorwaarden.minLooptijdMaanden} maanden`,
+  "5-50 medewerkers",
+];
+for (const s of verplicht) {
+  check(claudeMd.includes(s), `CLAUDE.md mist "${s}"`);
+}
+const verouderd = [
+  "### 5 Diensten",
+  "### 5 Oplossingen",
+  "€12.000-€18.000",
+  "€18.000-€25.000",
+  "Omzetbereik:** typisch €5-100M",
+  "Transport & logistiek** (secundair)",
+  "Retainer-bedragen blijven op-maat",
+];
+for (const s of verouderd) {
+  check(!claudeMd.includes(s), `CLAUDE.md bevat nog verouderd: "${s}"`);
 }
 
 // --- resultaat ---
