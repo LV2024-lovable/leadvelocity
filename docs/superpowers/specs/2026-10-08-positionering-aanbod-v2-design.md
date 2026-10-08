@@ -1,7 +1,7 @@
 # Positionering & aanbod v2 — Design Spec
 
 **Datum:** 2026-10-08
-**Status:** Draft — wacht op review
+**Status:** Vastgesteld (2026-10-08)
 **Deelproject:** 1 van 4 (site-brede herpositionering + redesign)
 **Scope:** wat Leadvelocity verkoopt, aan wie, voor welke prijs, en met welke boodschap per markt
 **Out of scope (eigen spec per deelproject):**

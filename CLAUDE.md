@@ -204,6 +204,7 @@ Als formulier niet werkt → check eerst deze twee.
 | Pad | Wat |
 |---|---|
 | [`docs/strategy/2026-04-20-leadvelocity-masterplan.md`](./docs/strategy/2026-04-20-leadvelocity-masterplan.md) | Strategisch masterplan v1 — POV, doelgroep, aanbod, 3-jaars roadmap, pad C |
+| [`docs/strategy/2026-10-08-positionering-v2.md`](./docs/strategy/2026-10-08-positionering-v2.md) | Addendum positionering v2 — vervangt aanbod, doelgroep en markten uit het masterplan |
 | [`docs/outreach/README.md`](./docs/outreach/README.md) | Overview van outreach-stack |
 | [`docs/outreach/playbook.md`](./docs/outreach/playbook.md) | Scrape-to-opening 3-min-proces |
 | [`docs/outreach/sequence-groothandel.md`](./docs/outreach/sequence-groothandel.md) | Groothandel 5-touch campaign |
@@ -261,8 +262,8 @@ Daarnaast: pilot-klanten werven voor case studies, LinkedIn-content-engine.
 - LinkedIn company: `linkedin.com/company/leadvelocity-2/`
 
 ### Wat NIET doen in klantgesprek
-- Geen scope committen voordat Assessment is gedaan
-- Geen vaste prijzen quoten als klant nog niet duidelijk is
+- Geen maatwerk-scope committen zonder AI Ops Audit
+- Werk buiten de standaard-scope van een pakket niet ter plekke prijzen — vooraf apart offreren
 - Geen beloftes die we nog niet 3x hebben geleverd
 
 ---
@@ -293,7 +294,7 @@ Daarnaast: pilot-klanten werven voor case studies, LinkedIn-content-engine.
 
 - **Altijd checken of de copy voldoet aan tone-of-voice sectie 6** vóór commit
 - **Nooit persoonlijke namen (Bart/broer) in klant-copy** toevoegen, ook niet per ongeluk
-- **Bij twijfel over positionering**: check masterplan (`docs/strategy/...`)
+- **Bij twijfel over positionering of prijzen**: check [`src/data/aanbod.ts`](./src/data/aanbod.ts) en het addendum (`docs/strategy/2026-10-08-positionering-v2.md`); het masterplan alleen nog voor Path C en de POV
 - **Bij twijfel over use-cases/cijfers**: check research-docs (`.planning/research/*.md`)
 - **Bij twijfel over outreach-wording**: check sequence-docs (`docs/outreach/sequence-*.md`)
 - **Commits zijn logisch gegroepeerd** (één feature/sectie per commit), conventional-commits niet verplicht

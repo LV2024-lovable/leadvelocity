@@ -109,6 +109,7 @@ const verboden = [
   "roadmap",
   "toekomstbestendig",
   "ai-revolutie",
+  "ai-transformatie",
   "bart",
   "broer",
   "fte",
