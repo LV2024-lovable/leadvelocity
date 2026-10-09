@@ -1,8 +1,8 @@
-# Leadvelocity — Project Context voor Claude
+# Lead Velocity — Project Context voor Claude
 
 **Laatst bijgewerkt:** 2026-10-09
 
-Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken aan Leadvelocity. Lees het in z'n geheel voordat je begint met taken — positionering, product, tone-of-voice en do-not's staan hier allemaal.
+Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken aan Lead Velocity. Lees het in z'n geheel voordat je begint met taken — positionering, product, tone-of-voice en do-not's staan hier allemaal.
 
 ---
 
@@ -18,17 +18,19 @@ Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
 
 ---
 
-## 2. Onze kern-overtuiging (POV)
+## 2. Merkbelofte en boodschap (handover §3)
 
-Overal in copy, content en gesprekken zit deze centrale belief:
+Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
 
-> **AI vervangt geen goede mensen. Maar wél bedrijven die blijven stilstaan.**
->
-> AI geeft mensen de bouwblokken om sneller, slimmer en met minder gedoe te werken. Maar AI vervangt wél organisaties die niet meebewegen. De vraag is niet óf je AI inzet. De vraag is: ben jij degene die ermee bouwt, of degene die wordt ingehaald?
+Ondersteunende uitleg: **Wij automatiseren terugkerend werk rond aanvragen, klantcommunicatie en opvolging. Ingericht op jullie werkwijze, met jullie team in controle.**
 
-Deze dubbele boodschap (AI als *enabler* + AI als *vervanger van traagheid*) is onze wedge. Concurrenten durven maar één kant te kiezen — wij pakken beide, omdat beide waar zijn.
+Concrete voorbeelden: ontbrekende gegevens verzamelen, mails en bijlagen samenbrengen, informatie uit bronnen ophalen, geschikte bedrijven onderzoeken, conceptberichten voorbereiden en open acties bewaken.
 
-**Subteksten:** *"Supercharge je bedrijf. Bespaar kosten. Bespaar tijd."* · *"Meebewegen, of ingehaald worden."* · *"Niet de vraag óf. De vraag is hoe."*
+Redenen om te kiezen: afgebakende start, tastbaar voorbeeld, aansluiting op bestaand werk, bronvermelding waar nodig, meetbaar resultaat, gecontroleerde oplevering en actief beheer.
+
+**Niet gebruiken als hoofdboodschap:** digitale transformatie, revolutie, toekomstbestendig, AI-powered growth engine, eindeloze mogelijkheden, personeel vervangen of volledig autonoom bedrijf. Interne termen als 'saai' en 'oudbollig' komen niet in de site.
+
+Iedere pagina beantwoordt: welk werk, voor wie, wat verandert, wat blijft bij het team, hoe starten we en wat is de volgende stap?
 
 ---
 
@@ -78,7 +80,7 @@ Vier categorieën (websiteingangen): technische groothandels · importeurs en di
 - **Tweede persoon naar lezer:** "jouw bedrijf", "jullie sales", "jullie operatie"
 - **Concreet over pijn en resultaat.** *"Van Excel-chaos naar real-time zicht"* > *"Wij helpen organisaties bij hun digitale reis."*
 - **Sector-jargon waar relevant** (zie per vertical: `docs/outreach/sequence-*.md`)
-- **Industry benchmarks met bron** — wel op /#resultaten, niet overal
+- **Benchmarks alleen met bron** — en alleen waar een claim het nodig heeft, niet overal
 - **Scenario-cases expliciet gelabeld** als *voorbeeld* of *scenario*
 
 ### DON'T
@@ -91,7 +93,7 @@ Vier categorieën (websiteingangen): technische groothandels · importeurs en di
 - ❌ **Geen hype-taal:** "digitale transformatie", "journey", "synergie", "cutting-edge", "disruptive", "next-gen", "revolutionair", "paradigmaverschuiving", "holistisch", "roadmap"
 - ❌ **Geen "Amerikaanse superlatieven"** of vertaalde US-cliche's ("unlocking value", "unleash potential")
 - ❌ **Geen beloftes die we niet kunnen staven** ("40% binnen 30 dagen")
-- ❌ **Geen 2-persoonsagency-framing in commerciële copy** — we zijn Leadvelocity, niet "Bart + broer"
+- ❌ **Geen 2-persoonsagency-framing in commerciële copy** — we zijn Lead Velocity, niet "Bart + broer"
 
 ### Tone-check voor elke copy-wijziging
 
@@ -110,8 +112,8 @@ Vraag jezelf voor elk blok af:
 - **React Router v6** (BrowserRouter, hash-links voor same-page, path-routes voor aparte pages)
 - **Tailwind CSS** met custom `lv-*` kleuren (zie `tailwind.config.ts`)
 - **shadcn/ui** componenten (beschikbaar onder `src/components/ui/`)
-- **Supabase** voor contact-form-submissions + Edge Functions
-- **Resend** via Supabase Edge Function `email-notify` → `info@leadvelocity.nl`
+- **Supabase** voor formulier-aanvragen + Edge Functions
+- **Resend** via Supabase Edge Functions (`werkstroomcheck`, `email-notify`) → `info@leadvelocity.nl`
 - **Fonts:** Schibsted Grotesk (koppen) + Hanken Grotesk (tekst) + JetBrains Mono (labels)
 - **Hosting:** Lovable (via GitHub → Lovable auto-deploy bij push naar `main`)
 
@@ -126,17 +128,21 @@ Vraag jezelf voor elk blok af:
 - `src/pages/site/*` — paginasjablonen (CategoryPage, ProcessPage, CampaignPage, …)
 - `supabase/functions/werkstroomcheck` — aanvraag opslaan + mail via Resend
 
-### Contactformulier-integratie
+### Formulier-integratie
 
-Formulier submits via `supabase.functions.invoke('email-notify', ...)`. Die Edge Function staat in `supabase/functions/email-notify/` en gebruikt Resend om te mailen naar `info@leadvelocity.nl`. **Vereisten:**
+Het checkformulier (`/werkstroomcheck`, `src/components/site/CheckForm.tsx`) post naar de Edge Function `supabase/functions/werkstroomcheck`. Die valideert, slaat de aanvraag op in tabel `werkstroomcheck_requests` (migratie `supabase/migrations/20261009120000_werkstroomcheck_requests.sql`, met defaults voor eigenaar en volgende actie) en mailt via Resend naar `info@leadvelocity.nl`. **Functie en migratie moeten nog gedeployed worden** (`supabase db push`, `supabase functions deploy werkstroomcheck`) — alleen met akkoord van Bart; zie `docs/superpowers/2026-10-09-livegang.md`.
+
+`supabase/functions/email-notify/` bedient alleen nog de behouden formulieren buiten de check: whitepaper-, promptpack-, content-upgrade- en nieuwsbriefaanvragen.
+
+**Vereisten:**
 - `RESEND_API_KEY` environment-secret in Supabase
 - Domein `leadvelocity.nl` geverifieerd in Resend (SPF/DKIM)
 
-Als formulier niet werkt → check eerst deze twee.
+Als een formulier niet werkt → check eerst de deploy en deze twee.
 
 ### Do's & Don'ts bij code
 
-- **Houd copy in componenten.** Voor grote data-sets (vertical configs) gebruik we config-objecten bovenaan het page-bestand (zie de templates in `src/pages/site/*` en de data in `src/content/*`).
+- **Copy en prijzen in `src/content/*`.** Componenten en paginasjablonen (`src/components/site/*`, `src/pages/site/*`) lezen daaruit; geen euro-literals of losse copy in de sjablonen.
 - **Gebruik `useReveal`-hook** voor scroll-animaties, niet losse IntersectionObserver-code.
 - **Nieuwe pages via `/` in `App.tsx`** toevoegen, niet via dynamic imports tenzij bundle-size issue is.
 - **Geen shadcn/ui-componenten customen direct.** Liever `className=` toevoegen of wrapper-component maken.
@@ -198,7 +204,7 @@ Zie `docs/superpowers/2026-10-09-livegang.md` voor livegang-afhankelijkheden (pr
 - LinkedIn company: `linkedin.com/company/leadvelocity-2/`
 
 ### Wat NIET doen in klantgesprek
-- Geen maatwerk-scope committen zonder AI Ops Audit
+- Geen maatwerk-scope committen zonder betaalde analyse (€750)
 - Werk buiten de standaard-scope van een pakket niet ter plekke prijzen — vooraf apart offreren
 - Geen beloftes die we nog niet 3x hebben geleverd
 
@@ -230,7 +236,7 @@ Zie `docs/superpowers/2026-10-09-livegang.md` voor livegang-afhankelijkheden (pr
 
 - **Altijd checken of de copy voldoet aan tone-of-voice sectie 6** vóór commit
 - **Geen persoonlijke namen in klant-copy** buiten `/over` en de Over-sectie van de homepage (zie §6)
-- **Bij twijfel over positionering of prijzen**: check [`src/content/pricing.ts`](./src/content/pricing.ts) en het addendum (`docs/strategy/2026-10-08-positionering-v2.md`); het masterplan alleen nog voor Path C en de POV
+- **Bij twijfel over positionering of prijzen**: check de handover [`docs/strategy/2026-10-09-website-gtm-handover.md`](./docs/strategy/2026-10-09-website-gtm-handover.md) en [`src/content/pricing.ts`](./src/content/pricing.ts); het masterplan alleen nog voor Path C
 - **Bij twijfel over use-cases/cijfers**: check research-docs (`.planning/research/*.md`)
 - **Bij twijfel over outreach-wording**: check sequence-docs (`docs/outreach/sequence-*.md`)
 - **Commits zijn logisch gegroepeerd** (één feature/sectie per commit), conventional-commits niet verplicht
