@@ -37,6 +37,7 @@ import NotFound from "./pages/NotFound";
 import Voorbeelden from "./pages/site/Voorbeelden";
 import React from "react";
 import CategoryPage from "./pages/site/CategoryPage";
+import CampaignPage from "./pages/site/CampaignPage";
 import VoorWie from "./pages/site/VoorWie";
 import Oplossingen from "./pages/site/Oplossingen";
 import ProcessPage from "./pages/site/ProcessPage";
@@ -95,6 +96,10 @@ const App = () => (
             <Route path="/prijzen" element={<Prijzen />} />
             <Route path="/werkwijze" element={<Werkwijze />} />
             <Route path="/over" element={<Over />} />
+            <Route path="/campagnes/offerte-intake" element={<CampaignPage key="offerte-intake" id="offerte-intake" />} />
+            <Route path="/campagnes/aftersales" element={<CampaignPage key="aftersales" id="aftersales" />} />
+            <Route path="/campagnes/service-intake" element={<CampaignPage key="service-intake" id="service-intake" />} />
+            <Route path="/campagnes/project-intake" element={<CampaignPage key="project-intake" id="project-intake" />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
