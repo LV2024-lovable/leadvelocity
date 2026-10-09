@@ -35,23 +35,23 @@ const ProcessNew = () => {
 
   return (
     <section id="aanpak" className="section-padding relative bg-lv-surface">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
 
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div ref={headerRef} className="reveal mb-16 md:mb-20 max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-12 bg-lv-accent" />
-            <span className="font-mono text-xs uppercase tracking-widest text-lv-accent">
+            <div className="h-px w-12 bg-lv-lime" />
+            <span className="font-mono text-xs uppercase tracking-widest text-lv-lime-ink">
               Aanpak · Vier stappen, geen verrassingen
             </span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text leading-[1.1] mb-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-ink leading-[1.1] mb-6">
             Stap voor stap naar{' '}
             <span className="text-gradient-accent">werkende AI</span>.{' '}
-            <span className="text-lv-text-muted">Geen moonshots.</span>
+            <span className="text-lv-body">Geen moonshots.</span>
           </h2>
-          <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-3xl">
+          <p className="font-body text-lg text-lv-body leading-relaxed max-w-3xl">
             Vaste prijzen tot en met de pilot. Pas daarna een retainer, en alleen als het werkt.
           </p>
         </div>
@@ -64,18 +64,18 @@ const ProcessNew = () => {
               <div
                 key={s.number}
                 ref={stepRef}
-                className="reveal p-7 md:p-8 rounded-2xl border border-lv-border-subtle bg-lv-ink"
+                className="reveal p-7 md:p-8 rounded-2xl border border-lv-line-soft bg-lv-paper"
               >
-                <div className="font-mono text-xs uppercase tracking-widest text-lv-accent mb-4">
+                <div className="font-mono text-xs uppercase tracking-widest text-lv-lime-ink mb-4">
                   Stap {s.number}
                 </div>
-                <h3 className="font-display text-xl md:text-2xl font-700 text-lv-text mb-2 leading-tight">
+                <h3 className="font-display text-xl md:text-2xl font-700 text-lv-ink mb-2 leading-tight">
                   {s.title}
                 </h3>
-                <div className="font-mono text-xs text-lv-text-subtle mb-4 uppercase tracking-wide">
+                <div className="font-mono text-xs text-lv-faint mb-4 uppercase tracking-wide">
                   {s.duration}
                 </div>
-                <p className="font-body text-sm text-lv-text-muted leading-relaxed">
+                <p className="font-body text-sm text-lv-body leading-relaxed">
                   {s.text}
                 </p>
               </div>
@@ -87,7 +87,7 @@ const ProcessNew = () => {
         <div ref={ctaRef} className="reveal mt-12 md:mt-16 text-center">
           <a
             href="/onze-aanpak"
-            className="inline-flex items-center gap-2 font-display text-base font-600 text-lv-text hover:text-lv-accent transition-colors duration-200 group"
+            className="inline-flex items-center gap-2 font-display text-base font-600 text-lv-ink hover:text-lv-lime-ink transition-colors duration-200 group"
           >
             Lees de volledige aanpak
             <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

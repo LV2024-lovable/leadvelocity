@@ -87,22 +87,22 @@ const ContactForm: React.FC<Props> = ({ variant = 'default', sourceHint }) => {
 
   if (submitted) {
     return (
-      <div className="p-8 md:p-10 rounded-2xl bg-lv-accent/[0.06] border border-lv-accent/30 text-center">
-        <div className="w-14 h-14 rounded-full bg-lv-accent/10 border border-lv-accent/30 flex items-center justify-center mx-auto mb-5">
-          <Check className="w-7 h-7 text-lv-accent" />
+      <div className="p-8 md:p-10 rounded-2xl bg-lv-lime/[0.06] border border-lv-lime-ink/30 text-center">
+        <div className="w-14 h-14 rounded-full bg-lv-lime-soft border border-lv-lime-ink/30 flex items-center justify-center mx-auto mb-5">
+          <Check className="w-7 h-7 text-lv-lime-ink" />
         </div>
-        <h3 className="font-display text-2xl font-700 text-lv-text mb-3">
+        <h3 className="font-display text-2xl font-700 text-lv-ink mb-3">
           Dank je — je bericht is binnen.
         </h3>
-        <p className="font-body text-base text-lv-text-muted leading-relaxed max-w-md mx-auto">
+        <p className="font-body text-base text-lv-body leading-relaxed max-w-md mx-auto">
           We reageren binnen één werkdag. Voor spoed: bel direct op{' '}
-          <a href="tel:+31625471528" className="text-lv-accent hover:underline font-500">
+          <a href="tel:+31625471528" className="text-lv-lime-ink hover:underline font-500">
             +31 6 25 47 15 28
           </a>.
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="mt-6 inline-flex items-center gap-2 font-body text-sm text-lv-text-subtle hover:text-lv-text transition-colors"
+          className="mt-6 inline-flex items-center gap-2 font-body text-sm text-lv-faint hover:text-lv-ink transition-colors"
         >
           Nog een bericht versturen →
         </button>
@@ -111,13 +111,13 @@ const ContactForm: React.FC<Props> = ({ variant = 'default', sourceHint }) => {
   }
 
   const inputBase =
-    'w-full px-4 py-3 rounded-lg border bg-lv-ink border-lv-border text-lv-text placeholder:text-lv-text-subtle font-body text-base focus:outline-none focus:border-lv-accent/50 focus:ring-1 focus:ring-lv-accent/20 transition-colors';
+    'w-full px-4 py-3 rounded-lg border bg-lv-paper border-lv-line text-lv-ink placeholder:text-lv-faint font-body text-base focus:outline-none focus:border-lv-lime-ink/50 focus:ring-1 focus:ring-lv-lime-ink/20 transition-colors';
 
   return (
     <form onSubmit={handleSubmit} className={variant === 'inline' ? '' : 'space-y-4'}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="name" className="block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+          <label htmlFor="name" className="block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
             Naam *
           </label>
           <input
@@ -132,7 +132,7 @@ const ContactForm: React.FC<Props> = ({ variant = 'default', sourceHint }) => {
           />
         </div>
         <div>
-          <label htmlFor="company" className="block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+          <label htmlFor="company" className="block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
             Bedrijf
           </label>
           <input
@@ -149,7 +149,7 @@ const ContactForm: React.FC<Props> = ({ variant = 'default', sourceHint }) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
         <div>
-          <label htmlFor="email" className="block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+          <label htmlFor="email" className="block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
             E-mail *
           </label>
           <input
@@ -164,7 +164,7 @@ const ContactForm: React.FC<Props> = ({ variant = 'default', sourceHint }) => {
           />
         </div>
         <div>
-          <label htmlFor="phone" className="block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+          <label htmlFor="phone" className="block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
             Telefoon
           </label>
           <input
@@ -180,7 +180,7 @@ const ContactForm: React.FC<Props> = ({ variant = 'default', sourceHint }) => {
       </div>
 
       <div className="mt-4">
-        <label htmlFor="message" className="block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+        <label htmlFor="message" className="block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
           Waar zou AI voor jullie het meeste opleveren? *
         </label>
         <textarea
@@ -197,7 +197,7 @@ const ContactForm: React.FC<Props> = ({ variant = 'default', sourceHint }) => {
       <button
         type="submit"
         disabled={submitting}
-        className="mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60 disabled:cursor-not-allowed"
+        className="mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {submitting ? (
           <>
@@ -212,9 +212,9 @@ const ContactForm: React.FC<Props> = ({ variant = 'default', sourceHint }) => {
         )}
       </button>
 
-      <p className="font-body text-xs text-lv-text-subtle mt-4 leading-relaxed">
+      <p className="font-body text-xs text-lv-faint mt-4 leading-relaxed">
         Geen verkooppraatje. We reageren binnen één werkdag. Voor spoed:{' '}
-        <a href="tel:+31625471528" className="text-lv-accent hover:underline">
+        <a href="tel:+31625471528" className="text-lv-lime-ink hover:underline">
           +31 6 25 47 15 28
         </a>.
       </p>

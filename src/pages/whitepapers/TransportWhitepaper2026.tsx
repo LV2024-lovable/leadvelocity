@@ -55,7 +55,7 @@ const TransportWhitepaper2026 = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-lv-ink">
+    <div className="min-h-screen bg-lv-paper">
       <SchemaMarkup
         schema={{
           type: 'Whitepaper',
@@ -70,27 +70,27 @@ const TransportWhitepaper2026 = () => {
 
       <main>
         <section className="relative overflow-hidden grain">
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-lv-accent/[0.04] rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-lv-lime/[0.04] rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
           <div ref={heroRef} className="reveal container mx-auto px-4 md:px-6 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
                 <div className="lg:col-span-3">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-accent/20 bg-lv-accent/[0.05] mb-8">
-                    <FileText className="w-4 h-4 text-lv-accent" />
-                    <span className="font-body text-sm font-500 text-lv-accent">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-lime-ink/20 bg-lv-lime/[0.05] mb-8">
+                    <FileText className="w-4 h-4 text-lv-lime-ink" />
+                    <span className="font-body text-sm font-500 text-lv-lime-ink">
                       Whitepaper · Transport & Logistiek
                     </span>
                   </div>
-                  <h1 className="font-display text-[2.25rem] sm:text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text leading-[1.05] tracking-tight mb-6">
+                  <h1 className="font-display text-[2.25rem] sm:text-4xl md:text-5xl lg:text-6xl font-700 text-lv-ink leading-[1.05] tracking-tight mb-6">
                     AI voor Nederlandse Transport & Logistiek{' '}
                     <span className="text-gradient-accent">in 2026</span>
                   </h1>
-                  <p className="font-body text-lg md:text-xl text-lv-text-muted leading-relaxed mb-8">
+                  <p className="font-body text-lg md:text-xl text-lv-body leading-relaxed mb-8">
                     25 pagina&apos;s diepgaande analyse: wat de vrachtwagenheffing doet met je marge, welke AI-use-cases dat compenseren, en hoe je CSRD scope-3 rapportage automatiseert vóór je topklant erom vraagt.
                   </p>
-                  <div className="flex flex-wrap items-center gap-5 text-sm text-lv-text-subtle mb-8">
+                  <div className="flex flex-wrap items-center gap-5 text-sm text-lv-faint mb-8">
                     <div className="flex items-center gap-2">
                       <BookOpen className="w-4 h-4" />
                       <span>25 pagina&apos;s</span>
@@ -104,21 +104,21 @@ const TransportWhitepaper2026 = () => {
                       <span>PDF-formaat</span>
                     </div>
                   </div>
-                  <a href="#download" className="inline-flex items-center gap-2 font-display text-base font-700 text-lv-accent hover:underline">
+                  <a href="#download" className="inline-flex items-center gap-2 font-display text-base font-700 text-lv-lime-ink hover:underline">
                     Scroll naar download
                     <ArrowDown className="w-4 h-4" />
                   </a>
                 </div>
                 <div className="lg:col-span-2">
-                  <div className="p-6 md:p-8 rounded-2xl bg-lv-surface border border-lv-border">
-                    <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest mb-5">
+                  <div className="p-6 md:p-8 rounded-2xl bg-lv-surface border border-lv-line">
+                    <div className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest mb-5">
                       Inhoudsopgave
                     </div>
                     <ul className="space-y-3">
                       {whitepaperSections.map((s) => (
                         <li key={s.section} className="flex items-baseline justify-between gap-4 text-sm">
-                          <span className="font-body text-lv-text leading-snug">{s.section}</span>
-                          <span className="font-body text-xs text-lv-text-subtle whitespace-nowrap">{s.length}</span>
+                          <span className="font-body text-lv-ink leading-snug">{s.section}</span>
+                          <span className="font-body text-xs text-lv-faint whitespace-nowrap">{s.length}</span>
                         </li>
                       ))}
                     </ul>
@@ -129,17 +129,17 @@ const TransportWhitepaper2026 = () => {
           </div>
         </section>
 
-        <section ref={whatRef} className="reveal py-16 md:py-20 relative bg-lv-surface border-y border-lv-border-subtle">
+        <section ref={whatRef} className="reveal py-16 md:py-20 relative bg-lv-surface border-y border-lv-line-soft">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-5xl mx-auto">
               <div className="mb-12 max-w-3xl">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="h-px w-10 bg-lv-accent" />
-                  <span className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest">
+                  <div className="h-px w-10 bg-lv-lime" />
+                  <span className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest">
                     Wat je krijgt
                   </span>
                 </div>
-                <h2 className="font-display text-3xl md:text-4xl font-700 text-lv-text leading-[1.1]">
+                <h2 className="font-display text-3xl md:text-4xl font-700 text-lv-ink leading-[1.1]">
                   Niet nog een "smart logistics"-rapport.
                 </h2>
               </div>
@@ -147,14 +147,14 @@ const TransportWhitepaper2026 = () => {
                 {whatYouGet.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <div key={item.title} className="p-6 md:p-7 rounded-xl bg-lv-ink border border-lv-border-subtle">
-                      <div className="w-11 h-11 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center mb-5">
-                        <Icon className="w-5 h-5 text-lv-accent" />
+                    <div key={item.title} className="p-6 md:p-7 rounded-xl bg-lv-paper border border-lv-line-soft">
+                      <div className="w-11 h-11 rounded-lg bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center mb-5">
+                        <Icon className="w-5 h-5 text-lv-lime-ink" />
                       </div>
-                      <h3 className="font-display text-lg font-700 text-lv-text mb-3 leading-tight">
+                      <h3 className="font-display text-lg font-700 text-lv-ink mb-3 leading-tight">
                         {item.title}
                       </h3>
-                      <p className="font-body text-sm text-lv-text-muted leading-relaxed">
+                      <p className="font-body text-sm text-lv-body leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -170,12 +170,12 @@ const TransportWhitepaper2026 = () => {
             <div className="max-w-3xl mx-auto">
               <div className="mb-10">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="h-px w-10 bg-lv-accent" />
-                  <span className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest">
+                  <div className="h-px w-10 bg-lv-lime" />
+                  <span className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest">
                     Voorproefje: 5 insights
                   </span>
                 </div>
-                <h2 className="font-display text-3xl md:text-4xl font-700 text-lv-text leading-[1.1]">
+                <h2 className="font-display text-3xl md:text-4xl font-700 text-lv-ink leading-[1.1]">
                   Wat je in de whitepaper leest
                 </h2>
               </div>
@@ -187,11 +187,11 @@ const TransportWhitepaper2026 = () => {
                   '95% van de CSRD-scope-3 data zit al in jullie tachograaf, FMS en TMS. Automation brengt rapportage van 30-40 uur/maand naar 2-4 uur review.',
                   'Gecombineerd kan 35-70% van de vrachtwagenheffing gecompenseerd worden met AI — maar implementatie-cyclus is 6-9 maanden, dus start nu.',
                 ].map((insight, i) => (
-                  <li key={i} className="flex items-start gap-4 p-5 rounded-xl bg-lv-surface border border-lv-border-subtle">
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-lv-accent/10 border border-lv-accent/30 flex items-center justify-center mt-0.5">
-                      <span className="font-display text-xs font-700 text-lv-accent">{i + 1}</span>
+                  <li key={i} className="flex items-start gap-4 p-5 rounded-xl bg-lv-surface border border-lv-line-soft">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-lv-lime-soft border border-lv-lime-ink/30 flex items-center justify-center mt-0.5">
+                      <span className="font-display text-xs font-700 text-lv-lime-ink">{i + 1}</span>
                     </span>
-                    <span className="font-body text-base text-lv-text leading-relaxed">{insight}</span>
+                    <span className="font-body text-base text-lv-ink leading-relaxed">{insight}</span>
                   </li>
                 ))}
               </ul>
@@ -199,20 +199,20 @@ const TransportWhitepaper2026 = () => {
           </div>
         </section>
 
-        <section id="download" ref={formRef} className="reveal py-16 md:py-20 relative bg-lv-surface border-t border-lv-border-subtle">
+        <section id="download" ref={formRef} className="reveal py-16 md:py-20 relative bg-lv-surface border-t border-lv-line-soft">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
-              <div className="p-8 md:p-12 rounded-3xl bg-lv-accent/[0.04] border border-lv-accent/20 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-lv-accent/[0.06] rounded-full blur-[80px] pointer-events-none" />
+              <div className="p-8 md:p-12 rounded-3xl bg-lv-lime/[0.04] border border-lv-lime-ink/20 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-lv-lime/[0.06] rounded-full blur-[80px] pointer-events-none" />
                 <div className="relative z-10">
                   <div className="text-center mb-10">
-                    <div className="w-14 h-14 rounded-2xl bg-lv-accent/10 border border-lv-accent/30 flex items-center justify-center mx-auto mb-5">
-                      <Download className="w-7 h-7 text-lv-accent" />
+                    <div className="w-14 h-14 rounded-2xl bg-lv-lime-soft border border-lv-lime-ink/30 flex items-center justify-center mx-auto mb-5">
+                      <Download className="w-7 h-7 text-lv-lime-ink" />
                     </div>
-                    <h2 className="font-display text-3xl md:text-4xl font-700 text-lv-text mb-4 leading-[1.1]">
+                    <h2 className="font-display text-3xl md:text-4xl font-700 text-lv-ink mb-4 leading-[1.1]">
                       Download de whitepaper
                     </h2>
-                    <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed max-w-2xl mx-auto">
+                    <p className="font-body text-base md:text-lg text-lv-body leading-relaxed max-w-2xl mx-auto">
                       Vul je gegevens in. We sturen de PDF direct naar je inbox.
                     </p>
                   </div>
@@ -231,9 +231,9 @@ const TransportWhitepaper2026 = () => {
           <section className="py-14 md:py-16 relative">
             <div className="container mx-auto px-4 md:px-6">
               <div className="max-w-3xl mx-auto text-center">
-                <p className="font-body text-base text-lv-text-muted leading-relaxed">
+                <p className="font-body text-base text-lv-body leading-relaxed">
                   Liever direct een gesprek over je vloot?{' '}
-                  <a href="/#contact" className="text-lv-accent hover:underline font-500">
+                  <a href="/#contact" className="text-lv-lime-ink hover:underline font-500">
                     Plan een kennismaking →
                   </a>
                 </p>

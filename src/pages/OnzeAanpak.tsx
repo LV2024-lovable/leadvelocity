@@ -131,30 +131,30 @@ const OnzeAanpak = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-lv-ink">
+    <div className="min-h-screen bg-lv-paper">
       <NavbarNew />
 
       <main>
         {/* HERO */}
         <section className="relative overflow-hidden grain">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-lv-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-lv-lime/[0.03] rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
 
           <div ref={heroRef} className="reveal container mx-auto px-4 md:px-6 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-accent/20 bg-lv-accent/[0.05] mb-8">
-                <span className="font-body text-sm font-500 text-lv-accent">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-lime-ink/20 bg-lv-lime/[0.05] mb-8">
+                <span className="font-body text-sm font-500 text-lv-lime-ink">
                   Onze aanpak
                 </span>
               </div>
 
-              <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-700 text-lv-text leading-[1.05] tracking-tight mb-8">
+              <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-700 text-lv-ink leading-[1.05] tracking-tight mb-8">
                 Van verkennen naar{' '}
                 <span className="text-gradient-accent">zelfstandig draaien</span>{' '}
                 in vier stappen.
               </h1>
 
-              <p className="font-body text-lg md:text-xl text-lv-text-muted leading-relaxed max-w-2xl">
+              <p className="font-body text-lg md:text-xl text-lv-body leading-relaxed max-w-2xl">
                 Geen 18-maanden-consultancyproject. Geen "digitale transformatie". Een heldere volgorde die binnen één kwartaal meetbaar resultaat oplevert en waar jullie team daarna zelf op kan bouwen.
               </p>
             </div>
@@ -163,7 +163,7 @@ const OnzeAanpak = () => {
 
         {/* STEPS */}
         <section className="section-padding relative bg-lv-surface">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
 
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-5xl mx-auto space-y-20 md:space-y-24">
@@ -176,20 +176,20 @@ const OnzeAanpak = () => {
                       {/* Left column: number + icon + meta */}
                       <div className="lg:col-span-3">
                         <div className="flex lg:flex-col items-start gap-4">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-lv-ink border border-lv-border flex items-center justify-center flex-shrink-0">
-                            <span className="font-display text-2xl md:text-3xl font-700 text-lv-accent">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-lv-paper border border-lv-line flex items-center justify-center flex-shrink-0">
+                            <span className="font-display text-2xl md:text-3xl font-700 text-lv-lime-ink">
                               {step.number}
                             </span>
                           </div>
-                          <div className="w-12 h-12 rounded-xl bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center flex-shrink-0">
-                            <Icon className="w-6 h-6 text-lv-accent" />
+                          <div className="w-12 h-12 rounded-xl bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center flex-shrink-0">
+                            <Icon className="w-6 h-6 text-lv-lime-ink" />
                           </div>
                         </div>
                         <div className="mt-5 space-y-1">
-                          <div className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-widest">
+                          <div className="font-body text-xs font-600 text-lv-faint uppercase tracking-widest">
                             {step.meta}
                           </div>
-                          <div className="font-display text-sm font-700 text-lv-accent">
+                          <div className="font-display text-sm font-700 text-lv-lime-ink">
                             {step.price}
                           </div>
                         </div>
@@ -197,27 +197,27 @@ const OnzeAanpak = () => {
 
                       {/* Right column: content */}
                       <div className="lg:col-span-9">
-                        <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-text mb-5 leading-tight">
+                        <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-ink mb-5 leading-tight">
                           {step.title}
                         </h2>
-                        <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed mb-6">
+                        <p className="font-body text-base md:text-lg text-lv-body leading-relaxed mb-6">
                           {step.lead}
                         </p>
                         <ul className="space-y-3 mb-6">
                           {step.details.map((d) => (
                             <li key={d} className="flex items-start gap-3">
-                              <Check className="w-4 h-4 text-lv-accent flex-shrink-0 mt-1.5" />
-                              <span className="font-body text-sm md:text-base text-lv-text-muted leading-relaxed">
+                              <Check className="w-4 h-4 text-lv-lime-ink flex-shrink-0 mt-1.5" />
+                              <span className="font-body text-sm md:text-base text-lv-body leading-relaxed">
                                 {d}
                               </span>
                             </li>
                           ))}
                         </ul>
-                        <div className="p-5 rounded-xl bg-lv-accent/[0.04] border border-lv-accent/20">
-                          <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest mb-2">
+                        <div className="p-5 rounded-xl bg-lv-lime/[0.04] border border-lv-lime-ink/20">
+                          <div className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest mb-2">
                             Wat jij overhoudt
                           </div>
-                          <p className="font-body text-sm md:text-base text-lv-text leading-relaxed">
+                          <p className="font-body text-sm md:text-base text-lv-ink leading-relaxed">
                             {step.outcome}
                           </p>
                         </div>
@@ -235,12 +235,12 @@ const OnzeAanpak = () => {
           <div className="container mx-auto px-4 md:px-6">
             <div ref={guaranteeHeaderRef} className="reveal mb-14 max-w-3xl">
               <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-12 bg-lv-accent" />
-                <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
+                <div className="h-px w-12 bg-lv-lime" />
+                <span className="font-body text-sm font-600 text-lv-lime-ink uppercase tracking-widest">
                   Onze beloftes
                 </span>
               </div>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text leading-[1.1]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-ink leading-[1.1]">
                 Zes dingen die je altijd van ons mag verwachten.
               </h2>
             </div>
@@ -249,15 +249,15 @@ const OnzeAanpak = () => {
               {guarantees.map((g) => (
                 <div
                   key={g.title}
-                  className="p-6 md:p-7 rounded-xl bg-lv-surface border border-lv-border-subtle"
+                  className="p-6 md:p-7 rounded-xl bg-lv-surface border border-lv-line-soft"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center mb-4">
-                    <Check className="w-5 h-5 text-lv-accent" />
+                  <div className="w-10 h-10 rounded-lg bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center mb-4">
+                    <Check className="w-5 h-5 text-lv-lime-ink" />
                   </div>
-                  <h3 className="font-display text-base md:text-lg font-700 text-lv-text mb-2">
+                  <h3 className="font-display text-base md:text-lg font-700 text-lv-ink mb-2">
                     {g.title}
                   </h3>
-                  <p className="font-body text-sm text-lv-text-muted leading-relaxed">
+                  <p className="font-body text-sm text-lv-body leading-relaxed">
                     {g.body}
                   </p>
                 </div>
@@ -268,26 +268,26 @@ const OnzeAanpak = () => {
 
         {/* CTA */}
         <section className="section-padding relative bg-lv-surface">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-6 leading-[1.1]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-ink mb-6 leading-[1.1]">
                 Klinkt dit als een pad waar je achter staat?
               </h2>
-              <p className="font-body text-lg text-lv-text-muted leading-relaxed mb-10">
+              <p className="font-body text-lg text-lv-body leading-relaxed mb-10">
                 Plan een vrijblijvend gesprek. We beginnen met luisteren — niet met pitchen.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/ai-ops-audit"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
                 >
                   Start met een audit
                   <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
                   href="/#contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-border text-lv-text font-display font-600 text-base rounded-lg hover:border-lv-text-subtle transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-line text-lv-ink font-display font-600 text-base rounded-lg hover:border-lv-faint transition-all duration-300"
                 >
                   Of plan een kennismaking
                 </a>

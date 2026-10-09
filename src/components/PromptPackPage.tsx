@@ -91,33 +91,33 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
   };
 
   return (
-    <div className="min-h-screen bg-lv-ink">
+    <div className="min-h-screen bg-lv-paper">
       <NavbarNew />
 
       <main>
         {/* HERO */}
         <section className="relative overflow-hidden grain">
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-lv-accent/[0.04] rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-lv-lime/[0.04] rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
           <div ref={heroRef} className="reveal container mx-auto px-4 md:px-6 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-accent/20 bg-lv-accent/[0.05] mb-8">
-                <Sparkles className="w-4 h-4 text-lv-accent" />
-                <span className="font-body text-sm font-500 text-lv-accent">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-lime-ink/20 bg-lv-lime/[0.05] mb-8">
+                <Sparkles className="w-4 h-4 text-lv-lime-ink" />
+                <span className="font-body text-sm font-500 text-lv-lime-ink">
                   Prompt & Template Pack · {pack.vertical}
                 </span>
               </div>
 
-              <h1 className="font-display text-[2.25rem] sm:text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text leading-[1.05] tracking-tight mb-6">
+              <h1 className="font-display text-[2.25rem] sm:text-4xl md:text-5xl lg:text-6xl font-700 text-lv-ink leading-[1.05] tracking-tight mb-6">
                 {pack.title}
               </h1>
 
-              <p className="font-body text-lg md:text-xl text-lv-text-muted leading-relaxed mb-8 max-w-3xl">
+              <p className="font-body text-lg md:text-xl text-lv-body leading-relaxed mb-8 max-w-3xl">
                 {pack.subtitle}
               </p>
 
-              <div className="flex flex-wrap items-center gap-5 text-sm text-lv-text-subtle">
+              <div className="flex flex-wrap items-center gap-5 text-sm text-lv-faint">
                 <div className="flex items-center gap-2">
                   <Zap className="w-4 h-4" />
                   <span>{pack.prompts.length} AI-prompts</span>
@@ -137,14 +137,14 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
 
         {/* EMAIL GATE — only shown if not unlocked */}
         {!unlocked && (
-          <section ref={formRef} className="reveal py-16 md:py-20 relative bg-lv-surface border-y border-lv-border-subtle">
+          <section ref={formRef} className="reveal py-16 md:py-20 relative bg-lv-surface border-y border-lv-line-soft">
             <div className="container mx-auto px-4 md:px-6">
               <div className="max-w-2xl mx-auto">
-                <div className="p-8 md:p-10 rounded-2xl bg-lv-accent/[0.04] border border-lv-accent/20">
-                  <h2 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-4 leading-tight">
+                <div className="p-8 md:p-10 rounded-2xl bg-lv-lime/[0.04] border border-lv-lime-ink/20">
+                  <h2 className="font-display text-2xl md:text-3xl font-700 text-lv-ink mb-4 leading-tight">
                     Ontgrendel het volledige pack
                   </h2>
-                  <p className="font-body text-base text-lv-text-muted leading-relaxed mb-6">
+                  <p className="font-body text-base text-lv-body leading-relaxed mb-6">
                     Vul je gegevens in om direct alle prompts en templates te zien. We sturen ook een kopie naar je inbox zodat je ze kan delen.
                   </p>
                   <form onSubmit={submitRequest} className="space-y-3">
@@ -155,7 +155,7 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Naam"
-                        className="w-full px-4 py-3 rounded-lg border bg-lv-ink border-lv-border text-lv-text placeholder:text-lv-text-subtle font-body text-base focus:outline-none focus:border-lv-accent/50"
+                        className="w-full px-4 py-3 rounded-lg border bg-lv-paper border-lv-line text-lv-ink placeholder:text-lv-faint font-body text-base focus:outline-none focus:border-lv-lime-ink/50"
                       />
                       <input
                         type="email"
@@ -163,36 +163,36 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="naam@bedrijf.nl"
-                        className="w-full px-4 py-3 rounded-lg border bg-lv-ink border-lv-border text-lv-text placeholder:text-lv-text-subtle font-body text-base focus:outline-none focus:border-lv-accent/50"
+                        className="w-full px-4 py-3 rounded-lg border bg-lv-paper border-lv-line text-lv-ink placeholder:text-lv-faint font-body text-base focus:outline-none focus:border-lv-lime-ink/50"
                       />
                     </div>
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60"
                     >
                       {submitting ? 'Bezig...' : 'Ontgrendel pack'}
                       {!submitting && <ArrowUpRight className="w-5 h-5" />}
                     </button>
-                    <p className="font-body text-xs text-lv-text-subtle mt-2">
+                    <p className="font-body text-xs text-lv-faint mt-2">
                       Geen spam. Je kan je ook aanmelden voor onze maandelijkse nieuwsbrief.
                     </p>
                   </form>
                 </div>
 
                 {/* Preview — first prompt teaser when locked */}
-                <div className="mt-10 p-6 rounded-xl bg-lv-ink border border-lv-border-subtle">
-                  <div className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-widest mb-3">
+                <div className="mt-10 p-6 rounded-xl bg-lv-paper border border-lv-line-soft">
+                  <div className="font-body text-xs font-600 text-lv-faint uppercase tracking-widest mb-3">
                     Voorproefje · 1e prompt
                   </div>
-                  <h3 className="font-display text-base font-700 text-lv-text mb-2">
+                  <h3 className="font-display text-base font-700 text-lv-ink mb-2">
                     {pack.prompts[0].title}
                   </h3>
-                  <p className="font-body text-sm text-lv-text-muted italic">
+                  <p className="font-body text-sm text-lv-body italic">
                     Use-case: {pack.prompts[0].useCase}
                   </p>
-                  <div className="mt-4 p-4 rounded-lg bg-lv-surface border border-lv-border-subtle">
-                    <div className="font-body text-sm text-lv-text-muted leading-relaxed line-clamp-2">
+                  <div className="mt-4 p-4 rounded-lg bg-lv-surface border border-lv-line-soft">
+                    <div className="font-body text-sm text-lv-body leading-relaxed line-clamp-2">
                       {pack.prompts[0].prompt.substring(0, 120)}...
                     </div>
                   </div>
@@ -210,15 +210,15 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                 <div className="max-w-4xl mx-auto">
                   <div className="mb-10">
                     <div className="flex items-center gap-3 mb-5">
-                      <Check className="w-5 h-5 text-lv-accent" />
-                      <span className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest">
+                      <Check className="w-5 h-5 text-lv-lime-ink" />
+                      <span className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest">
                         Pack ontgrendeld · kopie naar {email}
                       </span>
                     </div>
-                    <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-text mb-4 leading-tight">
+                    <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-ink mb-4 leading-tight">
                       De {pack.prompts.length} AI-prompts
                     </h2>
-                    <p className="font-body text-base text-lv-text-muted leading-relaxed">
+                    <p className="font-body text-base text-lv-body leading-relaxed">
                       Kopieer een prompt en plak 'm in ChatGPT, Claude, Gemini of je eigen AI-stack. Vervang placeholders tussen [haakjes] met je eigen waardes.
                     </p>
                   </div>
@@ -227,24 +227,24 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                     {pack.prompts.map((prompt, idx) => (
                       <div
                         key={idx}
-                        className="p-6 md:p-7 rounded-xl bg-lv-surface border border-lv-border-subtle"
+                        className="p-6 md:p-7 rounded-xl bg-lv-surface border border-lv-line-soft"
                       >
                         <div className="flex items-start justify-between gap-4 mb-3">
                           <div>
-                            <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest mb-2">
+                            <div className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest mb-2">
                               Prompt {idx + 1}
                             </div>
-                            <h3 className="font-display text-lg md:text-xl font-700 text-lv-text leading-tight">
+                            <h3 className="font-display text-lg md:text-xl font-700 text-lv-ink leading-tight">
                               {prompt.title}
                             </h3>
                           </div>
                           <button
                             onClick={() => copyPrompt(prompt.prompt, idx)}
-                            className="flex-shrink-0 inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-lv-border text-lv-text-muted hover:text-lv-accent hover:border-lv-accent/40 transition-colors text-sm font-body"
+                            className="flex-shrink-0 inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-lv-line text-lv-body hover:text-lv-lime-ink hover:border-lv-lime-ink/40 transition-colors text-sm font-body"
                           >
                             {copiedPromptIdx === idx ? (
                               <>
-                                <Check className="w-4 h-4 text-lv-accent" />
+                                <Check className="w-4 h-4 text-lv-lime-ink" />
                                 Gekopieerd
                               </>
                             ) : (
@@ -255,11 +255,11 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                             )}
                           </button>
                         </div>
-                        <p className="font-body text-sm text-lv-text-subtle italic mb-4">
+                        <p className="font-body text-sm text-lv-faint italic mb-4">
                           Use-case: {prompt.useCase}
                         </p>
-                        <div className="p-4 rounded-lg bg-lv-ink border border-lv-border-subtle">
-                          <pre className="font-body text-sm text-lv-text-muted leading-relaxed whitespace-pre-wrap break-words">
+                        <div className="p-4 rounded-lg bg-lv-paper border border-lv-line-soft">
+                          <pre className="font-body text-sm text-lv-body leading-relaxed whitespace-pre-wrap break-words">
                             {prompt.prompt}
                           </pre>
                         </div>
@@ -271,14 +271,14 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
             </section>
 
             {/* Templates */}
-            <section className="py-14 md:py-16 relative bg-lv-surface border-y border-lv-border-subtle">
+            <section className="py-14 md:py-16 relative bg-lv-surface border-y border-lv-line-soft">
               <div className="container mx-auto px-4 md:px-6">
                 <div className="max-w-4xl mx-auto">
                   <div className="mb-10">
-                    <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-text mb-4 leading-tight">
+                    <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-ink mb-4 leading-tight">
                       De {pack.templates.length} templates
                     </h2>
-                    <p className="font-body text-base text-lv-text-muted leading-relaxed">
+                    <p className="font-body text-base text-lv-body leading-relaxed">
                       Onderstaande templates worden per e-mail als downloadbare bestanden verzonden. Ze zijn bewerkbaar in Excel, Word en Google Docs.
                     </p>
                   </div>
@@ -287,17 +287,17 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                     {pack.templates.map((template, idx) => (
                       <div
                         key={idx}
-                        className="p-5 md:p-6 rounded-xl bg-lv-ink border border-lv-border-subtle"
+                        className="p-5 md:p-6 rounded-xl bg-lv-paper border border-lv-line-soft"
                       >
                         <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center flex-shrink-0">
-                            <FileText className="w-5 h-5 text-lv-accent" />
+                          <div className="w-10 h-10 rounded-lg bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center flex-shrink-0">
+                            <FileText className="w-5 h-5 text-lv-lime-ink" />
                           </div>
                           <div>
-                            <h3 className="font-display text-base font-700 text-lv-text mb-2 leading-tight">
+                            <h3 className="font-display text-base font-700 text-lv-ink mb-2 leading-tight">
                               {template.title}
                             </h3>
-                            <p className="font-body text-sm text-lv-text-muted leading-relaxed">
+                            <p className="font-body text-sm text-lv-body leading-relaxed">
                               {template.description}
                             </p>
                           </div>
@@ -306,7 +306,7 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                     ))}
                   </div>
 
-                  <p className="font-body text-xs text-lv-text-subtle mt-8 italic">
+                  <p className="font-body text-xs text-lv-faint mt-8 italic">
                     Templates worden binnen 15 minuten verzonden naar {email}. Check ook je spam-folder.
                   </p>
                 </div>
@@ -319,15 +319,15 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
         <section className="py-16 md:py-20 relative">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-text mb-5 leading-tight">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-ink mb-5 leading-tight">
                 Wil je dit in jullie eigen systemen ingebouwd zien?
               </h2>
-              <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed mb-8">
+              <p className="font-body text-base md:text-lg text-lv-body leading-relaxed mb-8">
                 Wij bouwen deze prompts in als AI-assistenten die naadloos in je binnendienst, planner of shop-floor werken. Plan een vrijblijvend gesprek.
               </p>
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
               >
                 Plan een gesprek
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -22,7 +22,7 @@ const NavbarNew = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-lv-ink/90 backdrop-blur-xl border-b border-lv-border/50'
+          ? 'bg-lv-paper/90 backdrop-blur-xl border-b border-lv-line/50'
           : 'bg-transparent'
       }`}
     >
@@ -41,10 +41,10 @@ const NavbarNew = () => {
             </g>
           </svg>
           <span className="flex items-center gap-1">
-            <span className="font-display text-xl md:text-2xl font-700 tracking-tight text-lv-text">
+            <span className="font-display text-xl md:text-2xl font-700 tracking-tight text-lv-ink">
               Lead
             </span>
-            <span className="font-display text-xl md:text-2xl font-700 tracking-tight text-lv-accent">
+            <span className="font-display text-xl md:text-2xl font-700 tracking-tight text-lv-lime-ink">
               velocity
             </span>
           </span>
@@ -56,10 +56,10 @@ const NavbarNew = () => {
             <a
               key={item.href}
               href={item.href}
-              className="font-body text-sm font-500 text-lv-text-muted hover:text-lv-text transition-colors duration-200 relative group"
+              className="font-body text-sm font-500 text-lv-body hover:text-lv-ink transition-colors duration-200 relative group"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-lv-accent transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-lv-lime transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </div>
@@ -67,7 +67,7 @@ const NavbarNew = () => {
         {/* CTA Button */}
         <a
           href="/#contact"
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-lv-accent text-lv-ink font-display font-700 text-sm rounded-lg hover:bg-lv-accent/90 transition-all duration-200 hover:shadow-[0_0_20px_rgba(200,255,0,0.3)]"
+          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-lv-lime text-lv-ink font-display font-700 text-sm rounded-lg hover:bg-lv-lime/90 transition-all duration-200 hover:shadow-[0_0_20px_rgba(200,255,0,0.3)]"
         >
           Gratis audit aanvragen
           <ArrowUpRight className="w-4 h-4" />
@@ -76,7 +76,7 @@ const NavbarNew = () => {
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2 text-lv-text"
+          className="md:hidden p-2 text-lv-ink"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -85,14 +85,14 @@ const NavbarNew = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-lv-ink/95 backdrop-blur-xl border-b border-lv-border animate-fade-in">
+        <div className="md:hidden bg-lv-paper/95 backdrop-blur-xl border-b border-lv-line animate-fade-in">
           <div className="container mx-auto px-4 py-6 flex flex-col gap-1">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="font-display text-lg font-600 text-lv-text-muted hover:text-lv-accent transition-colors py-3"
+                className="font-display text-lg font-600 text-lv-body hover:text-lv-lime-ink transition-colors py-3"
               >
                 {item.label}
               </a>
@@ -100,7 +100,7 @@ const NavbarNew = () => {
             <a
               href="/#contact"
               onClick={() => setMobileOpen(false)}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-accent text-lv-ink font-display font-700 text-sm rounded-lg mt-4"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-lime text-lv-ink font-display font-700 text-sm rounded-lg mt-4"
             >
               Gratis audit aanvragen
               <ArrowUpRight className="w-4 h-4" />

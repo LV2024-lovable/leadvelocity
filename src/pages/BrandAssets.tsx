@@ -38,7 +38,7 @@ const assets: AssetGroup[] = [
 
 const BrandAssets = () => {
   return (
-    <div className="min-h-screen bg-lv-ink flex flex-col">
+    <div className="min-h-screen bg-lv-paper flex flex-col">
       <NavbarNew />
       <main className="flex-1">
         <section className="pt-32 pb-20 md:pt-40 md:pb-32">
@@ -46,15 +46,15 @@ const BrandAssets = () => {
             {/* Header */}
             <div className="mb-16 md:mb-20">
               <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-12 bg-lv-accent" />
-                <span className="font-mono text-xs uppercase tracking-widest text-lv-accent">
+                <div className="h-px w-12 bg-lv-lime" />
+                <span className="font-mono text-xs uppercase tracking-widest text-lv-lime-ink">
                   Brand-assets
                 </span>
               </div>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text leading-[1.05] mb-6">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-ink leading-[1.05] mb-6">
                 Logo&apos;s en huisstijl
               </h1>
-              <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-2xl">
+              <p className="font-body text-lg text-lv-body leading-relaxed max-w-2xl">
                 Gebruik onze logo&apos;s in vector (SVG) waar mogelijk. PNG is beschikbaar voor systemen die geen SVG ondersteunen. Neem contact op als je een variant nodig hebt die hier niet staat.
               </p>
             </div>
@@ -64,12 +64,12 @@ const BrandAssets = () => {
               {assets.map((group) => (
                 <div
                   key={group.title}
-                  className="p-8 md:p-10 rounded-2xl border border-lv-border-subtle bg-lv-surface"
+                  className="p-8 md:p-10 rounded-2xl border border-lv-line-soft bg-lv-surface"
                 >
-                  <h2 className="font-display text-xl md:text-2xl font-700 text-lv-text mb-2">
+                  <h2 className="font-display text-xl md:text-2xl font-700 text-lv-ink mb-2">
                     {group.title}
                   </h2>
-                  <p className="font-body text-sm text-lv-text-muted leading-relaxed mb-6">
+                  <p className="font-body text-sm text-lv-body leading-relaxed mb-6">
                     {group.description}
                   </p>
                   <div className="flex flex-wrap gap-3">
@@ -78,11 +78,11 @@ const BrandAssets = () => {
                         key={file.href}
                         href={file.href}
                         download
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-lv-border bg-lv-ink hover:border-lv-accent/40 hover:bg-lv-accent/[0.05] transition-all duration-200 font-body text-sm font-500 text-lv-text"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-lv-line bg-lv-paper hover:border-lv-lime-ink/40 hover:bg-lv-lime/[0.05] transition-all duration-200 font-body text-sm font-500 text-lv-ink"
                       >
-                        <Download className="w-4 h-4 text-lv-accent" />
+                        <Download className="w-4 h-4 text-lv-lime-ink" />
                         Download {file.label}
-                        <span className="font-mono text-xs uppercase tracking-wider text-lv-text-subtle">
+                        <span className="font-mono text-xs uppercase tracking-wider text-lv-faint">
                           .{file.format}
                         </span>
                       </a>
@@ -93,13 +93,13 @@ const BrandAssets = () => {
             </div>
 
             {/* Usage note */}
-            <div className="mt-12 p-6 md:p-7 rounded-xl border border-lv-border-subtle bg-lv-ink/40">
-              <div className="font-mono text-xs uppercase tracking-widest text-lv-text-subtle mb-3">
+            <div className="mt-12 p-6 md:p-7 rounded-xl border border-lv-line-soft bg-lv-paper/40">
+              <div className="font-mono text-xs uppercase tracking-widest text-lv-faint mb-3">
                 Gebruik
               </div>
-              <p className="font-body text-base text-lv-text-muted leading-relaxed">
+              <p className="font-body text-base text-lv-body leading-relaxed">
                 Verander de kleuren, proporties of letterspacing niet. Laat voldoende witruimte rondom het logo (minimaal de hoogte van de &quot;L&quot;). Voor co-marketing of partner-materiaal: stuur even een mail naar{' '}
-                <a href="mailto:info@leadvelocity.nl" className="text-lv-accent hover:underline">
+                <a href="mailto:info@leadvelocity.nl" className="text-lv-lime-ink hover:underline">
                   info@leadvelocity.nl
                 </a>
                 .

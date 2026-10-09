@@ -115,25 +115,25 @@ type ItemProps = {
 const FaqItem: React.FC<ItemProps> = ({ q, a, startOpen = false }) => {
   const [open, setOpen] = useState(startOpen);
   return (
-    <div className="border-b border-lv-border-subtle">
+    <div className="border-b border-lv-line-soft">
       <button
         onClick={() => setOpen(!open)}
         className="w-full py-5 md:py-6 flex items-start justify-between gap-4 text-left group"
       >
-        <h3 className="font-display text-base md:text-lg font-600 text-lv-text group-hover:text-lv-accent transition-colors pr-4">
+        <h3 className="font-display text-base md:text-lg font-600 text-lv-ink group-hover:text-lv-lime-ink transition-colors pr-4">
           {q}
         </h3>
         <div className="flex-shrink-0 mt-1">
           {open ? (
-            <Minus className="w-5 h-5 text-lv-accent" />
+            <Minus className="w-5 h-5 text-lv-lime-ink" />
           ) : (
-            <Plus className="w-5 h-5 text-lv-text-subtle group-hover:text-lv-accent transition-colors" />
+            <Plus className="w-5 h-5 text-lv-faint group-hover:text-lv-lime-ink transition-colors" />
           )}
         </div>
       </button>
       {open && (
         <div className="pb-6 pr-10 animate-fade-in">
-          <div className="font-body text-base text-lv-text-muted leading-relaxed">
+          <div className="font-body text-base text-lv-body leading-relaxed">
             {a}
           </div>
         </div>
@@ -157,29 +157,29 @@ const Faq = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-lv-ink">
+    <div className="min-h-screen bg-lv-paper">
       <NavbarNew />
 
       <main>
         {/* HERO */}
         <section className="relative overflow-hidden grain">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-lv-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-lv-lime/[0.03] rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
 
           <div ref={heroRef} className="reveal container mx-auto px-4 md:px-6 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-accent/20 bg-lv-accent/[0.05] mb-8">
-                <span className="font-body text-sm font-500 text-lv-accent">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-lime-ink/20 bg-lv-lime/[0.05] mb-8">
+                <span className="font-body text-sm font-500 text-lv-lime-ink">
                   Veelgestelde vragen
                 </span>
               </div>
 
-              <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-700 text-lv-text leading-[1.05] tracking-tight mb-8">
+              <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-700 text-lv-ink leading-[1.05] tracking-tight mb-8">
                 Vragen die we vaak horen —{' '}
                 <span className="text-gradient-accent">eerlijk beantwoord.</span>
               </h1>
 
-              <p className="font-body text-lg md:text-xl text-lv-text-muted leading-relaxed max-w-2xl">
+              <p className="font-body text-lg md:text-xl text-lv-body leading-relaxed max-w-2xl">
                 Geen marketing-antwoorden. Als je eigen vraag er niet tussen staat, bel of mail gewoon — dan beantwoorden we die persoonlijk.
               </p>
             </div>
@@ -188,15 +188,15 @@ const Faq = () => {
 
         {/* FAQ CONTENT */}
         <section className="py-16 md:py-20 relative bg-lv-surface">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
 
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto space-y-14 md:space-y-16">
               {sections.map((section) => (
                 <div key={section.category}>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="h-px w-12 bg-lv-accent" />
-                    <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
+                    <div className="h-px w-12 bg-lv-lime" />
+                    <span className="font-body text-sm font-600 text-lv-lime-ink uppercase tracking-widest">
                       {section.category}
                     </span>
                   </div>
@@ -220,23 +220,23 @@ const Faq = () => {
         <section className="section-padding relative">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-6 leading-[1.1]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-ink mb-6 leading-[1.1]">
                 Staat je vraag er niet tussen?
               </h2>
-              <p className="font-body text-lg text-lv-text-muted leading-relaxed mb-10">
+              <p className="font-body text-lg text-lv-body leading-relaxed mb-10">
                 Bel of mail. We reageren binnen één werkdag, zonder verkooptrechter.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/#contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
                 >
                   Stel je vraag
                   <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
                   href="tel:+31625471528"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-border text-lv-text font-display font-600 text-base rounded-lg hover:border-lv-text-subtle transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-line text-lv-ink font-display font-600 text-base rounded-lg hover:border-lv-faint transition-all duration-300"
                 >
                   Of bel direct
                 </a>

@@ -49,22 +49,22 @@ const VerticalsNew = () => {
 
   return (
     <section id="verticals" className="section-padding relative bg-lv-surface">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
 
       <div className="container mx-auto px-4 md:px-6">
         {/* Section header */}
         <div ref={headerRef} className="reveal mb-16 md:mb-20 max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-12 bg-lv-accent" />
-            <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
+            <div className="h-px w-12 bg-lv-lime" />
+            <span className="font-body text-sm font-600 text-lv-lime-ink uppercase tracking-widest">
               Sectoren · Waar we de diepste expertise hebben
             </span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text mb-6 leading-[1.1]">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-ink mb-6 leading-[1.1]">
             Generieke AI-bureaus pakken alles aan.{' '}
-            <span className="text-lv-text-muted">Wij gaan diep in drie sectoren.</span>
+            <span className="text-lv-body">Wij gaan diep in drie sectoren.</span>
           </h2>
-          <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-3xl">
+          <p className="font-body text-lg text-lv-body leading-relaxed max-w-3xl">
             Wij werken met MKB-bedrijven in heel Nederland. Onze diepste sector-expertise zit in groothandel, maakindustrie en transport — daar hebben we de playbooks, de benchmarks en het netwerk om sneller impact te leveren.
           </p>
         </div>
@@ -81,15 +81,15 @@ const VerticalsNew = () => {
                 href={vertical.href}
                 className={`reveal group relative rounded-2xl p-8 md:p-10 border transition-all duration-500 hover-lift flex flex-col ${
                   vertical.accent
-                    ? 'bg-lv-accent/[0.04] border-lv-accent/20 hover:border-lv-accent/40'
-                    : 'bg-lv-ink border-lv-border-subtle hover:border-lv-border'
+                    ? 'bg-lv-lime/[0.04] border-lv-lime-ink/20 hover:border-lv-lime-ink/40'
+                    : 'bg-lv-paper border-lv-line-soft hover:border-lv-line'
                 }`}
               >
                 {/* Top label */}
                 <div className="flex items-center justify-between mb-6">
                   <span
                     className={`font-body text-xs font-600 uppercase tracking-widest ${
-                      vertical.accent ? 'text-lv-accent' : 'text-lv-text-subtle'
+                      vertical.accent ? 'text-lv-lime-ink' : 'text-lv-faint'
                     }`}
                   >
                     {vertical.label}
@@ -100,58 +100,58 @@ const VerticalsNew = () => {
                 <div
                   className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
                     vertical.accent
-                      ? 'bg-lv-accent/10 border border-lv-accent/20'
-                      : 'bg-lv-surface-raised border border-lv-border'
+                      ? 'bg-lv-lime-soft border border-lv-lime-ink/20'
+                      : 'bg-lv-raised border border-lv-line'
                   }`}
                 >
                   <Icon
-                    className={`w-7 h-7 ${vertical.accent ? 'text-lv-accent' : 'text-lv-text-muted'}`}
+                    className={`w-7 h-7 ${vertical.accent ? 'text-lv-lime-ink' : 'text-lv-body'}`}
                   />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-5">
+                <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-ink mb-5">
                   {vertical.title}
                 </h3>
 
                 {/* Pain point */}
                 <div className="mb-5">
-                  <div className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+                  <div className="font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
                     De pijn
                   </div>
-                  <p className="font-body text-sm md:text-base text-lv-text-muted leading-relaxed">
+                  <p className="font-body text-sm md:text-base text-lv-body leading-relaxed">
                     {vertical.pain}
                   </p>
                 </div>
 
                 {/* Outcome */}
                 <div className="mb-6">
-                  <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-wider mb-2">
+                  <div className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-wider mb-2">
                     Wat AI oplost
                   </div>
-                  <p className="font-body text-sm md:text-base text-lv-text-muted leading-relaxed">
+                  <p className="font-body text-sm md:text-base text-lv-body leading-relaxed">
                     {vertical.outcome}
                   </p>
                 </div>
 
                 {/* Stat */}
-                <div className="mt-auto pt-6 border-t border-lv-border-subtle">
+                <div className="mt-auto pt-6 border-t border-lv-line-soft">
                   <div
                     className={`font-display text-3xl font-700 mb-1 ${
-                      vertical.accent ? 'text-lv-accent' : 'text-lv-text'
+                      vertical.accent ? 'text-lv-lime-ink' : 'text-lv-ink'
                     }`}
                   >
                     {vertical.stat}
                   </div>
-                  <div className="font-body text-xs text-lv-text-subtle mb-5">
+                  <div className="font-body text-xs text-lv-faint mb-5">
                     {vertical.statLabel}
                   </div>
 
                   <div
                     className={`inline-flex items-center gap-2 font-display text-sm font-600 ${
                       vertical.accent
-                        ? 'text-lv-accent'
-                        : 'text-lv-text group-hover:text-lv-accent'
+                        ? 'text-lv-lime-ink'
+                        : 'text-lv-ink group-hover:text-lv-lime-ink'
                     } transition-colors`}
                   >
                     Bekijk sector-aanpak

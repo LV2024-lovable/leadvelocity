@@ -38,7 +38,7 @@ const SocialShare: React.FC<Props> = ({ title, url, variant = 'default' }) => {
           href={linkedinHref}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${baseButton} w-9 h-9 border-lv-border-subtle bg-lv-surface text-lv-text-muted hover:text-lv-accent hover:border-lv-accent/30`}
+          className={`${baseButton} w-9 h-9 border-lv-line-soft bg-lv-surface text-lv-body hover:text-lv-lime-ink hover:border-lv-lime-ink/30`}
           aria-label="Deel op LinkedIn"
         >
           <Linkedin className="w-4 h-4" />
@@ -47,17 +47,17 @@ const SocialShare: React.FC<Props> = ({ title, url, variant = 'default' }) => {
           href={twitterHref}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${baseButton} w-9 h-9 border-lv-border-subtle bg-lv-surface text-lv-text-muted hover:text-lv-accent hover:border-lv-accent/30`}
+          className={`${baseButton} w-9 h-9 border-lv-line-soft bg-lv-surface text-lv-body hover:text-lv-lime-ink hover:border-lv-lime-ink/30`}
           aria-label="Deel op Twitter/X"
         >
           <Twitter className="w-4 h-4" />
         </a>
         <button
           onClick={copyLink}
-          className={`${baseButton} w-9 h-9 border-lv-border-subtle bg-lv-surface text-lv-text-muted hover:text-lv-accent hover:border-lv-accent/30`}
+          className={`${baseButton} w-9 h-9 border-lv-line-soft bg-lv-surface text-lv-body hover:text-lv-lime-ink hover:border-lv-lime-ink/30`}
           aria-label="Kopieer link"
         >
-          {copied ? <Check className="w-4 h-4 text-lv-accent" /> : <LinkIcon className="w-4 h-4" />}
+          {copied ? <Check className="w-4 h-4 text-lv-lime-ink" /> : <LinkIcon className="w-4 h-4" />}
         </button>
       </div>
     );
@@ -65,14 +65,14 @@ const SocialShare: React.FC<Props> = ({ title, url, variant = 'default' }) => {
 
   return (
     <div className="flex flex-wrap items-center gap-3">
-      <span className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-widest mr-1">
+      <span className="font-body text-xs font-600 text-lv-faint uppercase tracking-widest mr-1">
         Delen
       </span>
       <a
         href={linkedinHref}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${baseButton} px-4 py-2 border-lv-border-subtle bg-lv-surface text-lv-text-muted hover:text-lv-accent hover:border-lv-accent/30 font-body text-sm`}
+        className={`${baseButton} px-4 py-2 border-lv-line-soft bg-lv-surface text-lv-body hover:text-lv-lime-ink hover:border-lv-lime-ink/30 font-body text-sm`}
       >
         <Linkedin className="w-4 h-4" />
         LinkedIn
@@ -81,18 +81,18 @@ const SocialShare: React.FC<Props> = ({ title, url, variant = 'default' }) => {
         href={twitterHref}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${baseButton} px-4 py-2 border-lv-border-subtle bg-lv-surface text-lv-text-muted hover:text-lv-accent hover:border-lv-accent/30 font-body text-sm`}
+        className={`${baseButton} px-4 py-2 border-lv-line-soft bg-lv-surface text-lv-body hover:text-lv-lime-ink hover:border-lv-lime-ink/30 font-body text-sm`}
       >
         <Twitter className="w-4 h-4" />
         X / Twitter
       </a>
       <button
         onClick={copyLink}
-        className={`${baseButton} px-4 py-2 border-lv-border-subtle bg-lv-surface text-lv-text-muted hover:text-lv-accent hover:border-lv-accent/30 font-body text-sm`}
+        className={`${baseButton} px-4 py-2 border-lv-line-soft bg-lv-surface text-lv-body hover:text-lv-lime-ink hover:border-lv-lime-ink/30 font-body text-sm`}
       >
         {copied ? (
           <>
-            <Check className="w-4 h-4 text-lv-accent" />
+            <Check className="w-4 h-4 text-lv-lime-ink" />
             Gekopieerd
           </>
         ) : (

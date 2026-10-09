@@ -6,16 +6,16 @@ const FooterNew = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-lv-border bg-lv-ink">
+    <footer className="border-t border-lv-line bg-lv-paper">
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
         {/* Newsletter strip */}
-        <div className="mb-14 pb-10 border-b border-lv-border-subtle">
+        <div className="mb-14 pb-10 border-b border-lv-line-soft">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <div className="font-display text-xl md:text-2xl font-700 text-lv-text leading-tight mb-2">
+              <div className="font-display text-xl md:text-2xl font-700 text-lv-ink leading-tight mb-2">
                 Maandelijkse AI-briefing voor NL MKB
               </div>
-              <p className="font-body text-sm text-lv-text-muted leading-relaxed max-w-lg">
+              <p className="font-body text-sm text-lv-body leading-relaxed max-w-lg">
                 Eén doordachte lange-lees per maand, over wat echt werkt in AI voor Nederlandse industrie. Geen spam.
               </p>
             </div>
@@ -38,34 +38,34 @@ const FooterNew = () => {
                 </g>
               </svg>
               <span className="flex items-center gap-1">
-                <span className="font-display text-xl font-700 text-lv-text">Lead</span>
-                <span className="font-display text-xl font-700 text-lv-accent">velocity</span>
+                <span className="font-display text-xl font-700 text-lv-ink">Lead</span>
+                <span className="font-display text-xl font-700 text-lv-lime-ink">velocity</span>
               </span>
             </div>
-            <p className="font-body text-sm text-lv-text-muted leading-relaxed mb-2">
+            <p className="font-body text-sm text-lv-body leading-relaxed mb-2">
               Jouw AI operations partner.
             </p>
-            <p className="font-body text-xs text-lv-text-subtle leading-relaxed">
+            <p className="font-body text-xs text-lv-faint leading-relaxed">
               Diepe sector-expertise in groothandel, maakindustrie en transport.
             </p>
           </div>
 
           {/* Sectors */}
           <div>
-            <div className="font-display text-sm font-700 text-lv-text mb-4">Sectoren</div>
+            <div className="font-display text-sm font-700 text-lv-ink mb-4">Sectoren</div>
             <ul className="space-y-2">
               <li>
-                <a href="/groothandel" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/groothandel" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Technische groothandel
                 </a>
               </li>
               <li>
-                <a href="/maakindustrie" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/maakindustrie" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Maakindustrie
                 </a>
               </li>
               <li>
-                <a href="/transport" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/transport" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Transport & logistiek
                 </a>
               </li>
@@ -74,45 +74,45 @@ const FooterNew = () => {
 
           {/* Site */}
           <div>
-            <div className="font-display text-sm font-700 text-lv-text mb-4">Leadvelocity</div>
+            <div className="font-display text-sm font-700 text-lv-ink mb-4">Leadvelocity</div>
             <ul className="space-y-2">
               <li>
-                <a href="/#diensten" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/#diensten" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Diensten
                 </a>
               </li>
               <li>
-                <a href="/onze-aanpak" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/onze-aanpak" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Onze aanpak
                 </a>
               </li>
               <li>
-                <a href="/inzichten" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/inzichten" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Inzichten
                 </a>
               </li>
               <li>
-                <a href="/cases" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/cases" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Cases
                 </a>
               </li>
               <li>
-                <a href="/over-ons" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/over-ons" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Over ons
                 </a>
               </li>
               <li>
-                <a href="/veelgestelde-vragen" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/veelgestelde-vragen" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Veelgestelde vragen
                 </a>
               </li>
               <li>
-                <a href="/#contact" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/#contact" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="/brand" className="font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="/brand" className="font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   Brand-assets
                 </a>
               </li>
@@ -121,16 +121,16 @@ const FooterNew = () => {
 
           {/* Contact */}
           <div>
-            <div className="font-display text-sm font-700 text-lv-text mb-4">Contact</div>
+            <div className="font-display text-sm font-700 text-lv-ink mb-4">Contact</div>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:info@leadvelocity.nl" className="inline-flex items-center gap-2 font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="mailto:info@leadvelocity.nl" className="inline-flex items-center gap-2 font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   <Mail className="w-4 h-4" />
                   info@leadvelocity.nl
                 </a>
               </li>
               <li>
-                <a href="tel:+31625471528" className="inline-flex items-center gap-2 font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors">
+                <a href="tel:+31625471528" className="inline-flex items-center gap-2 font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors">
                   <Phone className="w-4 h-4" />
                   +31 6 25 47 15 28
                 </a>
@@ -140,7 +140,7 @@ const FooterNew = () => {
                   href="https://www.linkedin.com/company/leadvelocity-2/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-body text-sm text-lv-text-muted hover:text-lv-accent transition-colors"
+                  className="inline-flex items-center gap-2 font-body text-sm text-lv-body hover:text-lv-lime-ink transition-colors"
                 >
                   <Linkedin className="w-4 h-4" />
                   LinkedIn
@@ -151,11 +151,11 @@ const FooterNew = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-lv-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="font-body text-xs text-lv-text-subtle">
+        <div className="pt-8 border-t border-lv-line-soft flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="font-body text-xs text-lv-faint">
             &copy; {year} Leadvelocity · Amsterdam, Nederland
           </span>
-          <span className="font-body text-xs text-lv-text-subtle italic">
+          <span className="font-body text-xs text-lv-faint italic">
             AI-systemen die écht rendement leveren.
           </span>
         </div>

@@ -102,19 +102,19 @@ const WhitepaperRequestForm: React.FC<Props> = ({ whitepaperTitle, whitepaperSlu
 
   if (submitted) {
     return (
-      <div className="p-8 md:p-10 rounded-2xl bg-lv-accent/[0.06] border border-lv-accent/30 text-center">
-        <div className="w-14 h-14 rounded-full bg-lv-accent/10 border border-lv-accent/30 flex items-center justify-center mx-auto mb-5">
-          <Check className="w-7 h-7 text-lv-accent" />
+      <div className="p-8 md:p-10 rounded-2xl bg-lv-lime/[0.06] border border-lv-lime-ink/30 text-center">
+        <div className="w-14 h-14 rounded-full bg-lv-lime-soft border border-lv-lime-ink/30 flex items-center justify-center mx-auto mb-5">
+          <Check className="w-7 h-7 text-lv-lime-ink" />
         </div>
-        <h3 className="font-display text-2xl font-700 text-lv-text mb-3">
+        <h3 className="font-display text-2xl font-700 text-lv-ink mb-3">
           De whitepaper is onderweg.
         </h3>
-        <p className="font-body text-base text-lv-text-muted leading-relaxed max-w-md mx-auto mb-5">
+        <p className="font-body text-base text-lv-body leading-relaxed max-w-md mx-auto mb-5">
           Binnen enkele minuten vind je de whitepaper in je inbox ({data.email}).
         </p>
-        <p className="font-body text-sm text-lv-text-subtle leading-relaxed max-w-md mx-auto">
+        <p className="font-body text-sm text-lv-faint leading-relaxed max-w-md mx-auto">
           Niets ontvangen? Check je spam-folder, of mail{' '}
-          <a href="mailto:info@leadvelocity.nl" className="text-lv-accent hover:underline">
+          <a href="mailto:info@leadvelocity.nl" className="text-lv-lime-ink hover:underline">
             info@leadvelocity.nl
           </a>
           .
@@ -124,13 +124,13 @@ const WhitepaperRequestForm: React.FC<Props> = ({ whitepaperTitle, whitepaperSlu
   }
 
   const inputBase =
-    'w-full px-4 py-3 rounded-lg border bg-lv-ink border-lv-border text-lv-text placeholder:text-lv-text-subtle font-body text-base focus:outline-none focus:border-lv-accent/50 focus:ring-1 focus:ring-lv-accent/20 transition-colors';
+    'w-full px-4 py-3 rounded-lg border bg-lv-paper border-lv-line text-lv-ink placeholder:text-lv-faint font-body text-base focus:outline-none focus:border-lv-lime-ink/50 focus:ring-1 focus:ring-lv-lime-ink/20 transition-colors';
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="wp-name" className="block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+          <label htmlFor="wp-name" className="block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
             Naam *
           </label>
           <input
@@ -145,7 +145,7 @@ const WhitepaperRequestForm: React.FC<Props> = ({ whitepaperTitle, whitepaperSlu
           />
         </div>
         <div>
-          <label htmlFor="wp-email" className="block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+          <label htmlFor="wp-email" className="block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
             E-mail *
           </label>
           <input
@@ -163,7 +163,7 @@ const WhitepaperRequestForm: React.FC<Props> = ({ whitepaperTitle, whitepaperSlu
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
         <div>
-          <label htmlFor="wp-company" className="block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+          <label htmlFor="wp-company" className="block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
             Bedrijf
           </label>
           <input
@@ -177,7 +177,7 @@ const WhitepaperRequestForm: React.FC<Props> = ({ whitepaperTitle, whitepaperSlu
           />
         </div>
         <div>
-          <label htmlFor="wp-role" className="block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2">
+          <label htmlFor="wp-role" className="block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2">
             Functie
           </label>
           <input
@@ -195,7 +195,7 @@ const WhitepaperRequestForm: React.FC<Props> = ({ whitepaperTitle, whitepaperSlu
       <button
         type="submit"
         disabled={submitting}
-        className="mt-6 w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60 disabled:cursor-not-allowed"
+        className="mt-6 w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {submitting ? (
           <>
@@ -211,7 +211,7 @@ const WhitepaperRequestForm: React.FC<Props> = ({ whitepaperTitle, whitepaperSlu
         )}
       </button>
 
-      <p className="font-body text-xs text-lv-text-subtle mt-4 leading-relaxed">
+      <p className="font-body text-xs text-lv-faint mt-4 leading-relaxed">
         Geen spam, geen verkoop-trechter. We sturen je de whitepaper en houden contact op een menselijk tempo.
       </p>
     </form>

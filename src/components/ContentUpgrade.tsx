@@ -95,29 +95,29 @@ const ContentUpgrade: React.FC<Props> = ({
   };
 
   return (
-    <div className="my-10 md:my-12 p-6 md:p-8 rounded-2xl bg-lv-accent/[0.04] border border-lv-accent/20 not-prose">
+    <div className="my-10 md:my-12 p-6 md:p-8 rounded-2xl bg-lv-lime/[0.04] border border-lv-lime-ink/20 not-prose">
       <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-7">
-        <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-lv-accent/10 border border-lv-accent/30 flex items-center justify-center">
+        <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-lv-lime-soft border border-lv-lime-ink/30 flex items-center justify-center">
           {assetType === 'tips_tricks' ? (
-            <FileText className="w-6 h-6 text-lv-accent" />
+            <FileText className="w-6 h-6 text-lv-lime-ink" />
           ) : (
-            <Download className="w-6 h-6 text-lv-accent" />
+            <Download className="w-6 h-6 text-lv-lime-ink" />
           )}
         </div>
 
         <div className="flex-1">
-          <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest mb-2">
+          <div className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest mb-2">
             {assetType === 'tips_tricks' ? 'Content-upgrade · Gratis PDF' : 'Content-upgrade · Nieuwsbrief'}
           </div>
-          <h3 className="font-display text-xl md:text-2xl font-700 text-lv-text mb-3 leading-tight">
+          <h3 className="font-display text-xl md:text-2xl font-700 text-lv-ink mb-3 leading-tight">
             {heading ?? copy.heading}
           </h3>
-          <p className="font-body text-base text-lv-text-muted leading-relaxed mb-5">
+          <p className="font-body text-base text-lv-body leading-relaxed mb-5">
             {body ?? copy.body}
           </p>
 
           {submitted ? (
-            <div className="flex items-center gap-3 text-lv-accent">
+            <div className="flex items-center gap-3 text-lv-lime-ink">
               <Check className="w-5 h-5" />
               <span className="font-body text-sm font-500">
                 {assetType === 'tips_tricks'
@@ -133,12 +133,12 @@ const ContentUpgrade: React.FC<Props> = ({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="naam@bedrijf.nl"
-                className="flex-1 px-4 py-3 rounded-lg border bg-lv-ink border-lv-border text-lv-text placeholder:text-lv-text-subtle font-body text-base focus:outline-none focus:border-lv-accent/50"
+                className="flex-1 px-4 py-3 rounded-lg border bg-lv-paper border-lv-line text-lv-ink placeholder:text-lv-faint font-body text-base focus:outline-none focus:border-lv-lime-ink/50"
               />
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-accent text-lv-ink font-display font-700 text-sm rounded-lg hover:shadow-[0_0_20px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-lime text-lv-ink font-display font-700 text-sm rounded-lg hover:shadow-[0_0_20px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60 whitespace-nowrap"
               >
                 {submitting ? (
                   <Loader2 className="w-4 h-4 animate-spin" />

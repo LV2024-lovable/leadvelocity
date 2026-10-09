@@ -85,24 +85,24 @@ const WhatWeBuild = () => {
 
   return (
     <section id="wat-we-bouwen" className="section-padding relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <div ref={headerRef} className="reveal mb-14 max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-12 bg-lv-accent" />
-              <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
+              <div className="h-px w-12 bg-lv-lime" />
+              <span className="font-body text-sm font-600 text-lv-lime-ink uppercase tracking-widest">
                 Wat we bouwen
               </span>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text leading-[1.1] mb-5">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-ink leading-[1.1] mb-5">
               Vijf concrete vormen van AI.{' '}
-              <span className="text-lv-text-muted">
+              <span className="text-lv-body">
                 Geen consultancy-decks — werkende toepassingen.
               </span>
             </h2>
-            <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed">
+            <p className="font-body text-base md:text-lg text-lv-body leading-relaxed">
               Ieder pad start met een AI Ops Audit (€2.500, 2 weken). Daarna bouwen we de oplossing end-to-end op onze infrastructuur en draaien we die voor je door.
             </p>
           </div>
@@ -116,17 +116,17 @@ const WhatWeBuild = () => {
                   key={c.title}
                   ref={cardRef}
                   href={c.href}
-                  className="reveal group relative p-7 md:p-8 rounded-2xl bg-lv-surface border border-lv-border-subtle hover:border-lv-accent/40 hover:bg-lv-accent/[0.03] transition-all duration-300 flex flex-col"
+                  className="reveal group relative p-7 md:p-8 rounded-2xl bg-lv-surface border border-lv-line-soft hover:border-lv-lime-ink/40 hover:bg-lv-lime/[0.03] transition-all duration-300 flex flex-col"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center mb-5 group-hover:bg-lv-accent/15 transition-colors">
-                    <Icon className="w-6 h-6 text-lv-accent" />
+                  <div className="w-12 h-12 rounded-xl bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center mb-5 group-hover:bg-lv-lime-soft transition-colors">
+                    <Icon className="w-6 h-6 text-lv-lime-ink" />
                   </div>
 
-                  <h3 className="font-display text-xl md:text-2xl font-700 text-lv-text mb-3 leading-tight">
+                  <h3 className="font-display text-xl md:text-2xl font-700 text-lv-ink mb-3 leading-tight">
                     {c.title}
                   </h3>
 
-                  <p className="font-body text-sm md:text-base text-lv-text-muted leading-relaxed mb-6">
+                  <p className="font-body text-sm md:text-base text-lv-body leading-relaxed mb-6">
                     {c.intro}
                   </p>
 
@@ -134,9 +134,9 @@ const WhatWeBuild = () => {
                     {c.examples.map((ex) => (
                       <li
                         key={ex.sector}
-                        className="flex items-baseline gap-2 font-body text-sm text-lv-text-muted"
+                        className="flex items-baseline gap-2 font-body text-sm text-lv-body"
                       >
-                        <span className="font-600 text-lv-text-subtle uppercase tracking-wider text-xs flex-shrink-0">
+                        <span className="font-600 text-lv-faint uppercase tracking-wider text-xs flex-shrink-0">
                           {ex.sector}:
                         </span>
                         <span>{ex.example}</span>
@@ -144,7 +144,7 @@ const WhatWeBuild = () => {
                     ))}
                   </ul>
 
-                  <div className="inline-flex items-center gap-2 font-display text-sm font-600 text-lv-text-muted group-hover:text-lv-accent transition-colors">
+                  <div className="inline-flex items-center gap-2 font-display text-sm font-600 text-lv-body group-hover:text-lv-lime-ink transition-colors">
                     Meer over {c.title.toLowerCase()}
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
@@ -154,9 +154,9 @@ const WhatWeBuild = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="font-body text-base text-lv-text-muted max-w-2xl mx-auto">
+            <p className="font-body text-base text-lv-body max-w-2xl mx-auto">
               Niet zeker welke vorm bij jullie past?{' '}
-              <a href="/ai-ops-audit" className="text-lv-accent hover:underline font-500">
+              <a href="/ai-ops-audit" className="text-lv-lime-ink hover:underline font-500">
                 Een Audit kiest voor je
               </a>
               {' '}— top-3 kansen op tafel binnen 2 weken, vaste prijs.

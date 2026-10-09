@@ -19,9 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['Syne', 'system-ui', 'sans-serif'],
-				body: ['Instrument Sans', 'system-ui', 'sans-serif'],
-				mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+				display: ['"Schibsted Grotesk"', 'system-ui', 'sans-serif'],
+				body: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+				mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -57,21 +57,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// LeadVelocity brand colors
+				// Lead Velocity — licht palet (handover §17). Lime alleen als vlak; tekst-accent = lime-ink.
 				lv: {
-					ink: '#09090B',
-					surface: '#141417',
-					'surface-raised': '#1C1C21',
-					border: '#27272A',
-					'border-subtle': '#1E1E22',
-					text: '#FAFAF9',
-					'text-muted': '#A1A1AA',
-					'text-subtle': '#71717A',
-					accent: '#C8FF00',
-					'accent-dim': 'rgba(200, 255, 0, 0.15)',
-					white: '#FAFAF9',
-					'light-bg': '#F4F4F5',
-					'light-surface': '#FFFFFF',
+					paper: '#F6F5F0',
+					surface: '#FFFFFF',
+					raised: '#FBFBF8',
+					ink: '#0E0E0C',
+					body: '#55544E',
+					muted: '#6B6A63',
+					faint: '#8A8981',
+					line: '#E4E2DA',
+					'line-soft': '#EEEDE6',
+					lime: '#C8FF00',
+					'lime-soft': '#F1FFC2',
+					'lime-ink': '#4D6B00',
 				},
 			},
 			borderRadius: {

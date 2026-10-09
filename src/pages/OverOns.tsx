@@ -80,31 +80,31 @@ const OverOns = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-lv-ink">
+    <div className="min-h-screen bg-lv-paper">
       <NavbarNew />
 
       <main>
         {/* HERO */}
         <section className="relative overflow-hidden grain">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lv-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lv-lime/[0.03] rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
 
           <div ref={heroRef} className="reveal container mx-auto px-4 md:px-6 pt-32 pb-20 md:pt-40 md:pb-24 relative z-10">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-accent/20 bg-lv-accent/[0.05] mb-8">
-                <span className="font-body text-sm font-500 text-lv-accent">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-lime-ink/20 bg-lv-lime/[0.05] mb-8">
+                <span className="font-body text-sm font-500 text-lv-lime-ink">
                   Over Leadvelocity
                 </span>
               </div>
 
-              <h1 className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-700 text-lv-text leading-[1.05] tracking-tight mb-8">
+              <h1 className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-700 text-lv-ink leading-[1.05] tracking-tight mb-8">
                 AI vervangt geen goede mensen.{' '}
                 <span className="text-gradient-accent">
                   Maar wél bedrijven die blijven stilstaan.
                 </span>
               </h1>
 
-              <p className="font-body text-lg md:text-xl text-lv-text-muted leading-relaxed max-w-2xl">
+              <p className="font-body text-lg md:text-xl text-lv-body leading-relaxed max-w-2xl">
                 Wij bouwen AI-systemen voor Nederlandse MKB-bedrijven die vooruit willen. Geen consultancy, geen hype-verhalen — wel concrete oplossingen met meetbaar resultaat binnen één kwartaal.
               </p>
             </div>
@@ -112,36 +112,36 @@ const OverOns = () => {
         </section>
 
         {/* TRUST BARS */}
-        <TrustBars variant="compact" className="border-t border-lv-border-subtle" />
+        <TrustBars variant="compact" className="border-t border-lv-line-soft" />
 
         {/* KERN-OVERTUIGING */}
         <section className="section-padding relative bg-lv-surface">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
 
           <div className="container mx-auto px-4 md:px-6">
             <div ref={beliefRef} className="reveal max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-12 bg-lv-accent" />
-                <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
+                <div className="h-px w-12 bg-lv-lime" />
+                <span className="font-body text-sm font-600 text-lv-lime-ink uppercase tracking-widest">
                   Wat we geloven
                 </span>
               </div>
 
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-10 leading-[1.1]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-ink mb-10 leading-[1.1]">
                 Onze overtuiging in drie alinea's.
               </h2>
 
               <div className="space-y-8">
-                <p className="font-body text-lg md:text-xl text-lv-text leading-relaxed">
+                <p className="font-body text-lg md:text-xl text-lv-ink leading-relaxed">
                   AI is niet een technologie-revolutie die bedrijven overneemt. Het is een set bouwblokken die goede mensen sneller, slimmer en minder gefrustreerd laat werken. Vakmanschap, klantrelaties, probleemoplossing — dat blijven menselijke kwaliteiten. Wat AI wegneemt is het saaie, repetitieve werk dat teams nu leeg maakt.
                 </p>
 
-                <p className="font-body text-lg md:text-xl text-lv-text leading-relaxed">
+                <p className="font-body text-lg md:text-xl text-lv-ink leading-relaxed">
                   Tegelijk: bedrijven die AI níet serieus inzetten, worden ingehaald. Niet door AI zelf — door concurrenten die AI wél hebben omarmd. Amazon Business pakt marge van de groothandel. Concurrenten met AI-planning rijden efficiëntere routes. Maakbedrijven met AI-kwaliteitscontrole winnen klanten op betrouwbaarheid.
                 </p>
 
-                <p className="font-body text-lg md:text-xl text-lv-text leading-relaxed">
-                  De vraag is dus niet óf AI jouw bedrijf verandert. De vraag is: <span className="text-lv-accent font-700">ben jij degene die ermee bouwt, of degene die wordt ingehaald?</span> Daar komen wij in beeld.
+                <p className="font-body text-lg md:text-xl text-lv-ink leading-relaxed">
+                  De vraag is dus niet óf AI jouw bedrijf verandert. De vraag is: <span className="text-lv-lime-ink font-700">ben jij degene die ermee bouwt, of degene die wordt ingehaald?</span> Daar komen wij in beeld.
                 </p>
               </div>
             </div>
@@ -153,12 +153,12 @@ const OverOns = () => {
           <div className="container mx-auto px-4 md:px-6">
             <div ref={principlesRef} className="reveal max-w-4xl mb-14">
               <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-12 bg-lv-accent" />
-                <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
+                <div className="h-px w-12 bg-lv-lime" />
+                <span className="font-body text-sm font-600 text-lv-lime-ink uppercase tracking-widest">
                   Onze werkprincipes
                 </span>
               </div>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text leading-[1.1]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-ink leading-[1.1]">
                 Hoe wij denken over AI en implementatie.
               </h2>
             </div>
@@ -167,11 +167,11 @@ const OverOns = () => {
               {principles.map((p, i) => {
                 const pRef = useReveal(i * 0.08);
                 return (
-                  <div key={p.title} ref={pRef} className="reveal border-l-2 border-lv-accent/40 pl-6 md:pl-8">
-                    <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-4 leading-tight">
+                  <div key={p.title} ref={pRef} className="reveal border-l-2 border-lv-lime-ink/40 pl-6 md:pl-8">
+                    <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-ink mb-4 leading-tight">
                       {p.title}
                     </h3>
-                    <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed">
+                    <p className="font-body text-base md:text-lg text-lv-body leading-relaxed">
                       {p.body}
                     </p>
                   </div>
@@ -183,17 +183,17 @@ const OverOns = () => {
 
         {/* VALUES / WHY US */}
         <section className="section-padding relative bg-lv-surface">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
 
           <div className="container mx-auto px-4 md:px-6">
             <div ref={valuesHeaderRef} className="reveal mb-14 md:mb-16 max-w-3xl">
               <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-12 bg-lv-accent" />
-                <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
+                <div className="h-px w-12 bg-lv-lime" />
+                <span className="font-body text-sm font-600 text-lv-lime-ink uppercase tracking-widest">
                   Waarom Leadvelocity
                 </span>
               </div>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text leading-[1.1]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-ink leading-[1.1]">
                 Zes redenen waarom MKB-bedrijven voor ons kiezen.
               </h2>
             </div>
@@ -206,17 +206,17 @@ const OverOns = () => {
                   <div
                     key={value.title}
                     ref={vRef}
-                    className="reveal p-6 md:p-8 rounded-2xl bg-lv-ink border border-lv-border-subtle hover:border-lv-accent/20 transition-colors duration-300"
+                    className="reveal p-6 md:p-8 rounded-2xl bg-lv-paper border border-lv-line-soft hover:border-lv-lime-ink/20 transition-colors duration-300"
                   >
                     <div className="flex items-start gap-5">
-                      <div className="w-12 h-12 rounded-xl bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-lv-accent" />
+                      <div className="w-12 h-12 rounded-xl bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-6 h-6 text-lv-lime-ink" />
                       </div>
                       <div>
-                        <h3 className="font-display text-lg md:text-xl font-700 text-lv-text mb-3">
+                        <h3 className="font-display text-lg md:text-xl font-700 text-lv-ink mb-3">
                           {value.title}
                         </h3>
-                        <p className="font-body text-sm md:text-base text-lv-text-muted leading-relaxed">
+                        <p className="font-body text-sm md:text-base text-lv-body leading-relaxed">
                           {value.description}
                         </p>
                       </div>
@@ -232,23 +232,23 @@ const OverOns = () => {
         <section className="section-padding relative">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-text mb-6 leading-[1.1]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-700 text-lv-ink mb-6 leading-[1.1]">
                 Klinkt dit als mensen waar je mee wilt werken?
               </h2>
-              <p className="font-body text-lg text-lv-text-muted leading-relaxed mb-10">
+              <p className="font-body text-lg text-lv-body leading-relaxed mb-10">
                 Plan een vrijblijvend gesprek. We kijken samen waar AI voor jullie het meeste oplevert — concreet, meetbaar, zonder verkooppraatje.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/#contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
                 >
                   Plan een gesprek
                   <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
                   href="/onze-aanpak"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-border text-lv-text font-display font-600 text-base rounded-lg hover:border-lv-text-subtle transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-line text-lv-ink font-display font-600 text-base rounded-lg hover:border-lv-faint transition-all duration-300"
                 >
                   Bekijk onze aanpak
                 </a>

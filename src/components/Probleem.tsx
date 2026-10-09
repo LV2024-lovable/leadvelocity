@@ -25,20 +25,20 @@ const Probleem = () => {
 
   return (
     <section id="probleem" className="section-padding relative bg-lv-surface">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
 
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div ref={headerRef} className="reveal mb-16 md:mb-20 max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-12 bg-lv-accent" />
-            <span className="font-mono text-xs uppercase tracking-widest text-lv-accent">
+            <div className="h-px w-12 bg-lv-lime" />
+            <span className="font-mono text-xs uppercase tracking-widest text-lv-lime-ink">
               Het probleem
             </span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text leading-[1.1] mb-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-ink leading-[1.1] mb-6">
             De meeste MKB-bedrijven groeien op geluk en netwerk.{' '}
-            <span className="text-lv-text-muted">Tot dat ophoudt.</span>
+            <span className="text-lv-body">Tot dat ophoudt.</span>
           </h2>
         </div>
 
@@ -50,15 +50,15 @@ const Probleem = () => {
               <div
                 key={p.number}
                 ref={cardRef}
-                className="reveal p-8 md:p-10 rounded-2xl border border-lv-border-subtle bg-lv-ink hover:border-lv-accent/30 transition-colors duration-300"
+                className="reveal p-8 md:p-10 rounded-2xl border border-lv-line-soft bg-lv-paper hover:border-lv-lime-ink/30 transition-colors duration-300"
               >
-                <div className="font-mono text-xs uppercase tracking-widest text-lv-text-subtle mb-6">
+                <div className="font-mono text-xs uppercase tracking-widest text-lv-faint mb-6">
                   {p.number}
                 </div>
-                <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-4 leading-tight">
+                <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-ink mb-4 leading-tight">
                   {p.title}
                 </h3>
-                <p className="font-body text-base text-lv-text-muted leading-relaxed">
+                <p className="font-body text-base text-lv-body leading-relaxed">
                   {p.text}
                 </p>
               </div>
@@ -68,7 +68,7 @@ const Probleem = () => {
 
         {/* Closing line */}
         <div ref={closerRef} className="reveal max-w-3xl">
-          <p className="font-display text-2xl md:text-3xl font-600 text-lv-text leading-snug">
+          <p className="font-display text-2xl md:text-3xl font-600 text-lv-ink leading-snug">
             Dit zijn geen onvermijdelijke problemen.{' '}
             <span className="text-gradient-accent">Het zijn oplosbare systemen.</span>
           </p>

@@ -65,7 +65,7 @@ const AiKansenscanResult: React.FC = () => {
 
   if (!data) {
     return (
-      <div className="min-h-screen bg-lv-ink">
+      <div className="min-h-screen bg-lv-paper">
         <NavbarNew />
         <FooterNew />
       </div>
@@ -75,21 +75,21 @@ const AiKansenscanResult: React.FC = () => {
   const { opportunities, companyName, sector } = data;
 
   return (
-    <div className="min-h-screen bg-lv-ink">
+    <div className="min-h-screen bg-lv-paper">
       <NavbarNew />
 
       <main className="pt-32 pb-24 px-6">
         <div className="max-w-3xl mx-auto">
           {/* Hero */}
           <div className="mb-12">
-            <p className="font-body text-sm font-600 text-lv-accent uppercase tracking-wider mb-3">
+            <p className="font-body text-sm font-600 text-lv-lime-ink uppercase tracking-wider mb-3">
               AI-kansenscan
             </p>
-            <h1 className="font-display text-3xl md:text-4xl font-700 text-lv-text leading-tight mb-4">
+            <h1 className="font-display text-3xl md:text-4xl font-700 text-lv-ink leading-tight mb-4">
               Drie AI-kansen voor{' '}
-              <span className="text-lv-accent">{companyName}</span>
+              <span className="text-lv-lime-ink">{companyName}</span>
             </h1>
-            <p className="font-body text-lg text-lv-text-muted leading-relaxed">
+            <p className="font-body text-lg text-lv-body leading-relaxed">
               Op basis van jullie website en sector
               {sector ? ` (${sector})` : ''} zien wij deze drie richtingen waar AI
               het meeste verschil maakt. Elk gekoppeld aan het type systeem dat
@@ -106,34 +106,34 @@ const AiKansenscanResult: React.FC = () => {
               return (
                 <div
                   key={i}
-                  className="p-6 md:p-7 rounded-2xl bg-lv-surface border border-lv-border"
+                  className="p-6 md:p-7 rounded-2xl bg-lv-surface border border-lv-line"
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-lv-accent/10 border border-lv-accent/30 flex items-center justify-center text-lv-accent font-display font-700">
+                      <div className="w-9 h-9 rounded-lg bg-lv-lime-soft border border-lv-lime-ink/30 flex items-center justify-center text-lv-lime-ink font-display font-700">
                         {i + 1}
                       </div>
-                      <h2 className="font-display text-xl font-700 text-lv-text">
+                      <h2 className="font-display text-xl font-700 text-lv-ink">
                         {o.title}
                       </h2>
                     </div>
                     <span
                       className={
                         isQuickWin
-                          ? 'shrink-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-600 bg-lv-accent/15 text-lv-accent border border-lv-accent/30'
-                          : 'shrink-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-600 bg-lv-ink text-lv-text-subtle border border-lv-border'
+                          ? 'shrink-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-600 bg-lv-lime-soft text-lv-lime-ink border border-lv-lime-ink/30'
+                          : 'shrink-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-600 bg-lv-paper text-lv-faint border border-lv-line'
                       }
                     >
                       {isQuickWin ? 'Laaghangend fruit' : 'Middellange termijn'}
                     </span>
                   </div>
 
-                  <p className="font-body text-base text-lv-text-muted leading-relaxed mb-2">
-                    <span className="text-lv-text font-600">De pijn:</span>{' '}
+                  <p className="font-body text-base text-lv-body leading-relaxed mb-2">
+                    <span className="text-lv-ink font-600">De pijn:</span>{' '}
                     {o.pain}
                   </p>
-                  <p className="font-body text-base text-lv-text-muted leading-relaxed mb-5">
-                    <span className="text-lv-text font-600">
+                  <p className="font-body text-base text-lv-body leading-relaxed mb-5">
+                    <span className="text-lv-ink font-600">
                       Wat een AI-systeem doet:
                     </span>{' '}
                     {o.whatAiDoes}
@@ -142,7 +142,7 @@ const AiKansenscanResult: React.FC = () => {
                   {opl && (
                     <Link
                       to={`/oplossingen/${o.oplossingSlug}`}
-                      className="inline-flex items-center gap-2 font-body text-sm font-600 text-lv-accent hover:underline"
+                      className="inline-flex items-center gap-2 font-body text-sm font-600 text-lv-lime-ink hover:underline"
                     >
                       {Icon && <Icon className="w-4 h-4" />}
                       Lees over {opl.title}
@@ -155,14 +155,14 @@ const AiKansenscanResult: React.FC = () => {
           </div>
 
           {/* Wat dit rapport niet is */}
-          <div className="mt-10 p-6 md:p-8 rounded-2xl bg-lv-accent/[0.05] border border-lv-accent/30">
+          <div className="mt-10 p-6 md:p-8 rounded-2xl bg-lv-lime/[0.05] border border-lv-lime-ink/30">
             <div className="flex items-center gap-3 mb-3">
-              <Info className="w-5 h-5 text-lv-accent" />
-              <h2 className="font-display text-xl font-700 text-lv-text">
+              <Info className="w-5 h-5 text-lv-lime-ink" />
+              <h2 className="font-display text-xl font-700 text-lv-ink">
                 Wat dit rapport niet is
               </h2>
             </div>
-            <p className="font-body text-base text-lv-text-muted leading-relaxed mb-3">
+            <p className="font-body text-base text-lv-body leading-relaxed mb-3">
               Dit is een signaal, geen blauwdruk. Wij noemen bewust geen
               percentages, euro's of doorlooptijden — die hangen af van jullie
               data, systemen en processen. Voor de diepe analyse met prioritering
@@ -171,14 +171,14 @@ const AiKansenscanResult: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-3 mt-5">
               <Link
                 to="/ai-ops-audit"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
               >
                 Bekijk de AI Ops Audit
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-lv-text font-display font-600 text-base rounded-lg border border-lv-border hover:border-lv-accent/50 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-lv-ink font-display font-600 text-base rounded-lg border border-lv-line hover:border-lv-lime-ink/50 transition-colors"
               >
                 <Phone className="w-5 h-5" />
                 Plan een 30-min kennismaking
@@ -190,7 +190,7 @@ const AiKansenscanResult: React.FC = () => {
           <div className="mt-8 text-center">
             <button
               onClick={handleReset}
-              className="inline-flex items-center gap-2 font-body text-sm text-lv-text-subtle hover:text-lv-text transition-colors"
+              className="inline-flex items-center gap-2 font-body text-sm text-lv-faint hover:text-lv-ink transition-colors"
             >
               <RotateCcw className="w-4 h-4" />
               Scan opnieuw doen

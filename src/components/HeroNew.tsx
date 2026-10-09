@@ -5,7 +5,7 @@ const HeroNew = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden grain">
       {/* Background gradient orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lv-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lv-lime/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
       {/* Dot pattern overlay */}
       <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
@@ -15,10 +15,10 @@ const HeroNew = () => {
         <div className="max-w-5xl">
           {/* Kicker */}
           <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-lv-accent/20 bg-lv-accent/[0.05] mb-8 opacity-0 animate-fade-in-up"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-lv-lime-ink/20 bg-lv-lime/[0.05] mb-8 opacity-0 animate-fade-in-up"
             style={{ animationDelay: '0.1s' }}
           >
-            <span className="font-mono text-[0.7rem] sm:text-xs uppercase tracking-widest text-lv-accent">
+            <span className="font-mono text-[0.7rem] sm:text-xs uppercase tracking-widest text-lv-lime-ink">
               AI Operations Consultancy &mdash; Nederland &amp; België
             </span>
           </div>
@@ -28,15 +28,15 @@ const HeroNew = () => {
             className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-display font-700 leading-[1.05] tracking-tight mb-8 opacity-0 animate-fade-in-up"
             style={{ animationDelay: '0.2s' }}
           >
-            <span className="text-lv-text">Jouw bedrijf werkt hard.</span>
+            <span className="text-lv-ink">Jouw bedrijf werkt hard.</span>
             <br />
-            <span className="text-lv-text">Jouw systemen </span>
+            <span className="text-lv-ink">Jouw systemen </span>
             <span className="text-gradient-accent">nog niet.</span>
           </h1>
 
           {/* Subheadline */}
           <p
-            className="text-lg md:text-xl text-lv-text-muted max-w-3xl leading-relaxed mb-12 font-body opacity-0 animate-fade-in-up"
+            className="text-lg md:text-xl text-lv-body max-w-3xl leading-relaxed mb-12 font-body opacity-0 animate-fade-in-up"
             style={{ animationDelay: '0.35s' }}
           >
             Wij bouwen AI-gedreven systemen die industriële B2B bedrijven efficiënter maken &mdash; van nieuwe klanten werven tot operationele processen automatiseren. Wij bouwen het. Wij laten het draaien.
@@ -49,14 +49,14 @@ const HeroNew = () => {
           >
             <a
               href="/#contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
             >
               Gratis audit aanvragen
               <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
               href="/#diensten"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-border text-lv-text font-display font-600 text-base rounded-lg hover:border-lv-text-subtle transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-lv-line text-lv-ink font-display font-600 text-base rounded-lg hover:border-lv-faint transition-all duration-300"
             >
               Bekijk onze diensten
             </a>
@@ -64,13 +64,13 @@ const HeroNew = () => {
 
           {/* Social proof bar */}
           <div
-            className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-lv-text-subtle opacity-0 animate-fade-in-up"
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-lv-faint opacity-0 animate-fade-in-up"
             style={{ animationDelay: '0.65s' }}
           >
             <span>Industriële B2B</span>
-            <span className="text-lv-border">·</span>
+            <span className="text-lv-line">·</span>
             <span>Nederland &amp; België</span>
-            <span className="text-lv-border">·</span>
+            <span className="text-lv-line">·</span>
             <span>Resultaat in 4&ndash;8 weken</span>
           </div>
         </div>

@@ -99,43 +99,43 @@ const AiKansenscan: React.FC = () => {
   };
 
   const inputBase =
-    'w-full px-4 py-3 rounded-lg border bg-lv-ink border-lv-border text-lv-text placeholder:text-lv-text-subtle font-body text-base focus:outline-none focus:border-lv-accent/50 focus:ring-1 focus:ring-lv-accent/20 transition-colors';
+    'w-full px-4 py-3 rounded-lg border bg-lv-paper border-lv-line text-lv-ink placeholder:text-lv-faint font-body text-base focus:outline-none focus:border-lv-lime-ink/50 focus:ring-1 focus:ring-lv-lime-ink/20 transition-colors';
   const labelBase =
-    'block font-body text-xs font-600 text-lv-text-subtle uppercase tracking-wider mb-2';
+    'block font-body text-xs font-600 text-lv-faint uppercase tracking-wider mb-2';
 
   return (
-    <div className="min-h-screen bg-lv-ink">
+    <div className="min-h-screen bg-lv-paper">
       <NavbarNew />
 
       <main className="pt-32 pb-24 px-6">
         <div className="max-w-3xl mx-auto">
           <div ref={heroRef} className="reveal text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lv-accent/[0.08] border border-lv-accent/30 mb-6">
-              <Sparkles className="w-4 h-4 text-lv-accent" />
-              <span className="font-body text-sm font-600 text-lv-accent">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lv-lime/[0.08] border border-lv-lime-ink/30 mb-6">
+              <Sparkles className="w-4 h-4 text-lv-lime-ink" />
+              <span className="font-body text-sm font-600 text-lv-lime-ink">
                 Gratis · geautomatiseerd
               </span>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl font-700 text-lv-text leading-tight mb-5">
+            <h1 className="font-display text-4xl md:text-5xl font-700 text-lv-ink leading-tight mb-5">
               De AI-kansenscan voor{' '}
-              <span className="text-lv-accent">jullie operatie</span>
+              <span className="text-lv-lime-ink">jullie operatie</span>
             </h1>
-            <p className="font-body text-lg text-lv-text-muted leading-relaxed max-w-xl mx-auto">
+            <p className="font-body text-lg text-lv-body leading-relaxed max-w-xl mx-auto">
               Vul jullie bedrijfsnaam, website en sector in. Wij bekijken jullie
               site en sector en geven binnen een minuut drie concrete AI-kansen —
               gekoppeld aan het type systeem dat erbij past.
             </p>
-            <p className="font-body text-sm text-lv-text-subtle mt-4 max-w-lg mx-auto">
+            <p className="font-body text-sm text-lv-faint mt-4 max-w-lg mx-auto">
               Dit is een signaal, geen volledige audit. De scan wijst richting aan;
               de diepe analyse loopt via onze AI Ops Audit.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-5 mt-8 text-sm font-body text-lv-text-subtle">
+            <div className="flex flex-wrap items-center justify-center gap-5 mt-8 text-sm font-body text-lv-faint">
               <span className="inline-flex items-center gap-2">
-                <Zap className="w-4 h-4 text-lv-accent" /> Binnen een minuut
+                <Zap className="w-4 h-4 text-lv-lime-ink" /> Binnen een minuut
               </span>
               <span className="inline-flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-lv-accent" /> Geen
+                <ShieldCheck className="w-4 h-4 text-lv-lime-ink" /> Geen
                 verkooppraatje
               </span>
             </div>
@@ -144,7 +144,7 @@ const AiKansenscan: React.FC = () => {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="reveal p-7 md:p-9 rounded-2xl bg-lv-surface border border-lv-border space-y-5"
+            className="reveal p-7 md:p-9 rounded-2xl bg-lv-surface border border-lv-line space-y-5"
           >
             <div>
               <label htmlFor="company" className={labelBase}>
@@ -216,7 +216,7 @@ const AiKansenscan: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {submitting ? (
                 <>
@@ -231,7 +231,7 @@ const AiKansenscan: React.FC = () => {
               )}
             </button>
 
-            <p className="font-body text-xs text-lv-text-subtle leading-relaxed">
+            <p className="font-body text-xs text-lv-faint leading-relaxed">
               Het scannen kan een paar seconden duren — wij lezen jullie website en
               stellen de kansen samen. Je ontvangt het rapport ook per e-mail.
             </p>

@@ -21,29 +21,29 @@ const VoorWie = () => {
         {/* Header */}
         <div ref={headerRef} className="reveal mb-12 md:mb-16 max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-12 bg-lv-accent" />
-            <span className="font-mono text-xs uppercase tracking-widest text-lv-accent">
+            <div className="h-px w-12 bg-lv-lime" />
+            <span className="font-mono text-xs uppercase tracking-widest text-lv-lime-ink">
               Voor wie
             </span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text leading-[1.1]">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-ink leading-[1.1]">
             Wij werken met industriële MKB-bedrijven die klaar zijn{' '}
-            <span className="text-lv-text-muted">om te stoppen met improviseren.</span>
+            <span className="text-lv-body">om te stoppen met improviseren.</span>
           </h2>
         </div>
 
         {/* Checklist */}
         <div
           ref={listRef}
-          className="reveal max-w-3xl rounded-2xl border border-lv-border-subtle bg-lv-surface p-8 md:p-10"
+          className="reveal max-w-3xl rounded-2xl border border-lv-line-soft bg-lv-surface p-8 md:p-10"
         >
           <ul className="space-y-4">
             {matches.map((m) => (
               <li key={m} className="flex items-start gap-4">
-                <div className="w-7 h-7 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-4 h-4 text-lv-accent" />
+                <div className="w-7 h-7 rounded-lg bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="w-4 h-4 text-lv-lime-ink" />
                 </div>
-                <span className="font-body text-base md:text-lg text-lv-text leading-snug">
+                <span className="font-body text-base md:text-lg text-lv-ink leading-snug">
                   {m}
                 </span>
               </li>
@@ -53,11 +53,11 @@ const VoorWie = () => {
 
         {/* "Niet voor" note */}
         <div ref={noteRef} className="reveal mt-10 md:mt-12 max-w-3xl">
-          <div className="p-6 md:p-7 rounded-xl border border-lv-border-subtle bg-lv-ink/40">
-            <div className="font-mono text-xs uppercase tracking-widest text-lv-text-subtle mb-3">
+          <div className="p-6 md:p-7 rounded-xl border border-lv-line-soft bg-lv-paper/40">
+            <div className="font-mono text-xs uppercase tracking-widest text-lv-faint mb-3">
               Niet voor
             </div>
-            <p className="font-body text-base text-lv-text-muted leading-relaxed">
+            <p className="font-body text-base text-lv-body leading-relaxed">
               Wij werken niet met startups zonder omzet, e-commerce bedrijven of organisaties die al een volledig commercieel en operations team hebben.
             </p>
           </div>

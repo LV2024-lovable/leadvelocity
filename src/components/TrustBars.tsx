@@ -58,14 +58,14 @@ const TrustBars: React.FC<Props> = ({ variant = 'default', className = '' }) => 
             return (
               <div
                 key={row.label}
-                className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 pb-8 md:pb-10 border-b border-lv-border-subtle last:border-0 last:pb-0"
+                className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 pb-8 md:pb-10 border-b border-lv-line-soft last:border-0 last:pb-0"
               >
                 {/* Left: label */}
                 <div className="flex items-center gap-3 md:w-64 flex-shrink-0">
-                  <div className="w-9 h-9 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center">
-                    <Icon className="w-4 h-4 text-lv-accent" />
+                  <div className="w-9 h-9 rounded-lg bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center">
+                    <Icon className="w-4 h-4 text-lv-lime-ink" />
                   </div>
-                  <span className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-widest">
+                  <span className="font-body text-xs font-600 text-lv-faint uppercase tracking-widest">
                     {row.label}
                   </span>
                 </div>
@@ -75,7 +75,7 @@ const TrustBars: React.FC<Props> = ({ variant = 'default', className = '' }) => 
                   {row.items.map((item) => (
                     <span
                       key={item}
-                      className="px-3 py-1.5 rounded-md border border-lv-border-subtle bg-lv-surface font-body text-xs md:text-sm text-lv-text-muted"
+                      className="px-3 py-1.5 rounded-md border border-lv-line-soft bg-lv-surface font-body text-xs md:text-sm text-lv-body"
                     >
                       {item}
                     </span>

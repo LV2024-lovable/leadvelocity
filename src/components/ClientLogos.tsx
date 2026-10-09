@@ -28,15 +28,15 @@ const ClientLogos: React.FC<Props> = ({
   const marqueeClients = [...clients, ...clients];
 
   return (
-    <section className={`py-12 md:py-14 relative border-y border-lv-border-subtle ${className}`}>
+    <section className={`py-12 md:py-14 relative border-y border-lv-line-soft ${className}`}>
       {heading && (
         <div className="container mx-auto px-4 md:px-6 mb-8">
           <div className="flex items-center justify-center gap-3">
-            <div className="h-px w-10 bg-lv-accent" />
-            <span className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest">
+            <div className="h-px w-10 bg-lv-lime" />
+            <span className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest">
               {heading}
             </span>
-            <div className="h-px w-10 bg-lv-accent" />
+            <div className="h-px w-10 bg-lv-lime" />
           </div>
         </div>
       )}
@@ -51,7 +51,7 @@ const ClientLogos: React.FC<Props> = ({
           {marqueeClients.map((name, i) => (
             <span
               key={`${name}-${i}`}
-              className="font-display text-xl md:text-2xl font-600 text-lv-text-muted tracking-tight opacity-70 hover:opacity-100 hover:text-lv-text transition-all duration-300 select-none flex-shrink-0"
+              className="font-display text-xl md:text-2xl font-600 text-lv-body tracking-tight opacity-70 hover:opacity-100 hover:text-lv-ink transition-all duration-300 select-none flex-shrink-0"
             >
               {name}
             </span>

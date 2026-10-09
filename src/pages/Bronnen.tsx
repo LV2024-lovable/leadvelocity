@@ -197,28 +197,28 @@ const Bronnen = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-lv-ink">
+    <div className="min-h-screen bg-lv-paper">
       <NavbarNew />
 
       <main>
         {/* HERO */}
         <section className="relative overflow-hidden grain">
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-lv-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-lv-lime/[0.03] rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
           <div ref={heroRef} className="reveal container mx-auto px-4 md:px-6 pt-32 pb-16 md:pt-40 md:pb-20 relative z-10">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-accent/20 bg-lv-accent/[0.05] mb-8">
-                <BookOpen className="w-4 h-4 text-lv-accent" />
-                <span className="font-body text-sm font-500 text-lv-accent">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-lime-ink/20 bg-lv-lime/[0.05] mb-8">
+                <BookOpen className="w-4 h-4 text-lv-lime-ink" />
+                <span className="font-body text-sm font-500 text-lv-lime-ink">
                   Bronnen · gratis assets
                 </span>
               </div>
-              <h1 className="font-display text-[2.5rem] sm:text-5xl md:text-6xl font-700 text-lv-text leading-[1.05] tracking-tight mb-6">
+              <h1 className="font-display text-[2.5rem] sm:text-5xl md:text-6xl font-700 text-lv-ink leading-[1.05] tracking-tight mb-6">
                 Leer voordat je{' '}
                 <span className="text-gradient-accent">belt</span>.
               </h1>
-              <p className="font-body text-lg md:text-xl text-lv-text-muted leading-relaxed">
+              <p className="font-body text-lg md:text-xl text-lv-body leading-relaxed">
                 Drie lagen aan bronnen, geordend van "eerste oriëntatie" tot "serieuze implementatie". Kies waar je staat, download wat je nodig hebt.
               </p>
             </div>
@@ -237,22 +237,22 @@ const Bronnen = () => {
               key={stage}
               ref={stageRef}
               className={`reveal py-14 md:py-18 relative ${
-                isEven ? 'bg-lv-surface border-y border-lv-border-subtle' : ''
+                isEven ? 'bg-lv-surface border-y border-lv-line-soft' : ''
               }`}
             >
               <div className="container mx-auto px-4 md:px-6">
                 <div className="max-w-6xl mx-auto">
                   <div className="mb-10 md:mb-12 max-w-3xl">
                     <div className="flex items-center gap-3 mb-5">
-                      <div className="h-px w-10 bg-lv-accent" />
-                      <span className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest">
+                      <div className="h-px w-10 bg-lv-lime" />
+                      <span className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest">
                         Fase {stageIdx + 1} · {cfg.label}
                       </span>
                     </div>
-                    <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-text mb-4 leading-[1.1]">
+                    <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-ink mb-4 leading-[1.1]">
                       {cfg.title}
                     </h2>
-                    <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed">
+                    <p className="font-body text-base md:text-lg text-lv-body leading-relaxed">
                       {cfg.description}
                     </p>
                   </div>
@@ -270,56 +270,56 @@ const Bronnen = () => {
                             available
                               ? `group cursor-pointer ${
                                   isEven
-                                    ? 'bg-lv-ink border-lv-border-subtle hover:border-lv-accent/30'
-                                    : 'bg-lv-surface border-lv-border-subtle hover:border-lv-accent/30'
+                                    ? 'bg-lv-paper border-lv-line-soft hover:border-lv-lime-ink/30'
+                                    : 'bg-lv-surface border-lv-line-soft hover:border-lv-lime-ink/30'
                                 }`
-                              : 'bg-lv-surface border-lv-border-subtle opacity-60'
+                              : 'bg-lv-surface border-lv-line-soft opacity-60'
                           }`}
                         >
                           <div className="flex items-center justify-between mb-5">
                             <div
                               className={`w-11 h-11 rounded-lg flex items-center justify-center ${
                                 available
-                                  ? 'bg-lv-accent/10 border border-lv-accent/20'
-                                  : 'bg-lv-surface-raised border border-lv-border'
+                                  ? 'bg-lv-lime-soft border border-lv-lime-ink/20'
+                                  : 'bg-lv-raised border border-lv-line'
                               }`}
                             >
                               {available ? (
-                                <Icon className="w-5 h-5 text-lv-accent" />
+                                <Icon className="w-5 h-5 text-lv-lime-ink" />
                               ) : (
-                                <Lock className="w-5 h-5 text-lv-text-muted" />
+                                <Lock className="w-5 h-5 text-lv-body" />
                               )}
                             </div>
-                            <span className="font-body text-xs font-600 text-lv-text-subtle uppercase tracking-widest">
+                            <span className="font-body text-xs font-600 text-lv-faint uppercase tracking-widest">
                               {r.type}
                             </span>
                           </div>
 
                           <h3
-                            className={`font-display text-lg md:text-xl font-700 text-lv-text leading-tight mb-3 ${
-                              available ? 'group-hover:text-lv-accent transition-colors' : ''
+                            className={`font-display text-lg md:text-xl font-700 text-lv-ink leading-tight mb-3 ${
+                              available ? 'group-hover:text-lv-lime-ink transition-colors' : ''
                             }`}
                           >
                             {r.title}
                           </h3>
 
-                          <p className="font-body text-sm text-lv-text-muted leading-relaxed mb-5 flex-1">
+                          <p className="font-body text-sm text-lv-body leading-relaxed mb-5 flex-1">
                             {r.description}
                           </p>
 
-                          <div className="flex items-center justify-between pt-4 border-t border-lv-border-subtle">
+                          <div className="flex items-center justify-between pt-4 border-t border-lv-line-soft">
                             <div className="flex flex-col gap-1">
                               {r.vertical && (
-                                <span className="font-body text-xs text-lv-text-subtle">
+                                <span className="font-body text-xs text-lv-faint">
                                   {r.vertical}
                                 </span>
                               )}
-                              <span className="font-body text-xs font-600 text-lv-accent">
+                              <span className="font-body text-xs font-600 text-lv-lime-ink">
                                 {r.gatedType}
                               </span>
                             </div>
                             {available && (
-                              <ArrowUpRight className="w-4 h-4 text-lv-text-subtle group-hover:text-lv-accent transition-colors flex-shrink-0" />
+                              <ArrowUpRight className="w-4 h-4 text-lv-faint group-hover:text-lv-lime-ink transition-colors flex-shrink-0" />
                             )}
                           </div>
                         </Wrapper>
@@ -336,15 +336,15 @@ const Bronnen = () => {
         <section className="py-16 md:py-20 relative">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-text mb-5 leading-[1.1]">
+              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-700 text-lv-ink mb-5 leading-[1.1]">
                 Alles doorgenomen?
               </h2>
-              <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed mb-8">
+              <p className="font-body text-base md:text-lg text-lv-body leading-relaxed mb-8">
                 We nemen geen half uur om over ons te praten — wel om te luisteren en concreet mee te denken over waar AI voor jullie het meeste oplevert.
               </p>
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
               >
                 Plan een 30-min gesprek
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

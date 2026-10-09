@@ -4,45 +4,27 @@
 
 @layer base {
   :root {
-    /* LeadVelocity Design System — "Electric Precision" */
-
-    /* Core palette */
-    --lv-ink: #09090B;
-    --lv-surface: #141417;
-    --lv-surface-raised: #1C1C21;
-    --lv-border: #27272A;
-    --lv-border-subtle: #1E1E22;
-    --lv-text: #FAFAF9;
-    --lv-text-muted: #A1A1AA;
-    --lv-text-subtle: #71717A;
-    --lv-accent: #C8FF00;
-    --lv-accent-dim: rgba(200, 255, 0, 0.15);
-    --lv-accent-glow: rgba(200, 255, 0, 0.4);
-    --lv-white: #FAFAF9;
-    --lv-light-bg: #F4F4F5;
-    --lv-light-surface: #FFFFFF;
-
-    /* shadcn/ui mappings */
-    --background: 0 0% 3.9%;
-    --foreground: 60 9% 97.6%;
-    --card: 240 6% 8.2%;
-    --card-foreground: 60 9% 97.6%;
-    --popover: 240 6% 8.2%;
-    --popover-foreground: 60 9% 97.6%;
-    --primary: 75 100% 50%;
-    --primary-foreground: 0 0% 3.9%;
-    --secondary: 240 4% 16.5%;
-    --secondary-foreground: 60 9% 97.6%;
-    --muted: 240 4% 16.5%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 4% 16.5%;
-    --accent-foreground: 60 9% 97.6%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 60 9% 97.6%;
-    --border: 240 4% 16.5%;
-    --input: 240 4% 16.5%;
-    --ring: 75 100% 50%;
-    --radius: 0.625rem;
+    /* shadcn/ui-variabelen — licht, afgeleid van het lv-palet */
+    --background: 50 20% 95%;
+    --foreground: 60 8% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 60 8% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 60 8% 5%;
+    --primary: 60 8% 5%;
+    --primary-foreground: 50 20% 95%;
+    --secondary: 48 14% 92%;
+    --secondary-foreground: 60 8% 5%;
+    --muted: 48 14% 92%;
+    --muted-foreground: 50 5% 40%;
+    --accent: 75 100% 50%;
+    --accent-foreground: 60 8% 5%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 46 13% 87%;
+    --input: 46 13% 87%;
+    --ring: 60 8% 5%;
+    --radius: 0.75rem;
   }
 
   * {
@@ -54,78 +36,29 @@
   }
 
   body {
-    font-family: 'Instrument Sans', system-ui, sans-serif;
-    background-color: var(--lv-ink);
-    color: var(--lv-text);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @apply bg-lv-paper font-body text-lv-ink antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Syne', system-ui, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-  }
-
-  h1 {
-    font-weight: 700;
-    letter-spacing: -0.035em;
-    line-height: 1.05;
+    @apply font-display font-semibold;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
   }
 
   ::selection {
-    background-color: var(--lv-accent);
-    color: var(--lv-ink);
+    @apply bg-lv-lime text-lv-ink;
   }
 
-  /* Scrollbar styling */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--lv-ink);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--lv-border);
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--lv-text-subtle);
+  :focus-visible {
+    @apply outline-none ring-2 ring-lv-ink ring-offset-2 ring-offset-lv-paper;
   }
 }
 
 @layer utilities {
-  /* Grain texture overlay */
-  .grain {
-    position: relative;
-  }
-  .grain::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1;
-  }
+  
 
-  /* Electric accent glow */
-  .glow-accent {
-    box-shadow: 0 0 20px var(--lv-accent-glow), 0 0 60px rgba(200, 255, 0, 0.1);
-  }
-
-  .glow-accent-subtle {
-    box-shadow: 0 0 40px rgba(200, 255, 0, 0.08);
-  }
-
-  /* Text gradient */
-  .text-gradient-accent {
-    background: linear-gradient(135deg, var(--lv-accent) 0%, #A8E600 60%, #78B800 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  
 
   /* Hover lift */
   .hover-lift {
@@ -135,15 +68,7 @@
     transform: translateY(-4px);
   }
 
-  /* Border glow on hover */
-  .border-glow {
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  .border-glow:hover {
-    border-color: var(--lv-accent) !important;
-    box-shadow: 0 0 20px rgba(200, 255, 0, 0.1);
-  }
-
+  
   /* Staggered animation delays */
   .stagger-1 { animation-delay: 0.1s; }
   .stagger-2 { animation-delay: 0.2s; }
@@ -176,11 +101,6 @@
     @apply py-24 md:py-32 lg:py-40;
   }
 
-  /* Noise dot pattern */
-  .dot-pattern {
-    background-image: radial-gradient(circle, var(--lv-border) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
 }
 
 /* Keyframe animations */
@@ -207,11 +127,6 @@
 @keyframes scale-in {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(200, 255, 0, 0.2); }
-  50% { box-shadow: 0 0 40px rgba(200, 255, 0, 0.4); }
 }
 
 @keyframes counter {

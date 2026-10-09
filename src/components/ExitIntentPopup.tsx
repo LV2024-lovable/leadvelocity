@@ -142,10 +142,10 @@ const ExitIntentPopup = () => {
         if (e.target === e.currentTarget) dismiss();
       }}
     >
-      <div className="relative w-full max-w-lg bg-lv-ink border border-lv-border rounded-2xl overflow-hidden shadow-2xl">
+      <div className="relative w-full max-w-lg bg-lv-paper border border-lv-line rounded-2xl overflow-hidden shadow-2xl">
         <button
           onClick={dismiss}
-          className="absolute top-4 right-4 w-9 h-9 rounded-lg border border-lv-border-subtle bg-lv-surface text-lv-text-muted hover:text-lv-accent hover:border-lv-accent/30 transition-colors flex items-center justify-center"
+          className="absolute top-4 right-4 w-9 h-9 rounded-lg border border-lv-line-soft bg-lv-surface text-lv-body hover:text-lv-lime-ink hover:border-lv-lime-ink/30 transition-colors flex items-center justify-center"
           aria-label="Sluiten"
         >
           <X className="w-4 h-4" />
@@ -154,34 +154,34 @@ const ExitIntentPopup = () => {
         <div className="p-8 md:p-10">
           {submitted ? (
             <div className="text-center py-8">
-              <div className="w-14 h-14 rounded-full bg-lv-accent/10 border border-lv-accent/30 flex items-center justify-center mx-auto mb-5">
-                <Check className="w-7 h-7 text-lv-accent" />
+              <div className="w-14 h-14 rounded-full bg-lv-lime-soft border border-lv-lime-ink/30 flex items-center justify-center mx-auto mb-5">
+                <Check className="w-7 h-7 text-lv-lime-ink" />
               </div>
-              <h3 className="font-display text-2xl font-700 text-lv-text mb-3">
+              <h3 className="font-display text-2xl font-700 text-lv-ink mb-3">
                 Onderweg naar je inbox
               </h3>
-              <p className="font-body text-base text-lv-text-muted leading-relaxed max-w-sm mx-auto">
-                Binnen enkele minuten vind je de PDF in <span className="text-lv-text">{email}</span>.
+              <p className="font-body text-base text-lv-body leading-relaxed max-w-sm mx-auto">
+                Binnen enkele minuten vind je de PDF in <span className="text-lv-ink">{email}</span>.
               </p>
               <button
                 onClick={close}
-                className="mt-6 font-body text-sm text-lv-text-subtle hover:text-lv-text transition-colors"
+                className="mt-6 font-body text-sm text-lv-faint hover:text-lv-ink transition-colors"
               >
                 Sluiten
               </button>
             </div>
           ) : (
             <>
-              <div className="w-11 h-11 rounded-lg bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center mb-5">
-                <FileText className="w-5 h-5 text-lv-accent" />
+              <div className="w-11 h-11 rounded-lg bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center mb-5">
+                <FileText className="w-5 h-5 text-lv-lime-ink" />
               </div>
-              <div className="font-body text-xs font-600 text-lv-accent uppercase tracking-widest mb-3">
+              <div className="font-body text-xs font-600 text-lv-lime-ink uppercase tracking-widest mb-3">
                 Voor je gaat
               </div>
-              <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-text mb-4 leading-tight">
+              <h3 className="font-display text-2xl md:text-3xl font-700 text-lv-ink mb-4 leading-tight">
                 20 AI-tips voor organisaties die vooruit willen.
               </h3>
-              <p className="font-body text-base text-lv-text-muted leading-relaxed mb-6">
+              <p className="font-body text-base text-lv-body leading-relaxed mb-6">
                 Concrete, toepasbare tips uit onze praktijk. Geen theorie. Gratis PDF in je inbox.
               </p>
 
@@ -192,7 +192,7 @@ const ExitIntentPopup = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Voornaam"
-                  className="w-full px-4 py-3 rounded-lg border bg-lv-surface border-lv-border text-lv-text placeholder:text-lv-text-subtle font-body text-base focus:outline-none focus:border-lv-accent/50"
+                  className="w-full px-4 py-3 rounded-lg border bg-lv-surface border-lv-line text-lv-ink placeholder:text-lv-faint font-body text-base focus:outline-none focus:border-lv-lime-ink/50"
                 />
                 <input
                   type="email"
@@ -200,12 +200,12 @@ const ExitIntentPopup = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="naam@bedrijf.nl"
-                  className="w-full px-4 py-3 rounded-lg border bg-lv-surface border-lv-border text-lv-text placeholder:text-lv-text-subtle font-body text-base focus:outline-none focus:border-lv-accent/50"
+                  className="w-full px-4 py-3 rounded-lg border bg-lv-surface border-lv-line text-lv-ink placeholder:text-lv-faint font-body text-base focus:outline-none focus:border-lv-lime-ink/50"
                 />
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60"
                 >
                   {submitting ? (
                     <>
@@ -222,7 +222,7 @@ const ExitIntentPopup = () => {
                 <button
                   type="button"
                   onClick={dismiss}
-                  className="w-full text-center font-body text-xs text-lv-text-subtle hover:text-lv-text-muted transition-colors mt-2"
+                  className="w-full text-center font-body text-xs text-lv-faint hover:text-lv-body transition-colors mt-2"
                 >
                   Nee bedankt, ik lees liever verder
                 </button>

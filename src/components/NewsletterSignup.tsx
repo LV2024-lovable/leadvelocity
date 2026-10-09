@@ -68,9 +68,9 @@ const NewsletterSignup: React.FC<Props> = ({ variant = 'default', sourceHint }) 
 
   if (submitted) {
     return (
-      <div className="flex items-center gap-3 p-5 rounded-lg bg-lv-accent/[0.06] border border-lv-accent/30">
-        <Check className="w-5 h-5 text-lv-accent flex-shrink-0" />
-        <span className="font-body text-sm text-lv-text">
+      <div className="flex items-center gap-3 p-5 rounded-lg bg-lv-lime/[0.06] border border-lv-lime-ink/30">
+        <Check className="w-5 h-5 text-lv-lime-ink flex-shrink-0" />
+        <span className="font-body text-sm text-lv-ink">
           Aangemeld — eerste uitgave komt volgende maand.
         </span>
       </div>
@@ -78,7 +78,7 @@ const NewsletterSignup: React.FC<Props> = ({ variant = 'default', sourceHint }) 
   }
 
   const inputBase =
-    'w-full px-4 py-3 rounded-lg border bg-lv-ink border-lv-border text-lv-text placeholder:text-lv-text-subtle font-body text-base focus:outline-none focus:border-lv-accent/50 focus:ring-1 focus:ring-lv-accent/20 transition-colors';
+    'w-full px-4 py-3 rounded-lg border bg-lv-paper border-lv-line text-lv-ink placeholder:text-lv-faint font-body text-base focus:outline-none focus:border-lv-lime-ink/50 focus:ring-1 focus:ring-lv-lime-ink/20 transition-colors';
 
   if (variant === 'compact') {
     return (
@@ -95,7 +95,7 @@ const NewsletterSignup: React.FC<Props> = ({ variant = 'default', sourceHint }) 
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-accent text-lv-ink font-display font-700 text-sm rounded-lg hover:shadow-[0_0_20px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60 whitespace-nowrap"
+          className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-lime text-lv-ink font-display font-700 text-sm rounded-lg hover:shadow-[0_0_20px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60 whitespace-nowrap"
         >
           {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Mail className="w-4 h-4" /> Aanmelden</>}
         </button>
@@ -127,7 +127,7 @@ const NewsletterSignup: React.FC<Props> = ({ variant = 'default', sourceHint }) 
       <button
         type="submit"
         disabled={submitting}
-        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-accent text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60"
+        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60"
       >
         {submitting ? (
           <>
@@ -141,7 +141,7 @@ const NewsletterSignup: React.FC<Props> = ({ variant = 'default', sourceHint }) 
           </>
         )}
       </button>
-      <p className="font-body text-xs text-lv-text-subtle">
+      <p className="font-body text-xs text-lv-faint">
         Maandelijks, geen spam. Direct opzegbaar.
       </p>
     </form>

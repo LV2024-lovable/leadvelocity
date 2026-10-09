@@ -29,7 +29,7 @@ const AboutNew = () => {
 
   return (
     <section id="over-ons" className="section-padding relative bg-lv-surface">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-accent/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lv-lime/20 to-transparent" />
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20">
@@ -37,25 +37,25 @@ const AboutNew = () => {
           <div>
             <div ref={headerRef} className="reveal">
               <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-12 bg-lv-accent" />
-                <span className="font-body text-sm font-600 text-lv-accent uppercase tracking-widest">
+                <div className="h-px w-12 bg-lv-lime" />
+                <span className="font-body text-sm font-600 text-lv-lime-ink uppercase tracking-widest">
                   Wie wij zijn
                 </span>
               </div>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-text mb-8 leading-[1.1]">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 text-lv-ink mb-8 leading-[1.1]">
                 AI vervangt geen goede mensen.{' '}
                 <span className="text-gradient-accent">Maar wél bedrijven die blijven stilstaan.</span>
               </h2>
             </div>
 
             <div ref={contentRef} className="reveal space-y-6">
-              <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed">
+              <p className="font-body text-base md:text-lg text-lv-body leading-relaxed">
                 Wij bouwen geen AI-projecten. Wij bouwen AI-operaties — de systemen die je inkoop, je pipeline, je service en je planning zo laten draaien dat je team méér kan met minder gedoe, terwijl bedrijven die stil blijven staan ingehaald worden door iedereen die wél beweegt.
               </p>
-              <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed">
-                De vraag is niet óf AI jouw bedrijf verandert. De vraag is: <span className="text-lv-text font-600">ben jij degene die ermee bouwt, of degene die wordt ingehaald?</span>
+              <p className="font-body text-base md:text-lg text-lv-body leading-relaxed">
+                De vraag is niet óf AI jouw bedrijf verandert. De vraag is: <span className="text-lv-ink font-600">ben jij degene die ermee bouwt, of degene die wordt ingehaald?</span>
               </p>
-              <p className="font-body text-base md:text-lg text-lv-text-muted leading-relaxed">
+              <p className="font-body text-base md:text-lg text-lv-body leading-relaxed">
                 Leadvelocity werkt met MKB-bedrijven in heel Nederland. Wij kiezen bewust voor kwaliteit boven volume: scherp, snel, selectief. Wij gaan diep met de bedrijven die we aannemen, beslissen in uren in plaats van weken, en leveren resultaten waar groot-consulting te log voor is.
               </p>
             </div>
@@ -70,17 +70,17 @@ const AboutNew = () => {
                 <div
                   key={value.title}
                   ref={valueRef}
-                  className="reveal p-6 md:p-8 rounded-2xl bg-lv-ink border border-lv-border-subtle hover:border-lv-accent/20 transition-colors duration-300"
+                  className="reveal p-6 md:p-8 rounded-2xl bg-lv-paper border border-lv-line-soft hover:border-lv-lime-ink/20 transition-colors duration-300"
                 >
                   <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 rounded-xl bg-lv-accent/10 border border-lv-accent/20 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6 text-lv-accent" />
+                    <div className="w-12 h-12 rounded-xl bg-lv-lime-soft border border-lv-lime-ink/20 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-6 h-6 text-lv-lime-ink" />
                     </div>
                     <div>
-                      <h3 className="font-display text-lg md:text-xl font-700 text-lv-text mb-3">
+                      <h3 className="font-display text-lg md:text-xl font-700 text-lv-ink mb-3">
                         {value.title}
                       </h3>
-                      <p className="font-body text-sm md:text-base text-lv-text-muted leading-relaxed">
+                      <p className="font-body text-sm md:text-base text-lv-body leading-relaxed">
                         {value.description}
                       </p>
                     </div>

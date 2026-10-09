@@ -13,7 +13,7 @@ import FooterNew from '../components/FooterNew';
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-lv-ink">
+    <div className="min-h-screen bg-lv-paper">
       <NavbarNew />
       <main>
         <HeroNew />
