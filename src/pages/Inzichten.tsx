@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowUpRight, Calendar, Clock, FileText } from 'lucide-react';
-import NavbarNew from '../components/NavbarNew';
-import FooterNew from '../components/FooterNew';
+import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import { useReveal } from '../hooks/useReveal';
 import { posts, PostIndexEntry } from '../data/blogPosts';
 import NewsletterSignup from '../components/NewsletterSignup';
@@ -37,7 +36,8 @@ const Inzichten = () => {
 
   return (
     <div className="min-h-screen bg-lv-paper">
-      <NavbarNew />
+      <Seo title={'Inzichten — AI voor NL MKB | Leadvelocity'} path={window.location.pathname} />
+      <SiteHeader />
 
       <main>
         {/* HERO */}
@@ -245,7 +245,7 @@ const Inzichten = () => {
         </section>
       </main>
 
-      <FooterNew />
+      <SiteFooter />
     </div>
   );
 };

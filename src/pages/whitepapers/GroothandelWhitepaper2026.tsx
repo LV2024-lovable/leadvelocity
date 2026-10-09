@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FileText, Check, ArrowDown, Download, Clock, BookOpen } from 'lucide-react';
-import NavbarNew from '../../components/NavbarNew';
-import FooterNew from '../../components/FooterNew';
+import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import WhitepaperRequestForm from '../../components/WhitepaperRequestForm';
 import { useReveal } from '../../hooks/useReveal';
 
@@ -56,7 +55,8 @@ const GroothandelWhitepaper2026 = () => {
 
   return (
     <div className="min-h-screen bg-lv-paper">
-      <NavbarNew />
+      <Seo title={'Whitepaper: AI in de Nederlandse Technische Groothandel 2026 — Leadvelocity'} path={window.location.pathname} />
+      <SiteHeader />
 
       <main>
         {/* HERO */}
@@ -261,7 +261,7 @@ const GroothandelWhitepaper2026 = () => {
         )}
       </main>
 
-      <FooterNew />
+      <SiteFooter />
     </div>
   );
 };

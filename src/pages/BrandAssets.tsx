@@ -1,7 +1,6 @@
 import React from 'react';
 import { Download } from 'lucide-react';
-import NavbarNew from '../components/NavbarNew';
-import FooterNew from '../components/FooterNew';
+import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 
 type AssetGroup = {
   title: string;
@@ -39,7 +38,8 @@ const assets: AssetGroup[] = [
 const BrandAssets = () => {
   return (
     <div className="min-h-screen bg-lv-paper flex flex-col">
-      <NavbarNew />
+      <Seo title="Brand assets | Lead Velocity" path="/brand" noindex />
+      <SiteHeader />
       <main className="flex-1">
         <section className="pt-32 pb-20 md:pt-40 md:pb-32">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
@@ -108,7 +108,7 @@ const BrandAssets = () => {
           </div>
         </section>
       </main>
-      <FooterNew />
+      <SiteFooter />
     </div>
   );
 };

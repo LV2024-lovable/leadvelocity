@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FileText, ArrowDown, Download, Clock, BookOpen } from 'lucide-react';
-import NavbarNew from '../../components/NavbarNew';
-import FooterNew from '../../components/FooterNew';
+import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import WhitepaperRequestForm from '../../components/WhitepaperRequestForm';
 import SchemaMarkup from '../../components/SchemaMarkup';
 import { useReveal } from '../../hooks/useReveal';
@@ -67,7 +66,8 @@ const MaakindustrieWhitepaper2026 = () => {
           datePublished: '2026-04-20',
         }}
       />
-      <NavbarNew />
+      <Seo title={'Whitepaper: AI voor Nederlandse Maakindustrie 2026 — Leadvelocity'} path={window.location.pathname} />
+      <SiteHeader />
 
       <main>
         <section className="relative overflow-hidden grain">
@@ -244,7 +244,7 @@ const MaakindustrieWhitepaper2026 = () => {
         )}
       </main>
 
-      <FooterNew />
+      <SiteFooter />
     </div>
   );
 };

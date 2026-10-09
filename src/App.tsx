@@ -3,13 +3,21 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import ExitIntentPopup from "./components/ExitIntentPopup";
+import React from "react";
+import { redirects } from "./content/redirects";
 import Home from "./pages/site/Home";
-import Groothandel from "./pages/Groothandel";
-import Maakindustrie from "./pages/Maakindustrie";
-import Transport from "./pages/Transport";
-import Faq from "./pages/Faq";
-import LpAssessment from "./pages/LpAssessment";
+import VoorWie from "./pages/site/VoorWie";
+import CategoryPage from "./pages/site/CategoryPage";
+import Oplossingen from "./pages/site/Oplossingen";
+import ProcessPage from "./pages/site/ProcessPage";
+import Werkwijze from "./pages/site/Werkwijze";
+import Prijzen from "./pages/site/Prijzen";
+import Voorbeelden from "./pages/site/Voorbeelden";
+import Over from "./pages/site/Over";
+import Werkstroomcheck from "./pages/site/Werkstroomcheck";
+import Bedankt from "./pages/site/Bedankt";
+import Privacy from "./pages/site/Privacy";
+import CampaignPage from "./pages/site/CampaignPage";
 import Inzichten from "./pages/Inzichten";
 import AiInGroothandel2026 from "./pages/inzichten/AiInGroothandel2026";
 import AiPricingVoorGroothandel from "./pages/inzichten/AiPricingVoorGroothandel";
@@ -20,33 +28,11 @@ import CsrdScope3AutomatiseringTransport from "./pages/inzichten/CsrdScope3Autom
 import GroothandelWhitepaper2026 from "./pages/whitepapers/GroothandelWhitepaper2026";
 import MaakindustrieWhitepaper2026 from "./pages/whitepapers/MaakindustrieWhitepaper2026";
 import TransportWhitepaper2026 from "./pages/whitepapers/TransportWhitepaper2026";
-import Cases from "./pages/Cases";
-import Bronnen from "./pages/Bronnen";
-import Nieuwsbrief from "./pages/Nieuwsbrief";
-import AiReadinessAssessment from "./pages/AiReadinessAssessment";
-import AiReadinessAssessmentResult from "./pages/AiReadinessAssessmentResult";
 import GroothandelPromptPack from "./pages/promptpacks/GroothandelPromptPack";
 import MaakindustriePromptPack from "./pages/promptpacks/MaakindustriePromptPack";
 import TransportPromptPack from "./pages/promptpacks/TransportPromptPack";
-import TipsEnTricks from "./pages/TipsEnTricks";
-import AiOpsAudit from "./pages/AiOpsAudit";
 import BrandAssets from "./pages/BrandAssets";
-import AiKansenscan from "./pages/AiKansenscan";
-import AiKansenscanResult from "./pages/AiKansenscanResult";
 import NotFound from "./pages/NotFound";
-import Voorbeelden from "./pages/site/Voorbeelden";
-import React from "react";
-import CategoryPage from "./pages/site/CategoryPage";
-import CampaignPage from "./pages/site/CampaignPage";
-import VoorWie from "./pages/site/VoorWie";
-import Oplossingen from "./pages/site/Oplossingen";
-import ProcessPage from "./pages/site/ProcessPage";
-import Prijzen from "./pages/site/Prijzen";
-import Werkwijze from "./pages/site/Werkwijze";
-import Over from "./pages/site/Over";
-import Werkstroomcheck from "./pages/site/Werkstroomcheck";
-import Bedankt from "./pages/site/Bedankt";
-import Privacy from "./pages/site/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -55,15 +41,31 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <TooltipProvider>
-          <ExitIntentPopup />
           <Routes>
+            {/* Oude URL's → inhoudelijk passende nieuwe route (client-side; 301 op hosting = livegang-punt) */}
+            {redirects.map((r) => <Route key={r.from} path={r.from} element={<Navigate to={r.to} replace />} />)}
+
             <Route path="/" element={<Home />} />
-            <Route path="/groothandel" element={<Groothandel />} />
-            <Route path="/maakindustrie" element={<Maakindustrie />} />
-            <Route path="/transport" element={<Transport />} />
-            <Route path="/veelgestelde-vragen" element={<Faq />} />
-            <Route path="/faq" element={<Faq />} />
-            <Route path="/lp/assessment" element={<LpAssessment />} />
+            <Route path="/voor-wie" element={<VoorWie />} />
+            <Route path="/groothandels" element={<CategoryPage key="groothandels" id="groothandels" />} />
+            <Route path="/importeurs-distributeurs" element={<CategoryPage key="importeurs-distributeurs" id="importeurs-distributeurs" />} />
+            <Route path="/service-onderhoud" element={<CategoryPage key="service-onderhoud" id="service-onderhoud" />} />
+            <Route path="/maatwerk-montage" element={<CategoryPage key="maatwerk-montage" id="maatwerk-montage" />} />
+            <Route path="/oplossingen" element={<Oplossingen />} />
+            <Route path="/oplossingen/:id" element={<ProcessPage />} />
+            <Route path="/werkwijze" element={<Werkwijze />} />
+            <Route path="/prijzen" element={<Prijzen />} />
+            <Route path="/voorbeelden" element={<Voorbeelden />} />
+            <Route path="/over" element={<Over />} />
+            <Route path="/werkstroomcheck" element={<Werkstroomcheck />} />
+            <Route path="/bedankt" element={<Bedankt />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/campagnes/offerte-intake" element={<CampaignPage key="offerte-intake" id="offerte-intake" />} />
+            <Route path="/campagnes/aftersales" element={<CampaignPage key="aftersales" id="aftersales" />} />
+            <Route path="/campagnes/service-intake" element={<CampaignPage key="service-intake" id="service-intake" />} />
+            <Route path="/campagnes/project-intake" element={<CampaignPage key="project-intake" id="project-intake" />} />
+
+            {/* Inzichten — footer-only, inhoud ongewijzigd */}
             <Route path="/inzichten" element={<Inzichten />} />
             <Route path="/inzichten/ai-in-nederlandse-technische-groothandel-2026" element={<AiInGroothandel2026 />} />
             <Route path="/inzichten/ai-pricing-voor-groothandel" element={<AiPricingVoorGroothandel />} />
@@ -74,38 +76,10 @@ const App = () => (
             <Route path="/whitepapers/ai-in-technische-groothandel-2026" element={<GroothandelWhitepaper2026 />} />
             <Route path="/whitepapers/ai-voor-nederlandse-maakindustrie-2026" element={<MaakindustrieWhitepaper2026 />} />
             <Route path="/whitepapers/ai-voor-nederlandse-transport-2026" element={<TransportWhitepaper2026 />} />
-            <Route path="/cases" element={<Cases />} />
-            <Route path="/bronnen" element={<Bronnen />} />
-            <Route path="/ai-readiness-assessment" element={<AiReadinessAssessment />} />
-            <Route path="/ai-readiness-assessment/resultaat" element={<AiReadinessAssessmentResult />} />
-            <Route path="/bronnen/ai-readiness-assessment" element={<Navigate to="/ai-readiness-assessment" replace />} />
             <Route path="/bronnen/prompts/groothandel-2026" element={<GroothandelPromptPack />} />
             <Route path="/bronnen/prompts/maakindustrie-2026" element={<MaakindustriePromptPack />} />
             <Route path="/bronnen/prompts/transport-2026" element={<TransportPromptPack />} />
-            <Route path="/bronnen/tips-en-tricks" element={<TipsEnTricks />} />
-            <Route path="/ai-ops-audit" element={<AiOpsAudit />} />
-            <Route path="/oplossingen" element={<Oplossingen />} />
-            <Route path="/oplossingen/:id" element={<ProcessPage />} />
             <Route path="/brand" element={<BrandAssets />} />
-            <Route path="/ai-kansenscan" element={<AiKansenscan />} />
-            <Route path="/ai-kansenscan/resultaat" element={<AiKansenscanResult />} />
-            <Route path="/nieuwsbrief" element={<Nieuwsbrief />} />
-            <Route path="/voorbeelden" element={<Voorbeelden />} />
-            <Route path="/voor-wie" element={<VoorWie />} />
-            <Route path="/groothandels" element={<CategoryPage key="groothandels" id="groothandels" />} />
-            <Route path="/importeurs-distributeurs" element={<CategoryPage key="importeurs-distributeurs" id="importeurs-distributeurs" />} />
-            <Route path="/service-onderhoud" element={<CategoryPage key="service-onderhoud" id="service-onderhoud" />} />
-            <Route path="/maatwerk-montage" element={<CategoryPage key="maatwerk-montage" id="maatwerk-montage" />} />
-            <Route path="/prijzen" element={<Prijzen />} />
-            <Route path="/werkwijze" element={<Werkwijze />} />
-            <Route path="/over" element={<Over />} />
-            <Route path="/campagnes/offerte-intake" element={<CampaignPage key="offerte-intake" id="offerte-intake" />} />
-            <Route path="/campagnes/aftersales" element={<CampaignPage key="aftersales" id="aftersales" />} />
-            <Route path="/campagnes/service-intake" element={<CampaignPage key="service-intake" id="service-intake" />} />
-            <Route path="/campagnes/project-intake" element={<CampaignPage key="project-intake" id="project-intake" />} />
-            <Route path="/werkstroomcheck" element={<Werkstroomcheck />} />
-            <Route path="/bedankt" element={<Bedankt />} />
-            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />

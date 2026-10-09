@@ -1,24 +1,20 @@
 # Leadvelocity — Project Context voor Claude
 
-**Laatst bijgewerkt:** 2026-10-08
+**Laatst bijgewerkt:** 2026-10-09
 
 Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken aan Leadvelocity. Lees het in z'n geheel voordat je begint met taken — positionering, product, tone-of-voice en do-not's staan hier allemaal.
 
 ---
 
-## 1. Wat is Leadvelocity?
+## 1. Wat is Lead Velocity?
 
-Leadvelocity helpt **MKB-bedrijven ontdekken en inzetten wat AI voor hen kan**. De kernvraag:
+**Lead Velocity automatiseert het terugkerende uitzoekwerk, de communicatie en de opvolging in de commerciële en administratieve operatie van het MKB.**
 
-> **Weet jouw bedrijf wat het met AI kan?**
+Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
 
-We vertalen AI naar vier concrete uitkomsten — **tijd besparen, klantbehoud, kennisbank, data & inzicht** — elk als vast pakket met vaste prijs, live in 2-4 weken, met een maandtier voor hosting, support en doorontwikkeling. Kleinere bedrijven (5-50 medewerkers) zijn de basis; grotere, complexe projecten doen we als maatwerk.
+**Leidende bron:** [`docs/strategy/2026-10-09-website-gtm-handover.md`](./docs/strategy/2026-10-09-website-gtm-handover.md). Bij twijfel over positionering, copy, prijzen of claims gaat dat document voor.
 
-**We zijn geen consultancy en geen AI-bureau met vage trajecten.** Een prospect moet na één alinea weten wat we doen, wat het kost en hoe snel het werkt.
-
-**Huidige fase:** bootstrapping, 2-persoons-studio in opbouw. Path C-strategie: jaar 1 lean opereren met exit-architectuur onder de motorkap, beslisdatum juni 2027 voor lifestyle-anker vs. exit-schaling.
-
-**Bron van waarheid voor aanbod en prijzen:** [`src/data/aanbod.ts`](./src/data/aanbod.ts). Spec: [`docs/superpowers/specs/2026-10-08-positionering-aanbod-v2-design.md`](./docs/superpowers/specs/2026-10-08-positionering-aanbod-v2-design.md).
+**Bron van waarheid voor copy en prijzen op de site:** `src/content/*`. Check: `npx tsx scripts/check-content.ts`.
 
 ---
 
@@ -36,38 +32,20 @@ Deze dubbele boodschap (AI als *enabler* + AI als *vervanger van traagheid*) is 
 
 ---
 
-## 3. Wat we verkopen — 4 uitkomsten, vaste pakketten, maandtier
+## 3. Wat we verkopen — drie pakketten plus Custom
 
-Prijzen staan in [`src/data/aanbod.ts`](./src/data/aanbod.ts). Wijzig je een prijs, wijzig hem daar én hier; `npx tsx scripts/check-aanbod.ts` controleert dat ze gelijk zijn.
+Prijzen staan in `src/content/pricing.ts` (vanaf, excl. btw). Wijzig je een prijs, wijzig hem daar én hier; de check controleert dat.
 
-### De ladder
-1. **AI-kansenscan (gratis)** — `/ai-kansenscan`: *"Ontdek in 5 minuten wat AI voor jouw bedrijf kan."* Toont welke uitkomsten passen en welk pakket erbij hoort. CTA in elke cold e-mail.
-2. **Kennismaking (gratis, 30 min)** — scan-uitkomst doorlopen, één pakket voorstellen.
-3. **Vast pakket per uitkomst** — vaste scope, vaste setup-prijs, live in 2-4 weken.
-4. **Maandtier** — hosting, AI-gebruik (fair use), monitoring, support, doorontwikkeling.
-5. **Maatwerk** — via de betaalde audit, voor grotere/complexe vraagstukken.
+- **Voorbereiden — €2.950 + €595** per maand — relevante informatie en conceptacties klaarzetten voor je team
+- **Werkstroom — €4.950 + €1.250** per maand — aanbevolen start; één proces van intake tot afgesproken opvolging
+- **Opschalen — €7.950 + €1.950** per maand — een bewezen werkstroom uitbreiden
+- **Custom — €12.500 + €2.500** per maand — meerdere processen of bijzondere koppelingen
 
-### Pakketten (setup, eenmalig, excl. btw)
-- **Kennisbank — €2.000** — 1 documentbron, tot ~500 documenten, chat via browser of Teams
-- **Tijd besparen — €2.500** per workflow — 1 proces end-to-end, koppeling met max. 2 systemen
-- **Klantbehoud — €2.500** — signalen uit order-/CRM-data + 1 opvolg- of heractivatie-flow
-- **Data & inzicht — €3.000** — 2-3 bronnen gekoppeld, 1 dashboard met max. ~10 kerncijfers
+Funnel: gratis werkstroomcheck (20 min) → gelabeld voorbeeld → analyse €750 (verrekenbaar binnen 60 dagen) → vaste scope en prijs → inrichting → acceptatie → maanddienst → uitbreiding.
 
-Werk buiten de standaard-scope offreren we vooraf apart.
+Op de site: "We leggen vooraf vast wat wordt opgeleverd en wanneer de maanddienst start." Geen garantie of "geld terug" tot de contracttekst er is.
 
-### Maandtiers (excl. btw)
-- **Basis — €149/maand** — 1 pakket, kleine aanpassingen
-- **Groei — €399/maand** — 2-3 pakketten + 4 uur verbeteringen per maand
-- **Partner — €799/maand** — alle pakketten, 8 uur + maandelijkse verbetersessie + voorrang
-
-Minimale looptijd 6 maanden, daarna maandelijks opzegbaar. Een pakket draait alleen met een actieve maandtier.
-
-### Maatwerk
-- **AI Ops Audit — €2.500** — 60 min kickoff + 2-4 team-interviews, rapport met top-3 AI-kansen binnen 5 werkdagen. Ingang voor maatwerk.
-- **Maatwerk vanaf ~€10.000, op offerte** — voice-agents, maatwerk-platformen (CRM, ATS, klantportalen), complexe agents over meerdere systemen.
-
-### Uitgefaseerd
-De oude 5 diensten (`ServicesNew`) en 5 oplossingen (`/oplossingen/*`, pilot-ranges €12-25k) zijn niet langer de hoofdstructuur. Deelproject 2 (site-structuur) beslist per pagina wat blijft, verhuist naar maatwerk of verdwijnt.
+Vier procesfamilies: aanvragen en dossiers · communicatie en opvolging · data en inzicht · commerciële voorbereiding.
 
 ---
 
@@ -83,28 +61,11 @@ Dit is wat we aantoonbaar kunnen bouwen vandaag:
 
 ---
 
-## 5. Doelgroep (ICP)
+## 5. Doelgroep
 
-### Geografisch + grootte
-- **Nederland** (België adjacent)
-- **MKB met 5-50 medewerkers** als basis. Groter = maatwerk-route.
-- In klantcopy altijd **"MKB"** — nooit FTE-ranges.
+Eerste selectiehypothese: circa 10–75 medewerkers, minstens twee mensen in het betreffende kantoorproces, digitaal binnenkomende informatie en genoeg herhaling. Buyer: eigenaar/directeur, of binnendienst-, aftersales-, service- of operationeel manager met de directie voor budget.
 
-### Beslisser
-- **Eigenaar / DGA** — beslist meestal alleen. Wil weten: wat levert het op, wat kost het, hoe snel. Skeptisch over hype.
-- **Operationeel manager / kantoormanager** — voelt de pijn (handwerk, zoeken, overtypen), bereidt de beslissing voor.
-- Wat ze NIET willen horen: "digitale transformatie", "AI-revolutie", "toekomstbestendig", "journey".
-
-### 4 doelmarkten (cold outreach + marktpagina's)
-
-| Markt | Leidende uitkomst | Haak |
-|---|---|---|
-| **Groothandel** | Tijd besparen + Klantbehoud | "Hoeveel orders worden er nog handmatig uit de mail overgetypt?" |
-| **Maakindustrie** | Kennisbank + Tijd besparen | "Wat gebeurt er met jullie configuratiekennis als je senior engineer met pensioen gaat?" |
-| **Zakelijke dienstverlening** | Tijd besparen + Kennisbank | "Hoeveel uur per week gaat er naar intake, administratie en documenten zoeken?" |
-| **MKB algemeen** | Instap via kansenscan | "Weet jij wat AI voor jouw bedrijf kan? Ontdek het in 5 minuten." |
-
-Transport & logistiek is **geen focusmarkt meer**. Bestaande transport-content blijft voorlopig staan tot deelproject 2.
+Vier categorieën (websiteingangen): technische groothandels · importeurs en distributeurs · service en onderhoud · maatwerk en montage. Fietsen, koffieapparatuur en kozijnen zijn voorbeelden binnen categorieën, geen losse niches.
 
 ---
 
@@ -113,7 +74,7 @@ Transport & logistiek is **geen focusmarkt meer**. Bestaande transport-content b
 ### DO
 
 - **Nederlands, zakelijk, direct.** Werkwoord vooraan. Cijfers in de eerste alinea.
-- **Spreek in "wij" en "ons".** Geen persoonlijke namen ("Bart", "de broer") in copy. We zijn Leadvelocity.
+- **Spreek in "wij" en "ons".** Persoonlijke namen alleen waar de regel in DON'T toestaat. We zijn Lead Velocity.
 - **Tweede persoon naar lezer:** "jouw bedrijf", "jullie sales", "jullie operatie"
 - **Concreet over pijn en resultaat.** *"Van Excel-chaos naar real-time zicht"* > *"Wij helpen organisaties bij hun digitale reis."*
 - **Sector-jargon waar relevant** (zie per vertical: `docs/outreach/sequence-*.md`)
@@ -122,7 +83,7 @@ Transport & logistiek is **geen focusmarkt meer**. Bestaande transport-content b
 
 ### DON'T
 
-- ❌ **Geen persoonlijke namen of "Bart en zijn broer"** in copy — altijd "wij/ons"
+- ❌ **Geen persoonlijke namen in copy**, behalve op `/over` en in de Over-sectie van de homepage, waar Bart Wilbrink als oprichter wordt genoemd (handover §8, §15). Elders "wij/ons".
 - ❌ **Geen "50-250 FTE"** in klant-copy — zeg "MKB"
 - ❌ **Geen bronvermelding overal.** Eén plek (ResultsNew "De cijfers"-sectie) is OK, elders niet
 - ❌ **Geen verzonnen cijfers.** Nooit "50+ klanten geholpen" of "3x meer leads" zonder staving
@@ -151,35 +112,19 @@ Vraag jezelf voor elk blok af:
 - **shadcn/ui** componenten (beschikbaar onder `src/components/ui/`)
 - **Supabase** voor contact-form-submissions + Edge Functions
 - **Resend** via Supabase Edge Function `email-notify` → `info@leadvelocity.nl`
-- **Fonts:** Geist (display/headlines) + Manrope (body) via Google Fonts
+- **Fonts:** Schibsted Grotesk (koppen) + Hanken Grotesk (tekst) + JetBrains Mono (labels)
 - **Hosting:** Lovable (via GitHub → Lovable auto-deploy bij push naar `main`)
 
-### Routes (huidige structuur)
+### Routes (fase 1)
 
-```
-/                     Homepage (generiek MKB, 4 producten, 3 verticals, CTA)
-/groothandel          Technische groothandel landing (primair)
-/maakindustrie        Maakindustrie landing (secundair)
-/transport            Transport & logistiek landing (secundair)
-/lp/assessment        Campaign-landing, nav-less, single CTA
-```
+`/` · `/voor-wie` · `/groothandels` · `/importeurs-distributeurs` · `/service-onderhoud` · `/maatwerk-montage` · `/oplossingen` (+ 4 detailpagina's) · `/werkwijze` · `/prijzen` · `/voorbeelden` · `/over` · `/werkstroomcheck` · `/bedankt` (noindex) · `/privacy` · `/campagnes/*` (4, noindex) · `/inzichten` (footer-only). Oude routes: `src/content/redirects.ts`.
 
-### Key componenten
+### Structuur
 
-```
-src/components/
-  NavbarNew.tsx           Fixed nav met Sectoren-dropdown (hover-stable)
-  HeroNew.tsx             Rotating headlines (3 varianten, sessionStorage)
-  VerticalsNew.tsx        3-card sector-picker op homepage
-  ServicesNew.tsx         5 diensten met vanaf-prijzen + retainer-paraplu
-  ProcessNew.tsx          4-stap werkwijze
-  ResultsNew.tsx          Bronvermeldingen wonen hier (en nergens anders)
-  AboutNew.tsx            POV + "wij/ons" — geen Bart/broer namen
-  CTANew.tsx              Homepage contact-sectie met ContactForm
-  FooterNew.tsx           4-kolom met sector-links
-  ContactForm.tsx         Herbruikbaar, submit via Supabase → Resend
-  VerticalPage.tsx        Gedeelde layout voor 3 sector-pagina's
-```
+- `src/content/*` — alle copy, prijzen, demo's, campagnes (getypeerd)
+- `src/components/site/*` — SiteHeader, SiteFooter, DemoStepper, PricingCards, CheckForm, …
+- `src/pages/site/*` — paginasjablonen (CategoryPage, ProcessPage, CampaignPage, …)
+- `supabase/functions/werkstroomcheck` — aanvraag opslaan + mail via Resend
 
 ### Contactformulier-integratie
 
@@ -195,7 +140,7 @@ Als formulier niet werkt → check eerst deze twee.
 - **Gebruik `useReveal`-hook** voor scroll-animaties, niet losse IntersectionObserver-code.
 - **Nieuwe pages via `/` in `App.tsx`** toevoegen, niet via dynamic imports tenzij bundle-size issue is.
 - **Geen shadcn/ui-componenten customen direct.** Liever `className=` toevoegen of wrapper-component maken.
-- **Font weight nooit 800** voor headlines — gebruikt we 600/700 (Geist is minder leesbaar bij 800).
+- **Font weight nooit 800** voor headlines — gebruikt we 600/700 (bij 800 wordt de kop te zwaar).
 
 ---
 
@@ -221,40 +166,30 @@ Gebruik deze voor nieuwe copy, use-cases, blog-content. Elke sector heeft TL;DR 
 
 ---
 
-## 9. Beslissingen al genomen (niet meer open ter discussie)
+## 9. Beslissingen al genomen
 
-- **Path C** — hybride 12-maanden lean, beslisdatum juni 2027 voor schaal vs. lifestyle
-- **Positionering v2 (2026-10-08)** — kernvraag "Weet jouw bedrijf wat het met AI kan?", 4 uitkomsten als vaste pakketten. Vervangt de 5 diensten + 5 oplossingen.
-- **ICP 5-50 medewerkers** — kleinere bedrijven als basis, maatwerk voor groter
-- **4 markten** — groothandel, maakindustrie, zakelijke dienstverlening, MKB algemeen. Transport valt af.
-- **Prijsmodel** — vaste setup per pakket + maandtier (Basis/Groei/Partner), 6 maanden minimum
-- **Prijzen WEL gepubliceerd:** pakket-setups, maandtiers, AI Ops Audit, maatwerk "vanaf ~€10.000"
-- **Retainers positief gepositioneerd** — als concrete maandtier, niet als open "partnership op maat"
-- **Geen persoonlijke namen in copy** — altijd "wij/ons"
-- **Sources alleen op één resultaten-sectie** — niet overal door site heen
-- **Geen "8-klanten"-tagline** — we willen schalen als het werkt
+- **De handover van 2026-10-09 is leidend** voor positionering, copy, prijzen en routes.
+- **Vier categorieën, één pakketstructuur, één proces per campagne.**
+- **Werkstroomcheck is de enige ingang**; de oude AI-kansenscan verwijst door.
+- **Geen garantie op de site** tot de contracttekst er is.
+- **Geen verzonnen bewijs:** demo's zijn gelabeld "Illustratieve demo"; cases en logo's alleen met goedgekeurde gegevens.
+- **Huisstijl:** papier/inkt/lime, Schibsted Grotesk + Hanken Grotesk + JetBrains Mono; geen glow of netwerkanimaties.
+- **Path C** — hybride 12-maanden lean, beslisdatum juni 2027.
 
 ---
 
 ## 10. Open werkpunten
 
-Site-brede herpositionering in 4 deelprojecten (elk eigen spec → plan → uitvoering):
-
-1. ~~Positionering & aanbod v2~~ — afgerond (`src/data/aanbod.ts`)
-2. **Site-structuur + minimal design system** — welke van de ~37 pagina's blijven; component libraries via shadcn-registry/MCP (o.a. `@aceternity/sticky-scroll-reveal-demo`); oude componenten opruimen
-3. **Bouw** — homepage, 4 marktpagina's, pakket-/prijspagina, kansenscan-resultaat gemapt op de 4 uitkomsten
-4. **Cold outreach** — één 5-touch sequence per markt op basis van §5
-
-Daarnaast: pilot-klanten werven voor case studies, LinkedIn-content-engine.
+Zie `docs/superpowers/2026-10-09-livegang.md` voor livegang-afhankelijkheden (prijsakkoord, privacytekst, functie-deploy, contactgegevens, foto, agenda, 301's, analytics). Fase 2: `/campagnes/commerciele-voorbereiding`, `/resultaten/*` (alleen echt bewijs), claim-audit van `/inzichten`.
 
 ---
 
 ## 11. Commerciële workflow-context
 
 ### Hoe een klant typisch bij ons komt
-1. Cold outreach-sequence **OF** inbound via website → AI-kansenscan (`/ai-kansenscan`)
-2. 30-min kennismakingsgesprek (gratis) → één vast pakket + maandtier. Groter/complex → AI Ops Audit (€2.500) → maatwerk-offerte
-3. Na eerste pakket: tweede pakket toevoegen, tier groeit mee (Basis → Groei → Partner)
+1. Outreach of website → campagne- of categoriepagina → gelabelde demo
+2. Werkstroomcheck (20 min, gratis) → analyse €750 (verrekenbaar binnen 60 dagen)
+3. Vaste scope en prijs → inrichting → acceptatie → maanddienst → uitbreiding
 
 ### Contact-routing
 - Formulieren landen in **info@leadvelocity.nl** via Supabase/Resend
@@ -293,8 +228,8 @@ Daarnaast: pilot-klanten werven voor case studies, LinkedIn-content-engine.
 ## 13. Werkstijl-afspraken
 
 - **Altijd checken of de copy voldoet aan tone-of-voice sectie 6** vóór commit
-- **Nooit persoonlijke namen (Bart/broer) in klant-copy** toevoegen, ook niet per ongeluk
-- **Bij twijfel over positionering of prijzen**: check [`src/data/aanbod.ts`](./src/data/aanbod.ts) en het addendum (`docs/strategy/2026-10-08-positionering-v2.md`); het masterplan alleen nog voor Path C en de POV
+- **Geen persoonlijke namen in klant-copy** buiten `/over` en de Over-sectie van de homepage (zie §6)
+- **Bij twijfel over positionering of prijzen**: check [`src/content/pricing.ts`](./src/content/pricing.ts) en het addendum (`docs/strategy/2026-10-08-positionering-v2.md`); het masterplan alleen nog voor Path C en de POV
 - **Bij twijfel over use-cases/cijfers**: check research-docs (`.planning/research/*.md`)
 - **Bij twijfel over outreach-wording**: check sequence-docs (`docs/outreach/sequence-*.md`)
 - **Commits zijn logisch gegroepeerd** (één feature/sectie per commit), conventional-commits niet verplicht
@@ -302,4 +237,4 @@ Daarnaast: pilot-klanten werven voor case studies, LinkedIn-content-engine.
 
 ---
 
-*Einde project-context. Laatst bijgewerkt: 2026-10-08. Update dit document wanneer positionering, aanbod of werkstijl significant verandert.*
+*Einde project-context. Laatst bijgewerkt: 2026-10-09. Update dit document wanneer positionering, aanbod of werkstijl significant verandert.*

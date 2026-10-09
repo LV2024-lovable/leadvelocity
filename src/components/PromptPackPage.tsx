@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowUpRight, Check, Download, Copy, Sparkles, FileText, Zap } from 'lucide-react';
-import NavbarNew from './NavbarNew';
-import FooterNew from './FooterNew';
+import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
 import { triggerAutoRespond, AssetType } from '../lib/autoRespond';
@@ -92,7 +91,8 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
 
   return (
     <div className="min-h-screen bg-lv-paper">
-      <NavbarNew />
+      <Seo title={`${pack.title} — Leadvelocity`} path={window.location.pathname} />
+      <SiteHeader />
 
       <main>
         {/* HERO */}
@@ -169,7 +169,7 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg transition-all duration-300 disabled:opacity-60"
                     >
                       {submitting ? 'Bezig...' : 'Ontgrendel pack'}
                       {!submitting && <ArrowUpRight className="w-5 h-5" />}
@@ -327,7 +327,7 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
               </p>
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg transition-all duration-300 group"
               >
                 Plan een gesprek
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -337,7 +337,7 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
         </section>
       </main>
 
-      <FooterNew />
+      <SiteFooter />
     </div>
   );
 };

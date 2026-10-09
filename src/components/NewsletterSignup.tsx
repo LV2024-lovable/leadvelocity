@@ -95,7 +95,7 @@ const NewsletterSignup: React.FC<Props> = ({ variant = 'default', sourceHint }) 
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-lime text-lv-ink font-display font-700 text-sm rounded-lg hover:shadow-[0_0_20px_rgba(200,255,0,0.3)] transition-all duration-300 disabled:opacity-60 whitespace-nowrap"
+          className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-lv-lime text-lv-ink font-display font-700 text-sm rounded-lg transition-all duration-300 disabled:opacity-60 whitespace-nowrap"
         >
           {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Mail className="w-4 h-4" /> Aanmelden</>}
         </button>
@@ -127,7 +127,7 @@ const NewsletterSignup: React.FC<Props> = ({ variant = 'default', sourceHint }) 
       <button
         type="submit"
         disabled={submitting}
-        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60"
+        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg transition-all duration-300 group disabled:opacity-60"
       >
         {submitting ? (
           <>

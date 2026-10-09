@@ -195,7 +195,7 @@ const WhitepaperRequestForm: React.FC<Props> = ({ whitepaperTitle, whitepaperSlu
       <button
         type="submit"
         disabled={submitting}
-        className="mt-6 w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg hover:shadow-[0_0_30px_rgba(200,255,0,0.3)] transition-all duration-300 group disabled:opacity-60 disabled:cursor-not-allowed"
+        className="mt-6 w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg transition-all duration-300 group disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {submitting ? (
           <>
