@@ -1,6 +1,7 @@
 import React from 'react';
 import BlogPost, { BlogPostConfig } from '../../components/BlogPost';
 import { getRelated } from '../../data/blogPosts';
+import { checkHref, demoHref } from '@/lib/cta';
 
 const config: BlogPostConfig = {
   slug: 'ai-voor-nederlandse-maakindustrie-oee',
@@ -231,12 +232,12 @@ const config: BlogPostConfig = {
     heading: 'Welke OEE-sprong is bij jullie fabriek haalbaar?',
     body: 'Van verdiepen tot direct bouwen — jij kiest wat nu past.',
     hot: {
-      href: '/#contact',
-      label: 'Start een Shop-Floor Copilot',
+      href: checkHref({ source: 'inzichten-ai-voor-nederlandse-maakindustrie-oee' }),
+      label: 'Plan een werkstroomcheck',
     },
     warm: {
-      href: '/#contact',
-      label: 'Plan een OEE-kennismaking',
+      href: demoHref(undefined, 'inzichten-ai-voor-nederlandse-maakindustrie-oee'),
+      label: 'Bekijk een voorbeeld',
     },
     cold: {
       href: '/whitepapers/ai-voor-nederlandse-maakindustrie-2026',

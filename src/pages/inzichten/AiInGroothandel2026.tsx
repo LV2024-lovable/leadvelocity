@@ -1,6 +1,7 @@
 import React from 'react';
 import BlogPost, { BlogPostConfig } from '../../components/BlogPost';
 import { getRelated } from '../../data/blogPosts';
+import { checkHref, demoHref } from '@/lib/cta';
 
 const config: BlogPostConfig = {
   slug: 'ai-in-nederlandse-technische-groothandel-2026',
@@ -203,12 +204,12 @@ const config: BlogPostConfig = {
     heading: 'Waar zit de grootste AI-kans bij jullie groothandel?',
     body: 'Kies zelf hoe ver je nu wilt gaan — van verdiepen tot direct starten met een concrete AI-toepassing.',
     hot: {
-      href: '/#contact',
-      label: 'Start een AI Ops Audit',
+      href: checkHref({ source: 'inzichten-ai-in-nederlandse-technische-groothandel-2026' }),
+      label: 'Plan een werkstroomcheck',
     },
     warm: {
-      href: '/#contact',
-      label: 'Plan een 30-min kennismaking',
+      href: demoHref(undefined, 'inzichten-ai-in-nederlandse-technische-groothandel-2026'),
+      label: 'Bekijk een voorbeeld',
     },
     cold: {
       href: '/whitepapers/ai-in-technische-groothandel-2026',

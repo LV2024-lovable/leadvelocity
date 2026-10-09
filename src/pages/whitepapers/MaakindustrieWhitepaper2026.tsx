@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FileText, ArrowDown, Download, Clock, BookOpen } from 'lucide-react';
 import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import WhitepaperRequestForm from '../../components/WhitepaperRequestForm';
 import SchemaMarkup from '../../components/SchemaMarkup';
 import { useReveal } from '../../hooks/useReveal';
+import { checkHref } from '@/lib/cta';
 
 const whatYouGet = [
   {
@@ -43,17 +44,6 @@ const MaakindustrieWhitepaper2026 = () => {
   const formRef = useReveal();
   const [hasRequested, setHasRequested] = useState(false);
 
-  useEffect(() => {
-    document.title = 'Whitepaper: AI voor Nederlandse Maakindustrie 2026 — Lead Velocity';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      desc.setAttribute(
-        'content',
-        'Download de whitepaper: AI voor Nederlandse Maakindustrie 2026. 25 pagina\'s over predictive maintenance, OEE-optimalisatie, shop-floor copilot en kennisbehoud.'
-      );
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-lv-paper">
       <SchemaMarkup
@@ -66,7 +56,7 @@ const MaakindustrieWhitepaper2026 = () => {
           datePublished: '2026-04-20',
         }}
       />
-      <Seo title={'Whitepaper: AI voor Nederlandse Maakindustrie 2026 — Lead Velocity'} path={window.location.pathname} />
+      <Seo title={'Whitepaper: AI voor Nederlandse Maakindustrie 2026 — Lead Velocity'} description={'Download de whitepaper: AI voor Nederlandse Maakindustrie 2026. 25 pagina\'s over predictive maintenance, OEE-optimalisatie, shop-floor copilot en kennisbehoud.'} path={window.location.pathname} />
       <SiteHeader />
 
       <main>
@@ -234,8 +224,8 @@ const MaakindustrieWhitepaper2026 = () => {
               <div className="max-w-3xl mx-auto text-center">
                 <p className="font-body text-base text-lv-body leading-relaxed">
                   Liever direct in gesprek?{' '}
-                  <a href="/#contact" className="text-lv-lime-ink hover:underline font-500">
-                    Plan een gesprek →
+                  <a href={checkHref({ source: 'whitepaper-maakindustrie-2026' })} className="text-lv-lime-ink hover:underline font-500">
+                    Plan een werkstroomcheck →
                   </a>
                 </p>
               </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import BlogPost, { BlogPostConfig } from '../../components/BlogPost';
 import { getRelated } from '../../data/blogPosts';
+import { checkHref, demoHref } from '@/lib/cta';
 
 const config: BlogPostConfig = {
   slug: 'predictive-maintenance-machinebouw',
@@ -229,12 +230,12 @@ const config: BlogPostConfig = {
     heading: 'Welke machines in jullie fabriek rechtvaardigen predictive maintenance?',
     body: 'Drie paden om te ontdekken waar de grootste winst ligt.',
     hot: {
-      href: '/#contact',
-      label: 'Plan een kritiekheids-scan',
+      href: checkHref({ source: 'inzichten-predictive-maintenance-machinebouw' }),
+      label: 'Plan een werkstroomcheck',
     },
     warm: {
-      href: '/#contact',
-      label: 'Plan een kennismaking',
+      href: demoHref(undefined, 'inzichten-predictive-maintenance-machinebouw'),
+      label: 'Bekijk een voorbeeld',
     },
     cold: {
       href: '/whitepapers/ai-voor-nederlandse-maakindustrie-2026',

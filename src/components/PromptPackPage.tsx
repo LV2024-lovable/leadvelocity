@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ArrowUpRight, Check, Download, Copy, Sparkles, FileText, Zap } from 'lucide-react';
 import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import { supabase } from '../integrations/supabase/client';
 import { toast } from 'sonner';
 import { triggerAutoRespond, AssetType } from '../lib/autoRespond';
 import { useReveal } from '../hooks/useReveal';
+import { checkHref } from '@/lib/cta';
 import { PromptPack } from '../data/promptPacks';
 
 type Props = {
@@ -19,12 +20,6 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
   const [name, setName] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [copiedPromptIdx, setCopiedPromptIdx] = useState<number | null>(null);
-
-  useEffect(() => {
-    document.title = `${pack.title} — Lead Velocity`;
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', pack.metaDescription);
-  }, [pack]);
 
   const submitRequest = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,7 +86,7 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
 
   return (
     <div className="min-h-screen bg-lv-paper">
-      <Seo title={`${pack.title} — Lead Velocity`} path={window.location.pathname} />
+      <Seo title={`${pack.title} — Lead Velocity`} description={pack.metaDescription} path={window.location.pathname} />
       <SiteHeader />
 
       <main>
@@ -323,13 +318,13 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                 Wil je dit in jullie eigen systemen ingebouwd zien?
               </h2>
               <p className="font-body text-base md:text-lg text-lv-body leading-relaxed mb-8">
-                Wij bouwen deze prompts in als AI-assistenten die naadloos in je binnendienst, planner of shop-floor werken. Plan een vrijblijvend gesprek.
+                Wij bouwen deze prompts in als AI-assistenten die naadloos in je binnendienst, planner of shop-floor werken.
               </p>
               <a
-                href="/#contact"
+                href={checkHref({ source: `promptpack-${pack.slug}` })}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg transition-all duration-300 group"
               >
-                Plan een gesprek
+                Plan een werkstroomcheck
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>

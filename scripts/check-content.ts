@@ -84,6 +84,23 @@ for (const dir of ["src/pages/site", "src/components/site"]) {
   for (const f of files) check(!/€\s?\d/.test(readFileSync(f, "utf8")), `${f}: euro-literal gevonden — prijzen alleen uit src/content/pricing.ts`);
 }
 
+// --- geen dode of verouderde CTA's in src/ (/#contact, AI Ops Audit) ---
+// Uitzondering: src/content/redirects.ts mag /ai-ops-audit als redirect-bron noemen.
+const ctaVerboden: [RegExp, string][] = [
+  [/href="\/#contact"/, 'href="/#contact"'],
+  [/href:\s*['"]\/#contact['"]/, "href: '/#contact'"],
+  [/\/ai-ops-audit/, "/ai-ops-audit"],
+  [/AI Ops Audit/, "AI Ops Audit"],
+];
+for (const f of scan("src")) {
+  const tekst = readFileSync(f, "utf8");
+  const isRedirects = f.replace(/\\/g, "/") === "src/content/redirects.ts";
+  for (const [re, label] of ctaVerboden) {
+    if (isRedirects && label === "/ai-ops-audit") continue;
+    check(!re.test(tekst), `${f}: verboden CTA-patroon ${label} — gebruik checkHref() uit src/lib/cta.ts`);
+  }
+}
+
 // --- CLAUDE.md noemt dezelfde prijzen (vanaf Task 11 verplicht) ---
 const claude = readFileSync("CLAUDE.md", "utf8");
 if (claude.includes("Minder uitzoekwerk")) {

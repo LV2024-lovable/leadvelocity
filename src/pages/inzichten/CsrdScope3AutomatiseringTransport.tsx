@@ -1,6 +1,7 @@
 import React from 'react';
 import BlogPost, { BlogPostConfig } from '../../components/BlogPost';
 import { getRelated } from '../../data/blogPosts';
+import { checkHref, demoHref } from '@/lib/cta';
 
 const config: BlogPostConfig = {
   slug: 'csrd-scope-3-automatisering-transport',
@@ -182,12 +183,12 @@ const config: BlogPostConfig = {
     heading: 'Hoeveel CSRD-werk kost jullie binnendienst nu?',
     body: 'Drie paden om CSRD-rapportage te automatiseren.',
     hot: {
-      href: '/#contact',
-      label: 'Start een CSRD-pilot',
+      href: checkHref({ source: 'inzichten-csrd-scope-3-automatisering-transport' }),
+      label: 'Plan een werkstroomcheck',
     },
     warm: {
-      href: '/#contact',
-      label: 'Plan een kennismaking',
+      href: demoHref(undefined, 'inzichten-csrd-scope-3-automatisering-transport'),
+      label: 'Bekijk een voorbeeld',
     },
     cold: {
       href: '/whitepapers/ai-voor-nederlandse-transport-2026',

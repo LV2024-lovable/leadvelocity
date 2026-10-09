@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ArrowUpRight, Calendar, Clock, FileText } from 'lucide-react';
 import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import { useReveal } from '../hooks/useReveal';
@@ -14,17 +14,6 @@ const Inzichten = () => {
   const featuredRef = useReveal();
   const [activeCategory, setActiveCategory] = useState<Category>('Alles');
 
-  useEffect(() => {
-    document.title = 'Inzichten — AI voor NL MKB | Lead Velocity';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      desc.setAttribute(
-        'content',
-        'Diepgaande artikelen en research over AI in de Nederlandse MKB-industrie — voor technische groothandel, maakindustrie en transport.'
-      );
-    }
-  }, []);
-
   const featured = posts.find((p) => p.featured && activeCategory === 'Alles') ||
     posts.filter((p) => p.featured && p.category === activeCategory)[0];
 
@@ -36,7 +25,7 @@ const Inzichten = () => {
 
   return (
     <div className="min-h-screen bg-lv-paper">
-      <Seo title={'Inzichten — AI voor NL MKB | Lead Velocity'} path={window.location.pathname} />
+      <Seo title={'Inzichten — AI voor NL MKB | Lead Velocity'} description={'Diepgaande artikelen en research over AI in de Nederlandse MKB-industrie — voor technische groothandel, maakindustrie en transport.'} path={window.location.pathname} />
       <SiteHeader />
 
       <main>

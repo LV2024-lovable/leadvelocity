@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ArrowUpRight, Calendar, Clock, Tag } from 'lucide-react';
 import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import SchemaMarkup, { nlDateToIso } from './SchemaMarkup';
@@ -73,15 +73,9 @@ const BlogPost: React.FC<{ config: BlogPostConfig }> = ({ config }) => {
   const takeawayRef = useReveal(0.15);
   const ctaRef = useReveal(0.1);
 
-  useEffect(() => {
-    document.title = `${config.title} — Lead Velocity`;
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', config.metaDescription);
-  }, [config.title, config.metaDescription]);
-
   return (
     <div className="min-h-screen bg-lv-paper">
-      <Seo title={`${config.title} — Lead Velocity`} path={window.location.pathname} />
+      <Seo title={`${config.title} — Lead Velocity`} description={config.metaDescription} path={window.location.pathname} />
       <SchemaMarkup
         schema={{
           type: 'Article',

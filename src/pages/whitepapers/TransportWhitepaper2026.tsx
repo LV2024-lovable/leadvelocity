@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FileText, ArrowDown, Download, Clock, BookOpen } from 'lucide-react';
 import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import WhitepaperRequestForm from '../../components/WhitepaperRequestForm';
 import SchemaMarkup from '../../components/SchemaMarkup';
 import { useReveal } from '../../hooks/useReveal';
+import { checkHref } from '@/lib/cta';
 
 const whatYouGet = [
   {
@@ -42,17 +43,6 @@ const TransportWhitepaper2026 = () => {
   const formRef = useReveal();
   const [hasRequested, setHasRequested] = useState(false);
 
-  useEffect(() => {
-    document.title = 'Whitepaper: AI voor Nederlandse Transport & Logistiek 2026 — Lead Velocity';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      desc.setAttribute(
-        'content',
-        'Download de whitepaper: AI voor NL-transport 2026. Vrachtwagenheffing-impact, 15 AI-use-cases, CSRD scope-3 automation en implementatie-roadmap.'
-      );
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-lv-paper">
       <SchemaMarkup
@@ -65,7 +55,7 @@ const TransportWhitepaper2026 = () => {
           datePublished: '2026-04-20',
         }}
       />
-      <Seo title={'Whitepaper: AI voor Nederlandse Transport & Logistiek 2026 — Lead Velocity'} path={window.location.pathname} />
+      <Seo title={'Whitepaper: AI voor Nederlandse Transport & Logistiek 2026 — Lead Velocity'} description={'Download de whitepaper: AI voor NL-transport 2026. Vrachtwagenheffing-impact, 15 AI-use-cases, CSRD scope-3 automation en implementatie-roadmap.'} path={window.location.pathname} />
       <SiteHeader />
 
       <main>
@@ -233,8 +223,8 @@ const TransportWhitepaper2026 = () => {
               <div className="max-w-3xl mx-auto text-center">
                 <p className="font-body text-base text-lv-body leading-relaxed">
                   Liever direct een gesprek over je vloot?{' '}
-                  <a href="/#contact" className="text-lv-lime-ink hover:underline font-500">
-                    Plan een kennismaking →
+                  <a href={checkHref({ source: 'whitepaper-transport-2026' })} className="text-lv-lime-ink hover:underline font-500">
+                    Plan een werkstroomcheck →
                   </a>
                 </p>
               </div>

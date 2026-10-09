@@ -12,6 +12,8 @@ export function Seo({ title, description, path, noindex = false }: { title: stri
       <meta property="og:title" content={title} />
       {description && <meta property="og:description" content={description} />}
       <meta property="og:url" content={url} />
+      <meta name="twitter:title" content={title} />
+      {description && <meta name="twitter:description" content={description} />}
     </Helmet>
   );
 }

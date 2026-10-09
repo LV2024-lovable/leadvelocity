@@ -1,6 +1,7 @@
 import React from 'react';
 import BlogPost, { BlogPostConfig } from '../../components/BlogPost';
 import { getRelated } from '../../data/blogPosts';
+import { checkHref, demoHref } from '@/lib/cta';
 
 const config: BlogPostConfig = {
   slug: 'ai-pricing-voor-groothandel',
@@ -214,12 +215,12 @@ const config: BlogPostConfig = {
     heading: 'Is jullie pricing-data klaar voor AI?',
     body: 'Niet elke groothandel is direct klaar voor AI-pricing. Drie paden, jij kiest wat nu past.',
     hot: {
-      href: '/#contact',
-      label: 'Plan een pricing-scan',
+      href: checkHref({ source: 'inzichten-ai-pricing-voor-groothandel' }),
+      label: 'Plan een werkstroomcheck',
     },
     warm: {
-      href: '/#contact',
-      label: 'Plan een kennismaking',
+      href: demoHref(undefined, 'inzichten-ai-pricing-voor-groothandel'),
+      label: 'Bekijk een voorbeeld',
     },
     cold: {
       href: '/whitepapers/ai-in-technische-groothandel-2026',

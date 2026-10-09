@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FileText, Check, ArrowDown, Download, Clock, BookOpen } from 'lucide-react';
 import { SiteHeader, SiteFooter, Seo } from '@/components/site';
 import WhitepaperRequestForm from '../../components/WhitepaperRequestForm';
 import { useReveal } from '../../hooks/useReveal';
+import { checkHref } from '@/lib/cta';
 
 const whatYouGet = [
   {
@@ -42,20 +43,9 @@ const GroothandelWhitepaper2026 = () => {
   const formRef = useReveal();
   const [hasRequested, setHasRequested] = useState(false);
 
-  useEffect(() => {
-    document.title = 'Whitepaper: AI in de Nederlandse Technische Groothandel 2026 — Lead Velocity';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      desc.setAttribute(
-        'content',
-        'Download de volledige whitepaper: AI in de Nederlandse Technische Groothandel 2026. 25 pagina\'s over marktcontext, 15 AI-use-cases, ROI-scenario\'s en implementatie-roadmap.'
-      );
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-lv-paper">
-      <Seo title={'Whitepaper: AI in de Nederlandse Technische Groothandel 2026 — Lead Velocity'} path={window.location.pathname} />
+      <Seo title={'Whitepaper: AI in de Nederlandse Technische Groothandel 2026 — Lead Velocity'} description={'Download de volledige whitepaper: AI in de Nederlandse Technische Groothandel 2026. 25 pagina\'s over marktcontext, 15 AI-use-cases, ROI-scenario\'s en implementatie-roadmap.'} path={window.location.pathname} />
       <SiteHeader />
 
       <main>
@@ -250,9 +240,9 @@ const GroothandelWhitepaper2026 = () => {
             <div className="container mx-auto px-4 md:px-6">
               <div className="max-w-3xl mx-auto text-center">
                 <p className="font-body text-base text-lv-body leading-relaxed">
-                  Liever direct in gesprek? We doen vrijblijvende 30-min kennismakingsgesprekken met directies van technische groothandels.{' '}
-                  <a href="/#contact" className="text-lv-lime-ink hover:underline font-500">
-                    Plan een gesprek →
+                  Liever direct in gesprek?{' '}
+                  <a href={checkHref({ source: 'whitepaper-groothandel-2026' })} className="text-lv-lime-ink hover:underline font-500">
+                    Plan een werkstroomcheck →
                   </a>
                 </p>
               </div>

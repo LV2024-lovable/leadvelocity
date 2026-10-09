@@ -1,6 +1,7 @@
 import React from 'react';
 import BlogPost, { BlogPostConfig } from '../../components/BlogPost';
 import { getRelated } from '../../data/blogPosts';
+import { checkHref, demoHref } from '@/lib/cta';
 
 const config: BlogPostConfig = {
   slug: 'vrachtwagenheffing-2026-ai-compensatie',
@@ -168,12 +169,12 @@ const config: BlogPostConfig = {
     heading: 'Hoeveel van de heffing kun jij compenseren met AI?',
     body: 'Drie paden om te starten met AI-compensatie voor de vrachtwagenheffing.',
     hot: {
-      href: '/#contact',
-      label: 'Start met Fuel Coaching',
+      href: checkHref({ source: 'inzichten-vrachtwagenheffing-2026-ai-compensatie' }),
+      label: 'Plan een werkstroomcheck',
     },
     warm: {
-      href: '/#contact',
-      label: 'Plan een AI Ops Audit',
+      href: demoHref(undefined, 'inzichten-vrachtwagenheffing-2026-ai-compensatie'),
+      label: 'Bekijk een voorbeeld',
     },
     cold: {
       href: '/whitepapers/ai-voor-nederlandse-transport-2026',
