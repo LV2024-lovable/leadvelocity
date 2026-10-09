@@ -13,3 +13,4 @@ export * from "./PricingCards";
 export * from "./ScopeTable";
 export * from "./CategoryCard";
 export * from "./ProcessCard";
+export * from "./DemoStepper";

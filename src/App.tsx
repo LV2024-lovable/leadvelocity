@@ -37,6 +37,7 @@ import BrandAssets from "./pages/BrandAssets";
 import AiKansenscan from "./pages/AiKansenscan";
 import AiKansenscanResult from "./pages/AiKansenscanResult";
 import NotFound from "./pages/NotFound";
+import Voorbeelden from "./pages/site/Voorbeelden";
 import React from "react";
 
 const queryClient = new QueryClient();
@@ -82,6 +83,7 @@ const App = () => (
             <Route path="/ai-kansenscan" element={<AiKansenscan />} />
             <Route path="/ai-kansenscan/resultaat" element={<AiKansenscanResult />} />
             <Route path="/nieuwsbrief" element={<Nieuwsbrief />} />
+            <Route path="/voorbeelden" element={<Voorbeelden />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
