@@ -1,0 +1,51 @@
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { mainNav, brand } from "@/content/site";
+import { checkHref } from "@/lib/cta";
+import { CtaLink } from "./CtaLink";
+import { cn } from "@/lib/utils";
+
+export function Logo() {
+  return (
+    <Link to="/" className="flex items-center gap-2 font-display text-[18px] font-semibold tracking-[-0.03em] text-lv-ink" aria-label={`${brand.name} — home`}>
+      <span aria-hidden className="h-3.5 w-3.5 rounded-[4px] bg-lv-lime ring-1 ring-black/10" />
+      {brand.name}
+    </Link>
+  );
+}
+
+export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  return (
+    <header className="sticky top-0 z-40 border-b border-lv-line/70 bg-lv-paper/90 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-6">
+        <Logo />
+        <nav aria-label="Hoofdnavigatie" className="hidden items-center gap-7 text-[14.5px] text-lv-body lg:flex">
+          {mainNav.map((l) => (
+            <NavLink key={l.href} to={l.href} className={({ isActive }) => cn("hover:text-lv-ink", isActive && "text-lv-ink")}>{l.label}</NavLink>
+          ))}
+        </nav>
+        <div className="flex items-center gap-2">
+          <CtaLink to={checkHref({ source: "header" })} ctaId="header" className="hidden px-4 py-2 text-[14px] sm:inline-flex" arrow={false}>
+            Plan een werkstroomcheck
+          </CtaLink>
+          <button type="button" className="rounded-lg p-2 lg:hidden" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? "Menu sluiten" : "Menu openen"} onClick={() => setOpen((o) => !o)}>
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+      {open && (
+        <nav id="mobile-nav" aria-label="Mobiele navigatie" className="border-t border-lv-line bg-lv-paper px-5 pb-5 lg:hidden">
+          <ul className="flex flex-col py-2 text-[16px]">
+            {mainNav.map((l) => (
+              <li key={l.href}><Link to={l.href} className="block py-3" onClick={() => setOpen(false)}>{l.label}</Link></li>
+            ))}
+            <li><Link to="/over" className="block py-3" onClick={() => setOpen(false)}>Over</Link></li>
+          </ul>
+          <CtaLink to={checkHref({ source: "header" })} ctaId="header-mobile" className="w-full">Plan een werkstroomcheck</CtaLink>
+        </nav>
+      )}
+    </header>
+  );
+}
