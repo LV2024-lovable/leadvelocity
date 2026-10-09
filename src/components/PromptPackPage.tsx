@@ -21,7 +21,7 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
   const [copiedPromptIdx, setCopiedPromptIdx] = useState<number | null>(null);
 
   useEffect(() => {
-    document.title = `${pack.title} — Leadvelocity`;
+    document.title = `${pack.title} — Lead Velocity`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute('content', pack.metaDescription);
   }, [pack]);
@@ -91,7 +91,7 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
 
   return (
     <div className="min-h-screen bg-lv-paper">
-      <Seo title={`${pack.title} — Leadvelocity`} path={window.location.pathname} />
+      <Seo title={`${pack.title} — Lead Velocity`} path={window.location.pathname} />
       <SiteHeader />
 
       <main>

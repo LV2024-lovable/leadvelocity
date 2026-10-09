@@ -74,14 +74,14 @@ const BlogPost: React.FC<{ config: BlogPostConfig }> = ({ config }) => {
   const ctaRef = useReveal(0.1);
 
   useEffect(() => {
-    document.title = `${config.title} — Leadvelocity`;
+    document.title = `${config.title} — Lead Velocity`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute('content', config.metaDescription);
   }, [config.title, config.metaDescription]);
 
   return (
     <div className="min-h-screen bg-lv-paper">
-      <Seo title={`${config.title} — Leadvelocity`} path={window.location.pathname} />
+      <Seo title={`${config.title} — Lead Velocity`} path={window.location.pathname} />
       <SchemaMarkup
         schema={{
           type: 'Article',

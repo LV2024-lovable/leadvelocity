@@ -43,7 +43,7 @@ const GroothandelWhitepaper2026 = () => {
   const [hasRequested, setHasRequested] = useState(false);
 
   useEffect(() => {
-    document.title = 'Whitepaper: AI in de Nederlandse Technische Groothandel 2026 — Leadvelocity';
+    document.title = 'Whitepaper: AI in de Nederlandse Technische Groothandel 2026 — Lead Velocity';
     const desc = document.querySelector('meta[name="description"]');
     if (desc) {
       desc.setAttribute(
@@ -55,7 +55,7 @@ const GroothandelWhitepaper2026 = () => {
 
   return (
     <div className="min-h-screen bg-lv-paper">
-      <Seo title={'Whitepaper: AI in de Nederlandse Technische Groothandel 2026 — Leadvelocity'} path={window.location.pathname} />
+      <Seo title={'Whitepaper: AI in de Nederlandse Technische Groothandel 2026 — Lead Velocity'} path={window.location.pathname} />
       <SiteHeader />
 
       <main>

@@ -43,7 +43,7 @@ const TransportWhitepaper2026 = () => {
   const [hasRequested, setHasRequested] = useState(false);
 
   useEffect(() => {
-    document.title = 'Whitepaper: AI voor Nederlandse Transport & Logistiek 2026 — Leadvelocity';
+    document.title = 'Whitepaper: AI voor Nederlandse Transport & Logistiek 2026 — Lead Velocity';
     const desc = document.querySelector('meta[name="description"]');
     if (desc) {
       desc.setAttribute(
@@ -65,7 +65,7 @@ const TransportWhitepaper2026 = () => {
           datePublished: '2026-04-20',
         }}
       />
-      <Seo title={'Whitepaper: AI voor Nederlandse Transport & Logistiek 2026 — Leadvelocity'} path={window.location.pathname} />
+      <Seo title={'Whitepaper: AI voor Nederlandse Transport & Logistiek 2026 — Lead Velocity'} path={window.location.pathname} />
       <SiteHeader />
 
       <main>

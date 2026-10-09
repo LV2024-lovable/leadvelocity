@@ -15,7 +15,7 @@ const Inzichten = () => {
   const [activeCategory, setActiveCategory] = useState<Category>('Alles');
 
   useEffect(() => {
-    document.title = 'Inzichten — AI voor NL MKB | Leadvelocity';
+    document.title = 'Inzichten — AI voor NL MKB | Lead Velocity';
     const desc = document.querySelector('meta[name="description"]');
     if (desc) {
       desc.setAttribute(
@@ -36,7 +36,7 @@ const Inzichten = () => {
 
   return (
     <div className="min-h-screen bg-lv-paper">
-      <Seo title={'Inzichten — AI voor NL MKB | Leadvelocity'} path={window.location.pathname} />
+      <Seo title={'Inzichten — AI voor NL MKB | Lead Velocity'} path={window.location.pathname} />
       <SiteHeader />
 
       <main>

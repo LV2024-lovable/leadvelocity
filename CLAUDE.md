@@ -85,7 +85,7 @@ Vier categorieën (websiteingangen): technische groothandels · importeurs en di
 
 - ❌ **Geen persoonlijke namen in copy**, behalve op `/over` en in de Over-sectie van de homepage, waar Bart Wilbrink als oprichter wordt genoemd (handover §8, §15). Elders "wij/ons".
 - ❌ **Geen "50-250 FTE"** in klant-copy — zeg "MKB"
-- ❌ **Geen bronvermelding overal.** Eén plek (ResultsNew "De cijfers"-sectie) is OK, elders niet
+- ❌ **Geen bronvermelding overal.** Alleen waar een claim het nodig heeft, bij voorkeur gebundeld op één plek; elders niet
 - ❌ **Geen verzonnen cijfers.** Nooit "50+ klanten geholpen" of "3x meer leads" zonder staving
 - ❌ **Geen "maximaal 8 klanten" / "geen retainer-valstrikken"-taal** — we willen juist retainers, niet ertegen inschoppen
 - ❌ **Geen hype-taal:** "digitale transformatie", "journey", "synergie", "cutting-edge", "disruptive", "next-gen", "revolutionair", "paradigmaverschuiving", "holistisch", "roadmap"
@@ -136,7 +136,7 @@ Als formulier niet werkt → check eerst deze twee.
 
 ### Do's & Don'ts bij code
 
-- **Houd copy in componenten.** Voor grote data-sets (vertical configs) gebruik we config-objecten bovenaan het page-bestand (zie `pages/Groothandel.tsx`).
+- **Houd copy in componenten.** Voor grote data-sets (vertical configs) gebruik we config-objecten bovenaan het page-bestand (zie de templates in `src/pages/site/*` en de data in `src/content/*`).
 - **Gebruik `useReveal`-hook** voor scroll-animaties, niet losse IntersectionObserver-code.
 - **Nieuwe pages via `/` in `App.tsx`** toevoegen, niet via dynamic imports tenzij bundle-size issue is.
 - **Geen shadcn/ui-componenten customen direct.** Liever `className=` toevoegen of wrapper-component maken.
@@ -148,8 +148,9 @@ Als formulier niet werkt → check eerst deze twee.
 
 | Pad | Wat |
 |---|---|
+| [`docs/strategy/2026-10-09-website-gtm-handover.md`](./docs/strategy/2026-10-09-website-gtm-handover.md) | **Leidend:** website- en go-to-market-handover (positionering, copy, prijzen, routes) |
 | [`docs/strategy/2026-04-20-leadvelocity-masterplan.md`](./docs/strategy/2026-04-20-leadvelocity-masterplan.md) | Strategisch masterplan v1 — POV, doelgroep, aanbod, 3-jaars roadmap, pad C |
-| [`docs/strategy/2026-10-08-positionering-v2.md`](./docs/strategy/2026-10-08-positionering-v2.md) | Addendum positionering v2 — vervangt aanbod, doelgroep en markten uit het masterplan |
+| [`docs/strategy/2026-10-08-positionering-v2.md`](./docs/strategy/2026-10-08-positionering-v2.md) | Addendum positionering v2 (2026-10-08) — vervangen door de handover van 2026-10-09 |
 | [`docs/outreach/README.md`](./docs/outreach/README.md) | Overview van outreach-stack |
 | [`docs/outreach/playbook.md`](./docs/outreach/playbook.md) | Scrape-to-opening 3-min-proces |
 | [`docs/outreach/sequence-groothandel.md`](./docs/outreach/sequence-groothandel.md) | Groothandel 5-touch campaign |
