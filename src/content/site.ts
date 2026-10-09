@@ -1,0 +1,105 @@
+import type { CategoryId, CtaProcess } from "./types";
+
+export const SITE_URL = "https://www.leadvelocity.nl";
+
+export const brand = {
+  name: "Lead Velocity",
+  tagline: "Minder uitzoekwerk. Meer werk gedaan.",
+};
+
+/** Contactgegevens uit de bestaande site — bevestiging door Bart is een livegang-afhankelijkheid. */
+export const contact = {
+  email: "info@leadvelocity.nl",
+  phone: "+31 6 25 47 15 28",
+  phoneHref: "tel:+31625471528",
+  linkedin: "https://www.linkedin.com/company/leadvelocity-2/",
+  calendarUrl: null as string | null,
+};
+
+export const mainNav = [
+  { label: "Voor wie", href: "/voor-wie" },
+  { label: "Oplossingen", href: "/oplossingen" },
+  { label: "Werkwijze", href: "/werkwijze" },
+  { label: "Voorbeelden", href: "/voorbeelden" },
+  { label: "Prijzen", href: "/prijzen" },
+];
+
+export const footerNav = [
+  {
+    title: "Voor wie",
+    links: [
+      { label: "Technische groothandels", href: "/groothandels" },
+      { label: "Importeurs en distributeurs", href: "/importeurs-distributeurs" },
+      { label: "Service en onderhoud", href: "/service-onderhoud" },
+      { label: "Maatwerk en montage", href: "/maatwerk-montage" },
+    ],
+  },
+  {
+    title: "Oplossingen",
+    links: [
+      { label: "Aanvragen en dossiers", href: "/oplossingen/aanvragen-dossiers" },
+      { label: "Communicatie en opvolging", href: "/oplossingen/communicatie-opvolging" },
+      { label: "Data en inzicht", href: "/oplossingen/data-inzicht" },
+      { label: "Commerciële voorbereiding", href: "/oplossingen/commerciele-voorbereiding" },
+    ],
+  },
+  {
+    title: "Lead Velocity",
+    links: [
+      { label: "Werkwijze", href: "/werkwijze" },
+      { label: "Prijzen", href: "/prijzen" },
+      { label: "Voorbeelden", href: "/voorbeelden" },
+      { label: "Inzichten", href: "/inzichten" },
+      { label: "Over", href: "/over" },
+      { label: "Privacy", href: "/privacy" },
+    ],
+  },
+];
+
+export const categoryOptions: { value: CategoryId | "anders"; label: string }[] = [
+  { value: "groothandels", label: "Technische groothandel" },
+  { value: "importeurs-distributeurs", label: "Importeur of distributeur" },
+  { value: "service-onderhoud", label: "Service en onderhoud" },
+  { value: "maatwerk-montage", label: "Maatwerk en montage" },
+  { value: "anders", label: "Ander bedrijfstype" },
+];
+
+export const processOptions: { value: CtaProcess | "anders"; label: string }[] = [
+  { value: "offerte-intake", label: "Offerteaanvragen voorbereiden" },
+  { value: "aftersales", label: "Garantie- en aftersalesclaims" },
+  { value: "service-intake", label: "Servicemeldingen" },
+  { value: "project-intake", label: "Projectaanvragen" },
+  { value: "intake", label: "Aanvragen en dossiers" },
+  { value: "opvolging", label: "Communicatie en opvolging" },
+  { value: "data", label: "Data en inzicht" },
+  { value: "sales", label: "Commerciële voorbereiding" },
+  { value: "anders", label: "Iets anders" },
+];
+
+export const frequencyOptions = [
+  { value: "dagelijks", label: "Dagelijks" },
+  { value: "wekelijks", label: "Wekelijks" },
+  { value: "minder-vaak", label: "Minder vaak" },
+  { value: "onbekend", label: "Weet ik niet" },
+] as const;
+
+/** Voor de sitemap — alleen publiceerbare, indexeerbare pagina's. */
+export const indexableRoutes = [
+  "/", "/voor-wie", "/groothandels", "/importeurs-distributeurs", "/service-onderhoud", "/maatwerk-montage",
+  "/oplossingen", "/oplossingen/aanvragen-dossiers", "/oplossingen/communicatie-opvolging",
+  "/oplossingen/data-inzicht", "/oplossingen/commerciele-voorbereiding",
+  "/werkwijze", "/prijzen", "/voorbeelden", "/over", "/werkstroomcheck", "/privacy",
+  "/inzichten",
+  "/inzichten/ai-in-nederlandse-technische-groothandel-2026",
+  "/inzichten/ai-pricing-voor-groothandel",
+  "/inzichten/ai-voor-nederlandse-maakindustrie-oee",
+  "/inzichten/predictive-maintenance-machinebouw",
+  "/inzichten/vrachtwagenheffing-2026-ai-compensatie",
+  "/inzichten/csrd-scope-3-automatisering-transport",
+  "/whitepapers/ai-in-technische-groothandel-2026",
+  "/whitepapers/ai-voor-nederlandse-maakindustrie-2026",
+  "/whitepapers/ai-voor-nederlandse-transport-2026",
+  "/bronnen/prompts/groothandel-2026",
+  "/bronnen/prompts/maakindustrie-2026",
+  "/bronnen/prompts/transport-2026",
+];
