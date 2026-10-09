@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ExitIntentPopup from "./components/ExitIntentPopup";
-import Home from "./pages/Home";
+import Home from "./pages/site/Home";
 import Groothandel from "./pages/Groothandel";
 import Maakindustrie from "./pages/Maakindustrie";
 import Transport from "./pages/Transport";
