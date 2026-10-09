@@ -44,6 +44,9 @@ import ProcessPage from "./pages/site/ProcessPage";
 import Prijzen from "./pages/site/Prijzen";
 import Werkwijze from "./pages/site/Werkwijze";
 import Over from "./pages/site/Over";
+import Werkstroomcheck from "./pages/site/Werkstroomcheck";
+import Bedankt from "./pages/site/Bedankt";
+import Privacy from "./pages/site/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -100,6 +103,9 @@ const App = () => (
             <Route path="/campagnes/aftersales" element={<CampaignPage key="aftersales" id="aftersales" />} />
             <Route path="/campagnes/service-intake" element={<CampaignPage key="service-intake" id="service-intake" />} />
             <Route path="/campagnes/project-intake" element={<CampaignPage key="project-intake" id="project-intake" />} />
+            <Route path="/werkstroomcheck" element={<Werkstroomcheck />} />
+            <Route path="/bedankt" element={<Bedankt />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />

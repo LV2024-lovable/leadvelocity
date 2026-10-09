@@ -44,3 +44,6 @@ verify_jwt = false
 
 [functions.verify-token]
 verify_jwt = false
+
+[functions.werkstroomcheck]
+verify_jwt = false
