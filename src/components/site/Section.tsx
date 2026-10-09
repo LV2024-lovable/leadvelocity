@@ -26,7 +26,7 @@ export function SectionHead({ eyebrow, title, intro, className, as: As = "h2" }:
   return (
     <Reveal className={cn("max-w-3xl", className)}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <As className={cn("text-balance font-display font-semibold tracking-[-0.035em]", As === "h1" ? "text-[clamp(2.3rem,5vw,3.9rem)] leading-[1.02]" : "text-[clamp(1.8rem,3.6vw,2.8rem)] leading-[1.05]")}>
+      <As className={cn("text-balance break-words hyphens-auto font-display font-semibold tracking-[-0.035em]", As === "h1" ? "text-[clamp(2.3rem,5vw,3.9rem)] leading-[1.02]" : "text-[clamp(1.8rem,3.6vw,2.8rem)] leading-[1.05]")}>
         {title}
       </As>
       {intro && <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-lv-body">{intro}</p>}
