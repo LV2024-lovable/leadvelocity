@@ -32,7 +32,6 @@ import MaakindustriePromptPack from "./pages/promptpacks/MaakindustriePromptPack
 import TransportPromptPack from "./pages/promptpacks/TransportPromptPack";
 import TipsEnTricks from "./pages/TipsEnTricks";
 import AiOpsAudit from "./pages/AiOpsAudit";
-import OplossingPage from "./pages/OplossingPage";
 import BrandAssets from "./pages/BrandAssets";
 import AiKansenscan from "./pages/AiKansenscan";
 import AiKansenscanResult from "./pages/AiKansenscanResult";
@@ -41,6 +40,8 @@ import Voorbeelden from "./pages/site/Voorbeelden";
 import React from "react";
 import CategoryPage from "./pages/site/CategoryPage";
 import VoorWie from "./pages/site/VoorWie";
+import Oplossingen from "./pages/site/Oplossingen";
+import ProcessPage from "./pages/site/ProcessPage";
 
 const queryClient = new QueryClient();
 
@@ -80,7 +81,8 @@ const App = () => (
             <Route path="/bronnen/prompts/transport-2026" element={<TransportPromptPack />} />
             <Route path="/bronnen/tips-en-tricks" element={<TipsEnTricks />} />
             <Route path="/ai-ops-audit" element={<AiOpsAudit />} />
-            <Route path="/oplossingen/:slug" element={<OplossingPage />} />
+            <Route path="/oplossingen" element={<Oplossingen />} />
+            <Route path="/oplossingen/:id" element={<ProcessPage />} />
             <Route path="/brand" element={<BrandAssets />} />
             <Route path="/ai-kansenscan" element={<AiKansenscan />} />
             <Route path="/ai-kansenscan/resultaat" element={<AiKansenscanResult />} />
