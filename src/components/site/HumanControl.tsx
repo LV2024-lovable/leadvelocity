@@ -10,7 +10,7 @@ export function HumanControl({ title, body, prepared, decides }: { title: string
       <div className="grid gap-px bg-lv-line">
         {prepared && (
           <div className="bg-lv-surface p-7">
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-lv-faint">Het systeem bereidt voor</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-lv-muted">Het systeem bereidt voor</p>
             <ul className="mt-3 space-y-2 text-[15px]">{prepared.map((p) => <li key={p} className="flex gap-2"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{p}</li>)}</ul>
           </div>
         )}

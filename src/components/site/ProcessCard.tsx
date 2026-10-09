@@ -9,7 +9,7 @@ export function ProcessCard({ process, compact = false }: { process: ProcessFami
       <h3 className="font-display text-[20px] font-semibold tracking-[-0.02em]">{process.name}</h3>
       <p className="mt-2 text-[14.5px] leading-relaxed text-lv-body">{process.cardLine}</p>
       {!compact && (
-        <p className="mt-4 font-mono text-[11.5px] text-lv-faint">
+        <p className="mt-4 font-mono text-[11.5px] text-lv-muted">
           Bijvoorbeeld voor: {process.categoryIds.map((id) => categoryById(id)!.name.toLowerCase()).join(" en ")}
         </p>
       )}

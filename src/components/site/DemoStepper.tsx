@@ -8,6 +8,7 @@ import { CtaLink } from "./CtaLink";
 import { cn } from "@/lib/utils";
 
 const TABS = ["Input", "Voorbereid", "Volgende stap"] as const;
+const NEXT_LABELS = ["Bekijk de voorbereiding", "Bekijk de volgende stap"] as const;
 
 export function DemoStepper({ demo, source, compact = false }: { demo: Demo; source: string; compact?: boolean }) {
   const [step, setStep] = useState(0);
@@ -38,7 +39,7 @@ export function DemoStepper({ demo, source, compact = false }: { demo: Demo; sou
         {step === 0 && (
           <div className="space-y-4">
             <div className="rounded-2xl bg-lv-paper p-4">
-              <p className="flex items-center gap-2 font-mono text-[11px] text-lv-faint"><Mail aria-hidden className="h-3.5 w-3.5" />{demo.input.channel}</p>
+              <p className="flex items-center gap-2 font-mono text-[11px] text-lv-muted"><Mail aria-hidden className="h-3.5 w-3.5" />{demo.input.channel}</p>
               <p className="mt-2 text-[13.5px] font-semibold">{demo.input.from}</p>
               <p className="text-[13.5px] text-lv-muted">{demo.input.subject}</p>
               <p className="mt-2 text-[14.5px] leading-relaxed text-lv-body">{demo.input.body}</p>
@@ -46,7 +47,7 @@ export function DemoStepper({ demo, source, compact = false }: { demo: Demo; sou
             <dl className="grid gap-2 sm:grid-cols-2">
               {demo.input.fields.map((f) => (
                 <div key={f.label} className={cn("rounded-xl border px-3 py-2", f.value ? "border-lv-line-soft" : "border-dashed border-[#C2410C]/50 bg-[#FFF7ED]")}>
-                  <dt className="font-mono text-[10.5px] uppercase tracking-wider text-lv-faint">{f.label}</dt>
+                  <dt className="font-mono text-[10.5px] uppercase tracking-wider text-lv-muted">{f.label}</dt>
                   <dd className={cn("text-[14px]", !f.value && "text-[#9A3412]")}>{f.value ?? "Ontbreekt"}</dd>
                 </div>
               ))}
@@ -72,7 +73,7 @@ export function DemoStepper({ demo, source, compact = false }: { demo: Demo; sou
         {step === 2 && (
           <div className="space-y-4">
             <div className="rounded-2xl border border-lv-line p-4">
-              <p className="font-mono text-[10.5px] uppercase tracking-wider text-lv-faint">{demo.next.conceptTitle}</p>
+              <p className="font-mono text-[10.5px] uppercase tracking-wider text-lv-muted">{demo.next.conceptTitle}</p>
               <p className="mt-2 text-[14.5px] leading-relaxed">{demo.next.concept}</p>
               <p className="mt-3 inline-flex rounded-full bg-lv-paper px-2.5 py-1 font-mono text-[11px] text-lv-body ring-1 ring-lv-line">Status: {demo.next.status}</p>
             </div>
@@ -83,7 +84,7 @@ export function DemoStepper({ demo, source, compact = false }: { demo: Demo; sou
 
       <div className="flex flex-col gap-3 border-t border-lv-line-soft bg-lv-raised p-5 sm:flex-row sm:items-center sm:justify-between">
         {step < 2
-          ? <button type="button" onClick={() => go(step + 1)} className="rounded-full bg-lv-ink px-4 py-2 text-[14px] font-medium text-white">Volgende: {TABS[step + 1]}</button>
+          ? <button type="button" onClick={() => go(step + 1)} className="rounded-full bg-lv-ink px-4 py-2 text-[14px] font-medium text-white">{NEXT_LABELS[step]}</button>
           : <p className="max-w-md text-[13px] text-lv-muted">{DEMO_CLOSING}</p>}
         {step === 2 && (
           <CtaLink to={checkHref({ source, demo: demo.id, process: demo.id })} ctaId={`demo-${demo.id}`} trackParams={{ demo_id: demo.id }} variant="lime" className="shrink-0">

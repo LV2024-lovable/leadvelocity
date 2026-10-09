@@ -19,7 +19,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-lv-paper text-lv-ink">
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2">Naar inhoud</a>
       <SiteHeader />
-      <main id="main">{children}</main>
+      <main id="main" tabIndex={-1} className="focus:outline-none">{children}</main>
       <SiteFooter />
     </div>
   );

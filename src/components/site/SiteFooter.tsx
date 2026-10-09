@@ -16,7 +16,7 @@ export function SiteFooter() {
         </div>
         {footerNav.map((col) => (
           <div key={col.title}>
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-lv-faint">{col.title}</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-lv-muted">{col.title}</p>
             <ul className="mt-4 space-y-2 text-[14px] text-lv-body">
               {col.links.map((l) => <li key={l.href}><Link className="hover:text-lv-ink" to={l.href}>{l.label}</Link></li>)}
             </ul>

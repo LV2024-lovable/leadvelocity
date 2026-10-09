@@ -18,8 +18,8 @@ export function PricingCards({ source, showIncludes = false }: { source: string;
               </div>
               <p className={cn("mt-2 text-[14.5px] leading-relaxed", featured ? "text-white/70" : "text-lv-body")}>{p.promise}</p>
               <dl className="mt-6 space-y-1">
-                <div className="flex items-baseline gap-2"><dt className="sr-only">Inrichting vanaf</dt><dd className="font-display text-[32px] font-semibold tracking-[-0.03em]">{formatEuro(p.setupFrom)}</dd><span className={cn("text-[13px]", featured ? "text-white/60" : "text-lv-faint")}>inrichting vanaf</span></div>
-                <div className="flex items-baseline gap-2"><dt className="sr-only">Beheer per maand vanaf</dt><dd className="font-display text-[20px] font-semibold">{formatEuro(p.monthlyFrom)}</dd><span className={cn("text-[13px]", featured ? "text-white/60" : "text-lv-faint")}>per maand vanaf</span></div>
+                <div className="flex items-baseline gap-2"><dt className="sr-only">Inrichting vanaf</dt><dd className="font-display text-[32px] font-semibold tracking-[-0.03em]">{formatEuro(p.setupFrom)}</dd><span className={cn("text-[13px]", featured ? "text-white/60" : "text-lv-muted")}>inrichting vanaf</span></div>
+                <div className="flex items-baseline gap-2"><dt className="sr-only">Beheer per maand vanaf</dt><dd className="font-display text-[20px] font-semibold">{formatEuro(p.monthlyFrom)}</dd><span className={cn("text-[13px]", featured ? "text-white/60" : "text-lv-muted")}>per maand vanaf</span></div>
               </dl>
               {showIncludes && (
                 <ul className="mt-6 space-y-2 text-[14px]">

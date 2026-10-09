@@ -42,7 +42,7 @@ export default function ProcessPage() {
       )}
 
       <Section tone={demo ? "raised" : "paper"}>
-        <HumanControl title="Waar het systeem stopt" body={p.humanLimit} decides={p.humanLimit} />
+        <HumanControl title="Waar het systeem stopt" body={p.humanLimit} />
         <div className="mt-8 rounded-3xl border border-lv-line bg-lv-surface p-8">
           <Eyebrow>Wat we van jullie nodig hebben</Eyebrow>
           <ul className="space-y-3 text-[15.5px]">{p.neededInput.map((x) => <li key={x} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{x}</li>)}</ul>

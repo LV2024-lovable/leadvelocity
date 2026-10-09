@@ -24,7 +24,7 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
           <CtaLink to={checkHref({ ...checkCtx, source: `category-${c.id}` })} ctaId={`category-${c.id}-check`} trackParams={{ category: c.id, process: c.processKey }}>{c.primaryCta}</CtaLink>
           <CtaLink to={demoHref(c.demoId, `category-${c.id}`)} ctaId={`category-${c.id}-demo`} variant="secondary">{c.secondaryCta}</CtaLink>
         </Reveal>
-        <p className="mt-6 font-mono text-[12px] text-lv-faint">Bijvoorbeeld: {c.subsegments.join(" · ")}</p>
+        <p className="mt-6 font-mono text-[12px] text-lv-muted">Bijvoorbeeld: {c.subsegments.join(" · ")}</p>
       </Section>
 
       <Section tone="raised">
@@ -49,7 +49,7 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
       </Section>
 
       <Section tone="raised">
-        <HumanControl title="Je team houdt het oordeel." body={c.teamDecides} prepared={c.tasks.slice(0, 3)} decides={[c.teamDecides, ...c.limits].join(" ")} />
+        <HumanControl title="Je team houdt het oordeel." body={c.teamDecides} prepared={c.tasks.slice(0, 3)} decides={`Niet door het systeem: ${c.limits.join(". ")}.`} />
       </Section>
 
       <Section id="demo">

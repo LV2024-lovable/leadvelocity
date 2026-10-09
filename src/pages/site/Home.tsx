@@ -74,7 +74,7 @@ export default function Home() {
           <SectionHead title={home.oneProcess.h2} intro={home.oneProcess.body} />
           <Reveal delay={0.08}>
             <div className="rounded-3xl border border-lv-line bg-lv-surface p-6">
-              <p className="font-mono text-[10.5px] uppercase tracking-wider text-lv-faint">{home.oneProcess.label}</p>
+              <p className="font-mono text-[10.5px] uppercase tracking-wider text-lv-muted">{home.oneProcess.label}</p>
               <dl className="mt-4 divide-y divide-lv-line-soft text-[14.5px]">
                 {[
                   ["Klant", "Voorbeelddealer B"],
