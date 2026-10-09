@@ -8,8 +8,6 @@ import Home from "./pages/site/Home";
 import Groothandel from "./pages/Groothandel";
 import Maakindustrie from "./pages/Maakindustrie";
 import Transport from "./pages/Transport";
-import OverOns from "./pages/OverOns";
-import OnzeAanpak from "./pages/OnzeAanpak";
 import Faq from "./pages/Faq";
 import LpAssessment from "./pages/LpAssessment";
 import Inzichten from "./pages/Inzichten";
@@ -42,6 +40,9 @@ import CategoryPage from "./pages/site/CategoryPage";
 import VoorWie from "./pages/site/VoorWie";
 import Oplossingen from "./pages/site/Oplossingen";
 import ProcessPage from "./pages/site/ProcessPage";
+import Prijzen from "./pages/site/Prijzen";
+import Werkwijze from "./pages/site/Werkwijze";
+import Over from "./pages/site/Over";
 
 const queryClient = new QueryClient();
 
@@ -56,8 +57,6 @@ const App = () => (
             <Route path="/groothandel" element={<Groothandel />} />
             <Route path="/maakindustrie" element={<Maakindustrie />} />
             <Route path="/transport" element={<Transport />} />
-            <Route path="/over-ons" element={<OverOns />} />
-            <Route path="/onze-aanpak" element={<OnzeAanpak />} />
             <Route path="/veelgestelde-vragen" element={<Faq />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/lp/assessment" element={<LpAssessment />} />
@@ -93,6 +92,9 @@ const App = () => (
             <Route path="/importeurs-distributeurs" element={<CategoryPage key="importeurs-distributeurs" id="importeurs-distributeurs" />} />
             <Route path="/service-onderhoud" element={<CategoryPage key="service-onderhoud" id="service-onderhoud" />} />
             <Route path="/maatwerk-montage" element={<CategoryPage key="maatwerk-montage" id="maatwerk-montage" />} />
+            <Route path="/prijzen" element={<Prijzen />} />
+            <Route path="/werkwijze" element={<Werkwijze />} />
+            <Route path="/over" element={<Over />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
