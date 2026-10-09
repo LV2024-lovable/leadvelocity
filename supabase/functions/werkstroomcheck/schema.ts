@@ -1,7 +1,7 @@
 // Gedeeld validatieschema. Import van zod gebeurt door de aanroeper (Deno: npm:zod, Node/Vite: zod).
 // deno-lint-ignore no-explicit-any
 export function makeSchema(z: any) {
-  const opt = (max: number) => z.string().trim().max(max).optional().or(z.literal("").transform(() => undefined));
+  const opt = (max: number) => z.preprocess((x: unknown) => (x === "" ? undefined : x), z.string().trim().max(max).optional());
   return z
     .object({
       request_id: z.string().uuid(),

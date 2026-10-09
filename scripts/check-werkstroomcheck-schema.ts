@@ -25,6 +25,10 @@ bad({ ...base, work: "" }, "work", "leeg werkveld");
 bad({ ...base, request_id: "abc" }, "request_id", "request_id geen uuid");
 bad({ ...base, frequency: "elk uur" }, "frequency", "onbekende frequentie");
 ok({ ...base, phone: "", software: "" }, "lege optionele velden zijn toegestaan");
+{
+  const r = schema.safeParse({ ...base, phone: "", software: "" });
+  if (!r.success || r.data.phone !== undefined || r.data.software !== undefined) fouten.push("lege optionele velden moeten undefined worden");
+}
 
 if (fouten.length) { console.error(`✗ ${fouten.length}:\n- ${fouten.join("\n- ")}`); process.exit(1); }
 console.log("✓ werkstroomcheck-schema klopt");

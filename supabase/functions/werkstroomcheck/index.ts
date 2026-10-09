@@ -61,13 +61,14 @@ serve(async (req) => {
       ["Werk dat terugkomt", v.work], ["Frequentie", v.frequency], ["Software", v.software],
       ["Context", JSON.stringify(v.context)], ["Request-ID", v.request_id],
     ];
-    await resend.emails.send({
+    const { error: sendError } = await resend.emails.send({
       from: "Lead Velocity <info@leadvelocity.nl>",
       to: ["info@leadvelocity.nl"],
       reply_to: v.email,
-      subject: `Werkstroomcheck: ${v.company}`,
+      subject: `Werkstroomcheck: ${v.company.replace(/[\r\n]+/g, " ")}`,
       html: `<h2>Nieuwe aanvraag werkstroomcheck</h2><table>${lines.filter(([, x]) => x).map(([k, x]) => `<tr><td><b>${esc(k)}</b></td><td>${esc(x)}</td></tr>`).join("")}</table>`,
     });
+    if (sendError) throw new Error(sendError.message);
   } catch (e) {
     notify = "failed";
     console.error("Notificatie mislukt", (e as Error).message);
