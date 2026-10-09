@@ -39,6 +39,8 @@ import AiKansenscanResult from "./pages/AiKansenscanResult";
 import NotFound from "./pages/NotFound";
 import Voorbeelden from "./pages/site/Voorbeelden";
 import React from "react";
+import CategoryPage from "./pages/site/CategoryPage";
+import VoorWie from "./pages/site/VoorWie";
 
 const queryClient = new QueryClient();
 
@@ -84,6 +86,11 @@ const App = () => (
             <Route path="/ai-kansenscan/resultaat" element={<AiKansenscanResult />} />
             <Route path="/nieuwsbrief" element={<Nieuwsbrief />} />
             <Route path="/voorbeelden" element={<Voorbeelden />} />
+            <Route path="/voor-wie" element={<VoorWie />} />
+            <Route path="/groothandels" element={<CategoryPage key="groothandels" id="groothandels" />} />
+            <Route path="/importeurs-distributeurs" element={<CategoryPage key="importeurs-distributeurs" id="importeurs-distributeurs" />} />
+            <Route path="/service-onderhoud" element={<CategoryPage key="service-onderhoud" id="service-onderhoud" />} />
+            <Route path="/maatwerk-montage" element={<CategoryPage key="maatwerk-montage" id="maatwerk-montage" />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
