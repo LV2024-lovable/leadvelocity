@@ -43,7 +43,11 @@ serve(async (req) => {
     phone: v.phone ?? null, contact_preference: v.contact_preference,
     frequency: v.frequency ?? null, software: v.software ?? null, context: v.context,
   };
-  const { error: insertError } = await db.from("werkstroomcheck_requests").insert(row);
+  const { data: inserted, error: insertError } = await db
+    .from("werkstroomcheck_requests")
+    .insert(row)
+    .select("owner, next_action, next_action_date")
+    .single();
   if (insertError) {
     if (insertError.code === "23505") return json(200, { ok: true, duplicate: true }); // unique request_id
     console.error("Insert mislukt", insertError.message);
@@ -60,6 +64,8 @@ serve(async (req) => {
       ["Contactvoorkeur", v.contact_preference], ["Categorie", v.category], ["Proces", v.process],
       ["Werk dat terugkomt", v.work], ["Frequentie", v.frequency], ["Software", v.software],
       ["Context", JSON.stringify(v.context)], ["Request-ID", v.request_id],
+      ["Eigenaar", inserted?.owner], ["Volgende actie", inserted?.next_action],
+      ["Volgende actie op", inserted?.next_action_date],
     ];
     const { error: sendError } = await resend.emails.send({
       from: "Lead Velocity <info@leadvelocity.nl>",

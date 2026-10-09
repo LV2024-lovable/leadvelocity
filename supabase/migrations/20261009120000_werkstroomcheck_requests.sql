@@ -19,9 +19,10 @@ CREATE TABLE IF NOT EXISTS public.werkstroomcheck_requests (
   context JSONB NOT NULL DEFAULT '{}'::jsonb,
   notify_status TEXT NOT NULL DEFAULT 'pending',
   stage TEXT NOT NULL DEFAULT 'lead',
-  owner TEXT,
-  next_action TEXT,
-  next_action_date DATE
+  -- §23: iedere aanvraag heeft direct een eigenaar en een volgende actie.
+  owner TEXT DEFAULT 'Bart',
+  next_action TEXT DEFAULT 'Kwalificeren en check plannen',
+  next_action_date DATE DEFAULT (current_date + 1)
 );
 
 ALTER TABLE public.werkstroomcheck_requests ENABLE ROW LEVEL SECURITY;
