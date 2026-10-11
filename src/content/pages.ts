@@ -4,7 +4,7 @@ export const home = {
   hero: {
     eyebrow: "Automatisering voor binnendienst en klantenservice",
     h1: "Elke aanvraag compleet, voordat je team eraan begint.",
-    sub: "Wij lezen mails en bijlagen, markeren wat ontbreekt en zetten een antwoord klaar. Jouw medewerker controleert en verstuurt, gewoon vanuit jullie mailbox en eigen systeem.",
+    sub: "Wij lezen mails en bijlagen, markeren wat ontbreekt en zetten een antwoord klaar. Jouw medewerker controleert en verstuurt, gewoon vanuit jullie eigen mailbox.",
     forWho: "Voor technische groothandels, importeurs, servicebedrijven en maatwerkbedrijven met 10–75 medewerkers.",
     ctaMicro: "20 minuten, vrijblijvend. Past het niet, dan zeggen we dat ook.",
     secondary: "Bekijk een voorbeeld",
@@ -79,7 +79,7 @@ export const home = {
     h2: "Waar je op kunt rekenen",
     points: [
       "Vaste prijs en vooraf afgesproken scope",
-      "Niets gaat de deur uit zonder akkoord van jullie medewerker",
+      "Externe acties beginnen met akkoord van jullie medewerker",
       "Jullie data blijft van jullie; toegang en bewaren leggen we vooraf vast",
       "Maandkosten starten pas na acceptatie",
     ],
