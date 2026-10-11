@@ -1,3 +1,5 @@
+> **Vervallen (2026-10-11):** geen sitecategorie meer. Zie docs/strategy/2026-10-11-messaging-strategie.md. Niet gebruiken voor nieuwe outreach.
+
 # Campaign: Maakindustrie
 
 **Target persona:** COO / Operationeel Directeur (primair); DGA bij <€30M; Plant Manager

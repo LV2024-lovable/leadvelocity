@@ -1,58 +1,60 @@
-# Leadvelocity Cold Outreach — Playbooks
+# Lead Velocity outreach
 
-Dit is de kern-outreach-stack voor Leadvelocity. Elke vertical krijgt een eigen campagne-sequence met bijpassende scrape-to-opening-personalisatie, gericht op 15-25 warme first-touches per week per sector.
+Dit is de outreach-stack van Lead Velocity. Elke categorie krijgt een eigen sequence met één herkenbaar proces, één campagnelink en een personalisatieregel per mail.
 
-## De kernprincipes
+**Leidend:** `docs/strategy/2026-10-11-messaging-strategie.md` (boodschap, taal, qualifier) en `docs/strategy/2026-10-09-website-gtm-handover.md` (aanbod, prijzen, grenzen, outreachlogica §19). Bij twijfel gaan die voor.
 
-1. **Niemand wordt benaderd zonder 2 minuten website-research.** Geen "hi {first_name}, saw you're in {industry}" copy-paste. De opening-regel wijst altijd naar iets specifieks over hen.
-2. **5-touch sequence, 14-21 dagen.** Niet meer, niet minder. Daarna natuurlijk stoppen of herstarten met nieuw angle na 3 maanden.
-3. **Kanalen verweven.** E-mail + LinkedIn connection + LinkedIn DM + optioneel telefoon. Verschillend kanaal elke dag — niet 5 e-mails achter elkaar.
-4. **Eén concrete CTA per touch.** Niet "laten we eens praten" — altijd een specifieke volgende stap ("30 min, woensdag 14:00 of donderdag 10:00?").
-5. **Geen bedrijfsnaam in verzendadres.** Versturen vanuit `bart@leadvelocity.nl` persoonlijk, niet `noreply@` of `sales@`. Antwoorden landen bij één mens.
+## Het aanbod in één alinea
 
-## Document-structuur
+Wij zetten aanvragen, claims en meldingen compleet klaar voordat het team eraan begint: gegevens uit mail en bijlagen halen, markeren wat ontbreekt, een concept klaarzetten. De medewerker controleert en verstuurt, naast Outlook en het eigen systeem. Traject: gratis adviesgesprek van 20 minuten → analyse van €750 (verrekend bij een implementatie binnen 60 dagen) → vast pakket vanaf €2.950 inrichting en €595 per maand, exclusief btw. Maandkosten starten pas na acceptatie. Bedragen altijd uit `src/content/pricing.ts`.
 
-| Document | Inhoud |
-|---|---|
-| [`playbook.md`](./playbook.md) | Scrape-to-opening proces: hoe je in 3 min een persoonlijke opener schrijft per prospect |
-| [`intent-signals.md`](./intent-signals.md) | 20 concrete signalen op websites die latente AI-intent verraden, met opener-templates |
-| [`targeting-guide.md`](./targeting-guide.md) | Hoe je named accounts vindt + kwalificeert per vertical (100 accounts-template) |
-| [`sequence-groothandel.md`](./sequence-groothandel.md) | 5-touch campaign voor technische groothandel |
-| [`sequence-maakindustrie.md`](./sequence-maakindustrie.md) | 5-touch campaign voor maakindustrie |
-| [`sequence-transport.md`](./sequence-transport.md) | 5-touch campaign voor transport & logistiek |
-| [`tools-stack.md`](./tools-stack.md) | Bootstrap-tooling-aanbeveling (€0-200/maand) vs schaal-setup |
+## Doelgroep
 
-## Tempo & verwachtingen
+Bedrijven met 10–75 medewerkers, minstens twee mensen op het proces, input die digitaal binnenkomt en één eigenaar. Ontvanger is de eigenaar of directeur; de teamleider van het proces (binnendienst, aftersales, servicedesk) betrekken we in het gesprek.
 
-**Realistische verwachtingen per vertical (assisted, 2-min research per prospect):**
+Vier categorieën, gelijk aan de site:
 
-| Metric | Zonder personalisatie | Met scrape-personalisatie |
+| Categorie | Proces | Sequence |
 |---|---|---|
-| Open rate | 35-50% | 55-75% |
-| Reply rate | 1-3% | 6-12% |
-| Meeting booked rate | 0,3-0,8% | 2-5% |
+| Technische groothandels | Offerteaanvragen en open offertes | [`sequence-groothandel.md`](./sequence-groothandel.md) — **eerste segment, nu actief** |
+| Importeurs en distributeurs | Garantie- en dealerclaims | nog te maken |
+| Service en onderhoud | Servicemeldingen | nog te maken |
+| Maatwerk en montage | Projectaanvragen | nog te maken |
 
-Vertaald: bij 80 prospects/vertical/maand levert de scrape-personalised variant **4-8 gesprekken op** vs 0,5-2 zonder.
+Groothandel is het eerste segment dat volledig is uitgewerkt en getest (strategie §9). De andere drie volgen pas als de eerste batches groothandel iets hebben opgeleverd.
 
-## Cruciale don'ts
+## Kernprincipes
 
-- Geen namen noemen van jullie concurrenten in emails ("anders dan X, Y, Z")
-- Geen beloftes die je niet kan waarmaken ("40% binnen 30 dagen")
-- Geen auto-scraped persoonlijke data in eerste zin (voelt creepy — "ik zag dat je bij Volvo werkte in 2018..." → nee)
-- Geen meer dan 1 vraag in e-mail 1 (cognitive load = delete)
-- Geen *"just checking in"* follow-ups (waarde toevoegen of stoppen)
+1. **Concreet waargenomen aanleiding → herkenbare taak → afgebakende aanpak → vraag of het relevant is** (handover §19).
+2. **Signalen zijn een aanleiding, geen bewijs.** Een binnendienstvacature of een assortimentsuitbreiding is een reden om te mailen, niet het bewijs dat er iets mis gaat.
+3. **Vijf mails over ongeveer drie weken.** Daarna stoppen. Op zijn vroegst na 3 maanden opnieuw, met een ander signaal.
+4. **Eén vraag of één CTA per mail**, maximaal 120 woorden.
+5. **Geen verzonnen cijfers, cases, klantnamen, tijdsclaims of garanties.** Geen nepvertrouwdheid, geen compliment over hun website.
+6. **Versturen vanaf een persoonlijk adres**, niet vanaf `info@` of `noreply@`. Antwoorden landen bij één mens.
+
+## Documenten
+
+| Document | Inhoud | Status |
+|---|---|---|
+| [`playbook.md`](./playbook.md) | Hoe je per account in een paar minuten een bruikbaar signaal vindt en de signaalregel schrijft | actueel |
+| [`sequence-groothandel.md`](./sequence-groothandel.md) | Vijf mails voor technische groothandels, met bezwaren en antwoorden | actueel (v2) |
+| [`intent-signals.md`](./intent-signals.md) | Oudere lijst met websitesignalen | nog niet herzien; alleen gebruiken binnen de signalen uit de playbook |
+| [`sequence-maakindustrie.md`](./sequence-maakindustrie.md) | Maakindustrie | vervallen, archief |
+| [`sequence-transport.md`](./sequence-transport.md) | Transport en logistiek | vervallen, archief |
+| `targeting-guide.md` | Accounts vinden en kwalificeren per categorie | nog te maken |
+| `tools-stack.md` | Tooling voor research en verzending | nog te maken |
+
+## Meten
+
+Eerste markttest: 25 gecontroleerde accounts per categorie, minstens vijf relevante gesprekken als leerdoel (handover §19). Noteer per account het signaal, de touch waarop iemand antwoordde en of de lead zichzelf herkende in "past goed" (strategie §7). Streefcijfers voor open- en antwoordpercentages zetten we pas na de eerste batches, op basis van eigen data.
 
 ## Waar te beginnen
 
-1. **Week 1:** lees `targeting-guide.md`, bouw account-lijst van 100 bedrijven in primaire vertical (technische groothandel)
-2. **Week 2:** lees `playbook.md`, test scrape-proces op 10 prospects, schrijf 10 openers
-3. **Week 3:** start sequence-groothandel met 15 prospects
-4. **Week 4:** iterate, meet reply-rates, bijsturen
-5. **Maand 2:** voeg maakindustrie toe
-6. **Maand 3:** voeg transport toe (mits capaciteit)
-
-**Minimale tijdsinvestering:** 2-3 uur per week voor 20 nieuwe prospects/week.
+1. Stel een lijst op van 25 technische groothandels die aan de doelgroep voldoen.
+2. Zoek per account een signaal volgens `playbook.md`.
+3. Start `sequence-groothandel.md`.
+4. Na de batch: antwoorden en gesprekken doorlezen, sequence bijstellen.
 
 ---
 
-*Laatst bijgewerkt: 2026-04-20. Versies worden toegevoegd naar aanleiding van reply-rate data na elke batch.*
+*Laatst bijgewerkt: 2026-10-11.*

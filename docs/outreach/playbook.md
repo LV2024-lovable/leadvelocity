@@ -1,115 +1,64 @@
-# Scrape-to-Opening Playbook
+# Signaal-playbook
 
-**Doel:** in 3 minuten per prospect een persoonlijke opening-regel schrijven die duidelijk maakt dat dit geen bulk-e-mail is.
+**Doel:** per account in een paar minuten één bruikbaar signaal vinden en daar de regel `[Signaal: …]` in de sequence mee invullen.
 
-## Waarom dit werkt
+Leidend: `docs/strategy/2026-10-09-website-gtm-handover.md` §4 en §19, `docs/strategy/2026-10-11-messaging-strategie.md` §7 en §8.
 
-De eerste zin bepaalt of een COO/CRO de e-mail leest of verwijdert. Bulk-openers ("Hi [firstname], ik kwam jullie site tegen") = direct trash. Persoonlijke openers die iets specifieks benoemen uit hun wereld = lezen. Reply-rate verschil: **1-3% → 6-12%**. Dat is het verschil tussen 2 gesprekken per maand en 10.
+## Waarom zo
 
-## Het 3-minuten proces
+De eerste zin bepaalt of de eigenaar verder leest. Een zin die op elk bedrijf past, wordt overgeslagen. Een zin die laat zien waarom we juist dít bedrijf mailen, wordt gelezen. Maar een signaal is alleen een **aanleiding**. Het bewijst niet dat het bedrijf een probleem heeft, en zo schrijven we het ook niet op.
 
-Per prospect doe je ALTIJD deze 3 checks, in volgorde. Stop zodra je een bruikbaar signaal hebt.
+## Eerst: past het account?
 
-### Stap 1 (60 sec): Homepage + laatste nieuws
+Controleer dit voordat je een signaal zoekt. Past het niet, dan niet mailen.
 
-Open `bedrijfsnaam.nl`. Scan:
-- **Hero / bovenste fold** — welke pijn richten zij zich op? Welk segment? Wat is hun claim?
-- **Nieuws / blog / persberichten** (zoek naar `/nieuws`, `/blog`, `/actueel`) — wat hebben ze de afgelopen 3 maanden gecommuniceerd?
-- **Over-ons** — hoe positioneren ze zichzelf? Familiebedrijf? Groeiend? Sustainable?
+- 10–75 medewerkers, met minstens twee mensen op het proces (bij groothandel: de binnendienst)
+- Aanvragen komen binnen per mail, pdf of Excel, niet vrijwel alleen via EDI of webshop
+- Geen grote systeemmigratie bezig (voor zover zichtbaar)
+- Valt in een van de vier categorieën: technische groothandels, importeurs en distributeurs, service en onderhoud, maatwerk en montage
 
-### Stap 2 (60 sec): LinkedIn-profiel DGA/COO/CRO
+Groothandel is het eerste segment. De andere categorieën krijgen pas een sequence als groothandel iets heeft opgeleverd.
 
-Open LinkedIn-profiel van de decision-maker. Scan:
-- **Recente posts (laatste 2 mnd)** — waar praat hij/zij over? Pijnpunt? Milestones? Engagement?
-- **Bedrijfspost (company LinkedIn)** — welke thema's zijn actief? Vacatures?
+## Het proces per account
 
-### Stap 3 (60 sec): Vacatures + branche-pers
+### Stap 1: vacatures
 
-- Vacature-pagina op site: **welke rollen openstaand?** Dat is een directe tell van pijn (operations, planner, recruiter, data-analist).
-- Google: `"bedrijfsnaam" 2025 OR 2026` — zoek recente nieuwsartikelen in branche-pers (Link Magazine, Distrilog, NT, Transport Online, Made in Europe, etc.)
+Kijk op de vacaturepagina van het bedrijf en op de grote vacaturesites. Zoek naar binnendienst, commercieel medewerker binnendienst, orderverwerking, klantenservice. Noteer de functietitel en of de vacature nog openstaat.
 
-## De 8 signaal-types en openers
+### Stap 2: assortiment en nieuws
 
-Zoek naar deze patronen. Zodra je er één vindt, sla je de andere over en schrijf je je opener.
+Kijk op de site en in hun nieuwsberichten of er een merk, productgroep of leverancier is bijgekomen. Noteer wat en wanneer.
 
-### 1. Recente groei / uitbreiding
-**Signaal:** nieuwe vestiging, nieuw DC, overname, omzet-milestone gehaald.
-**Opener-template:** *"Ik zag dat jullie in [maand] een nieuwe vestiging in [plaats] hebben geopend — mooi moment om te groeien."*
+### Stap 3: noteren
 
-### 2. Specifiek product / service-lancering
-**Signaal:** nieuwe productgroep, B2B-portal live, nieuwe webshop-feature.
-**Opener:** *"Jullie nieuwe [product/feature] laat zien dat jullie [X] serieus nemen — vooral in [sector] zie je dat lang niet overal gebeuren."*
+Schrijf het signaal, de bron (url) en de datum in de accountlijst. Geen signaal gevonden? Dan mag de signaalregel leeg blijven. Een algemene mail is beter dan een verzonnen aanleiding.
 
-### 3. Vacature-signaal
-**Signaal:** specifieke openstaande rollen (werkvoorbereider, planner, data-analist, recruiter).
-**Opener:** *"Ik zag dat jullie momenteel een [rol] zoeken — een rol die bij veel [sector]-bedrijven het knelpunt is geworden."*
+## Toegestane signalen
 
-### 4. Directie-LinkedIn-post (laatste maand)
-**Signaal:** COO/DGA heeft een post geschreven over een thema.
-**Opener:** *"Je post van [datum] over [thema] resoneerde — dat is precies waar wij momenteel bij groothandels/maakbedrijven aan werken."*
+| Signaal | Voorbeeldregel |
+|---|---|
+| Vacature binnendienst | "Ik zag dat jullie een commercieel medewerker binnendienst zoeken. Dat was de aanleiding voor deze mail." |
+| Assortimentsuitbreiding | "Ik zag dat jullie [merk/productgroep] aan het assortiment hebben toegevoegd. Dat was de aanleiding voor deze mail." |
 
-### 5. Persbericht / interview in branche-pers
-**Signaal:** DGA/COO geciteerd in NT, Link Magazine, Distrilog, Cobouw, etc.
-**Opener:** *"Je interview in [publicatie] over [onderwerp] sprak me aan — vooral het stukje over [specifiek citaat]."*
+Andere signalen uit handover §4 (dealernetwerk, onderhoudsdienst, projectuploads) horen bij de andere categorieën en komen in hun sequence zodra die er is.
 
-### 6. CSRD / duurzaamheid-claim
-**Signaal:** ESG-pagina op site, CSRD-statement, CO2-reductie-doelstelling.
-**Opener:** *"Jullie CSRD-ambitie richting [jaartal/doel] is helder — tegelijk zien we dat de meeste [sector]-bedrijven het rapportage-proces daarin nog handmatig doen."*
+## Wat we niet doen
 
-### 7. Techstack / ERP-signaal
-**Signaal:** "Powered by", "gebouwd op", of stack-vermelding (Shopify B2B, AFAS, Exact, Isah, Ridder, Transpas).
-**Opener:** *"Jullie [stack]-setup is een goede basis — rondom AI-laag erboven zien we bij vergelijkbare [sector]-bedrijven veel winst zitten."*
+- Geen compliment over hun website of hun bedrijf.
+- Geen nepvertrouwdheid ("ik volg jullie al een tijd").
+- Geen conclusie uit het signaal ("jullie lopen dus achter", "jullie hebben dus een achterstand").
+- Geen persoonlijke gegevens of loopbaan van de ontvanger in de opening.
+- Geen verzonnen of niet gecontroleerde signalen. Een tool of taalmodel mag zoeken, maar een mens controleert elk signaal voordat de mail weggaat.
+- Geen vraag in de signaalregel. De vraag of CTA staat aan het eind van de mail.
 
-### 8. Familiebedrijf / generatie-wissel
-**Signaal:** derde generatie, opvolger genoemd, overname gemeld.
-**Opener:** *"Dat jullie al [X] generaties draaien zegt veel — ook dat jullie de volgende stap naar AI pragmatisch willen zetten, niet hype-gedreven."*
+## Checklist voor elke signaalregel
 
-## De opener-formule
-
-Elke opener heeft deze drie onderdelen — en NIETS anders:
-
-```
-[1 specifiek signaal uit hun wereld, 1 zin]
-  ↓
-[1 zin die dit signaal verbindt met de pijn die wij oplossen]
-  ↓
-[direct door naar de body van de email — GEEN "hoe gaat het met u"]
-```
-
-**Fout:**
-> Beste Peter, ik hoop dat het goed met u gaat. Mijn naam is Bart van Leadvelocity en ik help bedrijven met AI. Ik zag dat jullie in Groningen zitten...
-
-**Goed:**
-> Beste Peter — je interview in Link Magazine vorige maand over de uitdagingen in werkvoorbereiding bij mkb-maakindustrie sprak me aan. Precies waar we nu met vergelijkbare bedrijven aan bouwen.
-
-## Quality-checklist voor elke opener
-
-Vóór je op verstuur drukt, check:
-- [ ] **Specifiek?** De zin kan niet op 100 andere bedrijven van toepassing zijn.
-- [ ] **Eerlijk?** Je hebt het signaal daadwerkelijk gezien, niet verzonnen.
-- [ ] **Relevant?** Het signaal verbindt logisch met wat jullie aanbieden.
-- [ ] **Kort?** Maximaal 2 zinnen voor je doorgaat naar de body.
-- [ ] **Niet creepy?** Geen LinkedIn-werkgeschiedenis-namedropping. Geen persoonlijk leven. Alleen professionele signalen.
-- [ ] **Geen vraag in opener.** De vraag komt later in de e-mail.
-
-## Tooling (bootstrap → schaal)
-
-**Bootstrap (€0):** gewoon Chrome + LinkedIn + Google + notities in een Google Sheet. Voor <50 prospects/maand prima.
-
-**Middensegment (€50-200/maand):**
-- **Apollo.io** — vindt contactgegevens + enrichment (vanaf $49/mnd)
-- **Clay.com** — scrape + AI-augmented data + auto-personalization (vanaf $149/mnd)
-- **ChatGPT / Claude** (jullie eigen!) — voer URL in, vraag om signalen, krijg 3 opener-opties
-
-**Schaal (€500+/maand):** Clay + Smartlead/Instantly voor inbox-rotatie. Nog niet nodig in jaar 1.
-
-## Anti-patronen
-
-- ❌ **Volledig auto-gescraped e-mails zonder review.** AI-personalisatie wordt regelmatig fout (verzinnen info, verkeerde persoon). Altijd 2 sec eye-check.
-- ❌ **100% templates voor opener.** Als je maar 5 opener-templates hebt en elk ontvangt er 20, voelt het bulk.
-- ❌ **Zelfde signaal-type meerdere keren per batch.** Variatie houdt kvaliteit hoog.
-- ❌ **Te lange opener.** Opener + body + CTA = max 120 woorden. Anders wordt 'e niet gelezen.
+- [ ] Ik heb het signaal zelf gezien, met bron en datum genoteerd.
+- [ ] De zin past alleen op dit bedrijf.
+- [ ] Hij noemt het signaal als aanleiding, niet als bewijs.
+- [ ] Maximaal 1–2 zinnen, zodat de hele mail onder 120 woorden blijft.
+- [ ] Geen "AI", geen superlatieven, geen cijfers.
 
 ---
 
-*Deze playbook is sector-agnostisch. Voor sector-specifieke signalen en pijnpunten, zie [`sequence-groothandel.md`](./sequence-groothandel.md), [`sequence-maakindustrie.md`](./sequence-maakindustrie.md), en [`sequence-transport.md`](./sequence-transport.md).*
+*Laatst bijgewerkt: 2026-10-11. Sector-specifieke signalen en hooks staan in de sequence per categorie, te beginnen met [`sequence-groothandel.md`](./sequence-groothandel.md).*
