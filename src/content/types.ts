@@ -26,6 +26,8 @@ export type Package = {
 export type Category = {
   id: CategoryId;
   name: string;
+  /** Procesnaam voor de roterende homepage-kop, bv. "offerteaanvragen". */
+  heroNoun: string;
   cardLine: string;
   cardCta: string;
   seoTitle: string;

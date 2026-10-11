@@ -1,5 +1,7 @@
 # Lead Velocity — website, GTM en schaalmodel
 
+> **Afwijkingen vastgesteld door Bart (2026-10-11):** de term "werkstroomcheck" wordt in copy vervangen door **"gratis adviesgesprek"** (knop "Plan een gratis adviesgesprek", URL `/adviesgesprek`; `/werkstroomcheck` verwijst door). De homepage-H1 uit §8 is vervangen door de dynamische kop **"Automatiseer je [proces] zonder nieuw systeem."** Interne namen (Edge Function, tabel, analytics) blijven ongewijzigd.
+
 ## Lees dit eerst, Claude
 
 Dit is de leidende overdracht voor het aanpassen van leadvelocity.nl. Datum: 9 oktober 2026. Eigenaar: Bart Wilbrink. Het document combineert het salesautomatiseringsplan met het aangeleverde GTM-plan voor traditioneel MKB. Het vervangt de tegenstrijdige positioneringen uit die documenten voor deze website.

@@ -1,4 +1,5 @@
 import { werkwijze } from "@/content/pages";
+import { ctaLabels } from "@/content/site";
 import { checkHref } from "@/lib/cta";
 import { SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink } from "@/components/site";
 
@@ -26,7 +27,7 @@ export default function Werkwijze() {
             </Reveal>
           ))}
         </ol>
-        <CtaLink to={checkHref({ source: "werkwijze" })} ctaId="werkwijze-check" className="mt-12">Plan een werkstroomcheck</CtaLink>
+        <CtaLink to={checkHref({ source: "werkwijze" })} ctaId="werkwijze-check" className="mt-12">{ctaLabels.primary}</CtaLink>
       </Section>
     </SiteLayout>
   );

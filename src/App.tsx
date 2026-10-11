@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 import { redirects } from "./content/redirects";
 import Home from "./pages/site/Home";
@@ -14,7 +14,8 @@ import Werkwijze from "./pages/site/Werkwijze";
 import Prijzen from "./pages/site/Prijzen";
 import Voorbeelden from "./pages/site/Voorbeelden";
 import Over from "./pages/site/Over";
-import Werkstroomcheck from "./pages/site/Werkstroomcheck";
+import Adviesgesprek from "./pages/site/Adviesgesprek";
+import { RedirectWithQuery } from "./components/site/RedirectWithQuery";
 import Bedankt from "./pages/site/Bedankt";
 import Privacy from "./pages/site/Privacy";
 import CampaignPage from "./pages/site/CampaignPage";
@@ -43,7 +44,7 @@ const App = () => (
         <TooltipProvider>
           <Routes>
             {/* Oude URL's → inhoudelijk passende nieuwe route (client-side; 301 op hosting = livegang-punt) */}
-            {redirects.map((r) => <Route key={r.from} path={r.from} element={<Navigate to={r.to} replace />} />)}
+            {redirects.map((r) => <Route key={r.from} path={r.from} element={<RedirectWithQuery to={r.to} />} />)}
 
             <Route path="/" element={<Home />} />
             <Route path="/voor-wie" element={<VoorWie />} />
@@ -57,7 +58,7 @@ const App = () => (
             <Route path="/prijzen" element={<Prijzen />} />
             <Route path="/voorbeelden" element={<Voorbeelden />} />
             <Route path="/over" element={<Over />} />
-            <Route path="/werkstroomcheck" element={<Werkstroomcheck />} />
+            <Route path="/adviesgesprek" element={<Adviesgesprek />} />
             <Route path="/bedankt" element={<Bedankt />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/campagnes/offerte-intake" element={<CampaignPage key="offerte-intake" id="offerte-intake" />} />

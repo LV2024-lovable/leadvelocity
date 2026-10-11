@@ -16,6 +16,13 @@ export const contact = {
   calendarUrl: null as string | null,
 };
 
+/** Hoofd-CTA overal op de site (besluit Bart 2026-10-11, vervangt de oude term uit de handover). */
+export const ctaLabels = {
+  primary: "Plan een gratis adviesgesprek",
+  short: "Gratis adviesgesprek",
+  micro: "20 minuten · vrijblijvend",
+};
+
 export const mainNav = [
   { label: "Voor wie", href: "/voor-wie" },
   { label: "Oplossingen", href: "/oplossingen" },
@@ -88,7 +95,7 @@ export const indexableRoutes = [
   "/", "/voor-wie", "/groothandels", "/importeurs-distributeurs", "/service-onderhoud", "/maatwerk-montage",
   "/oplossingen", "/oplossingen/aanvragen-dossiers", "/oplossingen/communicatie-opvolging",
   "/oplossingen/data-inzicht", "/oplossingen/commerciele-voorbereiding",
-  "/werkwijze", "/prijzen", "/voorbeelden", "/over", "/werkstroomcheck", "/privacy",
+  "/werkwijze", "/prijzen", "/voorbeelden", "/over", "/adviesgesprek", "/privacy",
   "/inzichten",
   "/inzichten/ai-in-nederlandse-technische-groothandel-2026",
   "/inzichten/ai-pricing-voor-groothandel",

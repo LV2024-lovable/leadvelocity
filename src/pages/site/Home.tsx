@@ -1,20 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, ClipboardList, FileSearch, BellRing } from "lucide-react";
 import { home } from "@/content/pages";
 import { categories } from "@/content/categories";
 import { processes } from "@/content/processes";
 import { demoById } from "@/content/demos";
-import { checkHref, demoHref } from "@/lib/cta";
+import { ctaLabels } from "@/content/site";
+import { checkHref, demoHref, parseCheckContext } from "@/lib/cta";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import {
   SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink, DemoStepper, CategoryCard,
-  ProcessCard, Steps, HumanControl, PricingCards, Faq,
+  ProcessCard, Steps, HumanControl, PricingCards, Faq, RotatingWord,
 } from "@/components/site";
 
 const SITUATION_ICONS = [ClipboardList, FileSearch, BellRing];
 
 export default function Home() {
-  const heroDemo = demoById("offerte-intake")!;
+  // Bezoekers van een sector-, campagne- of outreachlink (?category=…) zien hun eigen proces.
+  const lockedCategory = parseCheckContext(useLocation().search).category;
+  const lockedIndex = lockedCategory ? categories.findIndex((c) => c.id === lockedCategory) : -1;
+  const locked = lockedIndex >= 0 ? categories[lockedIndex] : undefined;
+  const heroNouns = categories.map((c) => c.heroNoun);
+  const heroDemo = demoById(locked?.demoId ?? "offerte-intake")!;
   const exampleDemos = [demoById("aftersales")!, demoById("service-intake")!];
 
   return (
@@ -28,14 +34,22 @@ export default function Home() {
           <div>
             <Reveal><p className="font-mono text-[11.5px] uppercase tracking-[0.16em] text-lv-muted">{home.hero.eyebrow}</p></Reveal>
             <Reveal delay={0.05}>
-              <h1 className="mt-5 text-balance font-display text-[clamp(2.6rem,6vw,4.4rem)] font-semibold leading-[0.98] tracking-[-0.045em]">{home.hero.h1}</h1>
+              <h1 className="mt-5 font-display text-[clamp(2.1rem,6.4vw,4.2rem)] font-semibold leading-[1.02] tracking-[-0.045em]">
+                <span className="sr-only">{`${home.hero.h1Before} ${locked?.heroNoun ?? home.hero.h1Fallback} ${home.hero.h1After}`}</span>
+                <span aria-hidden="true">
+                  {home.hero.h1Before}{" "}
+                  <RotatingWord words={heroNouns} locked={locked ? lockedIndex : undefined} wordClassName="rounded-[0.18em] bg-lv-lime px-[0.12em]" />
+                  <br />
+                  {home.hero.h1After}
+                </span>
+              </h1>
             </Reveal>
             <Reveal delay={0.1}><p className="mt-6 max-w-[34rem] text-[18px] leading-relaxed text-lv-body">{home.hero.sub}</p></Reveal>
             <Reveal delay={0.15} className="mt-8 flex flex-wrap gap-3">
-              <CtaLink to={checkHref({ source: "home-hero" })} ctaId="home-hero-check">{home.hero.primary}</CtaLink>
-              <CtaLink to={demoHref(undefined, "home-hero")} ctaId="home-hero-demo" variant="secondary">{home.hero.secondary}</CtaLink>
+              <CtaLink to={checkHref({ source: "home-hero", category: locked?.id, process: locked?.processKey })} ctaId="home-hero-check" trackParams={{ category: locked?.id }}>{ctaLabels.primary}</CtaLink>
+              <CtaLink to={demoHref(locked?.demoId, "home-hero")} ctaId="home-hero-demo" variant="secondary">{home.hero.secondary}</CtaLink>
             </Reveal>
-            <Reveal delay={0.2}><p className="mt-4 text-[13.5px] text-lv-muted">{home.hero.micro}</p></Reveal>
+            <Reveal delay={0.2}><p className="mt-4 text-[13.5px] text-lv-muted">{ctaLabels.micro}</p></Reveal>
           </div>
           <Reveal delay={0.1}><DemoStepper demo={heroDemo} source="home-hero" compact /></Reveal>
         </div>
@@ -147,7 +161,7 @@ export default function Home() {
           <div className="relative">
             <h2 className="mx-auto max-w-3xl text-balance font-display text-[clamp(2rem,4.6vw,3.4rem)] font-semibold leading-[1.02] tracking-[-0.04em]">{home.closing.h2}</h2>
             <p className="mx-auto mt-5 max-w-lg text-[17px] text-white/70">{home.closing.body}</p>
-            <CtaLink to={checkHref({ source: "home-bottom" })} ctaId="home-bottom" variant="lime" className="mt-9">{home.closing.cta}</CtaLink>
+            <CtaLink to={checkHref({ source: "home-bottom" })} ctaId="home-bottom" variant="lime" className="mt-9">{ctaLabels.primary}</CtaLink>
           </div>
         </div>
       </section>

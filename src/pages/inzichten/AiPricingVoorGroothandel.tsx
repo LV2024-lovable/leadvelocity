@@ -216,7 +216,7 @@ const config: BlogPostConfig = {
     body: 'Niet elke groothandel is direct klaar voor AI-pricing. Drie paden, jij kiest wat nu past.',
     hot: {
       href: checkHref({ source: 'inzichten-ai-pricing-voor-groothandel' }),
-      label: 'Plan een werkstroomcheck',
+      label: 'Plan een gratis adviesgesprek',
     },
     warm: {
       href: demoHref(undefined, 'inzichten-ai-pricing-voor-groothandel'),

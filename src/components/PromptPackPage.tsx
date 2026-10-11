@@ -324,7 +324,7 @@ const PromptPackPage: React.FC<Props> = ({ pack }) => {
                 href={checkHref({ source: `promptpack-${pack.slug}` })}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-lv-lime text-lv-ink font-display font-700 text-base rounded-lg transition-all duration-300 group"
               >
-                Plan een werkstroomcheck
+                Plan een gratis adviesgesprek
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>

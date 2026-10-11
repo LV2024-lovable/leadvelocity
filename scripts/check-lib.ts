@@ -4,10 +4,10 @@ import { checkHref, demoHref, parseCheckContext } from "../src/lib/cta";
 const fouten: string[] = [];
 const eq = (a: unknown, b: unknown, m: string) => { if (JSON.stringify(a) !== JSON.stringify(b)) fouten.push(`${m}: ${JSON.stringify(a)} ≠ ${JSON.stringify(b)}`); };
 
-eq(checkHref({ source: "header" }), "/werkstroomcheck?source=header", "header");
-eq(checkHref({ category: "groothandels", process: "offerte-intake" }), "/werkstroomcheck?category=groothandels&process=offerte-intake", "categorie");
-eq(checkHref({ source: "home-hero", package: "werkstroom" }), "/werkstroomcheck?source=home-hero&package=werkstroom", "volgorde source eerst");
-eq(checkHref({}), "/werkstroomcheck", "leeg");
+eq(checkHref({ source: "header" }), "/adviesgesprek?source=header", "header");
+eq(checkHref({ category: "groothandels", process: "offerte-intake" }), "/adviesgesprek?category=groothandels&process=offerte-intake", "categorie");
+eq(checkHref({ source: "home-hero", package: "werkstroom" }), "/adviesgesprek?source=home-hero&package=werkstroom", "volgorde source eerst");
+eq(checkHref({}), "/adviesgesprek", "leeg");
 eq(demoHref("aftersales", "home-hero"), "/voorbeelden?demo=aftersales&source=home-hero", "demoHref");
 eq(demoHref(undefined, "home-hero"), "/voorbeelden?source=home-hero", "demoHref zonder demo");
 eq(parseCheckContext("?category=groothandels&process=offerte-intake&package=werkstroom&demo=offerte-intake&campaign=offerte-intake&source=header"),

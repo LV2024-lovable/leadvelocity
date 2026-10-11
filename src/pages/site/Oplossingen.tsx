@@ -1,4 +1,5 @@
 import { oplossingenIndex } from "@/content/pages";
+import { ctaLabels } from "@/content/site";
 import { processes } from "@/content/processes";
 import { checkHref } from "@/lib/cta";
 import { SiteLayout, Seo, Section, SectionHead, Reveal, ProcessCard, CtaLink } from "@/components/site";
@@ -20,7 +21,7 @@ export default function Oplossingen() {
             <li key={s} className="rounded-full border border-lv-line bg-lv-surface px-3.5 py-2"><span className="mr-2 font-mono text-[11px] text-lv-faint">{i + 1}</span>{s}</li>
           ))}
         </ol>
-        <CtaLink to={checkHref({ source: "oplossingen" })} ctaId="oplossingen-check" className="mt-10">Plan een werkstroomcheck</CtaLink>
+        <CtaLink to={checkHref({ source: "oplossingen" })} ctaId="oplossingen-check" className="mt-10">{ctaLabels.primary}</CtaLink>
       </Section>
     </SiteLayout>
   );

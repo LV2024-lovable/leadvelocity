@@ -101,12 +101,22 @@ for (const f of scan("src")) {
   }
 }
 
-// --- CLAUDE.md noemt dezelfde prijzen (vanaf Task 11 verplicht) ---
+// --- "werkstroomcheck" is vervangen door "gratis adviesgesprek" (besluit Bart, 2026-10-11) ---
+// Toegestaan: de Supabase-functienaam en de redirect-bron van de oude URL.
+const toegestaanWsc = [/functions\.invoke\(["']werkstroomcheck["']/g, /supabase\/functions\/werkstroomcheck/g, /from: "\/werkstroomcheck"/g];
+for (const f of scan("src")) {
+  let tekst = readFileSync(f, "utf8");
+  for (const re of toegestaanWsc) tekst = tekst.replace(re, "");
+  check(!/werkstroomcheck/i.test(tekst), `${f}: bevat nog "werkstroomcheck" — gebruik "gratis adviesgesprek" / ctaLabels`);
+}
+
+// --- dynamische hero: elke categorie heeft een procesnaam voor de roterende kop ---
+for (const c of categories) check(/^[a-z]+$/.test(c.heroNoun ?? ""), `categorie ${c.id}: heroNoun ontbreekt of is niet één woord in kleine letters`);
+
+// --- CLAUDE.md noemt dezelfde prijzen ---
 const claude = readFileSync("CLAUDE.md", "utf8");
-if (claude.includes("Minder uitzoekwerk")) {
-  for (const p of packages) {
-    check(claude.includes(`${p.name} — ${formatEuro(p.setupFrom)} + ${formatEuro(p.monthlyFrom)}`), `CLAUDE.md mist "${p.name} — ${formatEuro(p.setupFrom)} + ${formatEuro(p.monthlyFrom)}"`);
-  }
+for (const p of packages) {
+  check(claude.includes(`${p.name} — ${formatEuro(p.setupFrom)} + ${formatEuro(p.monthlyFrom)}`), `CLAUDE.md mist "${p.name} — ${formatEuro(p.setupFrom)} + ${formatEuro(p.monthlyFrom)}"`);
 }
 
 // --- redirects ---

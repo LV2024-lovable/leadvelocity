@@ -22,7 +22,7 @@ function build(path: string, params: [string, string | undefined][]): string {
 }
 
 export function checkHref(ctx: CheckContext): string {
-  return build("/werkstroomcheck", ORDER.map((k) => [k, ctx[k]]));
+  return build("/adviesgesprek", ORDER.map((k) => [k, ctx[k]]));
 }
 
 export function demoHref(demo?: DemoId, source?: string): string {

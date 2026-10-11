@@ -184,7 +184,7 @@ const config: BlogPostConfig = {
     body: 'Drie paden om CSRD-rapportage te automatiseren.',
     hot: {
       href: checkHref({ source: 'inzichten-csrd-scope-3-automatisering-transport' }),
-      label: 'Plan een werkstroomcheck',
+      label: 'Plan een gratis adviesgesprek',
     },
     warm: {
       href: demoHref(undefined, 'inzichten-csrd-scope-3-automatisering-transport'),

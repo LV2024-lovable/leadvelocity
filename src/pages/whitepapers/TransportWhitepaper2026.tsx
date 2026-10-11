@@ -224,7 +224,7 @@ const TransportWhitepaper2026 = () => {
                 <p className="font-body text-base text-lv-body leading-relaxed">
                   Liever direct een gesprek over je vloot?{' '}
                   <a href={checkHref({ source: 'whitepaper-transport-2026' })} className="text-lv-lime-ink hover:underline font-500">
-                    Plan een werkstroomcheck →
+                    Plan een gratis adviesgesprek →
                   </a>
                 </p>
               </div>

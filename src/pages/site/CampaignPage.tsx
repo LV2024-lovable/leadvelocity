@@ -51,7 +51,7 @@ export default function CampaignPage({ id }: { id: CampaignId }) {
         </Section>
 
         <Section>
-          <SectionHead title="Hoe de werkstroomcheck werkt" intro="In een gesprek van 20 minuten bekijken we welk werk terugkomt, wat je huidige software al doet en of een afgebakende eerste stap zinvol is. De check is kosteloos." />
+          <SectionHead title="Hoe het gratis adviesgesprek werkt" intro="In 20 minuten bekijken we welk werk bij jullie steeds terugkomt, wat jullie huidige software al doet en of automatiseren loont. Gratis en vrijblijvend." />
         </Section>
 
         <Section tone="raised">

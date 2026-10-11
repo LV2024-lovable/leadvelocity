@@ -1,4 +1,5 @@
 import { Check, X } from "lucide-react";
+import { ctaLabels } from "@/content/site";
 import { voorWie } from "@/content/pages";
 import { categories, GENERIC_NOT_FIT } from "@/content/categories";
 import { processes } from "@/content/processes";
@@ -37,7 +38,7 @@ export default function VoorWie() {
         <Reveal className="max-w-2xl">
           <h2 className="font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold tracking-[-0.03em]">{voorWie.otherTitle}</h2>
           <p className="mt-3 text-[16.5px] leading-relaxed text-lv-body">{voorWie.otherBody}</p>
-          <CtaLink to={checkHref({ source: "voor-wie" })} ctaId="voor-wie-check" className="mt-7">Plan een werkstroomcheck</CtaLink>
+          <CtaLink to={checkHref({ source: "voor-wie" })} ctaId="voor-wie-check" className="mt-7">{ctaLabels.primary}</CtaLink>
         </Reveal>
       </Section>
     </SiteLayout>

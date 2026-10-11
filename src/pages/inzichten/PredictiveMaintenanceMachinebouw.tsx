@@ -231,7 +231,7 @@ const config: BlogPostConfig = {
     body: 'Drie paden om te ontdekken waar de grootste winst ligt.',
     hot: {
       href: checkHref({ source: 'inzichten-predictive-maintenance-machinebouw' }),
-      label: 'Plan een werkstroomcheck',
+      label: 'Plan een gratis adviesgesprek',
     },
     warm: {
       href: demoHref(undefined, 'inzichten-predictive-maintenance-machinebouw'),

@@ -242,7 +242,7 @@ const GroothandelWhitepaper2026 = () => {
                 <p className="font-body text-base text-lv-body leading-relaxed">
                   Liever direct in gesprek?{' '}
                   <a href={checkHref({ source: 'whitepaper-groothandel-2026' })} className="text-lv-lime-ink hover:underline font-500">
-                    Plan een werkstroomcheck →
+                    Plan een gratis adviesgesprek →
                   </a>
                 </p>
               </div>

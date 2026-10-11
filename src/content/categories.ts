@@ -13,6 +13,7 @@ export const GENERIC_NOT_FIT = [
 export const categories: Category[] = [
   {
     id: "groothandels",
+    heroNoun: "offerteaanvragen",
     name: "Technische groothandels",
     cardLine: "Aanvragen voorbereiden en open offertes opvolgen.",
     cardCta: "Voor groothandels",
@@ -41,6 +42,7 @@ export const categories: Category[] = [
   },
   {
     id: "importeurs-distributeurs",
+    heroNoun: "garantieclaims",
     name: "Importeurs en distributeurs",
     cardLine: "Aftersales- en dealerclaims compleet maken.",
     cardCta: "Voor importeurs en distributeurs",
@@ -69,6 +71,7 @@ export const categories: Category[] = [
   },
   {
     id: "service-onderhoud",
+    heroNoun: "servicemeldingen",
     name: "Service en onderhoud",
     cardLine: "Meldingen voorbereiden en statusvragen ondersteunen.",
     cardCta: "Voor servicebedrijven",
@@ -97,6 +100,7 @@ export const categories: Category[] = [
   },
   {
     id: "maatwerk-montage",
+    heroNoun: "projectaanvragen",
     name: "Maatwerk en montage",
     cardLine: "Projectinformatie verzamelen en vervolgstappen bewaken.",
     cardCta: "Voor maatwerk en montage",

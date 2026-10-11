@@ -170,7 +170,7 @@ const config: BlogPostConfig = {
     body: 'Drie paden om te starten met AI-compensatie voor de vrachtwagenheffing.',
     hot: {
       href: checkHref({ source: 'inzichten-vrachtwagenheffing-2026-ai-compensatie' }),
-      label: 'Plan een werkstroomcheck',
+      label: 'Plan een gratis adviesgesprek',
     },
     warm: {
       href: demoHref(undefined, 'inzichten-vrachtwagenheffing-2026-ai-compensatie'),

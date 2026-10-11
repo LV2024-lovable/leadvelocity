@@ -233,7 +233,7 @@ const config: BlogPostConfig = {
     body: 'Van verdiepen tot direct bouwen — jij kiest wat nu past.',
     hot: {
       href: checkHref({ source: 'inzichten-ai-voor-nederlandse-maakindustrie-oee' }),
-      label: 'Plan een werkstroomcheck',
+      label: 'Plan een gratis adviesgesprek',
     },
     warm: {
       href: demoHref(undefined, 'inzichten-ai-voor-nederlandse-maakindustrie-oee'),

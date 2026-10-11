@@ -12,6 +12,8 @@ Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken a
 
 Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
 
+Homepage-kop (besluit Bart 2026-10-11, wijkt af van handover §8): **"Automatiseer je [offerteaanvragen | garantieclaims | servicemeldingen | projectaanvragen] zonder nieuw systeem."** Het procesnaamwoord roteert; met `?category=…` staat het vast op de sector van de bezoeker (`categories[].heroNoun`).
+
 **Leidende bron:** [`docs/strategy/2026-10-09-website-gtm-handover.md`](./docs/strategy/2026-10-09-website-gtm-handover.md). Bij twijfel over positionering, copy, prijzen of claims gaat dat document voor.
 
 **Bron van waarheid voor copy en prijzen op de site:** `src/content/*`. Check: `npx tsx scripts/check-content.ts`.
@@ -21,6 +23,8 @@ Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
 ## 2. Merkbelofte en boodschap (handover §3)
 
 Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
+
+Homepage-kop (besluit Bart 2026-10-11, wijkt af van handover §8): **"Automatiseer je [offerteaanvragen | garantieclaims | servicemeldingen | projectaanvragen] zonder nieuw systeem."** Het procesnaamwoord roteert; met `?category=…` staat het vast op de sector van de bezoeker (`categories[].heroNoun`).
 
 Ondersteunende uitleg: **Wij automatiseren terugkerend werk rond aanvragen, klantcommunicatie en opvolging. Ingericht op jullie werkwijze, met jullie team in controle.**
 
@@ -43,7 +47,7 @@ Prijzen staan in `src/content/pricing.ts` (vanaf, excl. btw). Wijzig je een prij
 - **Opschalen — €7.950 + €1.950** per maand — een bewezen werkstroom uitbreiden
 - **Custom — €12.500 + €2.500** per maand — meerdere processen of bijzondere koppelingen
 
-Funnel: gratis werkstroomcheck (20 min) → gelabeld voorbeeld → analyse €750 (verrekenbaar binnen 60 dagen) → vaste scope en prijs → inrichting → acceptatie → maanddienst → uitbreiding.
+Funnel: gratis adviesgesprek (20 min) → gelabeld voorbeeld → analyse €750 (verrekenbaar binnen 60 dagen) → vaste scope en prijs → inrichting → acceptatie → maanddienst → uitbreiding.
 
 Op de site: "We leggen vooraf vast wat wordt opgeleverd en wanneer de maanddienst start." Geen garantie of "geld terug" tot de contracttekst er is.
 
@@ -119,7 +123,7 @@ Vraag jezelf voor elk blok af:
 
 ### Routes (fase 1)
 
-`/` · `/voor-wie` · `/groothandels` · `/importeurs-distributeurs` · `/service-onderhoud` · `/maatwerk-montage` · `/oplossingen` (+ 4 detailpagina's) · `/werkwijze` · `/prijzen` · `/voorbeelden` · `/over` · `/werkstroomcheck` · `/bedankt` (noindex) · `/privacy` · `/campagnes/*` (4, noindex) · `/inzichten` (footer-only). Oude routes: `src/content/redirects.ts`.
+`/` · `/voor-wie` · `/groothandels` · `/importeurs-distributeurs` · `/service-onderhoud` · `/maatwerk-montage` · `/oplossingen` (+ 4 detailpagina's) · `/werkwijze` · `/prijzen` · `/voorbeelden` · `/over` · `/adviesgesprek` · `/bedankt` (noindex) · `/privacy` · `/campagnes/*` (4, noindex) · `/inzichten` (footer-only). Oude routes: `src/content/redirects.ts`.
 
 ### Structuur
 
@@ -130,7 +134,7 @@ Vraag jezelf voor elk blok af:
 
 ### Formulier-integratie
 
-Het checkformulier (`/werkstroomcheck`, `src/components/site/CheckForm.tsx`) post naar de Edge Function `supabase/functions/werkstroomcheck`. Die valideert, slaat de aanvraag op in tabel `werkstroomcheck_requests` (migratie `supabase/migrations/20261009120000_werkstroomcheck_requests.sql`, met defaults voor eigenaar en volgende actie) en mailt via Resend naar `info@leadvelocity.nl`. **Functie en migratie moeten nog gedeployed worden** (`supabase db push`, `supabase functions deploy werkstroomcheck`) — alleen met akkoord van Bart; zie `docs/superpowers/2026-10-09-livegang.md`.
+Het aanvraagformulier (`/adviesgesprek`, `src/components/site/CheckForm.tsx`) post naar de Edge Function `supabase/functions/werkstroomcheck`. Die valideert, slaat de aanvraag op in tabel `werkstroomcheck_requests` (migratie `supabase/migrations/20261009120000_werkstroomcheck_requests.sql`, met defaults voor eigenaar en volgende actie) en mailt via Resend naar `info@leadvelocity.nl`. **Functie en migratie moeten nog gedeployed worden** (`supabase db push`, `supabase functions deploy werkstroomcheck`) — alleen met akkoord van Bart; zie `docs/superpowers/2026-10-09-livegang.md`.
 
 `supabase/functions/email-notify/` bedient alleen nog de behouden formulieren buiten de check: whitepaper-, promptpack-, content-upgrade- en nieuwsbriefaanvragen.
 
@@ -177,7 +181,7 @@ Gebruik deze voor nieuwe copy, use-cases, blog-content. Elke sector heeft TL;DR 
 
 - **De handover van 2026-10-09 is leidend** voor positionering, copy, prijzen en routes.
 - **Vier categorieën, één pakketstructuur, één proces per campagne.**
-- **Werkstroomcheck is de enige ingang**; de oude AI-kansenscan verwijst door.
+- **Gratis adviesgesprek is de enige ingang** (besluit Bart 2026-10-11: de handover-term "werkstroomcheck" wordt nergens meer in copy gebruikt; knoplabels uit `ctaLabels` in `src/content/site.ts`). Oude URL's `/werkstroomcheck` en de AI-kansenscan verwijzen door, met behoud van querystring.
 - **Geen garantie op de site** tot de contracttekst er is.
 - **Geen verzonnen bewijs:** demo's zijn gelabeld "Illustratieve demo"; cases en logo's alleen met goedgekeurde gegevens.
 - **Huisstijl:** papier/inkt/lime, Schibsted Grotesk + Hanken Grotesk + JetBrains Mono; geen glow of netwerkanimaties.
@@ -195,7 +199,7 @@ Zie `docs/superpowers/2026-10-09-livegang.md` voor livegang-afhankelijkheden (pr
 
 ### Hoe een klant typisch bij ons komt
 1. Outreach of website → campagne- of categoriepagina → gelabelde demo
-2. Werkstroomcheck (20 min, gratis) → analyse €750 (verrekenbaar binnen 60 dagen)
+2. Gratis adviesgesprek (20 min) → analyse €750 (verrekenbaar binnen 60 dagen)
 3. Vaste scope en prijs → inrichting → acceptatie → maanddienst → uitbreiding
 
 ### Contact-routing

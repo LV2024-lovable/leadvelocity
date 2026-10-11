@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { over } from "@/content/pages";
-import { contact } from "@/content/site";
+import { contact, ctaLabels } from "@/content/site";
 import { checkHref } from "@/lib/cta";
 import { SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink, Eyebrow } from "@/components/site";
 
@@ -26,7 +26,7 @@ export default function Over() {
       </Section>
       <Section>
         <p className="text-[15.5px] text-lv-body">Contact: <a className="underline underline-offset-4" href={`mailto:${contact.email}`}>{contact.email}</a> · <a className="underline underline-offset-4" href={contact.phoneHref}>{contact.phone}</a> · <a className="underline underline-offset-4" href={contact.linkedin} rel="noopener noreferrer" target="_blank">LinkedIn</a></p>
-        <CtaLink to={checkHref({ source: "over" })} ctaId="over-check" className="mt-8">Plan een werkstroomcheck</CtaLink>
+        <CtaLink to={checkHref({ source: "over" })} ctaId="over-check" className="mt-8">{ctaLabels.primary}</CtaLink>
       </Section>
     </SiteLayout>
   );

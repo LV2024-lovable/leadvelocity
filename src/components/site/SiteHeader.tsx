@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { mainNav, brand } from "@/content/site";
+import { mainNav, brand, ctaLabels } from "@/content/site";
 import { checkHref } from "@/lib/cta";
 import { CtaLink } from "./CtaLink";
 import { cn } from "@/lib/utils";
@@ -28,7 +28,7 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <CtaLink to={checkHref({ source: "header" })} ctaId="header" className="hidden px-4 py-2 text-[14px] sm:inline-flex" arrow={false}>
-            Plan een werkstroomcheck
+            {ctaLabels.short}
           </CtaLink>
           <button type="button" className="rounded-lg p-2 lg:hidden" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? "Menu sluiten" : "Menu openen"} onClick={() => setOpen((o) => !o)}>
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -43,7 +43,7 @@ export function SiteHeader() {
             ))}
             <li><Link to="/over" className="block py-3" onClick={() => setOpen(false)}>Over</Link></li>
           </ul>
-          <CtaLink to={checkHref({ source: "header" })} ctaId="header-mobile" className="w-full">Plan een werkstroomcheck</CtaLink>
+          <CtaLink to={checkHref({ source: "header" })} ctaId="header-mobile" className="w-full">{ctaLabels.primary}</CtaLink>
         </nav>
       )}
     </header>

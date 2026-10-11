@@ -205,7 +205,7 @@ const config: BlogPostConfig = {
     body: 'Kies zelf hoe ver je nu wilt gaan — van verdiepen tot direct starten met een concrete AI-toepassing.',
     hot: {
       href: checkHref({ source: 'inzichten-ai-in-nederlandse-technische-groothandel-2026' }),
-      label: 'Plan een werkstroomcheck',
+      label: 'Plan een gratis adviesgesprek',
     },
     warm: {
       href: demoHref(undefined, 'inzichten-ai-in-nederlandse-technische-groothandel-2026'),

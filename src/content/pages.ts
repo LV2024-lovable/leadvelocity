@@ -1,13 +1,15 @@
 export const home = {
-  seoTitle: "Lead Velocity — Minder uitzoekwerk. Meer werk gedaan.",
-  seoDescription: "Wij automatiseren terugkerend werk rond aanvragen, klantcommunicatie en opvolging. Ingericht op jullie werkwijze, met jullie team in controle.",
+  seoTitle: "Lead Velocity — Automatiseer je aanvragen zonder nieuw systeem",
+  seoDescription: "We halen gegevens uit mails en bijlagen, vragen ontbrekende informatie op en zetten een compleet dossier klaar. Vaste prijs, jullie team houdt de controle.",
   hero: {
     eyebrow: "Praktische automatisering voor het MKB",
-    h1: "Minder uitzoekwerk. Meer werk gedaan.",
-    sub: "Wij automatiseren terugkerend werk rond aanvragen, klantcommunicatie en opvolging. Van ontbrekende gegevens verzamelen tot een compleet dossier en een duidelijke volgende stap — ingericht op jullie werkwijze.",
-    primary: "Plan een werkstroomcheck",
-    secondary: "Bekijk een voorbeeld",
-    micro: "20 minuten om te bekijken welk proces een goede eerste stap is.",
+    /** Kop = before + roterend procesnaamwoord (categories[].heroNoun) + after. */
+    h1Before: "Automatiseer je",
+    h1After: "zonder nieuw systeem.",
+    /** Voor screenreaders en zonder JavaScript/beweging. */
+    h1Fallback: "aanvragen",
+    sub: "We halen gegevens uit mails en bijlagen, vragen ontbrekende informatie op en zetten een compleet dossier klaar. Vaste prijs, jullie team houdt de controle.",
+    secondary: "Bekijk hoe het werkt",
   },
   situations: {
     h2: "Het werk tussen een bericht en een bruikbare volgende stap.",
@@ -53,7 +55,6 @@ export const home = {
   closing: {
     h2: "Welk werk zou jouw team minder vaak hoeven uitzoeken?",
     body: "Vertel welk proces telkens terugkomt. We bekijken of er een duidelijke, haalbare eerste stap is.",
-    cta: "Plan een werkstroomcheck",
   },
 };
 
@@ -89,7 +90,7 @@ export const prijzenPage = {
   managementTitle: "Inbegrepen in het beheer",
   extraTitle: "Wat niet inbegrepen is",
   analysisTitle: "Betaalde analyse",
-  analysisBody: "Als de werkstroomcheck voldoende aanleiding geeft, volgt een analyse. Die wordt verrekend bij een implementatie binnen de verrekentermijn.",
+  analysisBody: "Als het adviesgesprek voldoende aanleiding geeft, volgt een analyse. Die wordt verrekend bij een implementatie binnen de verrekentermijn.",
   termsTitle: "Voorwaarden",
   terms: [
     "Prijzen zijn vanaf-prijzen, exclusief btw.",
@@ -102,11 +103,11 @@ export const prijzenPage = {
 
 export const werkwijze = {
   seoTitle: "Werkwijze | Lead Velocity",
-  seoDescription: "Van werkstroomcheck tot beheer in zes stappen: check, analyse, voorstel, inrichting, acceptatie en beheer.",
+  seoDescription: "Van gratis adviesgesprek tot beheer in zes stappen: adviesgesprek, analyse, voorstel, inrichting, acceptatie en beheer.",
   h1: "Van terugkerend werk naar een bruikbare werkstroom.",
   intro: "Een gebruikelijke start heeft één proceseigenaar en twee gerichte werksessies. Dat is een uitgangspunt, geen absoluut maximum voor elk project.",
   steps: [
-    { title: "Check", output: "Een eerste beeld of er een haalbare eerste stap is.", client: "Een gesprek van 20 minuten over het werk dat terugkomt.", decision: "Is een analyse zinvol?" },
+    { title: "Adviesgesprek", output: "Een eerste beeld of er een haalbare eerste stap is.", client: "Een gesprek van 20 minuten over het werk dat terugkomt.", decision: "Is een analyse zinvol?" },
     { title: "Analyse", output: "Proceskaart, nulmeting, input- en toegangscheck, businesscase en acceptatiecriteria.", client: "Voorbeelden van het werk en toegang tot de relevante informatie.", decision: "Loont het om dit in te richten?" },
     { title: "Voorstel", output: "Vaste scope en prijs, met wat er wordt opgeleverd en wanneer de maanddienst start.", client: "Een eigenaar die het voorstel beoordeelt.", decision: "Akkoord op scope en prijs." },
     { title: "Inrichting", output: "De werkstroom, ingericht op jullie bronnen en werkwijze.", client: "Twee gerichte werksessies en representatieve voorbeelden.", decision: "Is het prototype bruikbaar?" },
@@ -135,11 +136,12 @@ export const over = {
 };
 
 export const checkPage = {
-  seoTitle: "Plan een werkstroomcheck | Lead Velocity",
-  seoDescription: "In een gesprek van 20 minuten bekijken we welk werk terugkomt, wat je huidige software al doet en of een afgebakende eerste stap zinvol is.",
-  h1: "Bekijk waar een werkstroom jullie team kan helpen.",
-  intro: "In een gesprek van 20 minuten bekijken we welk werk terugkomt, wat je huidige software al doet en of een afgebakende eerste stap zinvol is.",
-  submit: "Vraag een werkstroomcheck aan",
+  seoTitle: "Plan een gratis adviesgesprek | Lead Velocity",
+  seoDescription: "In 20 minuten bekijken we welk werk bij jullie steeds terugkomt en of automatiseren loont. Gratis en vrijblijvend.",
+  eyebrow: "Gratis adviesgesprek",
+  h1: "Plan een gratis adviesgesprek.",
+  intro: "In 20 minuten bekijken we welk werk bij jullie steeds terugkomt, wat jullie huidige software al doet en of automatiseren loont. Gratis en vrijblijvend.",
+  submit: "Vraag het adviesgesprek aan",
   submitting: "Bezig met versturen…",
   privacy: "We gebruiken je gegevens om op deze aanvraag te reageren.",
   privacyLink: "Lees onze privacyverklaring.",
