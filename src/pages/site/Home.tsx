@@ -64,9 +64,7 @@ export default function Home() {
         <SectionHead title={home.recognize.h2} />
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
           {situations.map((s, i) => (
-            <Reveal key={s} delay={i * 0.05}>
-              <li className="h-full rounded-3xl border border-lv-line bg-lv-surface p-7 text-[16.5px] leading-relaxed">{s}</li>
-            </Reveal>
+            <li key={s} className="h-full"><Reveal delay={i * 0.05} className="h-full"><div className="h-full rounded-3xl border border-lv-line bg-lv-surface p-7 text-[16.5px] leading-relaxed">{s}</div></Reveal></li>
           ))}
         </ul>
         <p className="mt-6 max-w-2xl text-[15.5px] text-lv-body">{home.recognize.costLine}</p>

@@ -110,7 +110,7 @@ for (const f of scan("src")) {
   check(!/werkstroomcheck/i.test(tekst), `${f}: bevat nog "werkstroomcheck" — gebruik "gratis adviesgesprek" / ctaLabels`);
 }
 
-// --- dynamische hero: elke categorie heeft een procesnaam voor de roterende kop ---
+// --- heroNoun = label van de keuzeknop op de homepage ---
 for (const c of categories) check(/^[a-z]+$/.test(c.heroNoun ?? ""), `categorie ${c.id}: heroNoun ontbreekt of is niet één woord in kleine letters`);
 
 // --- messagingstrategie 2026-10-11: segment-H1's, situaties, taal ---

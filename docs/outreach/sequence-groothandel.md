@@ -63,7 +63,7 @@ Beste [voornaam],
 
 [Signaal: …]
 
-Bij veel technische groothandels begint een offerteaanvraag met overtypen: artikelen en aantallen uit een mail of Excel-lijst één voor één in het systeem zetten. Pas daarna kan de binnendienst prijzen.
+Vaak begint een offerteaanvraag met overtypen: artikelen en aantallen uit een mail of Excel-lijst één voor één in het systeem zetten. Pas daarna kan de binnendienst prijzen.
 
 Wij zetten dat voorwerk klaar. De artikelen en aantallen staan erin, wat ontbreekt is gemarkeerd en er ligt een conceptvraag aan de klant. Je binnendienst controleert, prijst en verstuurt. Dat gebeurt naast Outlook en jullie eigen systeem, zonder nieuw systeem.
 
@@ -94,7 +94,7 @@ Beste [voornaam],
 
 [Signaal: …]
 
-Een ander moment waarop een aanvraag blijft hangen: de klant noemt zijn eigen artikelnummer en dat klopt niet met het jullie. Of het aantal of het afleveradres ontbreekt. Dan gaat er eerst een mail terug en ligt de aanvraag stil.
+Een ander moment waarop een aanvraag blijft hangen: de klant noemt zijn eigen artikelnummer en dat klopt niet met dat van jullie. Of het aantal of het afleveradres ontbreekt. Dan gaat er eerst een mail terug en ligt de aanvraag stil.
 
 Wij leggen het nummer van de klant naast jullie artikelbestand, voor zover die gegevens beschikbaar zijn, en markeren wat niet klopt of ontbreekt. De vraag aan de klant staat klaar als concept. Je binnendienst kijkt hem na en verstuurt.
 
@@ -127,7 +127,7 @@ Beste [voornaam],
 
 Laten zien is makkelijker dan uitleggen. We hebben een voorbeeld van één offerteaanvraag: een mail met een Excel-lijst, de artikelen en aantallen die eruit worden overgenomen, één ontbrekend gegeven dat wordt gemarkeerd en de conceptvraag aan de klant.
 
-Het is een voorbeeld, geen klantcase. Het laat zien hoe het naast Outlook en jullie eigen systeem werkt, zonder nieuw systeem. Niets gaat de deur uit zonder akkoord van je medewerker. Prijs, alternatief en levertijd blijven bij je binnendienst.
+Het is een voorbeeld, geen klantcase. Het laat zien hoe het naast Outlook en jullie eigen systeem werkt, zonder nieuw systeem. Externe acties beginnen met akkoord van je medewerker. Prijs, alternatief en levertijd blijven bij je binnendienst.
 
 Bekijk het voorbeeld:
 https://www.leadvelocity.nl/voorbeelden?demo=offerte-intake&source=outreach-gh-t3
@@ -158,11 +158,11 @@ Beste [voornaam],
 
 [Signaal: …]
 
-Nog één situatie: een offerte gaat de deur uit en daarna belt niemand na. Niet uit onwil, de binnendienst zit vol. En een extra binnendienstmedewerker vinden is lastig; daar is in de groothandel een tekort aan.
+Nog één situatie: een offerte gaat de deur uit en niemand belt na. Niet uit onwil, de binnendienst zit vol. Extra binnendienstmedewerkers vinden is lastig; daar is in de groothandel een tekort aan.
 
-Wij houden de open offertes bij en zetten de nabelmail als concept klaar. Je binnendienst beslist of die verstuurd wordt.
+Wij houden open offertes bij en zetten de nabelmail als concept klaar. Je binnendienst beslist of die verstuurd wordt.
 
-Zo werken we: eerst een gratis adviesgesprek van 20 minuten. Is er aanleiding, dan volgt een analyse van €750, die we verrekenen als jullie binnen 60 dagen starten. Pakketten beginnen vanaf €2.950 inrichting en €595 per maand, exclusief btw. Maandkosten starten pas na acceptatie.
+Zo werken we: eerst een gratis adviesgesprek van 20 minuten. Is er aanleiding, dan volgt een analyse van €750, die we verrekenen als jullie binnen 60 dagen starten. Pakketten beginnen vanaf €2.950 + €595 per maand, exclusief btw. Welk pakket past, volgt uit de analyse; het bijhouden en opvolgen van open offertes valt onder het pakket Werkstroom. Maandkosten starten pas na acceptatie.
 
 Plan een gratis adviesgesprek:
 https://www.leadvelocity.nl/?category=groothandels&source=outreach-gh-t4&utm_source=email&utm_medium=outreach&utm_campaign=groothandel-v2&utm_content=t4

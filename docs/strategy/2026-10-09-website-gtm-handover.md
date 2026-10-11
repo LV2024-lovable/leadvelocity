@@ -1,6 +1,11 @@
 # Lead Velocity — website, GTM en schaalmodel
 
-> **Afwijkingen vastgesteld door Bart (2026-10-11):** de term "werkstroomcheck" wordt in copy vervangen door **"gratis adviesgesprek"** (knop "Plan een gratis adviesgesprek", URL `/adviesgesprek`; `/werkstroomcheck` verwijst door). De homepage-H1 uit §8 is vervangen door de dynamische kop **"Automatiseer je [proces] zonder nieuw systeem."** Interne namen (Edge Function, tabel, analytics) blijven ongewijzigd.
+> **Afwijkingen vastgesteld door Bart (2026-10-11):**
+> - De term "werkstroomcheck" is vervangen door **"gratis adviesgesprek"**: knop "Plan een gratis adviesgesprek", URL `/adviesgesprek`; de oude URL `/werkstroomcheck` verwijst door en behoudt de querystring.
+> - De homepage-H1 is de statische kop **"Elke aanvraag compleet, voordat je team eraan begint."**, met door de bezoeker gekozen segmentknoppen (zie `docs/strategy/2026-10-11-messaging-strategie.md` §5 en §9).
+> - De segment-H1's en -subs in `src/content/categories.ts` vervangen de categorie-H1's uit §8 en §9.
+> - De primaire CTA op categoriepagina's is "Plan een gratis adviesgesprek".
+> - Interne namen (Edge Function, tabel, analytics) blijven ongewijzigd.
 
 ## Lees dit eerst, Claude
 

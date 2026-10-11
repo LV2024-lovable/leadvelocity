@@ -31,9 +31,7 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
         <SectionHead title="Herken je dit?" />
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
           {c.situations.map((s, i) => (
-            <Reveal key={s} delay={i * 0.05}>
-              <li className="h-full rounded-3xl border border-lv-line bg-lv-surface p-7 text-[16.5px] leading-relaxed">{s}</li>
-            </Reveal>
+            <li key={s} className="h-full"><Reveal delay={i * 0.05} className="h-full"><div className="h-full rounded-3xl border border-lv-line bg-lv-surface p-7 text-[16.5px] leading-relaxed">{s}</div></Reveal></li>
           ))}
         </ul>
       </Section>
@@ -42,7 +40,7 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
         <SectionHead title="Wat we voor je voorbereiden" />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {c.tasks.map((t, i) => (
-            <Reveal key={t} delay={i * 0.04}><li className="flex h-full gap-3 rounded-2xl border border-lv-line bg-lv-surface p-5 text-[15.5px]"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{t}</li></Reveal>
+            <li key={t} className="h-full"><Reveal delay={i * 0.04} className="h-full"><div className="flex h-full gap-3 rounded-2xl border border-lv-line bg-lv-surface p-5 text-[15.5px]"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{t}</div></Reveal></li>
           ))}
         </ul>
       </Section>

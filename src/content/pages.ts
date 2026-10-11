@@ -1,3 +1,4 @@
+import { analysis, formatEuro } from "./pricing";
 export const home = {
   seoTitle: "Lead Velocity — Elke aanvraag compleet, voordat je team eraan begint",
   seoDescription: "Wij lezen mails en bijlagen, markeren wat ontbreekt en zetten een antwoord klaar. Jouw medewerker controleert en verstuurt. Voor MKB met 10–75 medewerkers.",
@@ -5,7 +6,7 @@ export const home = {
     eyebrow: "Automatisering voor binnendienst en klantenservice",
     h1: "Elke aanvraag compleet, voordat je team eraan begint.",
     sub: "Wij lezen mails en bijlagen, markeren wat ontbreekt en zetten een antwoord klaar. Jouw medewerker controleert en verstuurt, gewoon vanuit jullie eigen mailbox.",
-    forWho: "Voor technische groothandels, importeurs, servicebedrijven en maatwerkbedrijven met 10–75 medewerkers.",
+    forWho: "Voor technische groothandels, importeurs, servicebedrijven en maatwerkbedrijven met 10‑75 medewerkers.",
     ctaMicro: "20 minuten, vrijblijvend. Past het niet, dan zeggen we dat ook.",
     secondary: "Bekijk een voorbeeld",
     secondaryMicro: "Eén aanvraag, stap voor stap.",
@@ -50,7 +51,7 @@ export const home = {
     h2: "Van gesprek tot werkende oplossing",
     steps: [
       { title: "Gratis adviesgesprek", body: "20 minuten. We kijken welk werk steeds terugkomt en of automatiseren loont." },
-      { title: "Analyse", body: "Proceskaart, nulmeting en een vaste scope met prijs. Verrekenbaar bij een implementatie." },
+      { title: "Analyse", body: `${formatEuro(analysis.price)}: proceskaart, nulmeting en een vaste scope met prijs. Verrekend bij een implementatie binnen ${analysis.creditDays} dagen.` },
       { title: "Vast pakket", body: "We richten het in, jullie testen en accepteren. Daarna beheren we het." },
     ],
     link: "Vergelijk de pakketten",
@@ -59,7 +60,7 @@ export const home = {
     h2: "Voor wie dit werkt (en voor wie niet)",
     fitTitle: "Past goed",
     fit: [
-      "10–75 medewerkers, met minstens twee mensen die dit werk doen",
+      "10‑75 medewerkers, met minstens twee mensen die dit werk doen",
       "Aanvragen, claims of meldingen komen binnen per mail, als pdf of als Excel",
       "Er komt genoeg terug om te automatiseren",
       "Eén persoon die beslist en meedenkt",
