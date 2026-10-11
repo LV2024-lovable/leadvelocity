@@ -12,7 +12,7 @@ Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken a
 
 Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
 
-Homepage-kop (besluit Bart 2026-10-11, wijkt af van handover §8): **"Automatiseer je [offerteaanvragen | garantieclaims | servicemeldingen | projectaanvragen] zonder nieuw systeem."** Het procesnaamwoord roteert; met `?category=…` staat het vast op de sector van de bezoeker (`categories[].heroNoun`).
+Homepage (besluit Bart 2026-10-11, zie [`docs/strategy/2026-10-11-messaging-strategie.md`](./docs/strategy/2026-10-11-messaging-strategie.md)): statische H1 **"Elke aanvraag compleet, voordat je team eraan begint."** met keuzeknoppen per segment; met `?category=` toont de hero de segment-H1 uit `categories[].h1`. Geen automatisch wisselende tekst. Geen 'AI' in H1/subkop.
 
 **Leidende bron:** [`docs/strategy/2026-10-09-website-gtm-handover.md`](./docs/strategy/2026-10-09-website-gtm-handover.md). Bij twijfel over positionering, copy, prijzen of claims gaat dat document voor.
 
@@ -24,7 +24,7 @@ Homepage-kop (besluit Bart 2026-10-11, wijkt af van handover §8): **"Automatise
 
 Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
 
-Homepage-kop (besluit Bart 2026-10-11, wijkt af van handover §8): **"Automatiseer je [offerteaanvragen | garantieclaims | servicemeldingen | projectaanvragen] zonder nieuw systeem."** Het procesnaamwoord roteert; met `?category=…` staat het vast op de sector van de bezoeker (`categories[].heroNoun`).
+Homepage (besluit Bart 2026-10-11, zie [`docs/strategy/2026-10-11-messaging-strategie.md`](./docs/strategy/2026-10-11-messaging-strategie.md)): statische H1 **"Elke aanvraag compleet, voordat je team eraan begint."** met keuzeknoppen per segment; met `?category=` toont de hero de segment-H1 uit `categories[].h1`. Geen automatisch wisselende tekst. Geen 'AI' in H1/subkop.
 
 Ondersteunende uitleg: **Wij automatiseren terugkerend werk rond aanvragen, klantcommunicatie en opvolging. Ingericht op jullie werkwijze, met jullie team in controle.**
 
@@ -159,6 +159,7 @@ Als een formulier niet werkt → check eerst de deploy en deze twee.
 | Pad | Wat |
 |---|---|
 | [`docs/strategy/2026-10-09-website-gtm-handover.md`](./docs/strategy/2026-10-09-website-gtm-handover.md) | **Leidend:** website- en go-to-market-handover (positionering, copy, prijzen, routes) |
+| [`docs/strategy/2026-10-11-messaging-strategie.md`](./docs/strategy/2026-10-11-messaging-strategie.md) | Messagingstrategie: leidend voor copy en hero |
 | [`docs/strategy/2026-04-20-leadvelocity-masterplan.md`](./docs/strategy/2026-04-20-leadvelocity-masterplan.md) | Strategisch masterplan v1 — POV, doelgroep, aanbod, 3-jaars roadmap, pad C |
 | [`docs/strategy/2026-10-08-positionering-v2.md`](./docs/strategy/2026-10-08-positionering-v2.md) | Addendum positionering v2 (2026-10-08) — vervangen door de handover van 2026-10-09 |
 | [`docs/outreach/README.md`](./docs/outreach/README.md) | Overview van outreach-stack |
