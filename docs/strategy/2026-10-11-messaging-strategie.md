@@ -1,6 +1,6 @@
 # Messagingstrategie leadvelocity.nl
 
-**Datum:** 2026-10-11 · **Status:** voorstel, wacht op keuzes van Bart (§9)
+**Datum:** 2026-10-11 · **Status:** keuzes vastgesteld (§9) — uitvoeringsscope in §11, wacht op akkoord
 **Bouwt op:** handover 2026-10-09 (leidend voor aanbod, prijzen, grenzen) en drie onderzoeken van 2026-10-11:
 - `.planning/research/2026-10-11-pijnonderzoek-categorieen.md` — pijn per categorie (extern)
 - `.planning/research/2026-10-11-hero-messaging-conversie.md` — hero, messaging, contentarchitectuur (extern)
@@ -134,7 +134,11 @@ Dit blok is ook onze kwalificatie in gesprekken. Noteer per lead of hij zichzelf
 
 **Cijfers op de site:** alleen UWV (tekort binnendienst) en Wij Techniek (tekort vakmensen, alleen in servicecontext), met bron, op één plek. Leverancierscijfers (minuten per order, kosten per claim) blijven intern, tot we zelf hebben gemeten.
 
-## 9. Keuzes voor Bart
+## 9. Keuzes (vastgesteld door Bart, 2026-10-11)
+
+**Besluiten:** (1) statische H1 + keuzeknoppen, roterend woord vervalt; (2) generieke H1 "Elke aanvraag compleet, voordat je team eraan begint."; (3) groothandel als eerste volledig uitgewerkt segment; (4) eigenaar op de homepage, manager op categoriepagina's (advies overgenomen); (5) outreach herschrijven, /inzichten houden (claims later opschonen).
+
+Oorspronkelijke opties:
 
 1. **Hero-dynamiek:** het roterende woord vervangen door een statische H1 met keuzeknoppen (advies), of het roterende woord houden.
 2. **Generieke H1:** "Elke aanvraag compleet, voordat je team eraan begint." (advies), of de huidige "Automatiseer je … zonder nieuw systeem."
@@ -152,3 +156,27 @@ Dit blok is ook onze kwalificatie in gesprekken. Noteer per lead of hij zichzelf
   - Waar komen de vier categorieën vandaan?
   - Is er een pilot?
   - Is er één echt cijfer voor minuten per aanvraag?
+
+## 11. Uitvoering (scope ter akkoord)
+
+**A. Hero en homepage** (`src/content/pages.ts`, `src/pages/site/Home.tsx`, nieuwe component `SegmentPicker`)
+1. Statische generieke hero volgens §5 (H1, sub, voor-wie-regel, CTA + microcopy, tweede CTA + microcopy). Het roterende woord (`RotatingWord`) vervalt.
+2. Keuzeknoppen "Waar wil je mee beginnen?" voor de vier segmenten. Een klik wisselt subkop, demo en CTA-context. Met `?category=` staat het segment vooraf gekozen en toont de H1 de segmentvariant.
+3. Homepage in de volgorde van §6. "Herken je dit?" volgt het gekozen segment. Nieuwe secties: "Past in wat je hebt", "Voor wie dit werkt (en voor wie niet)" en "Zekerheden". "Breder dan intake" verdwijnt van de homepage.
+4. AI en data één keer uitgelegd in "Zo werkt het" en in de FAQ (nieuwe vraag "Gebruiken jullie AI? Wat gebeurt er met onze data?", beantwoord binnen de grenzen van de handover, §16).
+
+**B. Groothandel volledig** (`src/content/categories.ts` + `CategoryPage`)
+5. H1, subkop, herkenbare situaties, taal en FAQ voor groothandel volgens §2, §5 en §8. Dezelfde segmentstructuur, met lichtere copy, voor de andere drie: alleen H1 en subkop uit §5.
+6. Alle segment-H1's komen uit één bron (`categories[].heroH1`, `heroSub`), zodat homepage, categoriepagina en campagne gelijk lopen.
+
+**C. Taal over de hele site**
+7. "Uitzoekwerk", "werkstroom" (behalve als pakketnaam), "conceptactie" en "commerciële voorbereiding" in de homepagecopy vervangen door concrete woorden (§8). `check-content` krijgt een waarschuwing voor deze woorden in hero- en homepagecopy.
+
+**D. Outreach** (`docs/outreach/`)
+8. `sequence-groothandel.md` volledig herschrijven naar het nieuwe aanbod: gratis adviesgesprek, analyse €750, de pakketten, de grenzen, de segmentlink `?category=groothandels` en geen onderbouwde claims meer zoals "40+ scans" en "30–40%".
+9. `sequence-maakindustrie.md` en `sequence-transport.md` markeren als vervallen (geen sitecategorie meer). README en playbook bijwerken naar het nieuwe aanbod.
+
+**E. Controle**
+10. Check-scripts bijwerken en draaien. De funnelcheck uitbreiden met keuzeknoppen, de vaste segment-H1 en de qualifier-sectie. Screenshots op 360 en 1440 px.
+
+**Niet in deze ronde:** de claim-audit van /inzichten, volledige copy voor de andere drie segmenten, en de inbox-gesprekken (§10, actie voor Bart).
