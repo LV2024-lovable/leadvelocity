@@ -10,6 +10,8 @@ export const faqs: FaqItem[] = [
   { id: "whatsapp", q: "Kan WhatsApp onderdeel zijn?", a: "Ja, als dat past bij jullie proces en de technische en communicatievoorwaarden. We bekijken eerst welk nummer, welke flow en welke overdracht nodig zijn." },
   { id: "loont", q: "Wat als automatisering niet loont?", a: "Dan bouwen we het project niet. Soms is een bestaande softwarefunctie of een kleine procesaanpassing de betere stap." },
   { id: "veilig", q: "Zijn onze gegevens veilig?", a: "Toegang, verwerking, bewaartermijnen en verantwoordelijkheden worden per inrichting vastgelegd. We gebruiken alleen gegevens die nodig zijn voor het afgesproken proces." },
+  { id: "ai", q: "Gebruiken jullie AI? En wat gebeurt er met onze data?", a: "Ja, waar het helpt: om tekst uit mails en bijlagen te lezen en concepten te schrijven. Daarnaast gebruiken we vaste regels. We gebruiken alleen de gegevens die nodig zijn voor het afgesproken proces, en leggen toegang, verwerking en bewaartermijnen per inrichting vast." },
+  { id: "mensen", q: "Vervangt dit mijn mensen?", a: "Nee. Het systeem doet het voorwerk; jullie medewerkers controleren, beslissen en houden het klantcontact. Zo houden ze meer tijd over voor verkopen en helpen." },
 ];
 
 export function faqById(id: FaqId): FaqItem {

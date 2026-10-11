@@ -1,60 +1,98 @@
 export const home = {
-  seoTitle: "Lead Velocity — Automatiseer je aanvragen zonder nieuw systeem",
-  seoDescription: "We halen gegevens uit mails en bijlagen, vragen ontbrekende informatie op en zetten een compleet dossier klaar. Vaste prijs, jullie team houdt de controle.",
+  seoTitle: "Lead Velocity — Elke aanvraag compleet, voordat je team eraan begint",
+  seoDescription: "Wij lezen mails en bijlagen, markeren wat ontbreekt en zetten een antwoord klaar. Jouw medewerker controleert en verstuurt. Voor MKB met 10–75 medewerkers.",
   hero: {
-    eyebrow: "Praktische automatisering voor het MKB",
-    /** Kop = before + roterend procesnaamwoord (categories[].heroNoun) + after. */
-    h1Before: "Automatiseer je",
-    h1After: "zonder nieuw systeem.",
-    /** Voor screenreaders en zonder JavaScript/beweging. */
-    h1Fallback: "aanvragen",
-    sub: "We halen gegevens uit mails en bijlagen, vragen ontbrekende informatie op en zetten een compleet dossier klaar. Vaste prijs, jullie team houdt de controle.",
-    secondary: "Bekijk hoe het werkt",
+    eyebrow: "Automatisering voor binnendienst en klantenservice",
+    h1: "Elke aanvraag compleet, voordat je team eraan begint.",
+    sub: "Wij lezen mails en bijlagen, markeren wat ontbreekt en zetten een antwoord klaar. Jouw medewerker controleert en verstuurt, gewoon vanuit jullie mailbox en eigen systeem.",
+    forWho: "Voor technische groothandels, importeurs, servicebedrijven en maatwerkbedrijven met 10–75 medewerkers.",
+    ctaMicro: "20 minuten, vrijblijvend. Past het niet, dan zeggen we dat ook.",
+    secondary: "Bekijk een voorbeeld",
+    secondaryMicro: "Eén aanvraag, stap voor stap.",
+    pickerLabel: "Waar wil je mee beginnen?",
+    moreAbout: "Meer over",
   },
-  situations: {
-    h2: "Het werk tussen een bericht en een bruikbare volgende stap.",
-    intro: "Veel werk begint met een mail, bijlage of vraag. Daarna moeten gegevens worden verzameld, informatie worden opgezocht en vervolgacties worden bewaakt. Juist die terugkerende stappen kunnen we samen slimmer inrichten.",
-    cards: [
-      { title: "Informatie verzamelen", body: "Gegevens uit mails, formulieren en bijlagen bij elkaar brengen. Zichtbaar maken wat nog ontbreekt." },
-      { title: "Werk voorbereiden", body: "Een dossier, samenvatting of conceptbericht klaarzetten op basis van afgesproken bronnen." },
-      { title: "Opvolging bewaken", body: "Open acties, ontbrekende informatie en afgesproken vervolgcontacten bijhouden." },
-    ],
+  genericSituations: [
+    "Een aanvraag ligt een dag in de mailbox, omdat niemand tijd had om hem na te lopen.",
+    "Er ontbreekt een nummer of bijlage, dus mailen jullie twee keer heen en weer.",
+    "Wat nog openstaat, zit in iemands hoofd of in een Excel die niet bij is.",
+  ] as [string, string, string],
+  recognize: {
+    h2: "Herken je dit?",
+    costLine: "Tel eens hoeveel aanvragen er gisteren binnenkwamen, en hoeveel daarvan niet compleet waren. Daar zit de tijd die je team terugkrijgt.",
   },
-  forWhom: { h2: "Herkenbare werkstromen, ingericht voor jouw bedrijf." },
-  oneProcess: {
-    h2: "Begin bij één proces dat steeds terugkomt.",
-    body: "We kijken waar je team telkens hetzelfde informatie- en communicatiewerk doet. Daar richten we één werkstroom voor in. Zodra die bruikbaar is en resultaat oplevert, kunnen we aangrenzend werk toevoegen.",
-    label: "Voorbeeld met fictieve gegevens",
-  },
-  broader: {
-    h2: "Van commerciële voorbereiding tot klantopvolging.",
-    body: "Dezelfde basis kan ook geschikte bedrijven onderzoeken, gegevens ordenen en commerciële vervolgacties voorbereiden. We kiezen de toepassing op het werk dat jullie team werkelijk doet.",
-  },
-  method: {
-    h2: "Van terugkerende taak naar beheerde werkstroom.",
+  howItWorks: {
+    h2: "Zo werkt het",
     steps: [
-      { title: "Bekijken", body: "Proces en waarde." },
-      { title: "Inrichten", body: "Scope en bronnen." },
-      { title: "Testen", body: "Met team en voorbeelden." },
-      { title: "Beheren", body: "Gebruik, fouten en resultaat." },
+      { title: "Lezen", body: "We lezen binnenkomende mails, pdf's en Excel-lijsten en halen de gegevens eruit." },
+      { title: "Markeren wat ontbreekt", body: "We vergelijken met wat een complete aanvraag nodig heeft en zetten de ontbrekende punten op een rij." },
+      { title: "Klaarzetten", body: "Er staat een conceptvraag of -antwoord klaar. Jouw medewerker controleert, past aan en verstuurt." },
     ],
-    link: "Bekijk onze werkwijze",
+    aiNote: "Hoe? Met taalmodellen (AI) en vaste regels, ingericht op jullie proces. We gebruiken alleen de gegevens die nodig zijn, en wat er met jullie data gebeurt leggen we vooraf vast.",
+    examplesLink: "Bekijk alle voorbeelden",
   },
-  control: {
-    h2: "Je team houdt het oordeel. Het systeem doet het voorwerk.",
-    body: "Productkeuzes, prijzen, garanties en technische beoordelingen blijven bij de verantwoordelijke medewerker. We spreken af welke informatie het systeem voorbereidt en welke acties eerst worden gecontroleerd.",
+  fits: {
+    h2: "Past in wat je al hebt",
+    intro: "Geen nieuw systeem om te leren. Jullie team werkt zoals nu, alleen staat het voorwerk al klaar.",
+    points: [
+      "Werkt vanuit jullie mailbox.",
+      "Waar het kan koppelen we met jullie ERP of administratie; anders werken we via export of Excel.",
+      "Jullie medewerker houdt de laatste stap: controleren en versturen.",
+    ],
+    needTitle: "Wat we nodig hebben om te starten",
+    need: [
+      "Voorbeelden van aanvragen uit de afgelopen weken",
+      "Toegang tot de mailbox of een doorstuuradres",
+      "Eén persoon die beslist en meedenkt",
+    ],
   },
-  packages: { h2: "Een passende start, met ruimte om uit te breiden.", link: "Vergelijk de pakketten" },
-  examples: { h2: "Bekijk wat een werkstroom concreet oplevert." },
+  trajectory: {
+    h2: "Van gesprek tot werkende oplossing",
+    steps: [
+      { title: "Gratis adviesgesprek", body: "20 minuten. We kijken welk werk steeds terugkomt en of automatiseren loont." },
+      { title: "Analyse", body: "Proceskaart, nulmeting en een vaste scope met prijs. Verrekenbaar bij een implementatie." },
+      { title: "Vast pakket", body: "We richten het in, jullie testen en accepteren. Daarna beheren we het." },
+    ],
+    link: "Vergelijk de pakketten",
+  },
+  qualifier: {
+    h2: "Voor wie dit werkt (en voor wie niet)",
+    fitTitle: "Past goed",
+    fit: [
+      "10–75 medewerkers, met minstens twee mensen die dit werk doen",
+      "Aanvragen, claims of meldingen komen binnen per mail, als pdf of als Excel",
+      "Er komt genoeg terug om te automatiseren",
+      "Eén persoon die beslist en meedenkt",
+      "Je wilt dat je team de concepten controleert",
+    ],
+    notFitTitle: "Past niet",
+    notFit: [
+      "Je zoekt een nieuw ERP of CRM",
+      "Elke aanvraag is volledig anders",
+      "Er is de eerste weken geen tijd om mee te kijken",
+      "Je wilt dat het systeem zonder controle zelf beslist",
+      "Het volume is erg laag",
+    ],
+    doubt: "Twijfel je? Dat bespreken we in 20 minuten, en als het niet past zeggen we dat.",
+  },
+  assurances: {
+    h2: "Waar je op kunt rekenen",
+    points: [
+      "Vaste prijs en vooraf afgesproken scope",
+      "Niets gaat de deur uit zonder akkoord van jullie medewerker",
+      "Jullie data blijft van jullie; toegang en bewaren leggen we vooraf vast",
+      "Maandkosten starten pas na acceptatie",
+    ],
+  },
   about: {
     h2: "Praktisch gebouwd, samen met de mensen die ermee werken.",
     body: "Lead Velocity is opgericht door Bart Wilbrink. We combineren commerciële ervaring, automatisering en het bruikbaar maken van informatie. We beginnen bij het dagelijkse werk en bouwen van daaruit een systeem dat je team kan gebruiken.",
     cta: "Over Lead Velocity",
   },
-  faqIds: ["software", "zelfstandig", "kosten", "maandelijks", "loont", "veilig"] as const,
+  faqIds: ["mensen", "ai", "software", "zelfstandig", "kosten", "maandelijks", "loont"] as const,
   closing: {
-    h2: "Welk werk zou jouw team minder vaak hoeven uitzoeken?",
-    body: "Vertel welk proces telkens terugkomt. We bekijken of er een duidelijke, haalbare eerste stap is.",
+    h2: "Hoeveel aanvragen waren gisteren niet compleet?",
+    body: "In 20 minuten kijken we samen of automatiseren bij jullie loont. Past het niet, dan zeggen we dat ook.",
   },
 };
 

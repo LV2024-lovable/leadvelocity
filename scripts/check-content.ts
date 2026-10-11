@@ -6,7 +6,7 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import {
   packages, analysis, formatEuro, categories, processes, demos, campaigns, faqs,
-  demoById, processById, categoryById, DEMO_CLOSING, redirects,
+  demoById, processById, categoryById, DEMO_CLOSING, redirects, home,
 } from "../src/content";
 import * as content from "../src/content";
 
@@ -53,7 +53,7 @@ for (const d of demos) {
   check(d.input.fields.some((f) => f.value === null), `demo ${d.id}: moet een ontbrekend veld hebben`);
 }
 check(DEMO_CLOSING === "Dit voorbeeld laat de werkwijze zien. De inrichting en uitkomst hangen af van jullie proces en gegevens.", "DEMO_CLOSING wijkt af van §14");
-check(faqs.length === 9, `verwacht 9 FAQ-items (§16), kreeg ${faqs.length}`);
+check(faqs.length === 11, `verwacht 11 FAQ-items, kreeg ${faqs.length}`);
 check(processById("commerciele-voorbereiding")?.ctaProcess === "sales", "commerciële voorbereiding moet ctaProcess 'sales' hebben");
 
 // --- tone (§3, §6) over ALLE strings in src/content ---
@@ -112,6 +112,25 @@ for (const f of scan("src")) {
 
 // --- dynamische hero: elke categorie heeft een procesnaam voor de roterende kop ---
 for (const c of categories) check(/^[a-z]+$/.test(c.heroNoun ?? ""), `categorie ${c.id}: heroNoun ontbreekt of is niet één woord in kleine letters`);
+
+// --- messagingstrategie 2026-10-11: segment-H1's, situaties, taal ---
+for (const c of categories) {
+  check(c.h1.split(/\s+/).length <= 10, `categorie ${c.id}: h1 langer dan 10 woorden`);
+  check(Array.isArray(c.situations) && c.situations.length === 3, `categorie ${c.id}: precies 3 situations`);
+  check(!/\bAI\b/.test(c.h1 + " " + c.sub), `categorie ${c.id}: geen "AI" in h1/sub`);
+}
+const vaag = [/uitzoekwerk/i, /\bwerkstroom\b/i, /conceptactie/i, /commerci[eë]le voorbereiding/i];
+const heroTeksten: { pad: string; s: string }[] = [];
+const walkHome = (v: unknown, pad: string) => {
+  if (typeof v === "string") heroTeksten.push({ pad, s: v });
+  else if (Array.isArray(v)) v.forEach((x, i) => walkHome(x, `${pad}[${i}]`));
+  else if (v && typeof v === "object") Object.entries(v).forEach(([k, x]) => walkHome(x, `${pad}.${k}`));
+};
+walkHome(home, "home");
+categories.forEach((c) => { walkHome(c.h1, `${c.id}.h1`); walkHome(c.sub, `${c.id}.sub`); walkHome(c.situations, `${c.id}.situations`); });
+for (const { pad, s } of heroTeksten) for (const re of vaag) check(!re.test(s), `${pad}: vaag woord ${re} — gebruik concrete taal (strategie §8)`);
+check(!/\bAI\b/.test(home.hero.h1 + " " + home.hero.sub), "home.hero: geen AI in h1/sub");
+check(faqs.some((f) => f.id === "ai") && faqs.some((f) => f.id === "mensen"), "FAQ mist ai of mensen");
 
 // --- CLAUDE.md noemt dezelfde prijzen ---
 const claude = readFileSync("CLAUDE.md", "utf8");

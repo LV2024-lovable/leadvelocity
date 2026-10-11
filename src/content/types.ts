@@ -7,7 +7,7 @@ export type DemoId = ProcessKey;
 export type CampaignId = ProcessKey;
 export type FaqId =
   | "software" | "zelfstandig" | "oplevert" | "kosten" | "maandelijks"
-  | "uitbreiden" | "whatsapp" | "loont" | "veilig";
+  | "uitbreiden" | "whatsapp" | "loont" | "veilig" | "ai" | "mensen";
 export type Evidence = "illustrative" | "verified" | "planned";
 
 export type Package = {
@@ -26,7 +26,7 @@ export type Package = {
 export type Category = {
   id: CategoryId;
   name: string;
-  /** Procesnaam voor de roterende homepage-kop, bv. "offerteaanvragen". */
+  /** Label van de keuzeknop op de homepage, bv. "offerteaanvragen". */
   heroNoun: string;
   cardLine: string;
   cardCta: string;
@@ -34,6 +34,7 @@ export type Category = {
   seoDescription: string;
   h1: string;
   sub: string;
+  situations: [string, string, string];
   primaryCta: string;
   secondaryCta: string;
   processKey: ProcessKey;
