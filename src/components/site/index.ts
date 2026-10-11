@@ -15,4 +15,4 @@ export * from "./CategoryCard";
 export * from "./ProcessCard";
 export * from "./DemoStepper";
 export * from "./CheckForm";
-export * from "./RotatingWord";
+export * from "./SegmentPicker";

@@ -1,27 +1,27 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowRight, ClipboardList, FileSearch, BellRing } from "lucide-react";
+import { ArrowRight, Check, X, ShieldCheck } from "lucide-react";
 import { home } from "@/content/pages";
-import { categories } from "@/content/categories";
-import { processes } from "@/content/processes";
+import { categories, categoryById } from "@/content/categories";
 import { demoById } from "@/content/demos";
 import { ctaLabels } from "@/content/site";
+import type { CategoryId } from "@/content/types";
 import { checkHref, demoHref, parseCheckContext } from "@/lib/cta";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import {
-  SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink, DemoStepper, CategoryCard,
-  ProcessCard, Steps, HumanControl, PricingCards, Faq, RotatingWord,
+  SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink, DemoStepper, Steps, PricingCards, Faq, Eyebrow, SegmentPicker,
 } from "@/components/site";
 
-const SITUATION_ICONS = [ClipboardList, FileSearch, BellRing];
-
 export default function Home() {
-  // Bezoekers van een sector-, campagne- of outreachlink (?category=…) zien hun eigen proces.
-  const lockedCategory = parseCheckContext(useLocation().search).category;
-  const lockedIndex = lockedCategory ? categories.findIndex((c) => c.id === lockedCategory) : -1;
-  const locked = lockedIndex >= 0 ? categories[lockedIndex] : undefined;
-  const heroNouns = categories.map((c) => c.heroNoun);
-  const heroDemo = demoById(locked?.demoId ?? "offerte-intake")!;
-  const exampleDemos = [demoById("aftersales")!, demoById("service-intake")!];
+  const initial = parseCheckContext(useLocation().search).category;
+  const [segment, setSegment] = useState<CategoryId | undefined>(initial);
+  const c = segment ? categoryById(segment) : undefined;
+
+  const h1 = c?.h1 ?? home.hero.h1;
+  const sub = c?.sub ?? home.hero.sub;
+  const situations = c?.situations ?? home.genericSituations;
+  const demo = demoById(c?.demoId ?? "offerte-intake")!;
+  const ctx = (source: string) => checkHref({ source, category: c?.id, process: c?.processKey });
 
   return (
     <SiteLayout>
@@ -30,138 +30,145 @@ export default function Home() {
       {/* 1 — Hero */}
       <section className="relative overflow-hidden px-5 pb-20 pt-14 sm:px-6 md:pb-28 md:pt-20">
         <GridPattern width={56} height={56} className="fill-transparent stroke-lv-line/70 [mask-image:radial-gradient(ellipse_70%_60%_at_30%_0%,#000_35%,transparent_100%)]" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
+        <div className="relative mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[1.05fr_1fr]">
           <div>
-            <Reveal><p className="font-mono text-[11.5px] uppercase tracking-[0.16em] text-lv-muted">{home.hero.eyebrow}</p></Reveal>
-            <Reveal delay={0.05}>
-              <h1 className="mt-5 font-display text-[clamp(2.1rem,6.4vw,4.2rem)] font-semibold leading-[1.02] tracking-[-0.045em]">
-                <span className="sr-only">{`${home.hero.h1Before} ${locked?.heroNoun ?? home.hero.h1Fallback} ${home.hero.h1After}`}</span>
-                <span aria-hidden="true">
-                  {home.hero.h1Before}{" "}
-                  <RotatingWord words={heroNouns} locked={locked ? lockedIndex : undefined} wordClassName="rounded-[0.18em] bg-lv-lime px-[0.12em]" />
-                  <br />
-                  {home.hero.h1After}
-                </span>
-              </h1>
-            </Reveal>
-            <Reveal delay={0.1}><p className="mt-6 max-w-[34rem] text-[18px] leading-relaxed text-lv-body">{home.hero.sub}</p></Reveal>
-            <Reveal delay={0.15} className="mt-8 flex flex-wrap gap-3">
-              <CtaLink to={checkHref({ source: "home-hero", category: locked?.id, process: locked?.processKey })} ctaId="home-hero-check" trackParams={{ category: locked?.id }}>{ctaLabels.primary}</CtaLink>
-              <CtaLink to={demoHref(locked?.demoId, "home-hero")} ctaId="home-hero-demo" variant="secondary">{home.hero.secondary}</CtaLink>
-            </Reveal>
-            <Reveal delay={0.2}><p className="mt-4 text-[13.5px] text-lv-muted">{ctaLabels.micro}</p></Reveal>
+            <p className="font-mono text-[11.5px] uppercase tracking-[0.16em] text-lv-muted">{home.hero.eyebrow}</p>
+            <h1 className="mt-5 break-words font-display text-[clamp(2.1rem,5.6vw,3.9rem)] font-semibold leading-[1.02] tracking-[-0.04em]" aria-live="polite">{h1}</h1>
+            <p className="mt-6 max-w-[34rem] text-[18px] leading-relaxed text-lv-body">{sub}</p>
+            <p className="mt-3 text-[14.5px] text-lv-muted">{home.hero.forWho}</p>
+            <div className="mt-8 flex flex-wrap gap-x-3 gap-y-4">
+              <div>
+                <CtaLink to={ctx("home-hero")} ctaId="home-hero-check" trackParams={{ category: c?.id }}>{ctaLabels.primary}</CtaLink>
+                <p className="mt-2 max-w-[19rem] text-[13px] text-lv-muted">{home.hero.ctaMicro}</p>
+              </div>
+              <div>
+                <CtaLink to={demoHref(c?.demoId, "home-hero")} ctaId="home-hero-demo" variant="secondary">{home.hero.secondary}</CtaLink>
+                <p className="mt-2 text-[13px] text-lv-muted">{home.hero.secondaryMicro}</p>
+              </div>
+            </div>
+            <div className="mt-10">
+              <SegmentPicker value={segment} onChange={setSegment} label={home.hero.pickerLabel} />
+              {c && (
+                <Link to={`/${c.id}`} className="mt-3 inline-flex items-center gap-1.5 text-[14px] font-medium underline-offset-4 hover:underline">
+                  {home.hero.moreAbout} {c.name.toLowerCase()} <ArrowRight aria-hidden className="h-3.5 w-3.5" />
+                </Link>
+              )}
+            </div>
           </div>
-          <Reveal delay={0.1}><DemoStepper demo={heroDemo} source="home-hero" compact /></Reveal>
+          <DemoStepper key={demo.id} demo={demo} source="home-hero" compact />
         </div>
       </section>
 
-      {/* 2 — Herkenbare situaties */}
+      {/* 2 — Herken je dit? */}
       <Section tone="raised">
-        <SectionHead title={home.situations.h2} intro={home.situations.intro} />
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {home.situations.cards.map((c, i) => {
-            const Icon = SITUATION_ICONS[i];
-            return (
-              <Reveal key={c.title} delay={i * 0.06}>
-                <div className="h-full rounded-3xl border border-lv-line bg-lv-surface p-7">
-                  <Icon aria-hidden className="h-6 w-6" strokeWidth={1.6} />
-                  <h3 className="mt-5 font-display text-[21px] font-semibold tracking-[-0.02em]">{c.title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-lv-body">{c.body}</p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
+        <SectionHead title={home.recognize.h2} />
+        <ul className="mt-10 grid gap-4 md:grid-cols-3">
+          {situations.map((s, i) => (
+            <Reveal key={s} delay={i * 0.05}>
+              <li className="h-full rounded-3xl border border-lv-line bg-lv-surface p-7 text-[16.5px] leading-relaxed">{s}</li>
+            </Reveal>
+          ))}
+        </ul>
+        <p className="mt-6 max-w-2xl text-[15.5px] text-lv-body">{home.recognize.costLine}</p>
       </Section>
 
-      {/* 3 — Voor wie */}
+      {/* 3 — Zo werkt het */}
       <Section>
-        <SectionHead eyebrow="Voor wie" title={home.forWhom.h2} />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((c, i) => <Reveal key={c.id} delay={i * 0.05}><CategoryCard category={c} /></Reveal>)}
+        <SectionHead title={home.howItWorks.h2} />
+        <div className="mt-12"><Steps steps={home.howItWorks.steps} /></div>
+        <p className="mt-10 max-w-2xl rounded-2xl bg-lv-raised p-5 text-[15px] leading-relaxed text-lv-body ring-1 ring-lv-line">{home.howItWorks.aiNote}</p>
+        <div className="mt-8 flex flex-wrap items-center gap-5">
+          <CtaLink to={ctx("home-how")} ctaId="home-how-check">{ctaLabels.primary}</CtaLink>
+          <Link to="/voorbeelden" className="inline-flex items-center gap-1.5 text-[15px] font-medium">{home.howItWorks.examplesLink}<ArrowRight aria-hidden className="h-4 w-4" /></Link>
         </div>
       </Section>
 
-      {/* 4 — Eén concreet proces */}
+      {/* 4 — Past in wat je al hebt */}
       <Section tone="raised">
-        <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <SectionHead title={home.oneProcess.h2} intro={home.oneProcess.body} />
-          <Reveal delay={0.08}>
-            <div className="rounded-3xl border border-lv-line bg-lv-surface p-6">
-              <p className="font-mono text-[10.5px] uppercase tracking-wider text-lv-muted">{home.oneProcess.label}</p>
-              <dl className="mt-4 divide-y divide-lv-line-soft text-[14.5px]">
-                {[
-                  ["Klant", "Voorbeelddealer B"],
-                  ["Referentie", "Claim Demo-100"],
-                  ["Ontbrekend bewijs", "Aankoopbewijs"],
-                  ["Volgende actie", "Conceptvraag aan dealer, wacht op review"],
-                ].map(([k, v]) => (
-                  <div key={k} className="grid grid-cols-[9rem_1fr] gap-3 py-3"><dt className="text-lv-muted">{k}</dt><dd className={k === "Ontbrekend bewijs" ? "text-[#9A3412]" : ""}>{v}</dd></div>
-                ))}
-              </dl>
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div>
+            <SectionHead title={home.fits.h2} intro={home.fits.intro} />
+            <ul className="mt-8 space-y-3 text-[16px]">
+              {home.fits.points.map((p) => <li key={p} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{p}</li>)}
+            </ul>
+          </div>
+          <Reveal>
+            <div className="rounded-3xl border border-lv-line bg-lv-surface p-8">
+              <Eyebrow>{home.fits.needTitle}</Eyebrow>
+              <ul className="space-y-3 text-[15.5px]">{home.fits.need.map((n) => <li key={n} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{n}</li>)}</ul>
             </div>
           </Reveal>
         </div>
       </Section>
 
-      {/* 5 — Breder dan intake */}
-      <Section>
-        <SectionHead title={home.broader.h2} intro={home.broader.body} />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {processes.map((p, i) => <Reveal key={p.id} delay={i * 0.05}><ProcessCard process={p} compact /></Reveal>)}
-        </div>
+      {/* 5 — Traject en prijs */}
+      <Section id="pakketten">
+        <SectionHead title={home.trajectory.h2} />
+        <div className="mt-12"><Steps steps={home.trajectory.steps} /></div>
+        <div className="mt-14"><PricingCards source="home-packages" /></div>
+        <Link to="/prijzen" className="mt-6 inline-flex items-center gap-1.5 text-[15px] font-medium">{home.trajectory.link}<ArrowRight aria-hidden className="h-4 w-4" /></Link>
       </Section>
 
-      {/* 6 — Werkwijze */}
+      {/* 6 — Voor wie dit werkt (en voor wie niet) */}
       <Section tone="raised">
-        <SectionHead eyebrow="Werkwijze" title={home.method.h2} />
-        <div className="mt-12"><Steps steps={home.method.steps} /></div>
-        <Link to="/werkwijze" className="mt-10 inline-flex items-center gap-1.5 text-[15px] font-medium">{home.method.link}<ArrowRight aria-hidden className="h-4 w-4" /></Link>
-      </Section>
-
-      {/* 7 — Team in controle */}
-      <Section>
-        <Reveal><HumanControl title={home.control.h2} body={home.control.body} prepared={["Informatie verzamelen", "Ontbrekende gegevens markeren", "Conceptberichten klaarzetten", "Open acties bijhouden"]} decides="Productkeuzes, prijzen, garanties en technische beoordelingen." /></Reveal>
-      </Section>
-
-      {/* 8 — Pakketten */}
-      <Section tone="raised" id="pakketten">
-        <SectionHead eyebrow="Pakketten" title={home.packages.h2} />
-        <div className="mt-12"><PricingCards source="home-packages" /></div>
-        <Link to="/prijzen" className="mt-6 inline-flex items-center gap-1.5 text-[15px] font-medium">{home.packages.link}<ArrowRight aria-hidden className="h-4 w-4" /></Link>
-      </Section>
-
-      {/* 9 — Voorbeelden */}
-      <Section>
-        <SectionHead eyebrow="Voorbeelden" title={home.examples.h2} />
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {exampleDemos.map((d) => <Reveal key={d.id}><DemoStepper demo={d} source="home-examples" compact /></Reveal>)}
+        <SectionHead title={home.qualifier.h2} />
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          <div className="rounded-3xl border border-lv-line bg-lv-surface p-8">
+            <Eyebrow>{home.qualifier.fitTitle}</Eyebrow>
+            <ul className="space-y-3 text-[15.5px]">{home.qualifier.fit.map((x) => <li key={x} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{x}</li>)}</ul>
+          </div>
+          <div className="rounded-3xl border border-lv-line p-8">
+            <Eyebrow>{home.qualifier.notFitTitle}</Eyebrow>
+            <ul className="space-y-3 text-[15.5px] text-lv-body">{home.qualifier.notFit.map((x) => <li key={x} className="flex gap-3"><X aria-hidden className="mt-1 h-4 w-4 shrink-0" />{x}</li>)}</ul>
+          </div>
         </div>
+        <p className="mt-6 text-[15.5px] text-lv-body">{home.qualifier.doubt}</p>
+        <CtaLink to={ctx("home-qualifier")} ctaId="home-qualifier-check" className="mt-6">{ctaLabels.primary}</CtaLink>
       </Section>
 
-      {/* 10 — Over */}
+      {/* 7 — Zekerheden */}
+      <Section>
+        <SectionHead title={home.assurances.h2} />
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+          {home.assurances.points.map((p) => (
+            <li key={p} className="flex gap-3 rounded-2xl border border-lv-line bg-lv-surface p-5 text-[15.5px]"><ShieldCheck aria-hidden className="mt-0.5 h-5 w-5 shrink-0" />{p}</li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* 8 — Over */}
       <Section tone="raised">
         <Reveal className="max-w-3xl">
-          <h2 className="font-display text-[clamp(1.8rem,3.6vw,2.6rem)] font-semibold leading-[1.06] tracking-[-0.035em]">{home.about.h2}</h2>
-          <p className="mt-5 text-[17px] leading-relaxed text-lv-body">{home.about.body}</p>
-          <CtaLink to="/over" ctaId="home-about" variant="secondary" className="mt-7">{home.about.cta}</CtaLink>
+          <h2 className="font-display text-[clamp(1.6rem,3.2vw,2.3rem)] font-semibold leading-[1.08] tracking-[-0.03em]">{home.about.h2}</h2>
+          <p className="mt-4 text-[16.5px] leading-relaxed text-lv-body">{home.about.body}</p>
+          <CtaLink to="/over" ctaId="home-about" variant="secondary" className="mt-6">{home.about.cta}</CtaLink>
         </Reveal>
       </Section>
 
-      {/* 11 — FAQ + slot */}
+      {/* 9 — FAQ */}
       <Section>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHead eyebrow="Veelgestelde vragen" title="Wat je waarschijnlijk wilt weten." />
-          <Reveal delay={0.06}><Faq ids={home.faqIds} /></Reveal>
+          <Faq ids={home.faqIds} />
         </div>
       </Section>
+
+      {/* 10 — Slot */}
       <section className="px-4 pb-6 sm:px-6">
         <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[32px] bg-lv-ink px-7 py-20 text-center text-white">
           <GridPattern width={48} height={48} className="fill-transparent stroke-white/[0.07]" />
           <div className="relative">
             <h2 className="mx-auto max-w-3xl text-balance font-display text-[clamp(2rem,4.6vw,3.4rem)] font-semibold leading-[1.02] tracking-[-0.04em]">{home.closing.h2}</h2>
             <p className="mx-auto mt-5 max-w-lg text-[17px] text-white/70">{home.closing.body}</p>
-            <CtaLink to={checkHref({ source: "home-bottom" })} ctaId="home-bottom" variant="lime" className="mt-9">{ctaLabels.primary}</CtaLink>
+            <CtaLink to={ctx("home-bottom")} ctaId="home-bottom" variant="lime" className="mt-9">{ctaLabels.primary}</CtaLink>
+            <p className="mt-6 text-[14px] text-white/60">
+              Of kies je situatie:{" "}
+              {categories.map((x, i) => (
+                <span key={x.id}>
+                  <Link to={`/${x.id}`} className="underline underline-offset-4 hover:text-white">{x.heroNoun}</Link>{i < categories.length - 1 ? " · " : ""}
+                </span>
+              ))}
+            </p>
           </div>
         </div>
       </section>

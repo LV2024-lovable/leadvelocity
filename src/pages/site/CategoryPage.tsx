@@ -75,12 +75,12 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
       </Section>
 
       <Section>
-        <SectionHead eyebrow="Werkwijze" title={home.method.h2} />
-        <div className="mt-12"><Steps steps={home.method.steps} /></div>
+        <SectionHead eyebrow="Werkwijze" title={home.trajectory.h2} />
+        <div className="mt-12"><Steps steps={home.trajectory.steps} /></div>
       </Section>
 
       <Section tone="raised">
-        <SectionHead eyebrow="Prijzen" title={home.packages.h2} />
+        <SectionHead eyebrow="Prijzen" title="Een passende start, met ruimte om uit te breiden." />
         <div className="mt-12"><PricingCards source={`category-${c.id}`} /></div>
       </Section>
 
