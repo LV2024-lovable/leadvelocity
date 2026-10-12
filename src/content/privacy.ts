@@ -2,7 +2,7 @@ export const privacy = {
   seoTitle: "Privacyverklaring | Lead Velocity",
   seoDescription: "Hoe Lead Velocity omgaat met de gegevens die je via deze website verstuurt.",
   h1: "Privacyverklaring",
-  draftNotice: "Concept — wordt vóór livegang door Lead Velocity bevestigd.",
+  lastUpdated: "Laatst bijgewerkt: 12 oktober 2026",
   sections: [
     { title: "Wie wij zijn", body: "Lead Velocity is verantwoordelijk voor de verwerking van de gegevens die je via deze website verstuurt. Je bereikt ons via info@leadvelocity.nl." },
     { title: "Welke gegevens we verwerken", body: "Als je een gratis adviesgesprek aanvraagt, verwerken we je naam, bedrijf, zakelijk e-mailadres en de informatie die je zelf invult, zoals je telefoonnummer, contactvoorkeur en een omschrijving van het werk. We bewaren ook via welke pagina of campagne je bij het formulier kwam." },
