@@ -14,6 +14,13 @@ export const categories: Category[] = [
   {
     id: "groothandels",
     heroNoun: "offerteaanvragen",
+    audience: "technische groothandels",
+    solutions: [
+      { title: "Offerteaanvragen compleet", line: "Artikelen en aantallen uit mail en Excel overgenomen, ontbrekende gegevens gemarkeerd, conceptvraag klaar.", decides: "Product, prijs en levertijd", processId: "aanvragen-dossiers" },
+      { title: "Open offertes opvolgen", line: "Overzicht van offertes die nog openstaan, met per offerte een conceptbericht om na te bellen of te mailen.", decides: "Of en wanneer er wordt opgevolgd", processId: "communicatie-opvolging" },
+      { title: "Productvragen beantwoorden", line: "Antwoorden op terugkerende productvragen uit jullie eigen bronnen, als concept met de bron erbij.", decides: "Wat er naar de klant gaat", processId: "communicatie-opvolging" },
+      { title: "Artikel- en klantdata op orde", line: "Dubbele, onvolledige of afwijkende gegevens zichtbaar, met een werklijst om ze op te lossen.", decides: "Welke correcties worden doorgevoerd", processId: "data-inzicht" },
+    ],
     name: "Technische groothandels",
     cardLine: "Aanvragen voorbereiden en open offertes opvolgen.",
     cardCta: "Voor groothandels",
@@ -48,6 +55,13 @@ export const categories: Category[] = [
   {
     id: "importeurs-distributeurs",
     heroNoun: "garantieclaims",
+    audience: "importeurs en distributeurs",
+    solutions: [
+      { title: "Garantieclaims compleet", line: "Serienummer, model en aankoopbewijs gecheckt tegen jullie eisen; wat ontbreekt wordt opgevraagd.", decides: "Garantie en vergoeding", processId: "aanvragen-dossiers" },
+      { title: "Statusvragen van dealers", line: "De bekende status van een claim of order als conceptantwoord klaar.", decides: "Wat er naar de dealer gaat", processId: "communicatie-opvolging" },
+      { title: "Procedures en productinfo doorzoekbaar", line: "De juiste procedure of handleiding bij elke aanvraag, met bronvermelding.", decides: "Hoe de procedure wordt toegepast", processId: "aanvragen-dossiers" },
+      { title: "Dealer- en serienummerdata op orde", line: "Ontbrekende en dubbele gegevens zichtbaar in één werklijst.", decides: "Welke correcties worden doorgevoerd", processId: "data-inzicht" },
+    ],
     name: "Importeurs en distributeurs",
     cardLine: "Aftersales- en dealerclaims compleet maken.",
     cardCta: "Voor importeurs en distributeurs",
@@ -82,6 +96,13 @@ export const categories: Category[] = [
   {
     id: "service-onderhoud",
     heroNoun: "servicemeldingen",
+    audience: "servicebedrijven",
+    solutions: [
+      { title: "Servicemeldingen compleet", line: "Machine, locatie en klacht verzameld en samengevat voordat de planner begint.", decides: "Diagnose en planning", processId: "aanvragen-dossiers" },
+      { title: "Statusvragen voorbereiden", line: "De bekende status van een melding als conceptantwoord, zodat niemand hoeft uit te zoeken waar het staat.", decides: "Wat er naar de klant gaat", processId: "communicatie-opvolging" },
+      { title: "Machinehistorie bij elkaar", line: "Eerdere meldingen en gegevens van dezelfde machine bij de nieuwe melding.", decides: "Technische beoordeling", processId: "data-inzicht" },
+      { title: "WhatsApp-intake", line: "Een afgebakende flow die meldingsgegevens via WhatsApp verzamelt en doorzet naar jullie team. We toetsen eerst of het past.", decides: "Overdracht en vervolg", processId: "communicatie-opvolging" },
+    ],
     name: "Service en onderhoud",
     cardLine: "Meldingen voorbereiden en statusvragen ondersteunen.",
     cardCta: "Voor servicebedrijven",
@@ -116,6 +137,13 @@ export const categories: Category[] = [
   {
     id: "maatwerk-montage",
     heroNoun: "projectaanvragen",
+    audience: "maatwerk en montage",
+    solutions: [
+      { title: "Projectaanvragen compleet", line: "Wensen, foto's en adres uit losse mails gebundeld, ontbrekende punten opgevraagd.", decides: "Inmeting, calculatie en prijs", processId: "aanvragen-dossiers" },
+      { title: "Open aanvragen opvolgen", line: "Overzicht van aanvragen zonder vervolgstap, met een conceptbericht klaar.", decides: "Of en wanneer er wordt opgevolgd", processId: "communicatie-opvolging" },
+      { title: "Gesprek of opname voorbereiden", line: "Alle projectinformatie op één kaart, zodat het eerste gesprek meteen over de inhoud gaat.", decides: "Planning van gesprek of opname", processId: "aanvragen-dossiers" },
+      { title: "Geschikte projecten en bedrijven onderzoeken", line: "Een werklijst van bedrijven die bij jullie aanbod passen, met een reden voor contact.", decides: "Wie er wordt benaderd", processId: "commerciele-voorbereiding" },
+    ],
     name: "Maatwerk en montage",
     cardLine: "Projectinformatie verzamelen en vervolgstappen bewaken.",
     cardCta: "Voor maatwerk en montage",

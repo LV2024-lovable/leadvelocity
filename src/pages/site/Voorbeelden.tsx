@@ -19,7 +19,7 @@ export default function Voorbeelden() {
     <SiteLayout>
       <Seo title="Voorbeelden | Lead Velocity" description="Vier gelabelde voorbeelden met fictieve gegevens: van binnengekomen informatie via voorbereiding naar een volgende actie." path="/voorbeelden" />
       <Section>
-        <SectionHead as="h1" eyebrow="Voorbeelden" title="Bekijk wat een werkstroom concreet oplevert." intro="Vier illustratieve demo's met fictieve gegevens. Elk voorbeeld laat drie stappen zien: binnengekomen informatie, voorbereiding en de volgende actie." />
+        <SectionHead as="h1" eyebrow="Voorbeelden" title="Bekijk wat een oplossing concreet oplevert." intro="Vier illustratieve demo's met fictieve gegevens. Elk voorbeeld laat drie stappen zien: binnengekomen informatie, voorbereiding en de volgende actie." />
         <div className="mt-14 space-y-16">
           {ordered.map((d) => (
             <Reveal key={d.id}>

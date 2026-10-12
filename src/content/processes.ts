@@ -68,7 +68,7 @@ export const processes: ProcessFamily[] = [
     seoTitle: "Commerciële voorbereiding automatiseren | Lead Velocity",
     seoDescription: "Geschikte bedrijven onderzoeken, contactrollen vinden en een reden voor contact voorbereiden. Je team voert de gesprekken.",
     h1: "Een gerichte werklijst voor je commerciële team.",
-    situation: "Geschikte bedrijven onderzoeken, contactrollen vinden en een logische reden voor contact voorbereiden kost tijd. We richten een werkstroom in die dat voorwerk ordent en vervolgacties bijhoudt. Je team voert de gesprekken en beoordeelt de kansen.",
+    situation: "Geschikte bedrijven onderzoeken, contactrollen vinden en een logische reden voor contact voorbereiden kost tijd. We richten een oplossing in die dat voorwerk ordent en vervolgacties bijhoudt. Je team voert de gesprekken en beoordeelt de kansen.",
     input: "Doelgroep en bronnen",
     output: "Accounts, onderbouwing en vervolgactie",
     modules: ["Accountresearch", "Contactrollen", "Prioriteit", "Campagneconcepten"],

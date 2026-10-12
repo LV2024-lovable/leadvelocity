@@ -8,7 +8,7 @@ export function formatEuro(bedrag: number): string {
 export const packages: Package[] = [
   {
     id: "voorbereiden",
-    name: "Voorbereiden",
+    name: "Start",
     setupFrom: 2950,
     monthlyFrom: 595,
     promise: "Relevante informatie en conceptacties klaarzetten voor je team.",
@@ -21,11 +21,11 @@ export const packages: Package[] = [
     ],
     notIncluded: ["Nieuwe complexe connectoren"],
     changeHoursPerMonth: 0.5,
-    ctaLabel: "Bespreek Voorbereiden",
+    ctaLabel: "Bespreek Start",
   },
   {
     id: "werkstroom",
-    name: "Werkstroom",
+    name: "Compleet",
     setupFrom: 4950,
     monthlyFrom: 1250,
     promise: "Eén proces van intake tot afgesproken opvolging inrichten en beheren.",
@@ -39,16 +39,16 @@ export const packages: Package[] = [
     notIncluded: ["Automatische externe acties zonder afgesproken test en autorisatie"],
     changeHoursPerMonth: 1,
     badge: "Aanbevolen start",
-    ctaLabel: "Bespreek Werkstroom",
+    ctaLabel: "Bespreek Compleet",
   },
   {
     id: "opschalen",
     name: "Opschalen",
     setupFrom: 7950,
     monthlyFrom: 1950,
-    promise: "Een bewezen werkstroom uitbreiden naar meer volume, kanalen of teams.",
+    promise: "Een bewezen oplossing uitbreiden naar meer volume, kanalen of teams.",
     includes: [
-      "Dezelfde bewezen werkstroom met extra capaciteit",
+      "Dezelfde bewezen oplossing met extra capaciteit",
       "Twee afgesproken kanalen of teams",
       "Uitgebreidere overdracht en rapportage",
     ],
@@ -58,7 +58,7 @@ export const packages: Package[] = [
   },
   {
     id: "custom",
-    name: "Custom",
+    name: "Maatwerk",
     setupFrom: 12500,
     monthlyFrom: 2500,
     promise: "Meerdere processen of bijzondere koppelingen op een afgestemd ontwerp.",

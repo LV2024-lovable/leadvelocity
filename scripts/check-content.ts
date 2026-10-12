@@ -27,7 +27,9 @@ for (const p of packages) {
   check(p.monthlyFrom === m, `${p.id}: monthlyFrom ${p.monthlyFrom} ≠ ${m}`);
   check(p.changeHoursPerMonth === u, `${p.id}: changeHoursPerMonth ${p.changeHoursPerMonth} ≠ ${u}`);
 }
-check(packages.find((p) => p.id === "werkstroom")?.badge === "Aanbevolen start", "Werkstroom mist badge 'Aanbevolen start'");
+check(packages.find((p) => p.id === "werkstroom")?.badge === "Aanbevolen start", "Compleet (id werkstroom) mist badge 'Aanbevolen start'");
+// Pakketnamen (besluit Bart 2026-10-12); id's blijven ongewijzigd voor bestaande ?package=-links.
+check(packages.map((p) => p.name).join(",") === "Start,Compleet,Opschalen,Maatwerk", `pakketnamen onjuist: ${packages.map((p) => p.name).join(",")}`);
 check(packages.filter((p) => p.badge).length === 1, "precies één pakket mag een badge hebben");
 check(analysis.price === 750 && analysis.creditDays === 60, "analyse moet €750 / 60 dagen zijn");
 check(formatEuro(12500) === "€12.500" && formatEuro(595) === "€595", "formatEuro onjuist");
@@ -117,7 +119,7 @@ for (const c of categories) check(/^[a-z]+$/.test(c.heroNoun ?? ""), `categorie 
 for (const c of categories) {
   check(c.h1.split(/\s+/).length <= 10, `categorie ${c.id}: h1 langer dan 10 woorden`);
   check(Array.isArray(c.situations) && c.situations.length === 3, `categorie ${c.id}: precies 3 situations`);
-  check(!/\bAI\b/.test(c.h1 + " " + c.sub), `categorie ${c.id}: geen "AI" in h1/sub`);
+  // "geen AI in h1/sub" vervallen — besluit Bart 2026-10-12: AI-partner-positionering in de H1.
 }
 const vaag = [/uitzoekwerk/i, /\bwerkstroom\b/i, /conceptactie/i, /commerci[eë]le voorbereiding/i];
 const heroTeksten: { pad: string; s: string }[] = [];
@@ -129,8 +131,35 @@ const walkHome = (v: unknown, pad: string) => {
 walkHome(home, "home");
 categories.forEach((c) => { walkHome(c.h1, `${c.id}.h1`); walkHome(c.sub, `${c.id}.sub`); walkHome(c.situations, `${c.id}.situations`); });
 for (const { pad, s } of heroTeksten) for (const re of vaag) check(!re.test(s), `${pad}: vaag woord ${re} — gebruik concrete taal (strategie §8)`);
-check(!/\bAI\b/.test(home.hero.h1 + " " + home.hero.sub), "home.hero: geen AI in h1/sub");
+// "geen AI in home.hero h1/sub" vervallen — besluit Bart 2026-10-12: H1 wordt "Jouw AI-partner voor [doelgroep]".
 check(faqs.some((f) => f.id === "ai") && faqs.some((f) => f.id === "mensen"), "FAQ mist ai of mensen");
+
+// --- AI-partner per doelgroep (besluit Bart 2026-10-12) ---
+check(home.hero.h1Prefix === "Jouw AI-partner voor" && home.hero.audienceGeneric === "het MKB", "home.hero: h1Prefix/audienceGeneric onjuist");
+const procesIds = new Set(processes.map((p) => p.id));
+for (const c of categories) {
+  check(typeof c.audience === "string" && c.audience.trim().length > 0, `categorie ${c.id}: audience ontbreekt`);
+  check(Array.isArray(c.solutions) && c.solutions.length >= 3 && c.solutions.length <= 4, `categorie ${c.id}: verwacht 3–4 solutions`);
+  for (const s of c.solutions ?? []) {
+    check(!!s.title && !!s.line && !!s.decides, `categorie ${c.id}: oplossing "${s.title}" onvolledig`);
+    check(procesIds.has(s.processId), `categorie ${c.id}: oplossing "${s.title}" verwijst naar onbekend proces ${s.processId}`);
+  }
+}
+
+// --- "werkstroom" verdwijnt uit alle zichtbare copy (besluit Bart 2026-10-12) ---
+// Overgeslagen: interne sleutels (id, faqIds, processKey, ctaProcess) en redirect-bronnen (from).
+const nietZichtbaar = /\.(id|faqIds|processKey|ctaProcess|from)(\[\d+\])?$/;
+for (const { pad, s } of strings) {
+  if (nietZichtbaar.test(pad)) continue;
+  check(!/werkstro(om|men)/i.test(s), `${pad}: bevat "werkstroom" — gebruik "oplossing" of "proces" (besluit 2026-10-12)`);
+}
+
+for (const dir of ["src/pages/site", "src/components/site"]) {
+  for (const f of scan(dir)) {
+    const tekst = readFileSync(f, "utf8").replace(/package[=:]\s*["']?werkstroom\b/g, "");
+    check(!/werkstro(om|men)(?!check)/i.test(tekst), `${f}: bevat "werkstroom" in copy (besluit 2026-10-12)`);
+  }
+}
 
 // --- CLAUDE.md noemt dezelfde prijzen ---
 const claude = readFileSync("CLAUDE.md", "utf8");

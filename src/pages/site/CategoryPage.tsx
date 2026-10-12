@@ -1,4 +1,5 @@
-import { Check, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Check, X } from "lucide-react";
 import type { CategoryId } from "@/content/types";
 import { categoryById, GENERIC_NOT_FIT } from "@/content/categories";
 import { demoById } from "@/content/demos";
@@ -43,16 +44,23 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
       </Section>
 
       <Section tone="raised">
-        <SectionHead title="Wat we voor je voorbereiden" />
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {c.tasks.map((t, i) => (
-            <li key={t} className="h-full"><Reveal delay={i * 0.04} className="h-full"><div className="flex h-full gap-3 rounded-[20px] bg-lv-card p-5 text-[15.5px]"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{t}</div></Reveal></li>
+        <SectionHead title="Wat we voor jullie bouwen" />
+        <ul className="mt-10 grid gap-3 md:grid-cols-2">
+          {c.solutions.map((s) => (
+            <li key={s.title} data-solution-card className="flex h-full flex-col rounded-[24px] bg-lv-card p-7">
+              <h3 className="font-display text-[22px] font-medium leading-tight tracking-[-0.015em]">{s.title}</h3>
+              <p className="mt-3 text-[15.5px] leading-relaxed text-lv-body">{s.line}</p>
+              <p className="mt-4 text-[13.5px] text-lv-muted">Jullie team beslist: {s.decides.charAt(0).toLowerCase() + s.decides.slice(1)}</p>
+              <Link to={`/oplossingen/${s.processId}`} className="group mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-medium underline-offset-4 hover:underline">
+                Bekijk de oplossing <ArrowRight aria-hidden className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </li>
           ))}
         </ul>
       </Section>
 
       <Section>
-        <SectionHead title="Zo loopt een werkstroom" intro="Een voorbeeld met fictieve gegevens." />
+        <SectionHead title="Zo loopt het proces" intro="Een voorbeeld met fictieve gegevens." />
         <ol className="mt-10 flex flex-wrap items-center gap-2 text-[14.5px]">
           {c.exampleFlow.map((s, i) => (
             <li key={s} className="flex items-center gap-2">

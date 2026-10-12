@@ -28,6 +28,10 @@ export type Category = {
   name: string;
   /** Label van de keuzeknop op de homepage, bv. "offerteaanvragen". */
   heroNoun: string;
+  /** Doelgroep in de homepage-kop "Jouw AI-partner voor …". */
+  audience: string;
+  /** 3–4 oplossingen die we voor deze doelgroep bouwen. */
+  solutions: { title: string; line: string; decides: string; processId: ProcessFamilyId }[];
   cardLine: string;
   cardCta: string;
   seoTitle: string;

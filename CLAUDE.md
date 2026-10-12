@@ -1,6 +1,6 @@
 # Lead Velocity — Project Context voor Claude
 
-**Laatst bijgewerkt:** 2026-10-09
+**Laatst bijgewerkt:** 2026-10-12
 
 Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken aan Lead Velocity. Lees het in z'n geheel voordat je begint met taken — positionering, product, tone-of-voice en do-not's staan hier allemaal.
 
@@ -8,11 +8,11 @@ Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken a
 
 ## 1. Wat is Lead Velocity?
 
-**Lead Velocity automatiseert het terugkerende uitzoekwerk, de communicatie en de opvolging in de commerciële en administratieve operatie van het MKB.**
+**Jouw AI-partner voor het MKB, per doelgroep.** (besluit Bart 2026-10-12) Wij bouwen en beheren AI-oplossingen die het handwerk uit aanvragen, klantcontact en opvolging halen, voor technische groothandels, importeurs en distributeurs, servicebedrijven en maatwerk en montage.
 
 Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
 
-Homepage (besluit Bart 2026-10-11, zie [`docs/strategy/2026-10-11-messaging-strategie.md`](./docs/strategy/2026-10-11-messaging-strategie.md)): statische H1 **"Elke aanvraag compleet, voordat je team eraan begint."** met keuzeknoppen per segment; met `?category=` toont de hero de segment-H1 uit `categories[].h1`. Geen automatisch wisselende tekst. Geen 'AI' in H1/subkop.
+Homepage (besluit Bart 2026-10-12, vervangt de regel "geen AI in H1" uit de messagingstrategie van 2026-10-11): H1 **"Jouw AI-partner voor [doelgroep]."** — zonder gekozen doelgroep "Jouw AI-partner voor het MKB."; met een keuzeknop of `?category=` wordt [doelgroep] `categories[].audience` en de subkop `categories[].sub`. Per doelgroep tonen we 3–4 oplossingen (`categories[].solutions`). Geen automatisch wisselende tekst.
 
 **Leidende bron:** [`docs/strategy/2026-10-09-website-gtm-handover.md`](./docs/strategy/2026-10-09-website-gtm-handover.md). Bij twijfel over positionering, copy, prijzen of claims gaat dat document voor.
 
@@ -24,7 +24,7 @@ Homepage (besluit Bart 2026-10-11, zie [`docs/strategy/2026-10-11-messaging-stra
 
 Merkbelofte: **Minder uitzoekwerk. Meer werk gedaan.**
 
-Homepage (besluit Bart 2026-10-11, zie [`docs/strategy/2026-10-11-messaging-strategie.md`](./docs/strategy/2026-10-11-messaging-strategie.md)): statische H1 **"Elke aanvraag compleet, voordat je team eraan begint."** met keuzeknoppen per segment; met `?category=` toont de hero de segment-H1 uit `categories[].h1`. Geen automatisch wisselende tekst. Geen 'AI' in H1/subkop.
+Homepage (besluit Bart 2026-10-12, vervangt de regel "geen AI in H1" uit de messagingstrategie van 2026-10-11): H1 **"Jouw AI-partner voor [doelgroep]."** — zonder gekozen doelgroep "Jouw AI-partner voor het MKB."; met een keuzeknop of `?category=` wordt [doelgroep] `categories[].audience` en de subkop `categories[].sub`. Per doelgroep tonen we 3–4 oplossingen (`categories[].solutions`). Geen automatisch wisselende tekst.
 
 Ondersteunende uitleg: **Wij automatiseren terugkerend werk rond aanvragen, klantcommunicatie en opvolging. Ingericht op jullie werkwijze, met jullie team in controle.**
 
@@ -38,14 +38,14 @@ Iedere pagina beantwoordt: welk werk, voor wie, wat verandert, wat blijft bij he
 
 ---
 
-## 3. Wat we verkopen — drie pakketten plus Custom
+## 3. Wat we verkopen — drie pakketten plus Maatwerk
 
-Prijzen staan in `src/content/pricing.ts` (vanaf, excl. btw). Wijzig je een prijs, wijzig hem daar én hier; de check controleert dat.
+Prijzen staan in `src/content/pricing.ts` (vanaf, excl. btw). Wijzig je een prijs, wijzig hem daar én hier; de check controleert dat. Pakketnamen Start · Compleet · Opschalen · Maatwerk (besluit Bart 2026-10-12); de interne id's (`voorbereiden`, `werkstroom`, `opschalen`, `custom`) blijven gelijk voor bestaande `?package=`-links en worden nergens getoond.
 
-- **Voorbereiden — €2.950 + €595** per maand — relevante informatie en conceptacties klaarzetten voor je team
-- **Werkstroom — €4.950 + €1.250** per maand — aanbevolen start; één proces van intake tot afgesproken opvolging
-- **Opschalen — €7.950 + €1.950** per maand — een bewezen werkstroom uitbreiden
-- **Custom — €12.500 + €2.500** per maand — meerdere processen of bijzondere koppelingen
+- **Start — €2.950 + €595** per maand — relevante informatie en conceptacties klaarzetten voor je team
+- **Compleet — €4.950 + €1.250** per maand — aanbevolen start; één proces van intake tot afgesproken opvolging
+- **Opschalen — €7.950 + €1.950** per maand — een bewezen oplossing uitbreiden
+- **Maatwerk — €12.500 + €2.500** per maand — meerdere processen of bijzondere koppelingen
 
 Funnel: gratis adviesgesprek (20 min) → gelabeld voorbeeld → analyse €750 (verrekenbaar binnen 60 dagen) → vaste scope en prijs → inrichting → acceptatie → maanddienst → uitbreiding.
 
@@ -98,6 +98,7 @@ Vier categorieën (websiteingangen): technische groothandels · importeurs en di
 - ❌ **Geen "Amerikaanse superlatieven"** of vertaalde US-cliche's ("unlocking value", "unleash potential")
 - ❌ **Geen beloftes die we niet kunnen staven** ("40% binnen 30 dagen")
 - ❌ **Geen 2-persoonsagency-framing in commerciële copy** — we zijn Lead Velocity, niet "Bart + broer"
+- ❌ **Geen "werkstroom" in zichtbare copy** (besluit Bart 2026-10-12) — zeg "oplossing" of "proces". De check in `scripts/check-content.ts` bewaakt dit.
 
 ### Tone-check voor elke copy-wijziging
 

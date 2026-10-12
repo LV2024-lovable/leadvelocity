@@ -17,7 +17,7 @@ export default function Home() {
   const [segment, setSegment] = useState<CategoryId | undefined>(initial);
   const c = segment ? categoryById(segment) : undefined;
 
-  const h1 = c?.h1 ?? home.hero.h1;
+  const h1 = `${home.hero.h1Prefix} ${c?.audience ?? home.hero.audienceGeneric}.`;
   const sub = c?.sub ?? home.hero.sub;
   const situations = c?.situations ?? home.genericSituations;
   const demo = demoById(c?.demoId ?? "offerte-intake")!;

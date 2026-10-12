@@ -75,15 +75,15 @@ await t("redirect /werkstroomcheck behoudt querystring (outreach-context)", asyn
 
 await t("hero: generiek zonder context, geen segment gekozen", async () => {
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
-  expect((await page.locator("h1").textContent()).includes("Elke aanvraag compleet"), "generieke H1 ontbreekt");
+  expect((await page.locator("h1").textContent()).includes("Jouw AI-partner voor het MKB"), "generieke H1 ontbreekt");
   expect(await page.locator("[data-segment-picker] [aria-pressed=true]").count() === 0, "segment voorgeselecteerd zonder context");
   await page.goto(BASE + "/?category=onzin", { waitUntil: "networkidle" });
-  expect((await page.locator("h1").textContent()).includes("Elke aanvraag compleet"), "onbekende category breekt hero");
+  expect((await page.locator("h1").textContent()).includes("Jouw AI-partner voor het MKB"), "onbekende category breekt hero");
 });
 
 await t("hero: ?category= toont segment-H1, demo en CTA-context", async () => {
   await page.goto(BASE + "/?category=service-onderhoud", { waitUntil: "networkidle" });
-  expect((await page.locator("h1").textContent()).includes("Elke servicemelding compleet"), "segment-H1 niet getoond");
+  expect((await page.locator("h1").textContent()).includes("servicebedrijven"), "segment-H1 niet getoond");
   expect(await page.locator("[data-segment-picker] [aria-pressed=true]").count() === 1, "segmentknop niet actief");
   expect(await page.locator("text=Servicemelding").first().count() === 1, "demo niet gewisseld");
   const href = await page.locator("a:has-text('Plan een gratis adviesgesprek')").first().getAttribute("href");
@@ -93,7 +93,7 @@ await t("hero: ?category= toont segment-H1, demo en CTA-context", async () => {
 await t("keuzeknoppen: klik en toetsenbord wisselen alles mee", async () => {
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
   await page.locator("[data-segment-picker] button", { hasText: /garantieclaims/i }).click();
-  expect((await page.locator("h1").textContent()).includes("Garantieclaims compleet"), "H1 wisselt niet");
+  expect((await page.locator("h1").textContent()).includes("importeurs en distributeurs"), "H1 wisselt niet");
   expect(await page.locator("text=aankoopbewijs of serienummer").count() >= 1, "situaties wisselen niet");
   const btn = page.locator("[data-segment-picker] button", { hasText: /projectaanvragen/i });
   await btn.focus(); await page.keyboard.press("Enter");
@@ -104,7 +104,7 @@ await t("keuzeknoppen: klik en toetsenbord wisselen alles mee", async () => {
 
 await t("homepage: qualifier, voorbeelden, werkwijze en wat-we-bouwen aanwezig", async () => {
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
-  for (const h of ["Voor wie dit werkt (en voor wie niet)", "Zo ziet het eruit.", "Van eerste gesprek tot werkende oplossing.", "Per aanvraagstroom één oplossing."]) {
+  for (const h of ["Voor wie dit werkt (en voor wie niet)", "Zo ziet het eruit.", "Van eerste gesprek tot werkende oplossing.", "Wat we voor jouw bedrijf bouwen."]) {
     expect(await page.locator(`h2:has-text("${h}")`).count() === 1, `sectie ontbreekt: ${h}`);
   }
 });
@@ -114,7 +114,7 @@ await t("tabs 'wat we bouwen' en tijdlijn werken; geen nep-bewijs op home", asyn
   const tab = page.locator("[aria-label='Kies een aanvraagstroom'] button", { hasText: /servicemeldingen/i });
   await tab.click();
   expect(await tab.getAttribute("aria-pressed") === "true", "tab niet actief");
-  expect((await page.locator("h1").textContent()).includes("Elke servicemelding compleet"), "hero volgt tab niet");
+  expect((await page.locator("h1").textContent()).includes("servicebedrijven"), "hero volgt tab niet");
   const step3 = page.locator("[role=tab]", { hasText: "Inrichten en testen" });
   await step3.click();
   expect(await step3.getAttribute("aria-selected") === "true", "tijdlijnstap niet geselecteerd");
@@ -127,6 +127,27 @@ await t("geen 'werkstroomcheck' meer zichtbaar op hoofdpagina's", async () => {
     await page.goto(BASE + r, { waitUntil: "networkidle" });
     const txt = await page.evaluate(() => document.body.innerText.toLowerCase());
     expect(!txt.includes("werkstroomcheck"), `${r} toont nog 'werkstroomcheck'`);
+  }
+});
+
+await t("oplossingen per doelgroep: /groothandels en homepage-tabs", async () => {
+  await page.goto(BASE + "/groothandels", { waitUntil: "networkidle" });
+  const sec = page.locator("section", { has: page.locator('h2:has-text("Wat we voor jullie bouwen")') });
+  expect(await sec.count() === 1, "sectie 'Wat we voor jullie bouwen' ontbreekt");
+  expect(await sec.locator("[data-solution-card]").count() === 4, `verwacht 4 kaarten, kreeg ${await sec.locator("[data-solution-card]").count()}`);
+  expect(await sec.locator("a[href^='/oplossingen/']").count() === 4, "kaarten linken niet naar /oplossingen/…");
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  await page.locator("[aria-label='Kies een aanvraagstroom'] button", { hasText: /garantieclaims/i }).click();
+  const list = page.locator("[data-solutions]");
+  expect(await list.locator("[data-solution]").count() === 4, `verwacht 4 oplossingen in de tabs, kreeg ${await list.locator("[data-solution]").count()}`);
+  expect((await list.innerText()).includes("Garantieclaims compleet"), "tabs tonen niet de oplossingen van de actieve doelgroep");
+});
+
+await t("geen 'werkstroom' meer zichtbaar", async () => {
+  for (const r of ["/", "/prijzen", "/werkwijze", "/groothandels", "/voorbeelden"]) {
+    await page.goto(BASE + r, { waitUntil: "networkidle" });
+    const txt = await page.evaluate(() => document.body.innerText.toLowerCase());
+    expect(!txt.includes("werkstroom"), `${r} toont nog 'werkstroom'`);
   }
 });
 

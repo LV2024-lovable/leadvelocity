@@ -1,11 +1,12 @@
 import { analysis, formatEuro } from "./pricing";
 export const home = {
-  seoTitle: "Lead Velocity — Elke aanvraag compleet, voordat je team eraan begint",
-  seoDescription: "Wij lezen mails en bijlagen, markeren wat ontbreekt en zetten een antwoord klaar. Jouw medewerker controleert en verstuurt. Voor MKB met 10–75 medewerkers.",
+  seoTitle: "Lead Velocity — Jouw AI-partner voor het MKB",
+  seoDescription: "Wij bouwen en beheren AI-oplossingen die het handwerk uit aanvragen, klantcontact en opvolging halen. Voor groothandels, importeurs, servicebedrijven en maatwerkbedrijven.",
   hero: {
-    eyebrow: "Automatisering voor binnendienst en klantenservice",
-    h1: "Elke aanvraag compleet, voordat je team eraan begint.",
-    sub: "Wij lezen mails en bijlagen, markeren wat ontbreekt en zetten een antwoord klaar. Jouw medewerker controleert en verstuurt, gewoon vanuit jullie eigen mailbox.",
+    eyebrow: "AI-oplossingen, gebouwd en beheerd",
+    h1Prefix: "Jouw AI-partner voor",
+    audienceGeneric: "het MKB",
+    sub: "Wij bouwen en beheren AI-oplossingen die het handwerk uit aanvragen, klantcontact en opvolging halen. Ingericht op jullie werkwijze, jullie team houdt de controle.",
     forWho: "Voor technische groothandels, importeurs, servicebedrijven en maatwerkbedrijven met 10‑75 medewerkers.",
     ctaMicro: "20 minuten, vrijblijvend. Past het niet, dan zeggen we dat ook.",
     secondary: "Bekijk een voorbeeld",
@@ -104,7 +105,7 @@ export const home = {
   ],
   build: {
     eyebrow: "Wat we bouwen",
-    h2: "Per aanvraagstroom één oplossing.",
+    h2: "Wat we voor jouw bedrijf bouwen.",
     notes: ["Werkt vanuit jullie mailbox", "Wat ontbreekt, staat op een rij", "Jullie medewerker beslist"],
   },
   timeline: {
@@ -131,12 +132,12 @@ export const voorWie = {
   seoTitle: "Voor wie | Lead Velocity",
   seoDescription: "Vier herkenbare ingangen: technische groothandels, importeurs en distributeurs, service en onderhoud, maatwerk en montage.",
   h1: "Voor bedrijven waar informatie- en communicatiewerk steeds terugkomt.",
-  intro: "We richten werkstromen in voor vier soorten bedrijven. Wat ze gemeen hebben: aanvragen en vragen komen digitaal binnen, er is genoeg herhaling, en er is een team dat het werk uitvoert.",
+  intro: "We bouwen oplossingen voor vier soorten bedrijven. Wat ze gemeen hebben: aanvragen en vragen komen digitaal binnen, er is genoeg herhaling, en er is een team dat het werk uitvoert.",
   fitTitle: "Goede fit",
   fit: ["Informatie komt binnen via e-mail, pdf, Excel of formulieren", "Terugkerende informatievereisten", "Bestaande bronnen om uit te putten", "Een duidelijke eigenaar van het proces", "Genoeg behandeltijd en bereidheid om gecontroleerd te testen"],
   notFitTitle: "Geen standaardfit",
   otherTitle: "Ander bedrijfstype?",
-  otherBody: "Ook buiten deze categorieën kan dezelfde werkstroom passen. We bekijken eerst de herhaling, gegevens en uitvoerbaarheid.",
+  otherBody: "Ook buiten deze categorieën kan dezelfde oplossing passen. We bekijken eerst de herhaling, gegevens en uitvoerbaarheid.",
 };
 
 export const oplossingenIndex = {
@@ -152,7 +153,7 @@ export const prijzenPage = {
   seoTitle: "Prijzen | Lead Velocity",
   seoDescription: "Drie pakketten plus maatwerk, met een eenmalige inrichting en een maandelijks bedrag voor beheer. Prijzen vanaf, exclusief btw.",
   h1: "Een afgebakende start. Duidelijke kosten voor inrichting en beheer.",
-  intro: "Je betaalt eenmalig voor het inrichten van een werkstroom en daarna maandelijks voor het beheer ervan. De maandkosten starten pas na acceptatie.",
+  intro: "Je betaalt eenmalig voor het inrichten van een oplossing en daarna maandelijks voor het beheer ervan. De maandkosten starten pas na acceptatie.",
   setupLabel: "Inrichting vanaf",
   monthlyLabel: "Beheer per maand vanaf",
   matrixTitle: "Pakketten vergeleken",
@@ -173,14 +174,14 @@ export const prijzenPage = {
 export const werkwijze = {
   seoTitle: "Werkwijze | Lead Velocity",
   seoDescription: "Van gratis adviesgesprek tot beheer in zes stappen: adviesgesprek, analyse, voorstel, inrichting, acceptatie en beheer.",
-  h1: "Van terugkerend werk naar een bruikbare werkstroom.",
+  h1: "Van terugkerend werk naar een werkende oplossing.",
   intro: "Een gebruikelijke start heeft één proceseigenaar en twee gerichte werksessies. Dat is een uitgangspunt, geen absoluut maximum voor elk project.",
   steps: [
     { title: "Adviesgesprek", output: "Een eerste beeld of er een haalbare eerste stap is.", client: "Een gesprek van 20 minuten over het werk dat terugkomt.", decision: "Is een analyse zinvol?" },
     { title: "Analyse", output: "Proceskaart, nulmeting, input- en toegangscheck, businesscase en acceptatiecriteria.", client: "Voorbeelden van het werk en toegang tot de relevante informatie.", decision: "Loont het om dit in te richten?" },
     { title: "Voorstel", output: "Vaste scope en prijs, met wat er wordt opgeleverd en wanneer de maanddienst start.", client: "Een eigenaar die het voorstel beoordeelt.", decision: "Akkoord op scope en prijs." },
-    { title: "Inrichting", output: "De werkstroom, ingericht op jullie bronnen en werkwijze.", client: "Twee gerichte werksessies en representatieve voorbeelden.", decision: "Is het prototype bruikbaar?" },
-    { title: "Acceptatie", output: "Test met het team aan de hand van de afgesproken acceptatiecriteria.", client: "Gebruik en feedback van het team.", decision: "Voldoet de werkstroom aan de criteria?" },
+    { title: "Inrichting", output: "De oplossing, ingericht op jullie bronnen en werkwijze.", client: "Twee gerichte werksessies en representatieve voorbeelden.", decision: "Is het prototype bruikbaar?" },
+    { title: "Acceptatie", output: "Test met het team aan de hand van de afgesproken acceptatiecriteria.", client: "Gebruik en feedback van het team.", decision: "Voldoet de oplossing aan de criteria?" },
     { title: "Beheer", output: "Monitoring, incidentafhandeling, bronupdates, rapportage en kleine wijzigingen.", client: "Melden van wijzigingen in proces of bronnen.", decision: "Uitbreiden naar aangrenzend werk?" },
   ],
   stepLabels: { output: "Wat wij opleveren", client: "Wat we van jullie nodig hebben", decision: "Beslismoment" },
@@ -190,7 +191,7 @@ export const over = {
   seoTitle: "Over Lead Velocity",
   seoDescription: "Lead Velocity is opgericht door Bart Wilbrink. We combineren commerciële ervaring, automatisering en het bruikbaar maken van informatie.",
   h1: "Praktisch gebouwd, samen met de mensen die ermee werken.",
-  mission: "Praktische automatisering toegankelijk maken voor ervaren MKB-bedrijven door herkenbare werkstromen te bouwen, in hun dagelijkse werkwijze te laten aansluiten en blijvend te beheren en verbeteren.",
+  mission: "Praktische automatisering toegankelijk maken voor ervaren MKB-bedrijven door herkenbare oplossingen te bouwen, in hun dagelijkse werkwijze te laten aansluiten en blijvend te beheren en verbeteren.",
   founder: "Lead Velocity is opgericht door Bart Wilbrink. We combineren commerciële ervaring, automatisering en het bruikbaar maken van informatie. We beginnen bij het dagelijkse werk en bouwen van daaruit een systeem dat je team kan gebruiken.",
   skillsTitle: "Waar we goed in zijn",
   skills: ["Commerciële processen en opvolging", "Onderzoek en data-analyse op schaal", "Gegevens bruikbaar maken", "Terugkerend werk automatiseren"],
@@ -200,7 +201,7 @@ export const over = {
     "Mensen houden de beslissingen die vakkennis, oordeel en klantverantwoordelijkheid vragen.",
     "Eén proces, één eigenaar, één afgebakende start.",
     "We meten wat het oplevert, inclusief controle en uitzonderingen.",
-    "Na oplevering beheren en verbeteren we de werkstroom.",
+    "Na oplevering beheren en verbeteren we de oplossing.",
   ],
 };
 
