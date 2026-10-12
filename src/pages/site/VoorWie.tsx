@@ -18,7 +18,7 @@ export default function VoorWie() {
       </Section>
       <Section tone="raised">
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-3xl border border-lv-line bg-lv-surface p-8">
+          <div className="rounded-[24px] bg-lv-card p-8">
             <Eyebrow>{voorWie.fitTitle}</Eyebrow>
             <ul className="space-y-3 text-[15.5px]">{voorWie.fit.map((x) => <li key={x} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{x}</li>)}</ul>
           </div>
@@ -36,7 +36,7 @@ export default function VoorWie() {
       </Section>
       <Section tone="raised">
         <Reveal className="max-w-2xl">
-          <h2 className="font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold tracking-[-0.03em]">{voorWie.otherTitle}</h2>
+          <h2 className="font-display text-[clamp(1.6rem,3vw,2.2rem)] font-normal tracking-[-0.015em]">{voorWie.otherTitle}</h2>
           <p className="mt-3 text-[16.5px] leading-relaxed text-lv-body">{voorWie.otherBody}</p>
           <CtaLink to={checkHref({ source: "voor-wie" })} ctaId="voor-wie-check" className="mt-7">{ctaLabels.primary}</CtaLink>
         </Reveal>

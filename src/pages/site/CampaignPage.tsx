@@ -7,7 +7,7 @@ import { standardPackages, formatEuro, scopeLine, costMicrocopy } from "@/conten
 import { checkHref } from "@/lib/cta";
 import {
   Seo, Section, SectionHead, Reveal, CtaLink, DemoStepper, HumanControl, Faq, Eyebrow,
-  CampaignHeader, CampaignFooter, useScrollTopAndUtm,
+  CampaignHeader, CampaignFooter, useScrollTopAndUtm, ExposureArt, CATEGORY_TONE, Pill,
 } from "@/components/site";
 
 export default function CampaignPage({ id }: { id: CampaignId }) {
@@ -30,12 +30,17 @@ export default function CampaignPage({ id }: { id: CampaignId }) {
             <CtaLink to={href(`campaign-${c.id}-hero`)} ctaId={`campaign-${c.id}-hero`} trackParams={{ campaign_id: c.id }}>{c.primaryLabel}</CtaLink>
             <CtaLink to="#demo" ctaId={`campaign-${c.id}-demo`} variant="secondary">Bekijk het voorbeeld</CtaLink>
           </Reveal>
+          <ExposureArt tone={CATEGORY_TONE[cat.id]} className="mt-12 min-h-[260px]">
+            <div className="flex min-h-[260px] flex-wrap content-center items-center justify-center gap-2 p-6 sm:p-8">
+              {cat.exampleFlow.map((s) => <Pill key={s} tone="dark" dot>{s}</Pill>)}
+          </div>
+        </ExposureArt>
         </Section>
 
         <Section tone="raised">
           <SectionHead title={c.message} />
           <ul className="mt-10 grid gap-3 md:grid-cols-3">
-            {c.tasks.map((t) => <li key={t} className="flex gap-3 rounded-2xl border border-lv-line bg-lv-surface p-5 text-[15.5px]"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{t}</li>)}
+            {c.tasks.map((t) => <li key={t} className="flex gap-3 rounded-[20px] bg-lv-card p-5 text-[15.5px]"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{t}</li>)}
           </ul>
         </Section>
 
@@ -56,7 +61,7 @@ export default function CampaignPage({ id }: { id: CampaignId }) {
 
         <Section tone="raised">
           <SectionHead title="Prijsindicatie en scope" intro={scopeLine} />
-          <p className="mt-6 font-display text-[22px] font-semibold tracking-[-0.02em]">Inrichting vanaf {formatEuro(from.setupFrom)}, beheer vanaf {formatEuro(from.monthlyFrom)} per maand.</p>
+          <p className="mt-6 font-display text-[22px] font-medium tracking-[-0.015em]">Inrichting vanaf {formatEuro(from.setupFrom)}, beheer vanaf {formatEuro(from.monthlyFrom)} per maand.</p>
           <p className="mt-3 text-[14px] text-lv-muted">{costMicrocopy}</p>
         </Section>
 
@@ -66,7 +71,7 @@ export default function CampaignPage({ id }: { id: CampaignId }) {
             <Faq ids={c.faqIds} />
           </div>
           <div className="mt-16 rounded-[28px] bg-lv-ink p-10 text-center text-white">
-            <h2 className="font-display text-[clamp(1.8rem,3.6vw,2.6rem)] font-semibold tracking-[-0.035em]">{c.h1}</h2>
+            <h2 className="font-display text-[clamp(1.8rem,3.6vw,2.6rem)] font-normal tracking-[-0.015em]">{c.h1}</h2>
             <CtaLink to={href(`campaign-${c.id}-bottom`)} ctaId={`campaign-${c.id}-bottom`} variant="lime" className="mt-8">{c.primaryLabel}</CtaLink>
           </div>
         </Section>

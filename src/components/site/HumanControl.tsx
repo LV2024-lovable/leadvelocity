@@ -4,7 +4,7 @@ export function HumanControl({ title, body, prepared, decides }: { title: string
   return (
     <div className="grid gap-px overflow-hidden rounded-3xl border border-lv-line bg-lv-line md:grid-cols-2">
       <div className="bg-lv-surface p-8">
-        <h2 className="font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold leading-[1.08] tracking-[-0.03em]">{title}</h2>
+        <h2 className="font-display text-[clamp(1.6rem,3vw,2.2rem)] font-normal leading-[1.08] tracking-[-0.015em]">{title}</h2>
         <p className="mt-4 text-[16px] leading-relaxed text-lv-body">{body}</p>
       </div>
       <div className="grid gap-px bg-lv-line">

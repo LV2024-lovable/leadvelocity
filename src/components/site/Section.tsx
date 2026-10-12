@@ -27,7 +27,7 @@ export function SectionHead({ eyebrow, title, intro, className, as: As = "h2", a
   return (
     <Reveal className={cn(align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl", className)}>
       {eyebrow && <Pill className="mb-5">{eyebrow}</Pill>}
-      <As className={cn("break-words text-balance font-display font-normal tracking-[-0.02em]", As === "h1" ? "text-[clamp(2.4rem,6vw,4.4rem)] leading-[1.02]" : "text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.04]")}>
+      <As className={cn("break-words text-balance font-display font-normal tracking-[-0.015em]", As === "h1" ? "text-[clamp(2.4rem,6vw,4.4rem)] leading-[1.02]" : "text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.04]")}>
         {title}
       </As>
       {intro && <p className={cn("mt-5 text-[17px] leading-relaxed text-lv-body", align === "center" ? "mx-auto max-w-2xl" : "max-w-2xl")}>{intro}</p>}

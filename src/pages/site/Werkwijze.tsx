@@ -12,10 +12,10 @@ export default function Werkwijze() {
         <ol className="mt-14 space-y-4">
           {werkwijze.steps.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.04}>
-              <li className="grid gap-5 rounded-3xl border border-lv-line bg-lv-surface p-7 md:grid-cols-[12rem_1fr_1fr_1fr]">
+              <li className="grid gap-5 rounded-[24px] bg-lv-card p-7 md:grid-cols-[12rem_1fr_1fr_1fr]">
                 <div>
                   <span className="font-mono text-[12px] text-lv-muted">Stap {i + 1}</span>
-                  <h2 className="mt-1 font-display text-[24px] font-semibold tracking-[-0.025em]">{s.title}</h2>
+                  <h2 className="mt-1 font-display text-[24px] font-medium tracking-[-0.015em]">{s.title}</h2>
                 </div>
                 {(["output", "client", "decision"] as const).map((k) => (
                   <div key={k}>

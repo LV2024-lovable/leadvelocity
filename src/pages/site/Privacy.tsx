@@ -11,7 +11,7 @@ export default function Privacy() {
         <div className="mt-10 max-w-3xl space-y-8">
           {privacy.sections.map((s) => (
             <section key={s.title}>
-              <h2 className="font-display text-[22px] font-semibold tracking-[-0.02em]">{s.title}</h2>
+              <h2 className="font-display text-[22px] font-medium tracking-[-0.015em]">{s.title}</h2>
               <p className="mt-2 text-[16px] leading-relaxed text-lv-body">{s.body}</p>
             </section>
           ))}

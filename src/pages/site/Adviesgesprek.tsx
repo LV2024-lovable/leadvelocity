@@ -19,7 +19,7 @@ export default function Adviesgesprek() {
               </a>
             )}
           </div>
-          <div className="rounded-3xl border border-lv-line bg-lv-surface/70 p-6 sm:p-8">
+          <div className="rounded-[24px] bg-lv-card p-6 sm:p-8">
             <CheckForm ctx={ctx} />
           </div>
         </div>

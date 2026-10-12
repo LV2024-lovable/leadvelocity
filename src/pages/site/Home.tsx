@@ -31,7 +31,7 @@ export default function Home() {
       <section className="px-5 pt-14 sm:px-6 md:pt-20">
         <div className="mx-auto max-w-4xl text-center">
           <Pill>{home.hero.eyebrow}</Pill>
-          <h1 className="mt-6 break-words text-balance font-display text-[clamp(2.5rem,6.4vw,4.8rem)] font-normal leading-[1.02] tracking-[-0.02em]" aria-live="polite">{h1}</h1>
+          <h1 className="mt-6 break-words text-balance font-display text-[clamp(2.5rem,6.4vw,4.8rem)] font-normal leading-[1.02] tracking-[-0.015em]" aria-live="polite">{h1}</h1>
           <p className="mx-auto mt-6 max-w-2xl text-[18px] leading-relaxed text-lv-body">{sub}</p>
           <p className="mx-auto mt-3 max-w-2xl text-[14px] text-lv-muted">{home.hero.forWho}</p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
@@ -51,7 +51,7 @@ export default function Home() {
 
         <ExposureArt tone="dusk" className="mx-auto mt-12 max-w-6xl md:mt-14">
           <div className="flex flex-col gap-6 p-3 sm:p-6 md:p-8">
-            <div className="flex justify-start"><Pill tone="dark" dot>Illustratieve demo</Pill></div>
+            <div className="flex justify-start"><Pill tone="dark" dot>Zo werkt het, stap voor stap</Pill></div>
             <div className="mx-auto w-full max-w-xl md:py-6">
               <DemoStepper key={demo.id} demo={demo} source="home-hero" compact />
             </div>
@@ -84,7 +84,7 @@ export default function Home() {
       <Section className="py-20 md:py-24">
         <SectionHead align="center" eyebrow={home.build.eyebrow} title={home.build.h2} />
         <div className="mt-12">
-          <NumberedTabs value={segment ?? "groothandels"} onChange={setSegment} notes={home.build.notes} />
+          <NumberedTabs value={segment} onChange={setSegment} notes={home.build.notes} />
         </div>
       </Section>
 
@@ -198,10 +198,10 @@ export default function Home() {
         </p>
         <ExposureArt tone="dusk" className="mx-auto max-w-6xl">
           <div className="px-6 py-20 text-center text-white sm:px-10 md:py-28">
-            <h2 className="mx-auto max-w-3xl text-balance font-display text-[clamp(2rem,4.6vw,3.6rem)] font-normal leading-[1.04] tracking-[-0.02em]">{home.closing.h2}</h2>
+            <h2 className="mx-auto max-w-3xl text-balance font-display text-[clamp(2rem,4.6vw,3.6rem)] font-normal leading-[1.04] tracking-[-0.015em]">{home.closing.h2}</h2>
             <p className="mx-auto mt-5 max-w-lg text-[17px] leading-relaxed text-white/75">{home.closing.body}</p>
             <CtaLink to={ctx("home-bottom")} ctaId="home-bottom" variant="lime" className="mt-9">{ctaLabels.primary}</CtaLink>
-            <p className="mt-4 text-[13px] text-white/60">{home.hero.ctaMicro}</p>
+            <p className="mt-4 text-[13px] text-white/60">{ctaLabels.micro}</p>
             <p className="mt-10 text-[14px] text-white/70">
               Of kies je situatie:{" "}
               {categories.map((x, i) => (

@@ -6,6 +6,7 @@ import { home } from "@/content/pages";
 import { checkHref, demoHref } from "@/lib/cta";
 import {
   SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink, DemoStepper, HumanControl, Steps, PricingCards, Faq, Eyebrow,
+  ExposureArt, CATEGORY_TONE, Pill,
 } from "@/components/site";
 
 export default function CategoryPage({ id }: { id: CategoryId }) {
@@ -25,13 +26,18 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
           <CtaLink to={demoHref(c.demoId, `category-${c.id}`)} ctaId={`category-${c.id}-demo`} variant="secondary">{c.secondaryCta}</CtaLink>
         </Reveal>
         <p className="mt-6 font-mono text-[12px] text-lv-muted">Bijvoorbeeld: {c.subsegments.join(" · ")}</p>
+        <ExposureArt tone={CATEGORY_TONE[c.id]} className="mt-12 min-h-[260px]">
+          <div className="flex min-h-[260px] flex-wrap content-center items-center justify-center gap-2 p-6 sm:p-8">
+            {c.exampleFlow.map((s) => <Pill key={s} tone="dark" dot>{s}</Pill>)}
+          </div>
+        </ExposureArt>
       </Section>
 
       <Section>
         <SectionHead title="Herken je dit?" />
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
           {c.situations.map((s, i) => (
-            <li key={s} className="h-full"><Reveal delay={i * 0.05} className="h-full"><div className="h-full rounded-3xl border border-lv-line bg-lv-surface p-7 text-[16.5px] leading-relaxed">{s}</div></Reveal></li>
+            <li key={s} className="h-full"><Reveal delay={i * 0.05} className="h-full"><div className="h-full rounded-[24px] bg-lv-card p-7 text-[16.5px] leading-relaxed">{s}</div></Reveal></li>
           ))}
         </ul>
       </Section>
@@ -40,7 +46,7 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
         <SectionHead title="Wat we voor je voorbereiden" />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {c.tasks.map((t, i) => (
-            <li key={t} className="h-full"><Reveal delay={i * 0.04} className="h-full"><div className="flex h-full gap-3 rounded-2xl border border-lv-line bg-lv-surface p-5 text-[15.5px]"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{t}</div></Reveal></li>
+            <li key={t} className="h-full"><Reveal delay={i * 0.04} className="h-full"><div className="flex h-full gap-3 rounded-[20px] bg-lv-card p-5 text-[15.5px]"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{t}</div></Reveal></li>
           ))}
         </ul>
       </Section>
@@ -70,7 +76,7 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
 
       <Section tone="raised">
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-3xl border border-lv-line bg-lv-surface p-8">
+          <div className="rounded-[24px] bg-lv-card p-8">
             <Eyebrow>Passend</Eyebrow>
             <ul className="space-y-3 text-[15.5px]">{c.fit.map((x) => <li key={x} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{x}</li>)}</ul>
             <Eyebrow className="mt-8">Wat we meten</Eyebrow>
@@ -99,7 +105,7 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
           <Faq ids={c.faqIds} />
         </div>
         <div className="mt-16 rounded-[28px] bg-lv-ink p-10 text-center text-white">
-          <h2 className="font-display text-[clamp(1.8rem,3.6vw,2.6rem)] font-semibold tracking-[-0.035em]">{home.closing.h2}</h2>
+          <h2 className="font-display text-[clamp(1.8rem,3.6vw,2.6rem)] font-normal tracking-[-0.015em]">{home.closing.h2}</h2>
           <CtaLink to={checkHref({ ...checkCtx, source: `category-${c.id}-bottom` })} ctaId={`category-${c.id}-bottom`} variant="lime" className="mt-8">{c.primaryCta}</CtaLink>
         </div>
       </Section>

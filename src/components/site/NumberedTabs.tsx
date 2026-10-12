@@ -6,14 +6,15 @@ import { CATEGORY_TONE, ExposureArt } from "./ExposureArt";
 import { Pill } from "./Pill";
 import { cn } from "@/lib/utils";
 
-export function NumberedTabs({ value, onChange, notes }: { value: CategoryId; onChange: (id: CategoryId) => void; notes: string[] }) {
+export function NumberedTabs({ value, onChange, notes }: { value?: CategoryId; onChange: (id: CategoryId) => void; notes: string[] }) {
   const active = categories.find((c) => c.id === value) ?? categories[0];
+  const selected = value !== undefined;
   const flow = active.exampleFlow.slice(0, 4);
   return (
     <div className="grid gap-3 lg:grid-cols-[0.95fr_1.25fr]">
       <div className="flex flex-col gap-2" role="group" aria-label="Kies een aanvraagstroom">
         {categories.map((c, i) => {
-          const on = c.id === active.id;
+          const on = selected && c.id === active.id;
           return (
             <button
               key={c.id}

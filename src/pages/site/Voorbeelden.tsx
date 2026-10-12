@@ -26,7 +26,7 @@ export default function Voorbeelden() {
               <div id={d.id} className="grid scroll-mt-24 gap-8 lg:grid-cols-[0.8fr_1.2fr]">
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-lv-muted">{categoryById(d.categoryId)!.name}</p>
-                  <h2 className="mt-2 font-display text-[28px] font-semibold tracking-[-0.03em]">{d.title}</h2>
+                  <h2 className="mt-2 font-display text-[28px] font-normal tracking-[-0.015em]">{d.title}</h2>
                   <p className="mt-3 text-[15.5px] leading-relaxed text-lv-body">{d.prepared.summary}</p>
                 </div>
                 <DemoStepper demo={d} source="voorbeelden" />

@@ -9,7 +9,7 @@ export function Faq({ ids }: { ids: readonly FaqId[] }) {
         const f = faqById(id);
         return (
           <AccordionItem key={id} value={id} className="border-b border-lv-line">
-            <AccordionTrigger className="py-5 text-left text-[17px] font-medium hover:no-underline">{f.q}</AccordionTrigger>
+            <AccordionTrigger className="py-5 text-left font-display text-[20px] font-normal tracking-[-0.015em] hover:no-underline">{f.q}</AccordionTrigger>
             <AccordionContent className="pb-5 text-[15.5px] leading-relaxed text-lv-body">{f.a}</AccordionContent>
           </AccordionItem>
         );

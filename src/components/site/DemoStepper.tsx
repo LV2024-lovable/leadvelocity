@@ -17,10 +17,10 @@ export function DemoStepper({ demo, source, compact = false }: { demo: Demo; sou
   const panelId = `${demo.id}-panel`;
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-lv-line bg-lv-surface shadow-[0_30px_70px_-34px_rgba(14,14,12,0.28)]">
+    <div className="overflow-hidden rounded-[24px] bg-white shadow-[0_30px_80px_-40px_rgba(0,0,0,0.45)]">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-lv-line-soft bg-lv-raised px-5 py-3">
-        <p className="font-display text-[15px] font-semibold">{demo.title}</p>
-        <span className="rounded-full bg-lv-paper px-2.5 py-1 font-mono text-[10.5px] text-lv-muted ring-1 ring-lv-line">{DEMO_LABEL}</span>
+        <p className="font-display text-[15px] font-medium">{demo.title}</p>
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-lv-paper px-2.5 py-1 font-mono text-[10.5px] text-lv-muted ring-1 ring-lv-line"><span aria-hidden className="h-1.5 w-1.5 rounded-full bg-lv-lime ring-1 ring-black/10" />{DEMO_LABEL}</span>
       </div>
 
       <div role="tablist" aria-label={`${demo.title} in drie stappen`} className="flex gap-1 border-b border-lv-line-soft px-3 pt-3">
@@ -84,7 +84,7 @@ export function DemoStepper({ demo, source, compact = false }: { demo: Demo; sou
 
       <div className="flex flex-col gap-3 border-t border-lv-line-soft bg-lv-raised p-5 sm:flex-row sm:items-center sm:justify-between">
         {step < 2
-          ? <button type="button" onClick={() => go(step + 1)} className="rounded-full bg-lv-ink px-4 py-2 text-[14px] font-medium text-white">{NEXT_LABELS[step]}</button>
+          ? <button type="button" onClick={() => go(step + 1)} className="rounded-[10px] bg-lv-ink px-4 py-2 text-[14px] font-medium text-white">{NEXT_LABELS[step]}</button>
           : <p className="max-w-md text-[13px] text-lv-muted">{DEMO_CLOSING}</p>}
         {step === 2 && (
           <CtaLink to={checkHref({ source, demo: demo.id, process: demo.id })} ctaId={`demo-${demo.id}`} trackParams={{ demo_id: demo.id }} variant="primary" className="shrink-0">

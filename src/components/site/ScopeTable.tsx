@@ -9,12 +9,12 @@ export function ScopeTable() {
     { label: "Niet inbegrepen", cell: (i) => packages[i].notIncluded.join(" · ") },
   ];
   return (
-    <div className="overflow-x-auto rounded-3xl border border-lv-line bg-lv-surface" role="region" aria-label="Pakketten vergeleken" tabIndex={0}>
+    <div className="overflow-x-auto rounded-[24px] bg-lv-card" role="region" aria-label="Pakketten vergeleken" tabIndex={0}>
       <table className="w-full min-w-[760px] text-left text-[14px]">
         <thead>
           <tr className="border-b border-lv-line-soft">
             <th scope="col" className="w-[20%] p-4" />
-            {packages.map((p) => <th key={p.id} scope="col" className="p-4 font-display text-[16px] font-semibold">{p.name}{p.badge && <span className="ml-2 rounded-full bg-lv-lime px-2 py-0.5 font-mono text-[10px] font-normal">{p.badge}</span>}</th>)}
+            {packages.map((p) => <th key={p.id} scope="col" className="p-4 font-display text-[16px] font-medium">{p.name}{p.badge && <span className="ml-2 rounded-full bg-lv-lime px-2 py-0.5 font-mono text-[10px] font-normal">{p.badge}</span>}</th>)}
           </tr>
         </thead>
         <tbody>

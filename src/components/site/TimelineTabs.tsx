@@ -1,20 +1,32 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function TimelineTabs({ steps, note }: { steps: { label: string; title: string; body: string; checks: string[] }[]; note?: string }) {
   const [i, setI] = useState(0);
+  const uid = useId();
+  const tabId = (k: number) => `${uid}-tab-${k}`;
+  const panelId = `${uid}-panel`;
+  const onKey = (e: React.KeyboardEvent) => {
+    const n = steps.length;
+    const next = e.key === "ArrowRight" ? (i + 1) % n : e.key === "ArrowLeft" ? (i - 1 + n) % n : e.key === "Home" ? 0 : e.key === "End" ? n - 1 : null;
+    if (next === null) return;
+    e.preventDefault();
+    setI(next);
+    document.getElementById(tabId(next))?.focus();
+  };
   const s = steps[i];
   return (
     <div>
-      <div role="tablist" aria-label="Werkwijze in stappen" className="grid grid-cols-2 gap-2 lg:grid-cols-4">
+      <div role="tablist" aria-label="Werkwijze in stappen" onKeyDown={onKey} className="grid grid-cols-2 gap-2 lg:grid-cols-4">
         {steps.map((st, k) => (
           <button
             key={st.title}
             role="tab"
-            id={`tl-tab-${k}`}
+            id={tabId(k)}
+            tabIndex={k === i ? 0 : -1}
             aria-selected={k === i}
-            aria-controls="tl-panel"
+            aria-controls={panelId}
             type="button"
             onClick={() => setI(k)}
             className={cn("flex flex-col rounded-[18px] px-4 pb-4 pt-4 text-left transition-colors sm:px-5", k === i ? "bg-[#E3E7E5]" : "bg-lv-card hover:bg-[#E3E7E5]")}
@@ -27,7 +39,7 @@ export function TimelineTabs({ steps, note }: { steps: { label: string; title: s
           </button>
         ))}
       </div>
-      <div id="tl-panel" role="tabpanel" aria-labelledby={`tl-tab-${i}`} className="mt-2 grid gap-8 rounded-[24px] bg-lv-card p-6 sm:p-8 md:grid-cols-[1.2fr_1fr] md:p-10">
+      <div id={panelId} role="tabpanel" aria-labelledby={tabId(i)} className="mt-2 grid gap-8 rounded-[24px] bg-lv-card p-6 sm:p-8 md:grid-cols-[1.2fr_1fr] md:p-10">
         <div>
           <p className="font-mono text-[12px] text-lv-muted">{String(i + 1).padStart(2, "0")}</p>
           <p className="mt-3 font-display text-[clamp(1.4rem,2.6vw,1.9rem)] font-normal leading-snug">{s.body}</p>

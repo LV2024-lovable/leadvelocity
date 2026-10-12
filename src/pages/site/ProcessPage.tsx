@@ -25,9 +25,9 @@ export default function ProcessPage() {
 
       <Section tone="raised">
         <div className="grid items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
-          <Reveal><div className="rounded-3xl border border-lv-line bg-lv-surface p-7"><Eyebrow>Input</Eyebrow><p className="font-display text-[22px] font-semibold tracking-[-0.02em]">{p.input}</p></div></Reveal>
+          <Reveal><div className="rounded-[24px] bg-lv-card p-7"><Eyebrow>Input</Eyebrow><p className="font-display text-[22px] font-medium tracking-[-0.015em]">{p.input}</p></div></Reveal>
           <ArrowRight aria-hidden className="mx-auto h-6 w-6 rotate-90 text-lv-faint md:rotate-0" />
-          <Reveal delay={0.06}><div className="rounded-3xl bg-lv-ink p-7 text-white"><Eyebrow className="text-white/50">Output</Eyebrow><p className="font-display text-[22px] font-semibold tracking-[-0.02em]">{p.output}</p></div></Reveal>
+          <Reveal delay={0.06}><div className="rounded-3xl bg-lv-ink p-7 text-white"><Eyebrow className="text-white/50">Output</Eyebrow><p className="font-display text-[22px] font-medium tracking-[-0.015em]">{p.output}</p></div></Reveal>
         </div>
         <p className="mt-6 text-[15px] text-lv-body"><span className="font-medium text-lv-ink">Bouwblokken: </span>{p.modules.join(" · ")}. <span className="font-medium text-lv-ink">Resultaat: </span>{p.result}.</p>
       </Section>
@@ -43,13 +43,13 @@ export default function ProcessPage() {
 
       <Section tone={demo ? "raised" : "paper"}>
         <HumanControl title="Waar het systeem stopt" body={p.humanLimit} />
-        <div className="mt-8 rounded-3xl border border-lv-line bg-lv-surface p-8">
+        <div className="mt-8 rounded-[24px] bg-lv-card p-8">
           <Eyebrow>Wat we van jullie nodig hebben</Eyebrow>
           <ul className="space-y-3 text-[15.5px]">{p.neededInput.map((x) => <li key={x} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{x}</li>)}</ul>
         </div>
         {p.extraBlock && (
           <div className="mt-8 rounded-3xl border border-lv-line bg-lv-lime-soft p-8">
-            <h2 className="font-display text-[22px] font-semibold tracking-[-0.02em]">{p.extraBlock.title}</h2>
+            <h2 className="font-display text-[22px] font-medium tracking-[-0.015em]">{p.extraBlock.title}</h2>
             <p className="mt-2 text-[15.5px] leading-relaxed text-lv-body">{p.extraBlock.body}</p>
           </div>
         )}
