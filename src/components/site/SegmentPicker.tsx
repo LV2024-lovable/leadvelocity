@@ -20,7 +20,7 @@ export function SegmentPicker({ value, onChange, label, align = "left" }: { valu
               onClick={() => onChange(c.id)}
               className={cn(
                 "rounded-[10px] px-4 py-2 text-[14.5px] font-medium capitalize transition-colors",
-                active ? "bg-lv-ink text-white" : "bg-lv-card text-lv-ink hover:bg-[#E3E7E5]",
+                active ? "bg-lv-ink text-white" : "bg-lv-card text-lv-ink hover:bg-lv-card-hover",
               )}
             >
               {c.heroNoun}

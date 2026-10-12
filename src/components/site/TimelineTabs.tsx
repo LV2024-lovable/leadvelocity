@@ -29,7 +29,7 @@ export function TimelineTabs({ steps, note }: { steps: { label: string; title: s
             aria-controls={panelId}
             type="button"
             onClick={() => setI(k)}
-            className={cn("flex flex-col rounded-[18px] px-4 pb-4 pt-4 text-left transition-colors sm:px-5", k === i ? "bg-[#E3E7E5]" : "bg-lv-card hover:bg-[#E3E7E5]")}
+            className={cn("flex flex-col rounded-[18px] px-4 pb-4 pt-4 text-left transition-colors sm:px-5", k === i ? "bg-lv-card-hover" : "bg-lv-card hover:bg-lv-card-hover")}
           >
             <span className="block text-[13px] text-lv-muted">{st.label}</span>
             <span className="mb-4 mt-1 block font-display text-[18px] font-normal leading-tight sm:text-[21px]">{st.title}</span>

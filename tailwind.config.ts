@@ -63,6 +63,7 @@ export default {
 					surface: '#FFFFFF',
 					raised: '#F1F3F2',
 					card: '#EDF0EF',
+					'card-hover': '#E3E7E5',
 					ink: '#111414',
 					body: '#46504E',
 					muted: '#5A6462',

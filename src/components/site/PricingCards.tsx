@@ -27,7 +27,7 @@ export function PricingCards({ source, showIncludes = false }: { source: string;
                 </ul>
               )}
               <div className="mt-auto pt-7">
-                <CtaLink to={checkHref({ source, package: p.id })} ctaId={`package-${p.id}`} trackParams={{ package_id: p.id }} variant={featured ? "lime" : "secondary"} className="w-full">{p.ctaLabel}</CtaLink>
+                <CtaLink to={checkHref({ source, package: p.id })} ctaId={`package-${p.id}`} trackParams={{ package_id: p.id }} variant={featured ? "lime" : "secondary"} className={cn("w-full", !featured && "bg-white hover:bg-lv-raised")}>{p.ctaLabel}</CtaLink>
               </div>
             </div>
           );

@@ -21,7 +21,7 @@ export function NumberedTabs({ value, onChange, notes }: { value?: CategoryId; o
               type="button"
               aria-pressed={on}
               onClick={() => onChange(c.id)}
-              className={cn("rounded-[20px] px-6 py-5 text-left transition-colors", on ? "bg-lv-ink text-white" : "bg-lv-card text-lv-ink hover:bg-[#E3E7E5]")}
+              className={cn("rounded-[20px] px-6 py-5 text-left transition-colors", on ? "bg-lv-ink text-white" : "bg-lv-card text-lv-ink hover:bg-lv-card-hover")}
             >
               <span className="flex items-baseline gap-4">
                 <span className={cn("font-mono text-[12px]", on ? "text-white/60" : "text-lv-muted")}>{String(i + 1).padStart(2, "0")}</span>

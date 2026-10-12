@@ -13,7 +13,7 @@ export function CtaLink({ to, children, variant = "primary", ctaId, trackParams,
   const cls = cn(
     "group inline-flex items-center justify-center gap-2 rounded-[10px] text-[15px] font-medium transition-colors",
     variant === "primary" && "bg-lv-ink px-5 py-3 text-white hover:bg-black",
-    variant === "secondary" && "bg-lv-card px-5 py-3 text-lv-ink hover:bg-[#E3E7E5]",
+    variant === "secondary" && "bg-lv-card px-5 py-3 text-lv-ink hover:bg-lv-card-hover",
     variant === "lime" && "bg-white px-5 py-3 text-lv-ink hover:bg-lv-card",
     variant === "text" && "text-lv-ink underline-offset-4 hover:underline",
     className,

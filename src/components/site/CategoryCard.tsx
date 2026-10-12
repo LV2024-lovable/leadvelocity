@@ -4,7 +4,7 @@ import type { Category } from "@/content/types";
 
 export function CategoryCard({ category }: { category: Category }) {
   return (
-    <Link to={`/${category.id}`} className="group flex h-full flex-col rounded-[24px] bg-lv-card p-7 transition-colors hover:bg-[#ECE9DF]">
+    <Link to={`/${category.id}`} className="group flex h-full flex-col rounded-[24px] bg-lv-card p-7 transition-colors hover:bg-lv-card-hover">
       <h3 className="font-display text-[22px] font-medium tracking-[-0.015em]">{category.name}</h3>
       <p className="mt-2 text-[15px] leading-relaxed text-lv-body">{category.cardLine}</p>
       <p className="mt-4 font-mono text-[11.5px] text-lv-muted">{category.subsegments.slice(0, 3).join(" · ")}</p>

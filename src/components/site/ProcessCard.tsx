@@ -5,7 +5,7 @@ import { categoryById } from "@/content/categories";
 
 export function ProcessCard({ process, compact = false }: { process: ProcessFamily; compact?: boolean }) {
   return (
-    <Link to={`/oplossingen/${process.id}`} className="group flex h-full flex-col rounded-[24px] bg-lv-card p-7 transition-colors hover:bg-[#ECE9DF]">
+    <Link to={`/oplossingen/${process.id}`} className="group flex h-full flex-col rounded-[24px] bg-lv-card p-7 transition-colors hover:bg-lv-card-hover">
       <h3 className="font-display text-[20px] font-medium tracking-[-0.015em]">{process.name}</h3>
       <p className="mt-2 text-[14.5px] leading-relaxed text-lv-body">{process.cardLine}</p>
       {!compact && (
