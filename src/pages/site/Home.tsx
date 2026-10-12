@@ -33,7 +33,7 @@ export default function Home() {
           <Pill>{home.hero.eyebrow}</Pill>
           <h1 className="mt-6 break-words text-balance font-display text-[clamp(2.5rem,6.4vw,4.8rem)] font-normal leading-[1.02] tracking-[-0.015em]" aria-live="polite">{h1}</h1>
           <p className="mx-auto mt-6 max-w-2xl text-[18px] leading-relaxed text-lv-body">{sub}</p>
-          <p className="mx-auto mt-3 max-w-2xl text-[14px] text-lv-muted">{home.hero.forWho}</p>
+          {!c && <p className="mx-auto mt-3 max-w-2xl text-[14px] text-lv-muted">{home.hero.forWho}</p>}
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <CtaLink to={ctx("home-hero")} ctaId="home-hero-check" trackParams={{ category: c?.id }}>{ctaLabels.primary}</CtaLink>
             <CtaLink to={demoHref(c?.demoId, "home-hero")} ctaId="home-hero-demo" variant="secondary">{home.hero.secondary}</CtaLink>
