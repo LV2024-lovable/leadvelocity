@@ -6,6 +6,12 @@
 > - De segment-H1's en -subs in `src/content/categories.ts` vervangen de categorie-H1's uit §8 en §9.
 > - De primaire CTA op categoriepagina's is "Plan een gratis adviesgesprek".
 > - Interne namen (Edge Function, tabel, analytics) blijven ongewijzigd.
+>
+> **Afwijkingen vastgesteld door Bart (2026-10-12):**
+> - De homepage-H1 is **"Jouw AI-partner voor [doelgroep]."** — zonder gekozen doelgroep "Jouw AI-partner voor het MKB.", met een gekozen doelgroep bijvoorbeeld "Jouw AI-partner voor servicebedrijven." Dit vervangt de statische kop van 2026-10-11 en de regel "geen AI in de H1".
+> - De pakketnamen zijn **Start · Compleet · Opschalen · Maatwerk** (voorheen Voorbereiden · Werkstroom · Opschalen · Custom). Prijzen, inhoud en interne pakket-id's blijven ongewijzigd.
+> - Per doelgroep tonen we 3–4 oplossingen (homepage "Wat we bouwen" en categoriepagina "Wat we voor jullie bouwen"), binnen de bestaande procesfamilies en prijzen. Grenzen uit §6 en §10 blijven gelden.
+> - Het woord "werkstroom" komt niet meer voor in zichtbare copy; we zeggen "oplossing" of "proces".
 
 ## Lees dit eerst, Claude
 

@@ -1,5 +1,7 @@
 # Messagingstrategie leadvelocity.nl
 
+> **Update 2026-10-12:** AI-partner-positionering in de H1 (besluit Bart), afwijkend van §3/§5. De homepage-H1 is nu "Jouw AI-partner voor [doelgroep]."; zie het afwijkingenblok bovenaan de handover van 2026-10-09.
+
 **Datum:** 2026-10-11 · **Status:** keuzes vastgesteld (§9) — uitvoeringsscope in §11, wacht op akkoord
 **Bouwt op:** handover 2026-10-09 (leidend voor aanbod, prijzen, grenzen) en drie onderzoeken van 2026-10-11:
 - `.planning/research/2026-10-11-pijnonderzoek-categorieen.md` — pijn per categorie (extern)

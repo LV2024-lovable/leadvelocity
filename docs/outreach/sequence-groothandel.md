@@ -16,7 +16,7 @@
 |---|---|---|
 | 1 | Gratis adviesgesprek, 20 minuten | gratis |
 | 2 | Analyse: proceskaart, nulmeting, input- en toegangscheck, businesscase, acceptatiecriteria | €750, verrekend bij een implementatie binnen 60 dagen |
-| 3 | Vast pakket, vaste scope | vanaf €2.950 inrichting + €595 per maand (Voorbereiden), exclusief btw |
+| 3 | Vast pakket, vaste scope | vanaf €2.950 inrichting + €595 per maand (Start), exclusief btw |
 
 Maandkosten starten pas na acceptatie. Prijzen komen alleen in touch 4 of 5 voor, nooit in touch 1. Bedragen altijd uit `src/content/pricing.ts`, in de notatie €2.950 / €595 / €750.
 
@@ -162,7 +162,7 @@ Nog één situatie: een offerte gaat de deur uit en niemand belt na. Niet uit on
 
 Wij houden open offertes bij en zetten de nabelmail als concept klaar. Je binnendienst beslist of die verstuurd wordt.
 
-Zo werken we: eerst een gratis adviesgesprek van 20 minuten. Is er aanleiding, dan volgt een analyse van €750, die we verrekenen als jullie binnen 60 dagen starten. Pakketten beginnen vanaf €2.950 + €595 per maand, exclusief btw. Welk pakket past, volgt uit de analyse; het bijhouden en opvolgen van open offertes valt onder het pakket Werkstroom. Maandkosten starten pas na acceptatie.
+Zo werken we: eerst een gratis adviesgesprek van 20 minuten. Is er aanleiding, dan volgt een analyse van €750, die we verrekenen als jullie binnen 60 dagen starten. Pakketten beginnen vanaf €2.950 + €595 per maand, exclusief btw. Welk pakket past, volgt uit de analyse; het bijhouden en opvolgen van open offertes valt onder het pakket Compleet. Maandkosten starten pas na acceptatie.
 
 Plan een gratis adviesgesprek:
 https://www.leadvelocity.nl/?category=groothandels&source=outreach-gh-t4&utm_source=email&utm_medium=outreach&utm_campaign=groothandel-v2&utm_content=t4
