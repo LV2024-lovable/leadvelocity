@@ -5,6 +5,8 @@ export * from "./SiteFooter";
 export * from "./CampaignHeader";
 export * from "./SiteLayout";
 export * from "./Section";
+export * from "./ExposureArt";
+export * from "./Pill";
 export * from "./Reveal";
 export * from "./Faq";
 export * from "./HumanControl";

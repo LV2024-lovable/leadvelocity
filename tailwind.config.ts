@@ -19,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['"Schibsted Grotesk"', 'system-ui', 'sans-serif'],
+				display: ['Newsreader', 'Georgia', 'serif'],
 				body: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
 				mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
 			},
@@ -59,15 +59,16 @@ export default {
 				},
 				// Lead Velocity — licht palet (handover §17). Lime alleen als vlak; tekst-accent = lime-ink.
 				lv: {
-					paper: '#F6F5F0',
+					paper: '#F6F7F6',
 					surface: '#FFFFFF',
-					raised: '#FBFBF8',
-					ink: '#0E0E0C',
-					body: '#55544E',
-					muted: '#6B6A63',
-					faint: '#8A8981',
-					line: '#E4E2DA',
-					'line-soft': '#EEEDE6',
+					raised: '#F1F3F2',
+					card: '#EDF0EF',
+					ink: '#111414',
+					body: '#46504E',
+					muted: '#5A6462',
+					faint: '#8A9290',
+					line: '#E1E5E3',
+					'line-soft': '#EAEDEC',
 					lime: '#C8FF00',
 					'lime-soft': '#F1FFC2',
 					'lime-ink': '#4D6B00',

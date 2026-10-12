@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* shadcn/ui-variabelen — licht, afgeleid van het lv-palet */
-    --background: 50 20% 95%;
+    --background: 150 8% 96%;
     --foreground: 60 8% 5%;
     --card: 0 0% 100%;
     --card-foreground: 60 8% 5%;
@@ -15,7 +15,7 @@
     --primary-foreground: 50 20% 95%;
     --secondary: 48 14% 92%;
     --secondary-foreground: 60 8% 5%;
-    --muted: 48 14% 92%;
+    --muted: 160 7% 93%;
     --muted-foreground: 50 5% 40%;
     --accent: 75 100% 50%;
     --accent-foreground: 60 8% 5%;
@@ -41,9 +41,9 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-semibold;
-    letter-spacing: -0.03em;
-    line-height: 1.08;
+    @apply font-display font-normal;
+    letter-spacing: -0.015em;
+    line-height: 1.06;
   }
 
   ::selection {
@@ -59,6 +59,11 @@
   
 
   
+
+  /* Korrel voor long-exposure-beeldvlakken */
+  .grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
 
   /* Hover lift */
   .hover-lift {
