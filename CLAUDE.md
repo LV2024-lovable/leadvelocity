@@ -118,7 +118,7 @@ Vraag jezelf voor elk blok af:
 - **shadcn/ui** componenten (beschikbaar onder `src/components/ui/`)
 - **Supabase** voor formulier-aanvragen + Edge Functions
 - **Resend** via Supabase Edge Functions (`werkstroomcheck`, `email-notify`) → `info@leadvelocity.nl`
-- **Fonts:** Schibsted Grotesk (koppen) + Hanken Grotesk (tekst) + JetBrains Mono (labels)
+- **Fonts:** Newsreader (koppen, 400/500) + Hanken Grotesk (tekst) + JetBrains Mono (labels)
 - **Hosting:** Lovable (via GitHub → Lovable auto-deploy bij push naar `main`)
 
 ### Routes (fase 1)
@@ -185,7 +185,8 @@ Gebruik deze voor nieuwe copy, use-cases, blog-content. Elke sector heeft TL;DR 
 - **Gratis adviesgesprek is de enige ingang** (besluit Bart 2026-10-11: de handover-term "werkstroomcheck" wordt nergens meer in copy gebruikt; knoplabels uit `ctaLabels` in `src/content/site.ts`). Oude URL's `/werkstroomcheck` en de AI-kansenscan verwijzen door, met behoud van querystring.
 - **Geen garantie op de site** tot de contracttekst er is.
 - **Geen verzonnen bewijs:** demo's zijn gelabeld "Illustratieve demo"; cases en logo's alleen met goedgekeurde gegevens.
-- **Huisstijl:** papier/inkt/lime, Schibsted Grotesk + Hanken Grotesk + JetBrains Mono; geen glow of netwerkanimaties.
+- **Huisstijl (2026-10-12, Orrin-look):** Newsreader-serif voor koppen (400/500), Hanken Grotesk voor tekst, gebroken wit `lv-paper`, kaarten `lv-card`, zwarte knoppen `rounded-[10px]`, long-exposure-beeldvlakken via `ExposureArt` (tinten per categorie via `CATEGORY_TONE`), lime alleen als klein accent.
+- Geen nep-bewijs (logo's, sterren, cijfers, cases) — de spec van 2026-10-12.
 - **Path C** — hybride 12-maanden lean, beslisdatum juni 2027.
 
 ---

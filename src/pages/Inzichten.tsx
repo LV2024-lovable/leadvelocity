@@ -35,7 +35,7 @@ const Inzichten = () => {
           <div className="absolute inset-0 dot-pattern opacity-25 pointer-events-none" />
 
           <div ref={heroRef} className="reveal container mx-auto px-4 md:px-6 pt-32 pb-12 md:pt-40 md:pb-16 relative z-10">
-            <div className="max-w-4xl">
+            <div className="max-w-5xl mx-auto">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-lv-lime-ink/20 bg-lv-lime/[0.05] mb-8">
                 <span className="font-body text-sm font-500 text-lv-lime-ink">
                   Inzichten & research
