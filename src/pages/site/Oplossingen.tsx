@@ -18,7 +18,7 @@ export default function Oplossingen() {
         <SectionHead title={oplossingenIndex.baseTitle} />
         <ol className="mt-10 flex flex-wrap gap-2 text-[14.5px]">
           {oplossingenIndex.baseSteps.map((s, i) => (
-            <li key={s} className="rounded-full border border-lv-line bg-lv-surface px-3.5 py-2"><span className="mr-2 font-mono text-[11px] text-lv-faint">{i + 1}</span>{s}</li>
+            <li key={s} className="rounded-[10px] bg-lv-card px-3.5 py-2"><span className="mr-2 font-mono text-[11px] text-lv-faint">{i + 1}</span>{s}</li>
           ))}
         </ol>
         <CtaLink to={checkHref({ source: "oplossingen" })} ctaId="oplossingen-check" className="mt-10">{ctaLabels.primary}</CtaLink>

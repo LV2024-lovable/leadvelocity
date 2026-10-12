@@ -9,7 +9,7 @@ export function MediaCard({ tone, label, title, body, href, cta }: { tone: Expos
       <ExposureArt tone={tone} className="h-[200px]">
         <div className="flex h-full flex-col justify-between p-4">
           <div className="flex justify-end"><Pill tone="dark">{label}</Pill></div>
-          <p className="text-center font-display text-[24px] font-normal text-white">{title}</p>
+          <p className="relative isolate text-center font-display text-[24px] font-normal text-white [text-shadow:0_1px_14px_rgba(0,0,0,0.55)] before:pointer-events-none before:absolute before:left-1/2 before:top-1/2 before:-z-10 before:h-[150%] before:w-[110%] before:-translate-x-1/2 before:-translate-y-1/2 before:bg-[radial-gradient(closest-side,rgba(0,0,0,0.42),transparent)] before:content-['']">{title}</p>
           <span />
         </div>
       </ExposureArt>

@@ -142,7 +142,7 @@ export default function Home() {
 
       {/* 8 — Prijzen */}
       <Section id="pakketten" className="py-20 md:py-24">
-        <SectionHead align="center" title={home.trajectory.h2} />
+        <SectionHead align="center" eyebrow={home.pricing.eyebrow} title={home.pricing.h2} />
         <div className="mt-12"><PricingCards source="home-packages" /></div>
         <div className="mt-8 flex justify-center">
           <Link to="/prijzen" className="inline-flex items-center gap-1.5 text-[15px] font-medium underline-offset-4 hover:underline">{home.trajectory.link}<ArrowRight aria-hidden className="h-4 w-4" /></Link>

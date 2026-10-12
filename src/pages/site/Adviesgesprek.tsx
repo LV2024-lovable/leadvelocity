@@ -14,7 +14,7 @@ export default function Adviesgesprek() {
           <div>
             <SectionHead as="h1" eyebrow={checkPage.eyebrow} title={checkPage.h1} intro={checkPage.intro} />
             {contact.calendarUrl && (
-              <a href={contact.calendarUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex rounded-full px-5 py-3 text-[15px] font-medium ring-1 ring-lv-line">
+              <a href={contact.calendarUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex rounded-[10px] bg-lv-card px-5 py-3 text-[15px] font-medium hover:bg-lv-card-hover">
                 {checkPage.calendar} (Europe/Amsterdam)
               </a>
             )}

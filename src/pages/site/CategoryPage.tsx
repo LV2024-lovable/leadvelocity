@@ -56,7 +56,7 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
         <ol className="mt-10 flex flex-wrap items-center gap-2 text-[14.5px]">
           {c.exampleFlow.map((s, i) => (
             <li key={s} className="flex items-center gap-2">
-              <span className="rounded-full border border-lv-line bg-lv-surface px-3.5 py-2"><span className="mr-2 font-mono text-[11px] text-lv-faint">{i + 1}</span>{s}</span>
+              <span className="rounded-[10px] bg-lv-card px-3.5 py-2"><span className="mr-2 font-mono text-[11px] text-lv-faint">{i + 1}</span>{s}</span>
               {i < c.exampleFlow.length - 1 && <span aria-hidden className="text-lv-faint">→</span>}
             </li>
           ))}

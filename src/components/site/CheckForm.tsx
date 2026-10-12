@@ -154,7 +154,7 @@ export function CheckForm({ ctx }: { ctx: CheckContext }) {
         </p>
       )}
 
-      <button type="submit" disabled={status === "submitting"} className="inline-flex w-full items-center justify-center rounded-full bg-lv-ink px-6 py-3.5 text-[15.5px] font-medium text-white disabled:opacity-60 sm:w-auto">
+      <button type="submit" disabled={status === "submitting"} className="inline-flex w-full items-center justify-center rounded-[10px] bg-lv-ink px-6 py-3.5 text-[15.5px] font-medium text-white disabled:opacity-60 sm:w-auto">
         {status === "submitting" ? checkPage.submitting : checkPage.submit}
       </button>
     </form>

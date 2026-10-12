@@ -47,6 +47,7 @@ export const home = {
       "Eén persoon die beslist en meedenkt",
     ],
   },
+  pricing: { eyebrow: "Prijzen", h2: "Pakketten en prijzen." },
   trajectory: {
     h2: "Van gesprek tot werkende oplossing",
     steps: [

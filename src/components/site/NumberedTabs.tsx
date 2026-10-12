@@ -45,7 +45,7 @@ export function NumberedTabs({ value, onChange, notes }: { value?: CategoryId; o
               ))}
             </ol>
             <div>
-              <Link to={`/${active.id}`} className="inline-flex items-center gap-1.5 rounded-[10px] bg-black/45 px-3 py-2 text-[13.5px] text-white ring-1 ring-white/15 backdrop-blur hover:bg-black/60">
+              <Link to={`/${active.id}`} className="inline-flex items-center gap-1.5 rounded-[10px] bg-black/45 px-3 py-2 text-[13.5px] text-white ring-1 ring-white/15 backdrop-blur hover:bg-black/60 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-0">
                 Meer over {active.name.toLowerCase()} <ArrowRight aria-hidden className="h-3.5 w-3.5" />
               </Link>
             </div>
