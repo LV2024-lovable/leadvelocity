@@ -95,6 +95,35 @@ export const home = {
     h2: "Hoeveel aanvragen waren gisteren niet compleet?",
     body: "In 20 minuten kijken we samen of automatiseren bij jullie loont. Past het niet, dan zeggen we dat ook.",
   },
+  facts: [
+    { value: "20 min", label: "Gratis adviesgesprek, vrijblijvend" },
+    { value: formatEuro(analysis.price), label: `Analyse, verrekend bij implementatie binnen ${analysis.creditDays} dagen` },
+    { value: "1 proces", label: "Om mee te starten, met vaste scope" },
+    { value: "Jullie team", label: "Controleert en beslist altijd" },
+  ],
+  build: {
+    eyebrow: "Wat we bouwen",
+    h2: "Per aanvraagstroom één oplossing.",
+    notes: ["Werkt vanuit jullie mailbox", "Wat ontbreekt, staat op een rij", "Jullie medewerker beslist"],
+  },
+  timeline: {
+    eyebrow: "Werkwijze",
+    h2: "Van eerste gesprek tot werkende oplossing.",
+    note: "Planning: een bestaande passende opzet kan doorgaans in 4–6 weken worden ingericht, na de analyse.",
+    steps: [
+      { label: "Stap 1", title: "Gratis adviesgesprek", body: "In 20 minuten kijken we welk werk bij jullie steeds terugkomt en of automatiseren loont.", checks: ["Welk werk terugkomt", "Of het loont"] },
+      { label: "Stap 2", title: "Analyse", body: "Proceskaart, nulmeting, input- en toegangscheck en een vaste scope met prijs.", checks: ["Proceskaart en nulmeting", "Vaste scope en prijs"] },
+      { label: "Stap 3", title: "Inrichten en testen", body: "We richten de oplossing in op jullie bronnen en testen met echte voorbeelden. Jullie team keurt goed.", checks: ["Met jullie voorbeelden", "Acceptatie door jullie team"] },
+      { label: "Stap 4", title: "Live en beheer", body: "Na acceptatie gaat het live. Wij monitoren, lossen incidenten op en verbeteren in kleine stappen.", checks: ["Maandkosten pas na acceptatie", "Monitoring en support"] },
+    ],
+  },
+  showcase: {
+    eyebrow: "Voorbeelden",
+    h2: "Zo ziet het eruit.",
+    intro: "Illustratieve demo's met fictieve gegevens. Elk voorbeeld laat zien wat binnenkomt, wat we voorbereiden en wat jullie team beslist.",
+    cta: "Bekijk het voorbeeld",
+  },
+  aboutLine: { text: "Lead Velocity is opgericht door Bart Wilbrink.", link: "Over ons" },
 };
 
 export const voorWie = {

@@ -87,7 +87,7 @@ export function DemoStepper({ demo, source, compact = false }: { demo: Demo; sou
           ? <button type="button" onClick={() => go(step + 1)} className="rounded-full bg-lv-ink px-4 py-2 text-[14px] font-medium text-white">{NEXT_LABELS[step]}</button>
           : <p className="max-w-md text-[13px] text-lv-muted">{DEMO_CLOSING}</p>}
         {step === 2 && (
-          <CtaLink to={checkHref({ source, demo: demo.id, process: demo.id })} ctaId={`demo-${demo.id}`} trackParams={{ demo_id: demo.id }} variant="lime" className="shrink-0">
+          <CtaLink to={checkHref({ source, demo: demo.id, process: demo.id })} ctaId={`demo-${demo.id}`} trackParams={{ demo_id: demo.id }} variant="primary" className="shrink-0">
             Bekijk of dit bij jullie past
           </CtaLink>
         )}

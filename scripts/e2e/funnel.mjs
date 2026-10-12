@@ -102,11 +102,24 @@ await t("keuzeknoppen: klik en toetsenbord wisselen alles mee", async () => {
   expect(href.includes("category=maatwerk-montage"), `href ${href}`);
 });
 
-await t("homepage: qualifier, past-in-wat-je-hebt, zekerheden aanwezig", async () => {
+await t("homepage: qualifier, voorbeelden, werkwijze en wat-we-bouwen aanwezig", async () => {
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
-  for (const h of ["Voor wie dit werkt (en voor wie niet)", "Past in wat je al hebt", "Waar je op kunt rekenen", "Zo werkt het"]) {
+  for (const h of ["Voor wie dit werkt (en voor wie niet)", "Zo ziet het eruit.", "Van eerste gesprek tot werkende oplossing.", "Per aanvraagstroom één oplossing."]) {
     expect(await page.locator(`h2:has-text("${h}")`).count() === 1, `sectie ontbreekt: ${h}`);
   }
+});
+
+await t("tabs 'wat we bouwen' en tijdlijn werken; geen nep-bewijs op home", async () => {
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  const tab = page.locator("[aria-label='Kies een aanvraagstroom'] button", { hasText: /servicemeldingen/i });
+  await tab.click();
+  expect(await tab.getAttribute("aria-pressed") === "true", "tab niet actief");
+  expect((await page.locator("h1").textContent()).includes("Elke servicemelding compleet"), "hero volgt tab niet");
+  const step3 = page.locator("[role=tab]", { hasText: "Inrichten en testen" });
+  await step3.click();
+  expect(await step3.getAttribute("aria-selected") === "true", "tijdlijnstap niet geselecteerd");
+  const txt = (await page.evaluate(() => document.body.innerText)).toLowerCase();
+  for (const bad of ["trusted by", "★", "case study", "klanten geholpen"]) expect(!txt.includes(bad), `nep-bewijs gevonden: ${bad}`);
 });
 
 await t("geen 'werkstroomcheck' meer zichtbaar op hoofdpagina's", async () => {

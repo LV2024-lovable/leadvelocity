@@ -1,7 +1,16 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import type { CategoryId } from "@/content/types";
 
 export type ExposureTone = "ember" | "moss" | "dusk" | "sand";
+
+/** Vaste tint per categorie, gedeeld door NumberedTabs en de homepage. */
+export const CATEGORY_TONE: Record<CategoryId, ExposureTone> = {
+  groothandels: "ember",
+  "importeurs-distributeurs": "moss",
+  "service-onderhoud": "dusk",
+  "maatwerk-montage": "sand",
+};
 
 /** [basis, kleurbaan 1, kleurbaan 2, onderglow] — zachte "long exposure"-vlakken, zelf gemaakt met CSS. */
 const TONES: Record<ExposureTone, [string, string, string, string]> = {

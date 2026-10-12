@@ -4,12 +4,12 @@ import type { CategoryId } from "@/content/types";
 import { cn } from "@/lib/utils";
 
 /** Keuzeknoppen voor het segment; de bezoeker bepaalt, niets wisselt vanzelf. */
-export function SegmentPicker({ value, onChange, label }: { value?: CategoryId; onChange: (id: CategoryId) => void; label: string }) {
+export function SegmentPicker({ value, onChange, label, align = "left" }: { value?: CategoryId; onChange: (id: CategoryId) => void; label: string; align?: "left" | "center" }) {
   const labelId = useId();
   return (
     <div data-segment-picker role="group" aria-labelledby={labelId}>
-      <p id={labelId} className="mb-3 text-[14px] font-medium text-lv-body">{label}</p>
-      <div className="flex flex-wrap gap-2">
+      <p id={labelId} className={cn("mb-3 text-[14px] font-medium text-lv-body", align === "center" && "text-center")}>{label}</p>
+      <div className={cn("flex flex-wrap gap-2", align === "center" && "justify-center")}>
         {categories.map((c) => {
           const active = c.id === value;
           return (
