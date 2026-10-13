@@ -23,5 +23,12 @@ if (idxRedirectsMap === -1 || idxProcessParam === -1 || idxRedirectsMap > idxPro
 const wk = redirects.find((r) => r.from === "/werkwijze");
 if (!wk || wk.to !== "/samenwerken") fouten.push("/werkwijze moet naar /samenwerken verwijzen");
 
+// sitemap mag niet uit de pas lopen met indexableRoutes (genereer met scripts/generate-sitemap.ts)
+const sitemap = readFileSync("public/sitemap.xml", "utf8");
+const sitemapPaths = new Set([...sitemap.matchAll(/<loc>https?:\/\/[^/<]+([^<]*)<\/loc>/g)].map((m) => m[1] || "/"));
+for (const p of indexableRoutes) if (!sitemapPaths.has(p)) fouten.push(`sitemap.xml mist ${p} (draai npx tsx scripts/generate-sitemap.ts)`);
+for (const p of sitemapPaths) if (!indexableRoutes.includes(p)) fouten.push(`sitemap.xml bevat ${p}, maar dat is geen indexeerbare route`);
+if (sitemapPaths.has("/werkwijze")) fouten.push("sitemap.xml mag /werkwijze niet bevatten");
+
 if (fouten.length) { console.error(`✗ ${fouten.length}:\n- ${fouten.join("\n- ")}`); process.exit(1); }
 console.log("✓ redirects en routes kloppen");
