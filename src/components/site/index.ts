@@ -22,3 +22,4 @@ export * from "./FactTiles";
 export * from "./NumberedTabs";
 export * from "./TimelineTabs";
 export * from "./MediaCard";
+export * from "./PartnerTrack";

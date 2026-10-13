@@ -10,7 +10,7 @@ import VoorWie from "./pages/site/VoorWie";
 import CategoryPage from "./pages/site/CategoryPage";
 import Oplossingen from "./pages/site/Oplossingen";
 import ProcessPage from "./pages/site/ProcessPage";
-import Werkwijze from "./pages/site/Werkwijze";
+import Samenwerken from "./pages/site/Samenwerken";
 import Prijzen from "./pages/site/Prijzen";
 import Voorbeelden from "./pages/site/Voorbeelden";
 import Over from "./pages/site/Over";
@@ -54,7 +54,7 @@ const App = () => (
             <Route path="/maatwerk-montage" element={<CategoryPage key="maatwerk-montage" id="maatwerk-montage" />} />
             <Route path="/oplossingen" element={<Oplossingen />} />
             <Route path="/oplossingen/:id" element={<ProcessPage />} />
-            <Route path="/samenwerken" element={<Werkwijze />} />
+            <Route path="/samenwerken" element={<Samenwerken />} />
             <Route path="/prijzen" element={<Prijzen />} />
             <Route path="/voorbeelden" element={<Voorbeelden />} />
             <Route path="/over" element={<Over />} />

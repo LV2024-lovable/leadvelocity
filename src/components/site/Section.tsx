@@ -2,11 +2,13 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import { Pill } from "./Pill";
+import { storyLabels, type StoryStep } from "@/content/site";
 
-export function Section({ id, children, className, tone = "paper" }: { id?: string; children: React.ReactNode; className?: string; tone?: "paper" | "raised" | "ink" }) {
+export function Section({ id, children, className, tone = "paper", story }: { id?: string; children: React.ReactNode; className?: string; tone?: "paper" | "raised" | "ink"; story?: StoryStep }) {
   return (
     <section
       id={id}
+      data-story={story}
       className={cn(
         "px-5 py-24 sm:px-6 md:py-32",
         tone === "raised" && "bg-lv-raised",
@@ -23,10 +25,11 @@ export function Eyebrow({ children, className }: { children: React.ReactNode; cl
   return <p className={cn("mb-3 text-[13px] font-medium text-lv-muted", className)}>{children}</p>;
 }
 
-export function SectionHead({ eyebrow, title, intro, className, as: As = "h2", align = "left" }: { eyebrow?: string; title: React.ReactNode; intro?: string; className?: string; as?: "h1" | "h2"; align?: "left" | "center" }) {
+export function SectionHead({ eyebrow, story, title, intro, className, as: As = "h2", align = "left" }: { eyebrow?: string; story?: StoryStep; title: React.ReactNode; intro?: string; className?: string; as?: "h1" | "h2"; align?: "left" | "center" }) {
+  const label = eyebrow ?? (story ? storyLabels[story] : undefined);
   return (
     <Reveal className={cn(align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl", className)}>
-      {eyebrow && <Pill className="mb-5">{eyebrow}</Pill>}
+      {label && <Pill className="mb-5">{label}</Pill>}
       <As className={cn("break-words text-balance font-display font-normal tracking-[-0.015em]", As === "h1" ? "text-[clamp(2.4rem,6vw,4.4rem)] leading-[1.02]" : "text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.04]")}>
         {title}
       </As>

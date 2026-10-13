@@ -216,6 +216,44 @@ await t("demo: stappen doorlopen en knop met context", async () => {
   expect(href.includes("demo=aftersales") && href.includes("process=aftersales"), `href ${href}`);
 });
 
+await t("header: precies 4 menupunten + CTA, dropdown met 4 doelgroepen", async () => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  const nav = page.locator("nav[aria-label='Hoofdnavigatie']");
+  const top = await nav.locator(":scope > ul > li > a, :scope > ul > li > button").allInnerTexts();
+  expect(top.map((s) => s.trim()).join("|") === "Voor wie|Samenwerken|Voorbeelden|Prijzen", `menu: ${top.join("|")}`);
+  await nav.locator("button", { hasText: "Voor wie" }).focus();
+  await page.keyboard.press("Enter");
+  const sub = nav.locator("[data-nav-dropdown] a");
+  expect(await sub.count() === 5, `dropdown: verwacht 4 doelgroepen + overzicht, kreeg ${await sub.count()}`);
+  await page.keyboard.press("Escape");
+  expect(await nav.locator("[data-nav-dropdown]").isHidden(), "Escape sluit dropdown niet");
+});
+
+await t("mobiel menu: doelgroepen als links, geen horizontale scroll", async () => {
+  await page.setViewportSize({ width: 360, height: 800 });
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  await page.locator("button[aria-controls='mobile-nav']").click();
+  const m = page.locator("#mobile-nav");
+  for (const h of ["/groothandels", "/importeurs-distributeurs", "/service-onderhoud", "/maatwerk-montage", "/samenwerken"]) {
+    expect(await m.locator(`a[href='${h}']`).count() === 1, `mobiel menu mist ${h}`);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), "horizontale scroll");
+  await page.setViewportSize({ width: 1440, height: 900 });
+});
+
+await t("/samenwerken: H1, 4 fasen, alle 6 stappen, uitbreiden", async () => {
+  await page.goto(BASE + "/samenwerken", { waitUntil: "networkidle" });
+  expect((await page.locator("h1").textContent()).includes("Wij bouwen het, wij beheren het"), "H1 onjuist");
+  const track = page.locator("[data-partner-track]");
+  expect(await track.count() === 1, "PartnerTrack ontbreekt");
+  expect(await track.locator("[data-phase]").count() === 4, "verwacht 4 fasen");
+  for (const s of ["Adviesgesprek", "Analyse", "Voorstel", "Inrichting", "Acceptatie", "Beheer"]) {
+    expect(await page.locator(`[data-step]:has-text("${s}")`).count() >= 1, `stap ${s} ontbreekt`);
+  }
+  expect(await page.locator('h2:has-text("Uitbreiden")').count() >= 1, "blok Uitbreiden ontbreekt");
+});
+
 await browser.close();
 for (const [s, n] of results) console.log(`${s}  ${n}`);
 const failed = results.filter(([s]) => s === "FAIL").length;
