@@ -20,5 +20,8 @@ const idxRedirectsMap = app.indexOf("redirects.map");
 const idxProcessParam = app.indexOf('path="/oplossingen/:id"');
 if (idxRedirectsMap === -1 || idxProcessParam === -1 || idxRedirectsMap > idxProcessParam) fouten.push("redirects moeten vóór /oplossingen/:id staan (oude slugs)");
 
+const wk = redirects.find((r) => r.from === "/werkwijze");
+if (!wk || wk.to !== "/samenwerken") fouten.push("/werkwijze moet naar /samenwerken verwijzen");
+
 if (fouten.length) { console.error(`✗ ${fouten.length}:\n- ${fouten.join("\n- ")}`); process.exit(1); }
 console.log("✓ redirects en routes kloppen");

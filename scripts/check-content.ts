@@ -7,6 +7,7 @@ import { join } from "node:path";
 import {
   packages, analysis, formatEuro, categories, processes, demos, campaigns, faqs,
   demoById, processById, categoryById, DEMO_CLOSING, redirects, home,
+  storyLabels, STORY_ORDER, mainNav, partnership, samenwerken,
 } from "../src/content";
 import * as content from "../src/content";
 
@@ -170,6 +171,17 @@ for (const p of packages) {
 // --- redirects ---
 check(redirects.every((r) => r.from !== r.to && r.to.startsWith("/")), "redirect met lege of identieke bestemming");
 check(!redirects.some((r) => r.to === "/"), "geen blinde redirect naar /");
+
+// Rode draad (spec 2026-10-13)
+check(STORY_ORDER.join(",") === "herkenbaar,bouwen,voorbeelden,samenwerken,prijzen,vragen", "STORY_ORDER onjuist");
+check(STORY_ORDER.map((k) => storyLabels[k]).join("|") === "Herkenbaar|Wat we bouwen|Voorbeelden|Samenwerken|Prijzen|Vragen", "storyLabels onjuist");
+check(mainNav.map((l) => l.label).join("|") === "Voor wie|Samenwerken|Voorbeelden|Prijzen", "mainNav moet Voor wie|Samenwerken|Voorbeelden|Prijzen zijn");
+check(!mainNav.some((l) => /oplossing|werkwijze/i.test(l.label)), "mainNav bevat nog Oplossingen/Werkwijze");
+check(partnership.phases.map((p) => p.title).join("|") === "Adviesgesprek|Analyse en inrichting|Beheer|Uitbreiden", "partnership-fasen onjuist");
+check(partnership.phases[1].we.includes(formatEuro(analysis.price)), "analysebedrag in partnership komt niet uit pricing.ts");
+check(samenwerken.phaseSteps.flat().sort().join(",") === "0,1,2,3,4,5", "phaseSteps moet alle 6 stappen precies één keer verdelen");
+const koppen = strings.filter(({ pad }) => /(^|\.)(h1|h2|seoTitle)$/.test(pad));
+check(!koppen.some(({ s }) => /automatiser/i.test(s)), `'automatiser' in kop/seoTitle: ${koppen.filter(({ s }) => /automatiser/i.test(s)).map((k) => k.pad).join(", ")}`);
 
 if (fouten.length) { console.error(`✗ ${fouten.length} fout(en):\n- ${fouten.join("\n- ")}`); process.exit(1); }
 console.log("✓ content klopt met de handover");

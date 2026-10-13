@@ -23,10 +23,21 @@ export const ctaLabels = {
   micro: "20 minuten · vrijblijvend",
 };
 
+export type StoryStep = "herkenbaar" | "bouwen" | "voorbeelden" | "samenwerken" | "prijzen" | "vragen";
+export const STORY_ORDER: StoryStep[] = ["herkenbaar", "bouwen", "voorbeelden", "samenwerken", "prijzen", "vragen"];
+/** Vaste labels per stap in de verhaallijn — overal gelijk (spec rode draad §1). */
+export const storyLabels: Record<StoryStep, string> = {
+  herkenbaar: "Herkenbaar",
+  bouwen: "Wat we bouwen",
+  voorbeelden: "Voorbeelden",
+  samenwerken: "Samenwerken",
+  prijzen: "Prijzen",
+  vragen: "Vragen",
+};
+
 export const mainNav = [
   { label: "Voor wie", href: "/voor-wie" },
-  { label: "Oplossingen", href: "/oplossingen" },
-  { label: "Werkwijze", href: "/werkwijze" },
+  { label: "Samenwerken", href: "/samenwerken" },
   { label: "Voorbeelden", href: "/voorbeelden" },
   { label: "Prijzen", href: "/prijzen" },
 ];
@@ -42,7 +53,7 @@ export const footerNav = [
     ],
   },
   {
-    title: "Oplossingen",
+    title: "Per proces",
     links: [
       { label: "Aanvragen en dossiers", href: "/oplossingen/aanvragen-dossiers" },
       { label: "Communicatie en opvolging", href: "/oplossingen/communicatie-opvolging" },
@@ -53,7 +64,7 @@ export const footerNav = [
   {
     title: "Lead Velocity",
     links: [
-      { label: "Werkwijze", href: "/werkwijze" },
+      { label: "Samenwerken", href: "/samenwerken" },
       { label: "Prijzen", href: "/prijzen" },
       { label: "Voorbeelden", href: "/voorbeelden" },
       { label: "Inzichten", href: "/inzichten" },
@@ -95,7 +106,7 @@ export const indexableRoutes = [
   "/", "/voor-wie", "/groothandels", "/importeurs-distributeurs", "/service-onderhoud", "/maatwerk-montage",
   "/oplossingen", "/oplossingen/aanvragen-dossiers", "/oplossingen/communicatie-opvolging",
   "/oplossingen/data-inzicht", "/oplossingen/commerciele-voorbereiding",
-  "/werkwijze", "/prijzen", "/voorbeelden", "/over", "/adviesgesprek", "/privacy",
+  "/samenwerken", "/prijzen", "/voorbeelden", "/over", "/adviesgesprek", "/privacy",
   "/inzichten",
   "/inzichten/ai-in-nederlandse-technische-groothandel-2026",
   "/inzichten/ai-pricing-voor-groothandel",

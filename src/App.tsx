@@ -54,7 +54,7 @@ const App = () => (
             <Route path="/maatwerk-montage" element={<CategoryPage key="maatwerk-montage" id="maatwerk-montage" />} />
             <Route path="/oplossingen" element={<Oplossingen />} />
             <Route path="/oplossingen/:id" element={<ProcessPage />} />
-            <Route path="/werkwijze" element={<Werkwijze />} />
+            <Route path="/samenwerken" element={<Werkwijze />} />
             <Route path="/prijzen" element={<Prijzen />} />
             <Route path="/voorbeelden" element={<Voorbeelden />} />
             <Route path="/over" element={<Over />} />

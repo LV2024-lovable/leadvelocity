@@ -1,4 +1,4 @@
-import { werkwijze } from "@/content/pages";
+import { samenwerken } from "@/content/pages";
 import { ctaLabels } from "@/content/site";
 import { checkHref } from "@/lib/cta";
 import { SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink } from "@/components/site";
@@ -6,11 +6,11 @@ import { SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink } from "@/compon
 export default function Werkwijze() {
   return (
     <SiteLayout>
-      <Seo title={werkwijze.seoTitle} description={werkwijze.seoDescription} path="/werkwijze" />
+      <Seo title={samenwerken.seoTitle} description={samenwerken.seoDescription} path="/samenwerken" />
       <Section className="pt-14 md:pt-20">
-        <SectionHead as="h1" eyebrow="Werkwijze" title={werkwijze.h1} intro={werkwijze.intro} />
+        <SectionHead as="h1" eyebrow="Samenwerken" title={samenwerken.h1} intro={samenwerken.intro} />
         <ol className="mt-14 space-y-4">
-          {werkwijze.steps.map((s, i) => (
+          {samenwerken.steps.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.04}>
               <li className="grid gap-5 rounded-[24px] bg-lv-card p-7 md:grid-cols-[12rem_1fr_1fr_1fr]">
                 <div>
@@ -19,7 +19,7 @@ export default function Werkwijze() {
                 </div>
                 {(["output", "client", "decision"] as const).map((k) => (
                   <div key={k}>
-                    <p className="font-mono text-[10.5px] uppercase tracking-wider text-lv-muted">{werkwijze.stepLabels[k]}</p>
+                    <p className="font-mono text-[10.5px] uppercase tracking-wider text-lv-muted">{samenwerken.stepLabels[k]}</p>
                     <p className="mt-1.5 text-[15px] leading-relaxed text-lv-body">{s[k]}</p>
                   </div>
                 ))}

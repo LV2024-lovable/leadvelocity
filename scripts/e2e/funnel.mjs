@@ -16,7 +16,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH 
 
 const ROUTES = ["/", "/voor-wie", "/groothandels", "/importeurs-distributeurs", "/service-onderhoud", "/maatwerk-montage",
   "/oplossingen", "/oplossingen/aanvragen-dossiers", "/oplossingen/communicatie-opvolging", "/oplossingen/data-inzicht",
-  "/oplossingen/commerciele-voorbereiding", "/werkwijze", "/prijzen", "/voorbeelden", "/over", "/adviesgesprek",
+  "/oplossingen/commerciele-voorbereiding", "/samenwerken", "/prijzen", "/voorbeelden", "/over", "/adviesgesprek",
   "/privacy", "/campagnes/offerte-intake", "/campagnes/aftersales", "/campagnes/service-intake", "/campagnes/project-intake", "/inzichten"];
 
 for (const width of [360, 390, 1440]) {
@@ -104,7 +104,7 @@ await t("keuzeknoppen: klik en toetsenbord wisselen alles mee", async () => {
 
 await t("homepage: qualifier, voorbeelden, werkwijze en wat-we-bouwen aanwezig", async () => {
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
-  for (const h of ["Voor wie dit werkt (en voor wie niet)", "Zo ziet het eruit.", "Van eerste gesprek tot werkende oplossing.", "Wat we voor jouw bedrijf bouwen."]) {
+  for (const h of ["Voor wie dit werkt (en voor wie niet)", "Zo ziet het eruit.", "Van eerste gesprek tot werkende oplossing.", "Wat we voor jullie bouwen."]) {
     expect(await page.locator(`h2:has-text("${h}")`).count() === 1, `sectie ontbreekt: ${h}`);
   }
 });
@@ -144,7 +144,7 @@ await t("oplossingen per doelgroep: /groothandels en homepage-tabs", async () =>
 });
 
 await t("geen 'werkstroom' meer zichtbaar", async () => {
-  for (const r of ["/", "/prijzen", "/werkwijze", "/groothandels", "/voorbeelden"]) {
+  for (const r of ["/", "/prijzen", "/samenwerken", "/groothandels", "/voorbeelden"]) {
     await page.goto(BASE + r, { waitUntil: "networkidle" });
     const txt = await page.evaluate(() => document.body.innerText.toLowerCase());
     expect(!txt.includes("werkstroom"), `${r} toont nog 'werkstroom'`);
@@ -193,6 +193,12 @@ await t("succes (gestubd 200) en double-submit: één request, daarna /bedankt",
   await page.waitForURL("**/bedankt");
   expect(calls === 1, `${calls} requests verstuurd`);
   await page.unroute("**/functions/v1/werkstroomcheck");
+});
+
+await t("redirect /werkwijze → /samenwerken behoudt querystring", async () => {
+  await page.goto(BASE + "/werkwijze?source=oud", { waitUntil: "networkidle" });
+  const u = new URL(page.url());
+  expect(u.pathname === "/samenwerken" && u.searchParams.get("source") === "oud", `kwam uit op ${page.url()}`);
 });
 
 await t("toetsenbord: eerste Tab geeft zichtbare focus", async () => {

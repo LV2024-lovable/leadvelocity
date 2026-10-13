@@ -7,6 +7,7 @@ export const home = {
     h1Prefix: "Jouw AI-partner voor",
     audienceGeneric: "het MKB",
     sub: "Wij bouwen en beheren AI-oplossingen die het handwerk uit aanvragen, klantcontact en opvolging halen. Ingericht op jullie werkwijze, jullie team houdt de controle.",
+    factsLine: `Gratis adviesgesprek van 20 minuten · analyse ${formatEuro(analysis.price)}, verrekenbaar binnen ${analysis.creditDays} dagen`,
     forWho: "Voor technische groothandels, importeurs, servicebedrijven en maatwerkbedrijven met 10‑75 medewerkers.",
     ctaMicro: "20 minuten, vrijblijvend. Past het niet, dan zeggen we dat ook.",
     secondary: "Bekijk een voorbeeld",
@@ -48,7 +49,7 @@ export const home = {
       "Eén persoon die beslist en meedenkt",
     ],
   },
-  pricing: { eyebrow: "Prijzen", h2: "Pakketten en prijzen." },
+  pricing: { eyebrow: "Prijzen", h2: "Beginnen, beheren, uitbreiden." },
   trajectory: {
     h2: "Van gesprek tot werkende oplossing",
     steps: [
@@ -105,7 +106,7 @@ export const home = {
   ],
   build: {
     eyebrow: "Wat we bouwen",
-    h2: "Wat we voor jouw bedrijf bouwen.",
+    h2: "Wat we voor jullie bouwen.",
     notes: ["Werkt vanuit jullie mailbox", "Wat ontbreekt, staat op een rij", "Jullie medewerker beslist"],
   },
   timeline: {
@@ -128,10 +129,27 @@ export const home = {
   aboutLine: { text: "Lead Velocity is opgericht door Bart Wilbrink.", link: "Over ons" },
 };
 
+export const buildH2For = (audience?: string) => (audience ? `Wat we voor ${audience} bouwen.` : home.build.h2);
+export const categoryHero = (audience: string) => `AI-partner voor ${audience}`;
+
+export const partnership = {
+  h2: "We starten met één oplossing en bouwen samen verder.",
+  weLabel: "Wat wij doen",
+  youLabel: "Wat jullie doen",
+  phases: [
+    { title: "Adviesgesprek", we: "In 20 minuten kijken we welk werk steeds terugkomt en of een analyse zinvol is.", you: "Vertellen welk werk bij jullie steeds terugkomt." },
+    { title: "Analyse en inrichting", we: `Analyse (${formatEuro(analysis.price)}) met proceskaart, nulmeting en een vaste scope met prijs. Daarna richten we de oplossing in op jullie bronnen en testen we op de afgesproken criteria.`, you: "Voorbeelden en toegang aanleveren, twee gerichte werksessies, testen en accepteren." },
+    { title: "Beheer", we: "Monitoring, incidentafhandeling, bronupdates, rapportage en kleine wijzigingen.", you: "Wijzigingen in proces of bronnen melden. De maandkosten starten pas na acceptatie." },
+    { title: "Uitbreiden", we: "Een bewezen oplossing uitbreiden of de volgende oplossing erbij bouwen.", you: "Kiezen welk aangrenzend werk als volgende aan de beurt is." },
+  ],
+  assurancesTitle: "Waar je op kunt rekenen",
+  assurances: home.assurances.points,
+};
+
 export const voorWie = {
   seoTitle: "Voor wie | Lead Velocity",
   seoDescription: "Vier herkenbare ingangen: technische groothandels, importeurs en distributeurs, service en onderhoud, maatwerk en montage.",
-  h1: "Voor bedrijven waar informatie- en communicatiewerk steeds terugkomt.",
+  h1: "Jouw AI-partner, ingericht op jouw branche.",
   intro: "We bouwen oplossingen voor vier soorten bedrijven. Wat ze gemeen hebben: aanvragen en vragen komen digitaal binnen, er is genoeg herhaling, en er is een team dat het werk uitvoert.",
   fitTitle: "Goede fit",
   fit: ["Informatie komt binnen via e-mail, pdf, Excel of formulieren", "Terugkerende informatievereisten", "Bestaande bronnen om uit te putten", "Een duidelijke eigenaar van het proces", "Genoeg behandeltijd en bereidheid om gecontroleerd te testen"],
@@ -141,9 +159,9 @@ export const voorWie = {
 };
 
 export const oplossingenIndex = {
-  seoTitle: "Oplossingen | Lead Velocity",
+  seoTitle: "Per proces | Lead Velocity",
   seoDescription: "Bouwblokken die informatie verzamelen, werk voorbereiden en opvolging zichtbaar maken. We beginnen bij één proces.",
-  h1: "Automatisering voor het werk dat steeds terugkomt.",
+  h1: "Per proces bekeken: wat we bouwen en waar het stopt.",
   intro: "We beginnen bij één proces. Deze bouwblokken helpen informatie te verzamelen, werk voor te bereiden en opvolging zichtbaar te maken.",
   baseTitle: "Eén basis, meerdere toepassingen",
   baseSteps: ["Input ontvangen", "Identiteit herkennen", "Informatie structureren", "Compleetheid beoordelen", "Bronnen ophalen", "Actie voorbereiden", "Medewerkerreview", "Status registreren", "Opvolgen", "Afsluiten en meten"],
@@ -152,7 +170,7 @@ export const oplossingenIndex = {
 export const prijzenPage = {
   seoTitle: "Prijzen | Lead Velocity",
   seoDescription: "Drie pakketten plus maatwerk, met een eenmalige inrichting en een maandelijks bedrag voor beheer. Prijzen vanaf, exclusief btw.",
-  h1: "Een afgebakende start. Duidelijke kosten voor inrichting en beheer.",
+  h1: "Duidelijke kosten voor starten, beheren en uitbreiden.",
   intro: "Je betaalt eenmalig voor het inrichten van een oplossing en daarna maandelijks voor het beheer ervan. De maandkosten starten pas na acceptatie.",
   setupLabel: "Inrichting vanaf",
   monthlyLabel: "Beheer per maand vanaf",
@@ -171,10 +189,10 @@ export const prijzenPage = {
   faqIds: ["kosten", "maandelijks", "uitbreiden", "loont", "oplevert"] as const,
 };
 
-export const werkwijze = {
-  seoTitle: "Werkwijze | Lead Velocity",
-  seoDescription: "Van gratis adviesgesprek tot beheer in zes stappen: adviesgesprek, analyse, voorstel, inrichting, acceptatie en beheer.",
-  h1: "Van terugkerend werk naar een werkende oplossing.",
+export const samenwerken = {
+  seoTitle: "Samenwerken | Lead Velocity",
+  seoDescription: "Van gratis adviesgesprek via analyse en inrichting naar beheer en uitbreiden: zo werken we samen.",
+  h1: "Wij bouwen het, wij beheren het, samen breiden we uit.",
   intro: "Een gebruikelijke start heeft één proceseigenaar en twee gerichte werksessies. Dat is een uitgangspunt, geen absoluut maximum voor elk project.",
   steps: [
     { title: "Adviesgesprek", output: "Een eerste beeld of er een haalbare eerste stap is.", client: "Een gesprek van 20 minuten over het werk dat terugkomt.", decision: "Is een analyse zinvol?" },
@@ -185,6 +203,11 @@ export const werkwijze = {
     { title: "Beheer", output: "Monitoring, incidentafhandeling, bronupdates, rapportage en kleine wijzigingen.", client: "Melden van wijzigingen in proces of bronnen.", decision: "Uitbreiden naar aangrenzend werk?" },
   ],
   stepLabels: { output: "Wat wij opleveren", client: "Wat we van jullie nodig hebben", decision: "Beslismoment" },
+  phaseSteps: [[0], [1, 2, 3, 4], [5], []] as number[][],
+  expandTitle: "Uitbreiden",
+  expandBody: "Werkt de eerste oplossing, dan breiden we die uit of bouwen we de volgende erbij. Dat is het pakket Opschalen.",
+  needTitle: home.fits.needTitle,
+  need: home.fits.need,
 };
 
 export const over = {
