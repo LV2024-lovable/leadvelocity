@@ -56,6 +56,7 @@ export const footerNav = [
       { label: "Importeurs en distributeurs", href: "/importeurs-distributeurs" },
       { label: "Service en onderhoud", href: "/service-onderhoud" },
       { label: "Maatwerk en montage", href: "/maatwerk-montage" },
+      { label: navAllAudiences, href: "/voor-wie" },
     ],
   },
   {

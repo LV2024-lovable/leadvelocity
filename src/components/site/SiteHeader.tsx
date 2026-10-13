@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { mainNav, brand, ctaLabels, navAllAudiences, navAbout } from "@/content/site";
 import { categories } from "@/content/categories";
@@ -23,6 +23,8 @@ function AudienceDropdown() {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLLIElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const { pathname } = useLocation();
+  const isActive = pathname === audienceNav.href || categories.some((c) => pathname === `/${c.id}`);
 
   useEffect(() => {
     if (!open) return;
@@ -46,14 +48,20 @@ function AudienceDropdown() {
   const close = () => setOpen(false);
 
   return (
-    <li ref={wrapRef} className="relative">
+    <li
+      ref={wrapRef}
+      className="relative"
+      onBlur={(e) => {
+        if (!wrapRef.current?.contains(e.relatedTarget as Node | null)) setOpen(false);
+      }}
+    >
       <button
         ref={buttonRef}
         type="button"
         aria-expanded={open}
         aria-controls="nav-voor-wie"
         onClick={() => setOpen((o) => !o)}
-        className={cn("inline-flex items-center gap-1 hover:text-lv-ink", open && "text-lv-ink")}
+        className={cn("inline-flex items-center gap-1 hover:text-lv-ink", (open || isActive) && "text-lv-ink")}
       >
         {audienceNav.label}
         <ChevronDown aria-hidden className={cn("h-4 w-4 transition-transform", open && "rotate-180")} />
@@ -107,6 +115,7 @@ export function SiteHeader() {
             {categories.map((c) => (
               <li key={c.id}><Link to={`/${c.id}`} className="block py-2.5" onClick={closeMobile}>{c.name}</Link></li>
             ))}
+            <li><Link to={audienceNav.href} className="block py-2.5 text-lv-body" onClick={closeMobile}>{navAllAudiences}</Link></li>
           </ul>
           <ul className="flex flex-col border-t border-lv-line py-2 text-[16px]">
             {[...otherNav, navAbout].map((l) => (
