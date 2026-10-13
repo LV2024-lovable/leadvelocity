@@ -1,10 +1,10 @@
-import { Check, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Check, X } from "lucide-react";
 import { ctaLabels } from "@/content/site";
 import { voorWie } from "@/content/pages";
 import { categories, GENERIC_NOT_FIT } from "@/content/categories";
-import { processes } from "@/content/processes";
 import { checkHref } from "@/lib/cta";
-import { SiteLayout, Seo, Section, SectionHead, Reveal, CategoryCard, ProcessCard, CtaLink, Eyebrow } from "@/components/site";
+import { SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink, Eyebrow } from "@/components/site";
 
 export default function VoorWie() {
   return (
@@ -12,8 +12,21 @@ export default function VoorWie() {
       <Seo title={voorWie.seoTitle} description={voorWie.seoDescription} path="/voor-wie" />
       <Section className="pt-14 md:pt-20">
         <SectionHead as="h1" eyebrow="Voor wie" title={voorWie.h1} intro={voorWie.intro} />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((c, i) => <Reveal key={c.id} delay={i * 0.05}><CategoryCard category={c} /></Reveal>)}
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
+          {categories.map((c, i) => (
+            <Reveal key={c.id} delay={i * 0.05} className="h-full">
+              <article data-audience-card className="flex h-full flex-col rounded-[24px] bg-lv-card p-8">
+                <h2 className="font-display text-[24px] font-normal leading-tight tracking-[-0.015em]">{c.name}</h2>
+                <p className="mt-3 text-[15.5px] leading-relaxed text-lv-body">{c.sub}</p>
+                <ul className="mt-6 space-y-2.5 text-[15px]">
+                  {c.solutions.map((s) => <li key={s.title} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{s.title}</li>)}
+                </ul>
+                <Link to={`/${c.id}`} className="group mt-auto inline-flex items-center gap-1.5 pt-7 text-[14px] font-medium underline-offset-4 hover:underline">
+                  {voorWie.audienceLink} <ArrowRight aria-hidden className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </Section>
       <Section tone="raised">
@@ -26,12 +39,6 @@ export default function VoorWie() {
             <Eyebrow>{voorWie.notFitTitle}</Eyebrow>
             <ul className="space-y-3 text-[15.5px] text-lv-body">{GENERIC_NOT_FIT.map((x) => <li key={x} className="flex gap-3"><X aria-hidden className="mt-1 h-4 w-4 shrink-0" />{x}</li>)}</ul>
           </div>
-        </div>
-      </Section>
-      <Section>
-        <SectionHead eyebrow="Oplossingen" title="Procesingangen" />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {processes.map((p) => <ProcessCard key={p.id} process={p} />)}
         </div>
       </Section>
       <Section tone="raised">

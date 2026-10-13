@@ -39,14 +39,6 @@ export const home = {
     ],
   },
   pricing: { h2: "Beginnen, beheren, uitbreiden.", link: "Vergelijk de pakketten" },
-  trajectory: {
-    h2: "Van gesprek tot werkende oplossing",
-    steps: [
-      { title: "Gratis adviesgesprek", body: "20 minuten. We kijken welk werk steeds terugkomt en of automatiseren loont." },
-      { title: "Analyse", body: `${formatEuro(analysis.price)}: proceskaart, nulmeting en een vaste scope met prijs. Verrekend bij een implementatie binnen ${analysis.creditDays} dagen.` },
-      { title: "Vast pakket", body: "We richten het in, jullie testen en accepteren. Daarna beheren we het." },
-    ],
-  },
   qualifier: {
     h2: "Voor wie dit werkt (en voor wie niet)",
     fitTitle: "Past goed",
@@ -102,6 +94,8 @@ export const home = {
 
 export const buildH2For = (audience?: string) => (audience ? `Wat we voor ${audience} bouwen.` : home.build.h2);
 export const categoryHero = (audience: string) => `AI-partner voor ${audience}`;
+export const categoryPricingTitle = "Een passende start, met ruimte om uit te breiden.";
+export const categoryFaqTitle = "Wat je waarschijnlijk wilt weten.";
 
 export const partnership = {
   h2: "We starten met één oplossing en bouwen samen verder.",
@@ -127,6 +121,7 @@ export const voorWie = {
   notFitTitle: "Geen standaardfit",
   otherTitle: "Ander bedrijfstype?",
   otherBody: "Ook buiten deze categorieën kan dezelfde oplossing passen. We bekijken eerst de herhaling, gegevens en uitvoerbaarheid.",
+  audienceLink: "Bekijk wat we voor je bouwen",
 };
 
 export const oplossingenIndex = {

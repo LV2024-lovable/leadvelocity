@@ -41,6 +41,8 @@ export const mainNav = [
   { label: "Voorbeelden", href: "/voorbeelden" },
   { label: "Prijzen", href: "/prijzen" },
 ];
+/** Linktekst op een oplossingskaart van een doelgroeppagina, naar de procespagina. */
+export const solutionProcessLink = "Hoe dit proces werkt";
 /** Laatste link in de dropdown "Voor wie" (naar /voor-wie). */
 export const navAllAudiences = "Alle doelgroepen";
 /** Extra link in het mobiele menu. */

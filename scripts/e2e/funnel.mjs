@@ -157,8 +157,8 @@ await t("geen 'werkstroomcheck' meer zichtbaar op hoofdpagina's", async () => {
 
 await t("oplossingen per doelgroep: /groothandels en homepage-tabs", async () => {
   await page.goto(BASE + "/groothandels", { waitUntil: "networkidle" });
-  const sec = page.locator("section", { has: page.locator('h2:has-text("Wat we voor jullie bouwen")') });
-  expect(await sec.count() === 1, "sectie 'Wat we voor jullie bouwen' ontbreekt");
+  const sec = page.locator("section", { has: page.locator('h2:has-text("Wat we voor technische groothandels bouwen.")') });
+  expect(await sec.count() === 1, "sectie 'Wat we voor technische groothandels bouwen.' ontbreekt");
   expect(await sec.locator("[data-solution-card]").count() === 4, `verwacht 4 kaarten, kreeg ${await sec.locator("[data-solution-card]").count()}`);
   expect(await sec.locator("a[href^='/oplossingen/']").count() === 4, "kaarten linken niet naar /oplossingen/…");
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
@@ -277,6 +277,35 @@ await t("/samenwerken: H1, 4 fasen, alle 6 stappen, uitbreiden", async () => {
     expect(await page.locator(`[data-step]:has-text("${s}")`).count() >= 1, `stap ${s} ontbreekt`);
   }
   expect(await page.locator('h2:has-text("Uitbreiden")').count() >= 1, "blok Uitbreiden ontbreekt");
+});
+
+for (const cat of ["groothandels", "importeurs-distributeurs", "service-onderhoud", "maatwerk-montage"]) {
+  await t(`/${cat}: 6 verhaalstappen in vaste volgorde, PartnerTrack, AI-partner-label`, async () => {
+    await page.goto(BASE + "/" + cat, { waitUntil: "networkidle" });
+    const order = await page.$$eval("[data-story]", (els) => els.map((e) => e.getAttribute("data-story")));
+    expect(order.join(",") === STORY.join(","), `volgorde: ${order.join(",")}`);
+    expect(await page.locator("[data-partner-track]").count() === 1, "PartnerTrack ontbreekt");
+    expect((await page.locator("section").first().innerText()).includes("AI-partner voor"), "label 'AI-partner voor …' ontbreekt boven H1");
+    for (const h of ["Zo loopt het proces", "Je team houdt het oordeel."]) {
+      expect(await page.locator(`h2:has-text("${h}")`).count() === 0, `oude sectie nog aanwezig: ${h}`);
+    }
+    expect(await page.locator("[data-solution-card] a:has-text('Hoe dit proces werkt')").count() === 4, "kaartlinks 'Hoe dit proces werkt' ontbreken");
+  });
+}
+
+await t("/voor-wie: kaart per doelgroep met 4 oplossingen, geen procesingangen", async () => {
+  await page.goto(BASE + "/voor-wie", { waitUntil: "networkidle" });
+  expect((await page.locator("h1").textContent()).includes("Jouw AI-partner, ingericht op jouw branche"), "H1 onjuist");
+  expect(await page.locator("[data-audience-card]").count() === 4, "verwacht 4 doelgroepkaarten");
+  expect(await page.locator("[data-audience-card] li").count() === 16, "verwacht 4×4 oplossingstitels");
+  expect(await page.locator('h2:has-text("Procesingangen")').count() === 0, "Procesingangen nog aanwezig");
+});
+
+await t("/voorbeelden: elke demo linkt naar zijn doelgroep", async () => {
+  await page.goto(BASE + "/voorbeelden", { waitUntil: "networkidle" });
+  for (const c of ["groothandels", "importeurs-distributeurs", "service-onderhoud", "maatwerk-montage"]) {
+    expect(await page.locator(`a[href='/${c}']`).count() >= 1, `geen link naar /${c}`);
+  }
 });
 
 await browser.close();

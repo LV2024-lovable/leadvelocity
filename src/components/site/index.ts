@@ -10,7 +10,6 @@ export * from "./Pill";
 export * from "./Reveal";
 export * from "./Faq";
 export * from "./HumanControl";
-export * from "./Steps";
 export * from "./PricingCards";
 export * from "./ScopeTable";
 export * from "./CategoryCard";

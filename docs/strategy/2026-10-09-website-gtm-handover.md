@@ -12,6 +12,9 @@
 > - De pakketnamen zijn **Start · Compleet · Opschalen · Maatwerk** (voorheen Voorbereiden · Werkstroom · Opschalen · Custom). Prijzen, inhoud en interne pakket-id's blijven ongewijzigd.
 > - Per doelgroep tonen we 3–4 oplossingen (homepage "Wat we bouwen" en categoriepagina "Wat we voor jullie bouwen"), binnen de bestaande procesfamilies en prijzen. Grenzen uit §6 en §10 blijven gelden.
 > - Het woord "werkstroom" komt niet meer voor in zichtbare copy; we zeggen "oplossing" of "proces".
+>
+> **Afwijking vastgesteld door Bart (2026-10-13):**
+> - Rode draad: elke hoofdpagina volgt Herkenbaar → Wat we bouwen → Voorbeelden → Samenwerken → Prijzen → Vragen, met vaste labels. Header: Voor wie ▾ · Samenwerken · Voorbeelden · Prijzen; `/werkwijze` wordt `/samenwerken` (de oude URL verwijst door). "Oplossing" = wat we voor een doelgroep bouwen; procesfamilies heten "Per proces" en staan alleen in de footer. Geen "automatisering" in koppen of SEO-titels.
 
 ## Lees dit eerst, Claude
 

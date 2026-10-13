@@ -3,11 +3,12 @@ import { ArrowRight, Check, X } from "lucide-react";
 import type { CategoryId } from "@/content/types";
 import { categoryById, GENERIC_NOT_FIT } from "@/content/categories";
 import { demoById } from "@/content/demos";
-import { home } from "@/content/pages";
+import { home, buildH2For, categoryHero, categoryPricingTitle, categoryFaqTitle } from "@/content/pages";
+import { solutionProcessLink } from "@/content/site";
 import { checkHref, demoHref } from "@/lib/cta";
 import {
-  SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink, DemoStepper, HumanControl, Steps, PricingCards, Faq, Eyebrow,
-  ExposureArt, CATEGORY_TONE, Pill,
+  SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink, DemoStepper, PricingCards, Faq, Eyebrow,
+  ExposureArt, CATEGORY_TONE, Pill, PartnerTrack,
 } from "@/components/site";
 
 export default function CategoryPage({ id }: { id: CategoryId }) {
@@ -20,7 +21,7 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
       <Seo title={c.seoTitle} description={c.seoDescription} path={`/${c.id}`} />
 
       <Section className="pt-14 md:pt-20">
-        <Eyebrow>{c.name}</Eyebrow>
+        <Pill className="mb-5">{categoryHero(c.audience)}</Pill>
         <SectionHead as="h1" title={c.h1} intro={c.sub} />
         <Reveal delay={0.1} className="mt-8 flex flex-wrap gap-3">
           <CtaLink to={checkHref({ ...checkCtx, source: `category-${c.id}` })} ctaId={`category-${c.id}-check`} trackParams={{ category: c.id, process: c.processKey }}>{c.primaryCta}</CtaLink>
@@ -34,8 +35,8 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
         </ExposureArt>
       </Section>
 
-      <Section>
-        <SectionHead title="Herken je dit?" />
+      <Section story="herkenbaar">
+        <SectionHead story="herkenbaar" title={home.recognize.h2} />
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
           {c.situations.map((s, i) => (
             <li key={s} className="h-full"><Reveal delay={i * 0.05} className="h-full"><div className="h-full rounded-[24px] bg-lv-card p-7 text-[16.5px] leading-relaxed">{s}</div></Reveal></li>
@@ -43,8 +44,8 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
         </ul>
       </Section>
 
-      <Section tone="raised">
-        <SectionHead title="Wat we voor jullie bouwen" />
+      <Section story="bouwen" tone="raised">
+        <SectionHead story="bouwen" title={buildH2For(c.audience)} />
         <ul className="mt-10 grid gap-3 md:grid-cols-2">
           {c.solutions.map((s) => (
             <li key={s.title} data-solution-card className="flex h-full flex-col rounded-[24px] bg-lv-card p-7">
@@ -52,38 +53,38 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
               <p className="mt-3 text-[15.5px] leading-relaxed text-lv-body">{s.line}</p>
               <p className="mt-4 text-[13.5px] text-lv-muted">Jullie team beslist: {s.decides.charAt(0).toLowerCase() + s.decides.slice(1)}</p>
               <Link to={`/oplossingen/${s.processId}`} className="group mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-medium underline-offset-4 hover:underline">
-                Bekijk de oplossing <ArrowRight aria-hidden className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                {solutionProcessLink} <ArrowRight aria-hidden className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </li>
           ))}
         </ul>
       </Section>
 
-      <Section>
-        <SectionHead title="Zo loopt het proces" intro="Een voorbeeld met fictieve gegevens." />
-        <ol className="mt-10 flex flex-wrap items-center gap-2 text-[14.5px]">
-          {c.exampleFlow.map((s, i) => (
-            <li key={s} className="flex items-center gap-2">
-              <span className="rounded-[10px] bg-lv-card px-3.5 py-2"><span className="mr-2 font-mono text-[11px] text-lv-faint">{i + 1}</span>{s}</span>
-              {i < c.exampleFlow.length - 1 && <span aria-hidden className="text-lv-faint">→</span>}
-            </li>
-          ))}
-        </ol>
-      </Section>
-
-      <Section tone="raised">
-        <HumanControl title="Je team houdt het oordeel." body={c.teamDecides} prepared={c.tasks.slice(0, 3)} decides={`Niet door het systeem: ${c.limits.join(". ")}.`} />
-      </Section>
-
-      <Section id="demo">
+      <Section story="voorbeelden" id="demo">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHead eyebrow="Voorbeeld" title={demo.title} intro={demo.prepared.summary} />
+          <div>
+            <SectionHead story="voorbeelden" title={demo.title} intro={demo.prepared.summary} />
+            <ol className="mt-8 flex flex-wrap items-center gap-2 text-[14px]">
+              {c.exampleFlow.map((s, i) => (
+                <li key={s} className="flex items-center gap-2">
+                  <span className="rounded-[10px] bg-lv-card px-3 py-1.5"><span className="mr-2 font-mono text-[11px] text-lv-faint">{i + 1}</span>{s}</span>
+                  {i < c.exampleFlow.length - 1 && <span aria-hidden className="text-lv-faint">→</span>}
+                </li>
+              ))}
+            </ol>
+          </div>
           <DemoStepper demo={demo} source={`category-${c.id}`} />
         </div>
       </Section>
 
-      <Section tone="raised">
-        <div className="grid gap-4 md:grid-cols-2">
+      <Section story="samenwerken">
+        <PartnerTrack source={`category-${c.id}`} align="left" showCta={false} />
+      </Section>
+
+      <Section story="prijzen" tone="raised">
+        <SectionHead story="prijzen" title={categoryPricingTitle} />
+        <div className="mt-12"><PricingCards source={`category-${c.id}`} /></div>
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
           <div className="rounded-[24px] bg-lv-card p-8">
             <Eyebrow>Passend</Eyebrow>
             <ul className="space-y-3 text-[15.5px]">{c.fit.map((x) => <li key={x} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{x}</li>)}</ul>
@@ -97,19 +98,9 @@ export default function CategoryPage({ id }: { id: CategoryId }) {
         </div>
       </Section>
 
-      <Section>
-        <SectionHead eyebrow="Werkwijze" title={home.trajectory.h2} />
-        <div className="mt-12"><Steps steps={home.trajectory.steps} /></div>
-      </Section>
-
-      <Section tone="raised">
-        <SectionHead eyebrow="Prijzen" title="Een passende start, met ruimte om uit te breiden." />
-        <div className="mt-12"><PricingCards source={`category-${c.id}`} /></div>
-      </Section>
-
-      <Section>
+      <Section story="vragen">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHead eyebrow="Veelgestelde vragen" title="Wat je waarschijnlijk wilt weten." />
+          <SectionHead story="vragen" title={categoryFaqTitle} />
           <Faq ids={c.faqIds} />
         </div>
         <div className="mt-16 rounded-[28px] bg-lv-ink p-10 text-center text-white">

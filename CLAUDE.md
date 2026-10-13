@@ -1,6 +1,6 @@
 # Lead Velocity — Project Context voor Claude
 
-**Laatst bijgewerkt:** 2026-10-12
+**Laatst bijgewerkt:** 2026-10-13
 
 Dit document bevat alle context die Claude nodig heeft om zinvol mee te werken aan Lead Velocity. Lees het in z'n geheel voordat je begint met taken — positionering, product, tone-of-voice en do-not's staan hier allemaal.
 
@@ -124,7 +124,7 @@ Vraag jezelf voor elk blok af:
 
 ### Routes (fase 1)
 
-`/` · `/voor-wie` · `/groothandels` · `/importeurs-distributeurs` · `/service-onderhoud` · `/maatwerk-montage` · `/oplossingen` (+ 4 detailpagina's) · `/werkwijze` · `/prijzen` · `/voorbeelden` · `/over` · `/adviesgesprek` · `/bedankt` (noindex) · `/privacy` · `/campagnes/*` (4, noindex) · `/inzichten` (footer-only). Oude routes: `src/content/redirects.ts`.
+`/` · `/voor-wie` · `/groothandels` · `/importeurs-distributeurs` · `/service-onderhoud` · `/maatwerk-montage` · `/oplossingen` (+ 4 detailpagina's) · `/samenwerken` (`/werkwijze` verwijst door) · `/prijzen` · `/voorbeelden` · `/over` · `/adviesgesprek` · `/bedankt` (noindex) · `/privacy` · `/campagnes/*` (4, noindex) · `/inzichten` (footer-only). Oude routes: `src/content/redirects.ts`.
 
 ### Structuur
 
@@ -188,6 +188,7 @@ Gebruik deze voor nieuwe copy, use-cases, blog-content. Elke sector heeft TL;DR 
 - **Geen verzonnen bewijs:** demo's zijn gelabeld "Illustratieve demo"; cases en logo's alleen met goedgekeurde gegevens.
 - **Huisstijl (2026-10-12, Orrin-look):** Newsreader-serif voor koppen (400/500), Hanken Grotesk voor tekst, gebroken wit `lv-paper`, kaarten `lv-card`, zwarte knoppen `rounded-[10px]`, long-exposure-beeldvlakken via `ExposureArt` (tinten per categorie via `CATEGORY_TONE`), lime alleen als klein accent.
 - Geen nep-bewijs (logo's, sterren, cijfers, cases) — de spec van 2026-10-12.
+- **Rode draad (besluit Bart 2026-10-13):** elke hoofdpagina volgt Herkenbaar → Wat we bouwen → Voorbeelden → Samenwerken → Prijzen → Vragen, met vaste labels (`storyLabels`). Header: Voor wie ▾ · Samenwerken · Voorbeelden · Prijzen. "Oplossing" = wat we voor een doelgroep bouwen; procesfamilies heten "Per proces" en staan alleen in de footer. Geen "automatisering" in koppen of SEO-titels.
 - **Path C** — hybride 12-maanden lean, beslisdatum juni 2027.
 
 ---
