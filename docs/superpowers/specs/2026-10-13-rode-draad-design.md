@@ -76,7 +76,7 @@ Eén nieuw component, gevoed door één contentbron (`partnership` in `src/conte
 | 6 | Prijzen | **Beginnen, beheren, uitbreiden.** | `PricingCards` ongewijzigd. Daaronder de qualifier "Voor wie dit werkt (en voor wie niet)", compact in twee kolommen, plus de twijfelregel. |
 | 7 | Vragen | **Vragen, beantwoord.** + slot | FAQ en de donkere slot-CTA, ongewijzigd. De over-regel boven de footer blijft. |
 
-De `aiNote` uit `howItWorks` ("Hoe? Met taalmodellen …") verhuist naar de FAQ als die er nog niet in staat. Staat hij er al, dan vervalt hij.
+De `aiNote` uit `howItWorks` vervalt: de FAQ-vraag `ai` staat al op de homepage en beantwoordt hetzelfde.
 
 ## 6. Doelgroeppagina's (`CategoryPage`)
 
