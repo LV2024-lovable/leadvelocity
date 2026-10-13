@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowRight, Check, X, ShieldCheck } from "lucide-react";
-import { home } from "@/content/pages";
+import { ArrowRight, Check, X } from "lucide-react";
+import { home, buildH2For } from "@/content/pages";
 import { categories, categoryById } from "@/content/categories";
 import { demoById, demos } from "@/content/demos";
 import { ctaLabels } from "@/content/site";
@@ -9,7 +9,7 @@ import type { CategoryId } from "@/content/types";
 import { checkHref, demoHref, parseCheckContext } from "@/lib/cta";
 import {
   SiteLayout, Seo, Section, SectionHead, Reveal, CtaLink, DemoStepper, PricingCards, Faq, Eyebrow, SegmentPicker,
-  ExposureArt, CATEGORY_TONE, Pill, FactTiles, NumberedTabs, TimelineTabs, MediaCard,
+  ExposureArt, CATEGORY_TONE, Pill, NumberedTabs, MediaCard, PartnerTrack,
 } from "@/components/site";
 
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
             <CtaLink to={ctx("home-hero")} ctaId="home-hero-check" trackParams={{ category: c?.id }}>{ctaLabels.primary}</CtaLink>
             <CtaLink to={demoHref(c?.demoId, "home-hero")} ctaId="home-hero-demo" variant="secondary">{home.hero.secondary}</CtaLink>
           </div>
-          <p className="mt-4 text-[13px] text-lv-muted">{home.hero.ctaMicro}</p>
+          <p className="mt-4 text-[13px] text-lv-muted">{home.hero.factsLine}</p>
           <div className="mt-10">
             <SegmentPicker value={segment} onChange={setSegment} label={home.hero.pickerLabel} align="center" />
             {c && (
@@ -51,23 +51,18 @@ export default function Home() {
 
         <ExposureArt tone="dusk" className="mx-auto mt-12 max-w-6xl md:mt-14">
           <div className="flex flex-col gap-6 p-3 sm:p-6 md:p-8">
-            <div className="flex justify-start"><Pill tone="dark" dot>Zo werkt het, stap voor stap</Pill></div>
+            <div className="flex justify-start"><Pill tone="dark" dot>{home.hero.artTop}</Pill></div>
             <div className="mx-auto w-full max-w-xl md:py-6">
               <DemoStepper key={demo.id} demo={demo} source="home-hero" compact />
             </div>
-            <div className="flex justify-end"><Pill tone="dark">Jullie team beslist</Pill></div>
+            <div className="flex justify-end"><Pill tone="dark">{home.hero.artBottom}</Pill></div>
           </div>
         </ExposureArt>
       </section>
 
-      {/* 2 — Feittegels */}
-      <Section className="pb-10 pt-16 md:pb-12 md:pt-20">
-        <FactTiles items={home.facts} />
-      </Section>
-
-      {/* 3 — Herken je dit? */}
-      <Section className="pb-20 pt-10 md:pb-24 md:pt-12">
-        <SectionHead align="center" title={home.recognize.h2} />
+      {/* 2 — Herkenbaar */}
+      <Section story="herkenbaar" className="pb-20 pt-16 md:pb-24 md:pt-20">
+        <SectionHead story="herkenbaar" align="center" title={home.recognize.h2} />
         <ul className="mt-12 grid gap-3 md:grid-cols-3">
           {situations.map((s, i) => (
             <li key={s} className="h-full">
@@ -80,27 +75,20 @@ export default function Home() {
         <p className="mx-auto mt-8 max-w-2xl text-center text-[15.5px] leading-relaxed text-lv-body">{home.recognize.costLine}</p>
       </Section>
 
-      {/* 4 — Wat we bouwen */}
-      <Section className="py-20 md:py-24">
-        <SectionHead align="center" eyebrow={home.build.eyebrow} title={home.build.h2} />
+      {/* 3 — Wat we bouwen */}
+      <Section story="bouwen" className="py-20 md:py-24">
+        <SectionHead story="bouwen" align="center" title={buildH2For(c?.audience)} />
         <div className="mt-12">
           <NumberedTabs value={segment} onChange={setSegment} notes={home.build.notes} />
         </div>
+        <ul className="mx-auto mt-10 grid max-w-4xl gap-3 text-[15px] text-lv-body sm:grid-cols-3">
+          {home.fits.points.map((p) => <li key={p} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{p}</li>)}
+        </ul>
       </Section>
 
-      {/* 5 — Werkwijze */}
-      <Section className="py-20 md:py-24">
-        <SectionHead align="center" eyebrow={home.timeline.eyebrow} title={home.timeline.h2} />
-        <div className="mt-12"><TimelineTabs steps={home.timeline.steps} note={home.timeline.note} /></div>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
-          <CtaLink to={ctx("home-how")} ctaId="home-how-check">{ctaLabels.primary}</CtaLink>
-        </div>
-        <p className="mx-auto mt-10 max-w-3xl rounded-[18px] bg-lv-card p-5 text-center text-[14.5px] leading-relaxed text-lv-body">{home.howItWorks.aiNote}</p>
-      </Section>
-
-      {/* 6 — Zo ziet het eruit */}
-      <Section className="py-20 md:py-24">
-        <SectionHead align="center" eyebrow={home.showcase.eyebrow} title={home.showcase.h2} intro={home.showcase.intro} />
+      {/* 4 — Voorbeelden */}
+      <Section story="voorbeelden" className="py-20 md:py-24">
+        <SectionHead story="voorbeelden" align="center" title={home.showcase.h2} intro={home.showcase.intro} />
         <ul className="mt-12 grid gap-3 md:grid-cols-2">
           {demos.map((d, i) => (
             <li key={d.id} className="h-full">
@@ -118,41 +106,25 @@ export default function Home() {
           ))}
         </ul>
         <div className="mt-10 flex justify-center">
-          <CtaLink to="/voorbeelden" ctaId="home-examples" variant="secondary" arrow>{home.howItWorks.examplesLink}</CtaLink>
+          <CtaLink to="/voorbeelden" ctaId="home-examples" variant="secondary" arrow>{home.showcase.allLink}</CtaLink>
         </div>
       </Section>
 
-      {/* 7 — Past in wat je al hebt */}
-      <Section className="py-20 md:py-24">
-        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <SectionHead title={home.fits.h2} intro={home.fits.intro} />
-            <ul className="mt-8 space-y-3 text-[16px]">
-              {home.fits.points.map((p) => <li key={p} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{p}</li>)}
-            </ul>
-          </div>
-          <Reveal>
-            <div className="rounded-[24px] bg-lv-card p-8">
-              <p className="font-display text-[22px] font-medium leading-tight">{home.fits.needTitle}</p>
-              <ul className="mt-5 space-y-3 text-[15.5px]">{home.fits.need.map((n) => <li key={n} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{n}</li>)}</ul>
-            </div>
-          </Reveal>
-        </div>
+      {/* 5 — Samenwerken */}
+      <Section story="samenwerken" className="py-20 md:py-24">
+        <PartnerTrack source="home-partner" />
       </Section>
 
-      {/* 8 — Prijzen */}
-      <Section id="pakketten" className="py-20 md:py-24">
-        <SectionHead align="center" eyebrow={home.pricing.eyebrow} title={home.pricing.h2} />
+      {/* 6 — Prijzen, met voor wie dit werkt */}
+      <Section story="prijzen" id="pakketten" className="py-20 md:py-24">
+        <SectionHead story="prijzen" align="center" title={home.pricing.h2} />
         <div className="mt-12"><PricingCards source="home-packages" /></div>
         <div className="mt-8 flex justify-center">
-          <Link to="/prijzen" className="inline-flex items-center gap-1.5 text-[15px] font-medium underline-offset-4 hover:underline">{home.trajectory.link}<ArrowRight aria-hidden className="h-4 w-4" /></Link>
+          <Link to="/prijzen" className="inline-flex items-center gap-1.5 text-[15px] font-medium underline-offset-4 hover:underline">{home.pricing.link}<ArrowRight aria-hidden className="h-4 w-4" /></Link>
         </div>
-      </Section>
 
-      {/* 9 — Voor wie dit werkt (en voor wie niet) */}
-      <Section className="py-20 md:py-24">
-        <SectionHead align="center" title={home.qualifier.h2} />
-        <div className="mt-12 grid gap-3 md:grid-cols-2">
+        <h3 className="mt-20 text-balance text-center font-display text-[26px] font-normal leading-tight tracking-[-0.015em]">{home.qualifier.h2}</h3>
+        <div className="mt-8 grid gap-3 md:grid-cols-2">
           <div className="rounded-[24px] bg-lv-card p-8">
             <Eyebrow>{home.qualifier.fitTitle}</Eyebrow>
             <ul className="space-y-3 text-[15.5px]">{home.qualifier.fit.map((x) => <li key={x} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{x}</li>)}</ul>
@@ -168,29 +140,13 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 10 — Zekerheden */}
-      <Section className="py-20 md:py-24">
-        <SectionHead align="center" title={home.assurances.h2} />
-        <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {home.assurances.points.map((p, i) => (
-            <li key={p} className="h-full">
-              <Reveal delay={i * 0.05} className="h-full">
-                <div className="flex h-full gap-4 rounded-[24px] bg-lv-card p-6 text-[15.5px] leading-relaxed sm:flex-col sm:gap-5">
-                  <ShieldCheck aria-hidden className="mt-0.5 h-5 w-5 shrink-0 sm:mt-0" /><span>{p}</span>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      {/* 11 — FAQ */}
-      <Section className="py-20 md:py-24">
-        <SectionHead align="center" eyebrow="Veelgestelde vragen" title="Vragen, beantwoord." />
+      {/* 7 — Vragen */}
+      <Section story="vragen" className="py-20 md:py-24">
+        <SectionHead story="vragen" align="center" title={home.faqTitle} />
         <div className="mx-auto mt-12 max-w-3xl"><Faq ids={home.faqIds} /></div>
       </Section>
 
-      {/* 12 — Slot */}
+      {/* Slot */}
       <section className="px-4 pb-6 sm:px-6">
         <p className="mx-auto mb-6 max-w-6xl text-center text-[14px] text-lv-muted">
           {home.aboutLine.text}{" "}
@@ -203,7 +159,7 @@ export default function Home() {
             <CtaLink to={ctx("home-bottom")} ctaId="home-bottom" variant="lime" className="mt-9">{ctaLabels.primary}</CtaLink>
             <p className="mt-4 text-[13px] text-white/60">{ctaLabels.micro}</p>
             <p className="mt-10 text-[14px] text-white/70">
-              Of kies je situatie:{" "}
+              {home.closing.pickLabel}{" "}
               {categories.map((x, i) => (
                 <span key={x.id}>
                   <Link to={`/${x.id}`} className="underline underline-offset-4 hover:text-white">{x.heroNoun}</Link>{i < categories.length - 1 ? " · " : ""}

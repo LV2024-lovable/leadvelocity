@@ -102,22 +102,47 @@ await t("keuzeknoppen: klik en toetsenbord wisselen alles mee", async () => {
   expect(href.includes("category=maatwerk-montage"), `href ${href}`);
 });
 
-await t("homepage: qualifier, voorbeelden, werkwijze en wat-we-bouwen aanwezig", async () => {
+const STORY = ["herkenbaar", "bouwen", "voorbeelden", "samenwerken", "prijzen", "vragen"];
+
+await t("homepage: 6 verhaalstappen in vaste volgorde met vaste labels", async () => {
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
-  for (const h of ["Voor wie dit werkt (en voor wie niet)", "Zo ziet het eruit.", "Van eerste gesprek tot werkende oplossing.", "Wat we voor jullie bouwen."]) {
-    expect(await page.locator(`h2:has-text("${h}")`).count() === 1, `sectie ontbreekt: ${h}`);
+  const order = await page.$$eval("[data-story]", (els) => els.map((e) => e.getAttribute("data-story")));
+  expect(order.join(",") === STORY.join(","), `volgorde: ${order.join(",")}`);
+  const labels = ["Herkenbaar", "Wat we bouwen", "Voorbeelden", "Samenwerken", "Prijzen", "Vragen"];
+  for (const [i, s] of STORY.entries()) {
+    const txt = await page.locator(`[data-story='${s}']`).first().innerText();
+    expect(txt.includes(labels[i]), `label ${labels[i]} ontbreekt in ${s}`);
   }
+  expect(await page.locator("section").count() <= 8, `te veel secties: ${await page.locator("section").count()}`);
+  for (const h of ["Past in wat je al hebt", "Waar je op kunt rekenen", "Van eerste gesprek tot werkende oplossing."]) {
+    expect(await page.locator(`h2:has-text("${h}")`).count() === 0, `oude sectie nog aanwezig: ${h}`);
+  }
+  expect(await page.locator("[data-partner-track]").count() === 1, "PartnerTrack ontbreekt op home");
+  expect(await page.locator('h2:has-text("Voor wie dit werkt (en voor wie niet)"), h3:has-text("Voor wie dit werkt (en voor wie niet)")').count() === 1, "qualifier ontbreekt");
 });
 
-await t("tabs 'wat we bouwen' en tijdlijn werken; geen nep-bewijs op home", async () => {
+await t("homepage: 'Wat we bouwen' volgt doelgroep (klik en ?category=)", async () => {
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  const h = page.locator("[data-story='bouwen'] h2");
+  expect((await h.textContent()).trim() === "Wat we voor jullie bouwen.", `generiek: ${await h.textContent()}`);
+  await page.locator("[aria-label='Kies een aanvraagstroom'] button", { hasText: /garantieclaims/i }).click();
+  expect((await h.textContent()).includes("importeurs en distributeurs"), `na klik: ${await h.textContent()}`);
+  await page.goto(BASE + "/?category=groothandels", { waitUntil: "networkidle" });
+  expect((await h.textContent()).includes("technische groothandels"), `via query: ${await h.textContent()}`);
+});
+
+await t("homepage: feitenregel met analysebedrag onder de knoppen", async () => {
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  const hero = await page.locator("section").first().innerText();
+  expect(/analyse €\s?750/.test(hero.replace(/\u00a0/g, " ")), "feitenregel met analysebedrag ontbreekt in hero");
+});
+
+await t("tabs 'wat we bouwen' werken; geen nep-bewijs op home", async () => {
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
   const tab = page.locator("[aria-label='Kies een aanvraagstroom'] button", { hasText: /servicemeldingen/i });
   await tab.click();
   expect(await tab.getAttribute("aria-pressed") === "true", "tab niet actief");
   expect((await page.locator("h1").textContent()).includes("servicebedrijven"), "hero volgt tab niet");
-  const step3 = page.locator("[role=tab]", { hasText: "Inrichten en testen" });
-  await step3.click();
-  expect(await step3.getAttribute("aria-selected") === "true", "tijdlijnstap niet geselecteerd");
   const txt = (await page.evaluate(() => document.body.innerText)).toLowerCase();
   for (const bad of ["trusted by", "★", "case study", "klanten geholpen"]) expect(!txt.includes(bad), `nep-bewijs gevonden: ${bad}`);
 });

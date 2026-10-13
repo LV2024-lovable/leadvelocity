@@ -9,11 +9,12 @@ export const home = {
     sub: "Wij bouwen en beheren AI-oplossingen die het handwerk uit aanvragen, klantcontact en opvolging halen. Ingericht op jullie werkwijze, jullie team houdt de controle.",
     factsLine: `Gratis adviesgesprek van 20 minuten · analyse ${formatEuro(analysis.price)}, verrekenbaar binnen ${analysis.creditDays} dagen`,
     forWho: "Voor technische groothandels, importeurs, servicebedrijven en maatwerkbedrijven met 10‑75 medewerkers.",
-    ctaMicro: "20 minuten, vrijblijvend. Past het niet, dan zeggen we dat ook.",
     secondary: "Bekijk een voorbeeld",
     secondaryMicro: "Eén aanvraag, stap voor stap.",
     pickerLabel: "Waar wil je mee beginnen?",
     moreAbout: "Meer over",
+    artTop: "Zo werkt het, stap voor stap",
+    artBottom: "Jullie team beslist",
   },
   genericSituations: [
     "Een aanvraag ligt een dag in de mailbox, omdat niemand tijd had om hem na te lopen.",
@@ -24,19 +25,7 @@ export const home = {
     h2: "Herken je dit?",
     costLine: "Tel eens hoeveel aanvragen er gisteren binnenkwamen, en hoeveel daarvan niet compleet waren. Daar zit de tijd die je team terugkrijgt.",
   },
-  howItWorks: {
-    h2: "Zo werkt het",
-    steps: [
-      { title: "Lezen", body: "We lezen binnenkomende mails, pdf's en Excel-lijsten en halen de gegevens eruit." },
-      { title: "Markeren wat ontbreekt", body: "We vergelijken met wat een complete aanvraag nodig heeft en zetten de ontbrekende punten op een rij." },
-      { title: "Klaarzetten", body: "Er staat een conceptvraag of -antwoord klaar. Jouw medewerker controleert, past aan en verstuurt." },
-    ],
-    aiNote: "Hoe? Met taalmodellen (AI) en vaste regels, ingericht op jullie proces. We gebruiken alleen de gegevens die nodig zijn, en wat er met jullie data gebeurt leggen we vooraf vast.",
-    examplesLink: "Bekijk alle voorbeelden",
-  },
   fits: {
-    h2: "Past in wat je al hebt",
-    intro: "Geen nieuw systeem om te leren. Jullie team werkt zoals nu, alleen staat het voorwerk al klaar.",
     points: [
       "Werkt vanuit jullie mailbox.",
       "Waar het kan koppelen we met jullie ERP of administratie; anders werken we via export of Excel.",
@@ -49,7 +38,7 @@ export const home = {
       "Eén persoon die beslist en meedenkt",
     ],
   },
-  pricing: { eyebrow: "Prijzen", h2: "Beginnen, beheren, uitbreiden.", link: "Vergelijk de pakketten" },
+  pricing: { h2: "Beginnen, beheren, uitbreiden.", link: "Vergelijk de pakketten" },
   trajectory: {
     h2: "Van gesprek tot werkende oplossing",
     steps: [
@@ -57,7 +46,6 @@ export const home = {
       { title: "Analyse", body: `${formatEuro(analysis.price)}: proceskaart, nulmeting en een vaste scope met prijs. Verrekend bij een implementatie binnen ${analysis.creditDays} dagen.` },
       { title: "Vast pakket", body: "We richten het in, jullie testen en accepteren. Daarna beheren we het." },
     ],
-    link: "Vergelijk de pakketten",
   },
   qualifier: {
     h2: "Voor wie dit werkt (en voor wie niet)",
@@ -80,7 +68,6 @@ export const home = {
     doubt: "Twijfel je? Dat bespreken we in 20 minuten, en als het niet past zeggen we dat.",
   },
   assurances: {
-    h2: "Waar je op kunt rekenen",
     points: [
       "Vaste prijs en vooraf afgesproken scope",
       "Externe acties beginnen met akkoord van jullie medewerker",
@@ -93,38 +80,22 @@ export const home = {
     body: "Lead Velocity is opgericht door Bart Wilbrink. We combineren commerciële ervaring, automatisering en het bruikbaar maken van informatie. We beginnen bij het dagelijkse werk en bouwen van daaruit een systeem dat je team kan gebruiken.",
     cta: "Over Lead Velocity",
   },
+  faqTitle: "Vragen, beantwoord.",
   faqIds: ["mensen", "ai", "software", "zelfstandig", "kosten", "maandelijks", "loont"] as const,
   closing: {
     h2: "Hoeveel aanvragen waren gisteren niet compleet?",
     body: "In 20 minuten kijken we samen of automatiseren bij jullie loont. Past het niet, dan zeggen we dat ook.",
+    pickLabel: "Of kies je situatie:",
   },
-  facts: [
-    { value: "20 min", label: "Gratis adviesgesprek, vrijblijvend" },
-    { value: formatEuro(analysis.price), label: `Analyse, verrekend bij implementatie binnen ${analysis.creditDays} dagen` },
-    { value: "1 proces", label: "Om mee te starten, met vaste scope" },
-    { value: "Jullie team", label: "Controleert en beslist altijd" },
-  ],
   build: {
-    eyebrow: "Wat we bouwen",
     h2: "Wat we voor jullie bouwen.",
     notes: ["Werkt vanuit jullie mailbox", "Wat ontbreekt, staat op een rij", "Jullie medewerker beslist"],
   },
-  timeline: {
-    eyebrow: "Werkwijze",
-    h2: "Van eerste gesprek tot werkende oplossing.",
-    note: "Planning: een bestaande passende opzet kan doorgaans in 4–6 weken worden ingericht, na de analyse.",
-    steps: [
-      { label: "Stap 1", title: "Gratis adviesgesprek", body: "In 20 minuten kijken we welk werk bij jullie steeds terugkomt en of automatiseren loont.", checks: ["Welk werk terugkomt", "Of het loont"] },
-      { label: "Stap 2", title: "Analyse", body: "Proceskaart, nulmeting, input- en toegangscheck en een vaste scope met prijs.", checks: ["Proceskaart en nulmeting", "Vaste scope en prijs"] },
-      { label: "Stap 3", title: "Inrichten en testen", body: "We richten de oplossing in op jullie bronnen en testen met echte voorbeelden. Jullie team keurt goed.", checks: ["Met jullie voorbeelden", "Acceptatie door jullie team"] },
-      { label: "Stap 4", title: "Live en beheer", body: "Na acceptatie gaat het live. Wij monitoren, lossen incidenten op en verbeteren in kleine stappen.", checks: ["Maandkosten pas na acceptatie", "Monitoring en support"] },
-    ],
-  },
   showcase: {
-    eyebrow: "Voorbeelden",
     h2: "Zo ziet het eruit.",
     intro: "Illustratieve demo's met fictieve gegevens. Elk voorbeeld laat zien wat binnenkomt, wat we voorbereiden en wat jullie team beslist.",
     cta: "Bekijk het voorbeeld",
+    allLink: "Bekijk alle voorbeelden",
   },
   aboutLine: { text: "Lead Velocity is opgericht door Bart Wilbrink.", link: "Over ons" },
 };
