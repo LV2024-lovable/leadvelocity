@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { demos } from "@/content/demos";
 import { categoryById } from "@/content/categories";
+import { audienceLink } from "@/content/pages";
 import type { DemoId } from "@/content/types";
 import { SiteLayout, Seo, Section, SectionHead, DemoStepper, Reveal } from "@/components/site";
 import { track } from "@/lib/track";
@@ -30,7 +31,7 @@ export default function Voorbeelden() {
                   <h2 className="mt-2 font-display text-[28px] font-normal tracking-[-0.015em]">{d.title}</h2>
                   <p className="mt-3 text-[15.5px] leading-relaxed text-lv-body">{d.prepared.summary}</p>
                   <Link to={`/${d.categoryId}`} className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium underline-offset-4 hover:underline">
-                    Voor {categoryById(d.categoryId)!.audience} <ArrowRight aria-hidden className="h-3.5 w-3.5" />
+                    {audienceLink(categoryById(d.categoryId)!.audience)} <ArrowRight aria-hidden className="h-3.5 w-3.5" />
                   </Link>
                 </div>
                 <DemoStepper demo={d} source="voorbeelden" />

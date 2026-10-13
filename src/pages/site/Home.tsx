@@ -79,7 +79,7 @@ export default function Home() {
       <Section story="bouwen" className="py-20 md:py-24">
         <SectionHead story="bouwen" align="center" title={buildH2For(c?.audience)} />
         <div className="mt-12">
-          <NumberedTabs value={segment} onChange={setSegment} notes={home.build.notes} />
+          <NumberedTabs value={segment} onChange={setSegment} />
         </div>
         <ul className="mx-auto mt-10 grid max-w-4xl gap-3 text-[15px] text-lv-body sm:grid-cols-3">
           {home.fits.points.map((p) => <li key={p} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{p}</li>)}

@@ -81,7 +81,6 @@ export const home = {
   },
   build: {
     h2: "Wat we voor jullie bouwen.",
-    notes: ["Werkt vanuit jullie mailbox", "Wat ontbreekt, staat op een rij", "Jullie medewerker beslist"],
   },
   showcase: {
     h2: "Zo ziet het eruit.",
@@ -95,6 +94,8 @@ export const home = {
 export const buildH2For = (audience?: string) => (audience ? `Wat we voor ${audience} bouwen.` : home.build.h2);
 export const categoryHero = (audience: string) => `AI-partner voor ${audience}`;
 export const categoryPricingTitle = "Een passende start, met ruimte om uit te breiden.";
+/** Linktekst onder een demo op /voorbeelden naar de bijbehorende doelgroeppagina. */
+export const audienceLink = (audience: string) => `Voor ${audience}`;
 export const categoryFaqTitle = "Wat je waarschijnlijk wilt weten.";
 
 export const partnership = {
@@ -127,6 +128,7 @@ export const voorWie = {
 export const oplossingenIndex = {
   seoTitle: "Per proces | Lead Velocity",
   seoDescription: "Bouwblokken die informatie verzamelen, werk voorbereiden en opvolging zichtbaar maken. We beginnen bij één proces.",
+  eyebrow: "Per proces",
   h1: "Per proces bekeken: wat we bouwen en waar het stopt.",
   intro: "We beginnen bij één proces. Deze bouwblokken helpen informatie te verzamelen, werk voor te bereiden en opvolging zichtbaar te maken.",
   baseTitle: "Eén basis, meerdere toepassingen",
@@ -174,6 +176,7 @@ export const samenwerken = {
   expandBody: "Werkt de eerste oplossing, dan breiden we die uit of bouwen we de volgende erbij. Dat is het pakket Opschalen.",
   needTitle: home.fits.needTitle,
   need: home.fits.need,
+  faqIds: ["maandelijks", "uitbreiden", "kosten"] as const,
 };
 
 export const over = {

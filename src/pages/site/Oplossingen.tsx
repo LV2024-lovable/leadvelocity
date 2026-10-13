@@ -9,7 +9,7 @@ export default function Oplossingen() {
     <SiteLayout>
       <Seo title={oplossingenIndex.seoTitle} description={oplossingenIndex.seoDescription} path="/oplossingen" />
       <Section className="pt-14 md:pt-20">
-        <SectionHead as="h1" eyebrow="Oplossingen" title={oplossingenIndex.h1} intro={oplossingenIndex.intro} />
+        <SectionHead as="h1" eyebrow={oplossingenIndex.eyebrow} title={oplossingenIndex.h1} intro={oplossingenIndex.intro} />
         <div className="mt-12 grid gap-4 md:grid-cols-2">
           {processes.map((p, i) => <Reveal key={p.id} delay={i * 0.05}><ProcessCard process={p} /></Reveal>)}
         </div>

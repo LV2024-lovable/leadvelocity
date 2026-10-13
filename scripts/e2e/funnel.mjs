@@ -253,6 +253,30 @@ await t("header: precies 4 menupunten + CTA, dropdown met 4 doelgroepen", async 
   expect(await sub.count() === 5, `dropdown: verwacht 4 doelgroepen + overzicht, kreeg ${await sub.count()}`);
   await page.keyboard.press("Escape");
   expect(await nav.locator("[data-nav-dropdown]").isHidden(), "Escape sluit dropdown niet");
+  const btn = nav.locator("button", { hasText: "Voor wie" });
+  expect(await btn.evaluate((el) => el === document.activeElement), "na Escape staat focus niet op 'Voor wie'");
+  // klik buiten de dropdown sluit hem
+  await btn.click();
+  expect(await nav.locator("[data-nav-dropdown]").isVisible(), "klik opent dropdown niet");
+  await page.mouse.click(700, 600);
+  expect(await nav.locator("[data-nav-dropdown]").isHidden(), "klik op body sluit dropdown niet");
+  // voorbij de laatste link tabben sluit hem
+  await btn.focus();
+  await page.keyboard.press("Enter");
+  await sub.last().focus();
+  await page.keyboard.press("Tab");
+  expect(await nav.locator("[data-nav-dropdown]").isHidden(), "tabben voorbij de laatste link sluit dropdown niet");
+  // actieve staat op doelgroeppagina's en /voor-wie
+  for (const [r, want] of [["/groothandels", true], ["/voor-wie", true], ["/prijzen", false]]) {
+    await page.goto(BASE + r, { waitUntil: "networkidle" });
+    const active = await nav.locator("button", { hasText: "Voor wie" }).evaluate((el) => el.classList.contains("text-lv-ink"));
+    expect(active === want, `${r}: actieve staat 'Voor wie' = ${active}`);
+  }
+});
+
+await t("footer: kolom Voor wie linkt naar /voor-wie", async () => {
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  expect(await page.locator("footer a[href='/voor-wie']").count() === 1, "footer mist /voor-wie");
 });
 
 await t("mobiel menu: doelgroepen als links, geen horizontale scroll", async () => {
@@ -260,7 +284,7 @@ await t("mobiel menu: doelgroepen als links, geen horizontale scroll", async () 
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
   await page.locator("button[aria-controls='mobile-nav']").click();
   const m = page.locator("#mobile-nav");
-  for (const h of ["/groothandels", "/importeurs-distributeurs", "/service-onderhoud", "/maatwerk-montage", "/samenwerken"]) {
+  for (const h of ["/groothandels", "/importeurs-distributeurs", "/service-onderhoud", "/maatwerk-montage", "/voor-wie", "/samenwerken"]) {
     expect(await m.locator(`a[href='${h}']`).count() === 1, `mobiel menu mist ${h}`);
   }
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), "horizontale scroll");
@@ -277,6 +301,30 @@ await t("/samenwerken: H1, 4 fasen, alle 6 stappen, uitbreiden", async () => {
     expect(await page.locator(`[data-step]:has-text("${s}")`).count() >= 1, `stap ${s} ontbreekt`);
   }
   expect(await page.locator('h2:has-text("Uitbreiden")').count() >= 1, "blok Uitbreiden ontbreekt");
+  const pills = await page.locator("main span.rounded-full, section span.rounded-full").evaluateAll((els) => els.filter((e) => e.textContent.trim() === "Samenwerken").length);
+  expect(pills === 1, `verwacht één 'Samenwerken'-label, kreeg ${pills}`);
+  const gap = await page.evaluate(() => {
+    const h = document.querySelector("section > div").getBoundingClientRect().bottom;
+    const t = document.querySelector("[data-partner-track] h2").getBoundingClientRect().top;
+    return t - h;
+  });
+  expect(gap >= 32 && gap <= 64, `ruimte tussen hero en PartnerTrack ${gap}px (verwacht ~48px)`);
+  const faq = page.locator("[data-story='vragen']");
+  expect(await faq.count() === 1, "FAQ-sectie ontbreekt");
+  expect(await faq.locator("button[aria-expanded]").count() === 3, "verwacht 3 vragen");
+  const order = await page.evaluate(() => {
+    const f = document.querySelector("[data-story='vragen'] [data-state]");
+    const ctas = [...document.querySelectorAll("a[href*='source=samenwerken']")];
+    const c = ctas[ctas.length - 1];
+    return !!f && !!c && !!(f.compareDocumentPosition(c) & Node.DOCUMENT_POSITION_FOLLOWING);
+  });
+  expect(order, "CTA staat niet na de FAQ");
+});
+
+await t("home: 'Werkt vanuit jullie mailbox' komt één keer voor", async () => {
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
+  const n = await page.locator("text=Werkt vanuit jullie mailbox").count();
+  expect(n === 1, `komt ${n}× voor`);
 });
 
 for (const cat of ["groothandels", "importeurs-distributeurs", "service-onderhoud", "maatwerk-montage"]) {

@@ -7,10 +7,10 @@ import { Reveal } from "./Reveal";
 import { CtaLink } from "./CtaLink";
 
 /** Samenwerken in 4 fasen plus "Waar je op kunt rekenen". Rendert geen eigen <section>: wikkel hem in <Section story="samenwerken">. */
-export function PartnerTrack({ source, showCta = true, align = "center" }: { source: string; showCta?: boolean; align?: "left" | "center" }) {
+export function PartnerTrack({ source, showCta = true, showLabel = true, align = "center" }: { source: string; showCta?: boolean; showLabel?: boolean; align?: "left" | "center" }) {
   return (
     <div data-partner-track>
-      <SectionHead story="samenwerken" align={align} title={partnership.h2} />
+      <SectionHead story={showLabel ? "samenwerken" : undefined} align={align} title={partnership.h2} />
       <ol className="mt-12 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
         {partnership.phases.map((p, i) => (
           <li key={p.title} data-phase className="h-full">

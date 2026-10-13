@@ -179,7 +179,7 @@ check(mainNav.map((l) => l.label).join("|") === "Voor wie|Samenwerken|Voorbeelde
 check(!mainNav.some((l) => /oplossing|werkwijze/i.test(l.label)), "mainNav bevat nog Oplossingen/Werkwijze");
 check(partnership.phases.map((p) => p.title).join("|") === "Adviesgesprek|Analyse en inrichting|Beheer|Uitbreiden", "partnership-fasen onjuist");
 check(partnership.phases[1].we.includes(formatEuro(analysis.price)), "analysebedrag in partnership komt niet uit pricing.ts");
-check(samenwerken.phaseSteps.flat().sort().join(",") === "0,1,2,3,4,5", "phaseSteps moet alle 6 stappen precies één keer verdelen");
+check(samenwerken.phaseSteps.flat().sort((a, b) => a - b).join(",") === "0,1,2,3,4,5", "phaseSteps moet alle 6 stappen precies één keer verdelen");
 const koppen = strings.filter(({ pad }) => /(^|\.)(h1|h2|seoTitle)$/.test(pad));
 check(!koppen.some(({ s }) => /automatiser/i.test(s)), `'automatiser' in kop/seoTitle: ${koppen.filter(({ s }) => /automatiser/i.test(s)).map((k) => k.pad).join(", ")}`);
 

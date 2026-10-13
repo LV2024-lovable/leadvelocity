@@ -3,7 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { home, partnership, samenwerken } from "@/content/pages";
 import { ctaLabels } from "@/content/site";
 import { checkHref } from "@/lib/cta";
-import { SiteLayout, Seo, Section, SectionHead, CtaLink, PartnerTrack } from "@/components/site";
+import { SiteLayout, Seo, Section, SectionHead, CtaLink, PartnerTrack, Faq } from "@/components/site";
 
 const phaseTitleCls = "font-display text-[clamp(1.6rem,3vw,2.2rem)] font-normal tracking-[-0.015em]";
 
@@ -11,11 +11,11 @@ export default function Samenwerken() {
   return (
     <SiteLayout>
       <Seo title={samenwerken.seoTitle} description={samenwerken.seoDescription} path="/samenwerken" />
-      <Section className="pt-14 md:pt-20" story="samenwerken">
+      <Section className="pb-12 pt-14 md:pb-12 md:pt-20" story="samenwerken">
         <SectionHead as="h1" story="samenwerken" title={samenwerken.h1} intro={samenwerken.intro} />
       </Section>
-      <Section className="pt-0">
-        <PartnerTrack source="samenwerken" showCta={false} align="left" />
+      <Section className="pt-0 md:pt-0">
+        <PartnerTrack source="samenwerken" showCta={false} showLabel={false} align="left" />
       </Section>
       <Section tone="raised">
         {partnership.phases.map((ph, pi) => samenwerken.phaseSteps[pi].length > 0 && (
@@ -58,7 +58,13 @@ export default function Samenwerken() {
             {samenwerken.need.map((n) => <li key={n} className="flex gap-3"><Check aria-hidden className="mt-1 h-4 w-4 shrink-0" />{n}</li>)}
           </ul>
         </div>
-        <CtaLink to={checkHref({ source: "samenwerken" })} ctaId="samenwerken-check" className="mt-12">{ctaLabels.primary}</CtaLink>
+      </Section>
+      <Section story="vragen" className="pt-0 md:pt-0">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <SectionHead story="vragen" title={home.faqTitle} />
+          <Faq ids={samenwerken.faqIds} />
+        </div>
+        <CtaLink to={checkHref({ source: "samenwerken" })} ctaId="samenwerken-check" className="mt-16">{ctaLabels.primary}</CtaLink>
       </Section>
     </SiteLayout>
   );

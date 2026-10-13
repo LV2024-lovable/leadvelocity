@@ -6,7 +6,7 @@ import { CATEGORY_TONE, ExposureArt } from "./ExposureArt";
 import { Pill } from "./Pill";
 import { cn } from "@/lib/utils";
 
-export function NumberedTabs({ value, onChange, notes }: { value?: CategoryId; onChange: (id: CategoryId) => void; notes: string[] }) {
+export function NumberedTabs({ value, onChange }: { value?: CategoryId; onChange: (id: CategoryId) => void }) {
   const active = categories.find((c) => c.id === value) ?? categories[0];
   const selected = value !== undefined;
   return (
@@ -59,13 +59,6 @@ export function NumberedTabs({ value, onChange, notes }: { value?: CategoryId; o
             </div>
           </div>
         </ExposureArt>
-        <ul className="grid gap-3 sm:grid-cols-3">
-          {notes.map((n) => (
-            <li key={n} className="flex items-start gap-2 rounded-[18px] bg-lv-card p-4 text-[14px] text-lv-body">
-              <span aria-hidden className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lv-lime ring-1 ring-black/10" />{n}
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );
