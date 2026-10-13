@@ -303,8 +303,11 @@ await t("/voor-wie: kaart per doelgroep met 4 oplossingen, geen procesingangen",
 
 await t("/voorbeelden: elke demo linkt naar zijn doelgroep", async () => {
   await page.goto(BASE + "/voorbeelden", { waitUntil: "networkidle" });
-  for (const c of ["groothandels", "importeurs-distributeurs", "service-onderhoud", "maatwerk-montage"]) {
-    expect(await page.locator(`a[href='/${c}']`).count() >= 1, `geen link naar /${c}`);
+  const pairs = [["offerte-intake", "groothandels"], ["aftersales", "importeurs-distributeurs"], ["service-intake", "service-onderhoud"], ["project-intake", "maatwerk-montage"]];
+  for (const [demoId, c] of pairs) {
+    const link = page.locator(`[id='${demoId}'] a[href='/${c}']`);
+    expect(await link.count() === 1, `demo ${demoId} linkt niet naar /${c}`);
+    expect((await link.textContent()).trim().startsWith("Voor "), `linktekst bij ${demoId} begint niet met 'Voor '`);
   }
 });
 

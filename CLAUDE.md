@@ -252,4 +252,4 @@ Zie `docs/superpowers/2026-10-09-livegang.md` voor livegang-afhankelijkheden (pr
 
 ---
 
-*Einde project-context. Laatst bijgewerkt: 2026-10-09. Update dit document wanneer positionering, aanbod of werkstijl significant verandert.*
+*Einde project-context. Laatst bijgewerkt: 2026-10-13. Update dit document wanneer positionering, aanbod of werkstijl significant verandert.*
